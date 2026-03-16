@@ -2,11 +2,12 @@
   "name": "zenn-content",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "zenn preview",
-    "fmt": "tsx scripts/fmt-math.ts && prettier --write --no-error-on-unmatched-pattern 'books/**/*.md' 'articles/**/*.md'",
-    "fmt:check": "tsx scripts/fmt-math.ts --check && prettier --check --no-error-on-unmatched-pattern 'books/**/*.md' 'articles/**/*.md'"
+    "fmt": "node scripts/fmt-math.ts && prettier --write --no-error-on-unmatched-pattern 'books/**/*.md' 'articles/**/*.md'",
+    "fmt:check": "node scripts/fmt-math.ts --check && prettier --check --no-error-on-unmatched-pattern 'books/**/*.md' 'articles/**/*.md'",
+    "test": "node --test scripts/*.test.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,6 @@
   "devDependencies": {
     "@types/node": "^25.5.0",
     "prettier": "^3.8.1",
-    "tsx": "^4.21.0",
     "zenn-cli": "^0.4.6"
   }
 }
