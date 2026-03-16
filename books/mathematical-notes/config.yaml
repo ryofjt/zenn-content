@@ -1,9 +1,7 @@
-title: ""
+title: "Mathematical Notes"
 summary: ""
-topics: []
+topics: ["数学", "物理"]
 published: false
-price: 0 # 有料の場合200〜5000
-# 本に含めるチャプターを順番に並べましょう
+price: 0
 chapters:
-  - example1
-  - example2
+  - draft
