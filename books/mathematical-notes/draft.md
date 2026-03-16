@@ -2,8 +2,6 @@
 title: "draft"
 ---
 
-## 設定
-
 $V \coloneqq (\mathbb{R}^d, dx_0^2 - dx_1^2 - \cdots - dx_{d - 1}^2)$
 $\mathcal{F} \coloneqq C^\infty(V, \mathbb{R})$
 
@@ -27,10 +25,10 @@ $$
 \gamma = \delta \varphi \wedge * d \varphi
 $$
 
-## シンプレクティック形式の構成
+ここから
 
 $f: \mathbb{R}^n \to \mathbb{R}$
-$0 \in \mathbb{R}$ は $f$ の正則値とする。$N \coloneqq f^{-1}(0)$、$T \in \mathcal{D}'(\mathbb{R}^n)$ が $fT = 0$ を満たせば、$g \in \mathcal{D}'(N)$ が一意的に存在して
+$0 \in \mathbb{R}$ は $f$ の正則値とする。$N \coloneqq f^{-1}(0)$$T \in \mathcal{D}'(\mathbb{R}^n)$ が $fT = 0$ を満たせば、$g \in \mathcal{D}'(N)$ が一意的に存在して
 
 $$
 T(\varphi) = g(\varphi|_N)
@@ -41,9 +39,7 @@ $$
 $$
 
 マイナスは物理的に標準的なものとの整合性をとるために入れている
-
 $\mathrm{Sol} \coloneqq \{ \varphi \in \mathcal{F} \mid (\square + m^2)\varphi = 0 \}$ は線形空間だから、$\omega$ を $\mathrm{Sol} \times V$ に制限したものは、$\Omega^{2, |-1|}(\mathrm{Sol} \times M)$
-
 $\mathrm{Sol} \times V$ 上 $d\omega = 0$ だから
 
 $$
@@ -57,8 +53,6 @@ $$
 $$
 
 は $p$ に依らない。$\mathrm{Sol}$ は Fourier 変換すると、$\{ \varphi \in \mathcal{S}(V, \mathbb{C}) \mid f(-p) = \overline{f(p)}, (-p^2 + m^2)f = 0 \}$ これが $H \coloneqq \{ L^2(\mathcal{O}_m) \mid f(-p) = \overline{f(p)} \}$ に一致するようなクラスを考える
-
-## フーリエ展開による具体的計算
 
 $f_i(p) = f_i^+(p) + f_i^-(p)$ とする。逆 Fourier 変換して
 

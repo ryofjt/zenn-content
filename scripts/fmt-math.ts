@@ -32,7 +32,20 @@ main();
 // ── helpers ──────────────────────────────────────────────────────────
 
 function formatMathBlocks(src: string): string {
-  const lines = src.split("\n");
+  // Pre-process: split single-line $$...$$ into multi-line
+  let inCodePre = false;
+  const expanded = src.split("\n").flatMap((line) => {
+    if (/^(`{3,}|~{3,})/.test(line.trimStart())) {
+      inCodePre = !inCodePre;
+      return [line];
+    }
+    if (inCodePre) return [line];
+    const m = line.match(/^(\s*)\$\$(.+)\$\$\s*$/);
+    if (m) return [`${m[1]}$$`, m[2], `${m[1]}$$`];
+    return [line];
+  });
+
+  const lines = expanded;
   const result: string[] = [];
   let inCode = false;
   let inMath = false;
