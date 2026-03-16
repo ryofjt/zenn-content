@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "dev": "zenn preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fmt": "tsx scripts/fmt-math.ts && prettier --write --no-error-on-unmatched-pattern 'books/**/*.md' 'articles/**/*.md'",
+    "fmt:check": "tsx scripts/fmt-math.ts --check && prettier --check --no-error-on-unmatched-pattern 'books/**/*.md' 'articles/**/*.md'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.27.0",
   "devDependencies": {
+    "@types/node": "^25.5.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
     "zenn-cli": "^0.4.6"
   }
 }
