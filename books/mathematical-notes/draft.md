@@ -2,29 +2,6 @@
 title: "draft"
 ---
 
-$K \in \mathcal{D}'(X \times Y) \simeq \mathcal{D}'(X) \hat{\otimes} \mathcal{D}'(Y) \simeq L_b(C^\infty_c(Y), \mathcal{D}'(X))$ は $\mathrm{pr}_1|_{\mathrm{supp} K}: \mathrm{supp} K \to X$ が proper だとする。
-
-$$
-\begin{aligned}
-  WF'(K) &\coloneqq \{ (x, y, \xi, \eta) \mid (x, y, \xi, -\eta) \in WF(K) \} \\
-  WF(K)_X &\coloneqq \{ (x, \xi) \mid \exists y \in Y, (x, y, \xi, 0) \in WF(K) \} \\
-  WF'(K)_Y &\coloneqq \{ (y, \eta) \mid \exists x \in X, (x, y, 0, -\eta) \in WF(K) \}
-\end{aligned}
-$$
-
-Closed cone $\Gamma \subset T^*X$ は $\Gamma \cap WF'(K)_Y = \emptyset$ を満たすとする
-$WF(K)_X \cup (WF'(K) \circ \Gamma) = WF(K)_X \cup \{ (x, \xi) \mid \exists (y, \eta) \in \Gamma, (x, y, \xi, \eta) \in WF'(K) \}$ は closed cone。$K$ は線形写像 $\mathcal{K}: C^\infty_c(Y) \to \mathcal{D}'(X)$ を定めるが、連続な $\mathcal{K}: \mathcal{D}'_\Gamma(Y) \to \mathcal{D}'_{WF(K)_X \cup (WF'(K) \circ \Gamma)}(X)$ に一意的に拡張する
-
-$$
-\begin{aligned}
-  \mathcal{D}_\Gamma(Y) \ni u &\mapsto 1 \otimes u \in \mathcal{D}'_{\{0\} \times \Gamma}(X \times Y) \\
-  &\mapsto K \cdot (1 \otimes u) \in \mathcal{D}'_{(WF(K) + \{0\} \times \Gamma) \cup WF(K) \cup (\{0\} \times \Gamma)}(X) \\
-  &\mapsto \mathcal{K}u \in \mathcal{D}'_{WF(K)_X \cup (WF'(K) \circ \Gamma)}(X)
-\end{aligned}
-$$
-
-$(\mathcal{K}u)(\varphi) = K(\varphi \otimes u)$
-
 $V \coloneqq (\mathbb{R}^d, dx_0^2 - dx_1^2 - \cdots - dx_{d - 1}^2)$
 $\mathcal{F} \coloneqq C^\infty(V, \mathbb{R})$
 
