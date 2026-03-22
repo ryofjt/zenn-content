@@ -9,10 +9,14 @@
     "editor.formatOnSave": true,
     "editor.renderWhitespace": "boundary"
   },
+  "workbench.colorCustomizations": {
+    "diffEditor.insertedTextBackground": "#00bb0044",
+    "diffEditor.removedTextBackground": "#ff000044"
+  },
   "runOnSave.commands": [
     {
       "match": ".*\\.md$",
-      "command": "npx tsx scripts/fmt-math.ts",
+      "command": "node scripts/fmt-math.ts",
       "runIn": "backend"
     }
   ]
