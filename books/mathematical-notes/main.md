@@ -16,10 +16,10 @@ $\Gamma_Z(X \times Y, \mathcal{D}') \subset \mathcal{D}'(X \times Y)$ を $\math
 $\mathrm{pr}_{X, *}: \Gamma_Z(X \times Y, \mathcal{D}') \to \Gamma_{\mathrm{pr}_X(Z)}(X, \mathcal{D}')$ を
 
 $$
-(\mathrm{pr}_{X, *} u)(\varphi) = u(\varphi_\varphi \mathrm{pr}_X^*\varphi) \quad (\varphi \in C^\infty_c(X))
+(\mathrm{pr}_{X, *} u)(\varphi) = u(\chi_\varphi \mathrm{pr}_X^*\varphi) \quad (\varphi \in C^\infty_c(X))
 $$
 
-で定義する。ただし、$\varphi_\varphi \in C^\infty_c(X \times Y)$ は $\mathrm{pr}_X^{-1}(\mathrm{supp} \varphi) \cap Z$ の近傍で $\equiv 1$。この定義は $\varphi_\varphi$ に依らない。$\mathrm{pr}_{X, *}: \Gamma_Z(X \times Y, \mathcal{D}') \to \Gamma_{\mathrm{pr}_X(Z)}(X, \mathcal{D}')$ は連続
+で定義する。ただし、$\chi_\varphi \in C^\infty_c(X \times Y)$ は $\mathrm{pr}_X^{-1}(\mathrm{supp} \varphi) \cap Z$ の近傍で $\equiv 1$。この定義は $\chi_\varphi$ に依らない。$\mathrm{pr}_{X, *}: \Gamma_Z(X \times Y, \mathcal{D}') \to \Gamma_{\mathrm{pr}_X(Z)}(X, \mathcal{D}')$ は連続
 
 $\Gamma \subset T^*(X \times Y) \setminus \{0\}$: closed cone
 $\pi(\Gamma) \subset Z \subset X \times Y$ は閉集合で、$\mathrm{pr}_X|_Z: Z \to X$ は proper とする
@@ -136,7 +136,7 @@ $$
 
 が定まり、合成は $K \circ L$ の定める作用素と一致する
 
-# pullback の kernel 表示
+# Pullback の kernel 表示
 
 $f: X \to Y$: $C^\infty$ 級
 $\delta(y - f(x)) \coloneqq (y - f(x))^*\delta \in \mathcal{D}'(X \times Y)$ は
@@ -172,7 +172,7 @@ $$
 
 が定まる。ただし、$f^*\tilde{\Gamma} \coloneqq df^*(f^{-1}\tilde{\Gamma})$
 
-# pushforward
+# Pushforward
 
 $f: X \to Y$: $C^\infty$ 級
 $\delta(y - f(x)) \in \mathcal{D}'(Y \times X)$ は
@@ -202,7 +202,7 @@ $$
 (f_*u)(\varphi) = \delta(y - f(x))(\varphi \otimes u) = (f^* \varphi)(u)
 $$
 
-# pushforward の例
+# Pushforward の例
 
 $i: \mathbb{R} \ni x \mapsto (x, 0) \in \mathbb{R}^2$ とすると
 
@@ -250,10 +250,11 @@ $$
 
 よって、$u = v \otimes \delta$
 
-# draft
+# 自由スカラー場
 
 $V \coloneqq (\mathbb{R}^d, dx_0^2 - dx_1^2 - \cdots - dx_{d - 1}^2)$
 $\mathcal{F} \coloneqq C^\infty(V, \mathbb{R})$
+$m > 0$
 
 $$
 L \coloneqq \left\{ \frac{1}{2} |d\varphi|^2 - \frac{m^2}{2} \varphi^2 \right\} |dx|
@@ -275,78 +276,102 @@ $$
 \gamma = \delta \varphi \wedge * d \varphi
 $$
 
-ここから
-
-$f: \mathbb{R}^n \to \mathbb{R}$
-$0 \in \mathbb{R}$ は $f$ の正則値とする。$N \coloneqq f^{-1}(0)$$T \in \mathcal{D}'(\mathbb{R}^n)$ が $fT = 0$ を満たせば、$g \in \mathcal{D}'(N)$ が一意的に存在して
-
 $$
-T(\varphi) = g(\varphi|_N)
+\tilde{\omega} \coloneqq -\omega = -\delta \gamma = \delta \varphi \wedge \delta * d \varphi \in \Omega^{2, |-1|}(\mathcal{F} \times V)
 $$
 
-$$
-\omega = -\delta \gamma = \delta \varphi \wedge \delta * d \varphi \in \Omega^{2, |-1|}(\mathcal{F} \times V)
-$$
-
-マイナスは物理的に標準的なものとの整合性をとるために入れている
-$\mathrm{Sol} \coloneqq \{ \varphi \in \mathcal{F} \mid (\square + m^2)\varphi = 0 \}$ は線形空間だから、$\omega$ を $\mathrm{Sol} \times V$ に制限したものは、$\Omega^{2, |-1|}(\mathrm{Sol} \times M)$
-$\mathrm{Sol} \times V$ 上 $d\omega = 0$ だから
+# 解の空間
 
 $$
-\int_{\{t = c\}} \omega \in \Omega^{2, |-1|}(\mathrm{Sol})
+\mathrm{Sol} \coloneqq \{ \Phi \in \mathcal{F} \mid (\square + m^2)\Phi = 0 \}
 $$
 
-は $c$ に依らない。$\mathrm{Sol}$ の各点 $p$ で
+$\mathrm{Sol} \times V$ 上 $d\tilde{\omega} = 0$ だから、$\Sigma$ を (空でない) 連結閉な spacelike 超曲面とすると
 
 $$
-[-, -]: T_p\mathrm{Sol} \times T_p\mathrm{Sol} \simeq \mathrm{Sol} \times \mathrm{Sol} \ni (\varphi_1, \varphi_2) \mapsto \int_{\{t = c\}} *(\varphi_1 \wedge d \varphi_2 - \varphi_2 \wedge d \varphi_1) \in \mathbb{R}
+\int_\Sigma \tilde{\omega} \in \Omega^2(\mathrm{Sol})
 $$
 
-は $p$ に依らない。$\mathrm{Sol}$ は Fourier 変換すると、$\{ \varphi \in \mathcal{S}(V, \mathbb{C}) \mid f(-p) = \overline{f(p)}, (-p^2 + m^2)f = 0 \}$ これが $H \coloneqq \{ L^2(\mathcal{O}_m) \mid f(-p) = \overline{f(p)} \}$ に一致するようなクラスを考える
-
-$f_i(p) = f_i^+(p) + f_i^-(p)$ とする。逆 Fourier 変換して
+は $\Sigma$ に依らない。各 $\Phi \in \mathrm{Sol}$ に対して
 
 $$
-\varphi_i(u) = (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m} e^{i px} f_i(p) u(x) d\mu(p)
+[-, -]: T_\Phi\mathrm{Sol} \times T_\Phi\mathrm{Sol} \simeq \mathrm{Sol} \times \mathrm{Sol} \ni (\varphi_1, \varphi_2) \mapsto \int_\Sigma *(\varphi_1 d\varphi_2 - \varphi_2 d\varphi_1) \in \mathbb{R}
 $$
 
-$$
-\varphi_i|_{t = 0}(v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_m} e^{i p'x'} f_i(p) v(x') d\mu(p)
-$$
-
-$E(p') \coloneqq \sqrt{m^2 + p'^2}$
+は $\Phi$ に依らない。Fourier 変換を使うと
 
 $$
 \begin{aligned}
-  \partial_t \varphi_i(u) &= -(2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m} ip_0 e^{i px} f_i(p) u(x) d\mu(p) \\
-  &= -(2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m^+} i E(p') e^{i px} f_i(p) u(x) d\mu(p) + (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m^-} i E(p') e^{i px} f_i(p) u(x) d\mu(p) \\
-  &= (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m^+} i E(p') (-e^{i px} f_i(p) + e^{-i px} f_i(-p)) u(x) d\mu(p)
+  &\{ \varphi \in \mathcal{S}'(V, \mathbb{R}) \mid (\square + m^2)\varphi = 0 \} \\
+  &\quad \simeq \{ \psi \in \mathcal{S}'(V, \mathbb{C}) \mid \psi(-p) = \overline{\psi(p)}, (-p^2 + m^2)\psi = 0 \} \\
+  &\quad \simeq \{ f \in \mathcal{S}'(\mathcal{O}_m, \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
+\end{aligned}
+$$
+
+以降は、部分集合 $H \coloneqq \{ L^2(\mathcal{O}_m, \mathbb{C}) \mid f(-p) = \overline{f(p)} \}$ を考察する
+
+# $H$ での $[-, -]$ の記述
+
+$f_1, f_2 \in H$ とする
+
+$$
+\begin{aligned}
+  \psi_i(\alpha) &= \int_{p \in \mathcal{O}_m} f_i(p)\alpha(p) \, d\mu(p) \\
+  \varphi_i(u) &= (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m} f_i(p)u(x)e^{ipx} \, dx d\mu(p)
+\end{aligned}
+$$
+
+$WF(\varphi_i) \subset V \times \{ v \in V \setminus \{0\} \mid v^2 = 0 \}$ を示す。$\rho \in C^\infty_c(V)$ に対して
+
+$$
+|\widehat{\rho\varphi_i}(q)| \le (2\pi)^{-d} \int_{x, p \in \mathcal{O}_m} f_i(p)\rho(x)e^{-i(q - p)x} \, dx d\mu(p)
+$$
+
+$q_0 \in V \setminus \{0\}$ は $q_0^2 \ne 0$ とする。ある $\varepsilon > 0$ と open cone $q_0 \in U \subset V \setminus \{0\}$ が存在して、$p \in \mathcal{O}_m$ が十分大きければ、$|q - p| \ge \varepsilon|q| \ (q \in U)$ を示せば良い。($\mathcal{O}_0$ に近い) open cone $C \subset V \setminus \{0\}$ が存在して、$q_0 \ne C$ かつ $p \in \mathcal{O}_m$ が十分大きければ $p \in C$。$\varepsilon > 0$ と 開集合 $q_0 \in S \subset S^{d - 1}$ が存在して、$|C - S| \ge \varepsilon$。$U \coloneqq \mathbb{R}_{>0} \cdot S$ とすれば良い
+
+$p = (p_0, p')$, $x = (t, x')$ とすると
+
+$$
+\varphi_i|_{t = 0}(v) = \varphi_i(\delta \otimes v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_m} f_i(p)v(x')e^{-ip'x'} \, dx' d\mu(p)
+$$
+
+$$
+\partial_t\varphi_i(u) = (2\pi)^{-d/2}i \int_{x, p \in \mathcal{O}_m} p_0 f_i(p)u(x)e^{i px} \, dx d\mu(p)
+$$
+
+$$
+WF(\partial_t\varphi_i) \subset WF(\varphi_i) \subset V \times \{ v \in V \setminus \{0\} \mid v^2 = 0 \}
+$$
+
+$$
+(\partial_t\varphi_i|_{t = 0})(v) = (2\pi)^{-d/2}i \int_{x', p \in \mathcal{O}_m} p_0 f_i(p)v(x')e^{-ip'x'} \, dx' d\mu(p)
+$$
+
+$E(p') \coloneqq \sqrt{m^2 + p'^2}$ とすると、$\mathcal{O}_m^\pm \simeq \{ p' \in \mathbb{R}^{d - 1} \}$ によって $d\mu(p) = \frac{dp'}{2E}$
+
+$$
+\begin{aligned}
+  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \int_{p \in \mathcal{O}_m} f_i(p)\beta(-p') \, d\mu(p) \\
+  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2}i \int_{p \in \mathcal{O}_m} p_0 f_i(p)\beta(-p') \, d\mu(p)
 \end{aligned}
 $$
 
 $$
-(\partial_t \varphi_i|_{t = 0})(v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_m^+} i E(p') (-e^{i p'x'} f_i(p) + e^{-i p'x'} f_i(-p)) v(x') d\mu(p)
-$$
-
-あ
-
-$$
 \begin{aligned}
-  &(\varphi_1 \partial_t \varphi_2)|_{t = 0} \\
-  &\quad = (2\pi)^{-d} \int_{x', p \in \mathcal{O}_m^+, q \in \mathcal{O}_m^+} iE(q') (e^{i p'x'} f_1(p) + e^{-i p'x'} f_1(-p))(-e^{i q'x'} f_2(q) + e^{-i q'x'} f_2(-q)) v(x') d\mu(p)d\mu(q)
+  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \frac{1}{2E} [f_i(E, -p') + f_i(-E, -p')] \in L^2(Edp') \\
+  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \frac{i}{2} [f_i(E, -p') - f_i(-E, -p')] \in L^2\left(\frac{dp'}{E}\right)
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-  &\int_{x'} (\varphi_1 \partial_t \varphi_2)|_{t = 0} dx' \\
-  &\quad = (2\pi)^{-d} \int_{x', p \in \mathcal{O}_m^+, q \in \mathcal{O}_m^+} iE(q') (e^{i p'x'} f_1(p) + e^{-i p'x'} f_1(-p))(-e^{i q'x'} f_2(q) + e^{-i q'x'} f_2(-q)) d\mu(p)d\mu(q)
+  &\int_{t = 0} *(\varphi_1|_{t = 0} \, d\varphi_2|_{t = 0}) \\
+  &\quad = \int_{x'} \varphi_1|_{t = 0} \, \partial_t\varphi_2|_{t = 0} \, dx' \\
+  &\quad = \int_{p'} \widehat{\varphi_1|_{t = 0}}(p')\widehat{\partial_t\varphi_2|_{t = 0}}(-p') \, dp' \\
+  &\quad = \frac{i}{8\pi} \int_{p'} \frac{1}{E} [f_1(E, -p') + f_1(-E, -p')] [f_2(E, p') - f_2(-E, p')] dp' \\
+  &\quad = \frac{i}{8\pi} \int_{p'} \frac{1}{E} [f_1(E, -p')f_2(E, p') - f_1(E, -p')f_2(-E, p') \\
+  &\qquad + f_1(-E, -p')f_2(E, p') - f_1(-E, -p')f_2(-E, p')] \, dp'
 \end{aligned}
 $$
 
-$$
-\begin{aligned}
-  &\int_{x'} (\varphi_1 \partial_t \varphi_2 - \varphi_2 \partial_t \varphi_1)|_{t = 0} dx' \\
-  &\quad = (2\pi)^{-d} \int_{x', p \in \mathcal{O}_m^+, q \in \mathcal{O}_m^+} iE(q') [(e^{i p'x'} f_1(p) + e^{-i p'x'} f_1(-p))(-e^{i q'x'} f_2(q) + e^{-i q'x'} f_2(-q)) - (e^{i p'x'} f_2(p) + e^{-i p'x'} f_2(-p))(-e^{i q'x'} f_1(q) + e^{-i q'x'} f_1(-q))] d\mu(p)d\mu(q)
-\end{aligned}
-$$
+# Wightman の公理を満たすモデル
