@@ -16,7 +16,7 @@
   "runOnSave.commands": [
     {
       "match": ".*\\.md$",
-      "command": "node scripts/fmt-math.ts",
+      "command": "node scripts/fmt-math.ts ${file}",
       "runIn": "backend"
     }
   ]

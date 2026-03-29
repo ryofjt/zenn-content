@@ -410,6 +410,30 @@ $$
 \mathrm{supp}(S^n E) = \overline{\underbrace{\mathrm{supp} E + \cdots + \mathrm{supp} E}_n}
 $$
 
+# $\mathcal{S}_m$ の等質空間としての記述
+
+https://zenn.dev/link/comments/6cc59876307ee9
+
+$d \ge 3$, $m > 0$ とする
+
+$$
+\mathcal{S}_m \coloneqq \{ v \in V \mid v^2 = -m^2 \}
+$$
+
+$SO_0(V) \curvearrowright \mathcal{S}_m$ は推移的なことを示す。$v \in \mathcal{S}_m$ とする。$SO(d - 1)$ を作用させると、$v = (v_0, \sqrt{v_0^2 + m^2}, 0)$ として良い。さらに
+
+$$
+\begin{pmatrix}
+  \mathrm{cosh}t & -\mathrm{sinh}t \\
+-\mathrm{sinh}t & \mathrm{cosh}t \end{pmatrix} \in SO^+(1, 1) \quad (\mathrm{tanh}t = \frac{v_0}{\sqrt{v_0^2 + m^2}})
+$$
+
+を作用させると、$(0, m, 0, \dots, 0)$ に移る。$(0, m, 0, \dots, 0)$ の固定部分群は $SO_0(1, d - 2)$ だから
+
+$$
+\mathcal{S}_m \simeq SO_0(1, d - 1) / SO_0(1, d - 2)
+$$
+
 # Wightman の公理を満たすモデル
 
 https://zenn.dev/link/comments/85b993ae05292a
@@ -528,10 +552,33 @@ $$
 p = \Lambda^{-1}(\sqrt{p^2}, 0) = \sum_{i = 1}^n \Lambda^{-1}p_i
 $$
 
-(4) $f, g \in \mathcal{S}(\mathcal{R})$ が $\mathrm{supp} f - \mathrm{supp} g \subset V_\mathrm{space}$ ならば
+総合すると
+
+$$
+\mathrm{supp} \, U = \{0\} \sqcup \mathcal{O}_m^+ \sqcup \{ p \in V \mid p_0 > 0, p^2 \ge 4m^2 \} \subset \overline{V}_+
+$$
+
+${}$(4) $f, g \in \mathcal{S}(\mathcal{R})$ が $\mathrm{supp} f - \mathrm{supp} g \subset V_\mathrm{space} = \{ v \in V \mid v^2 < 0 \}$ ならば
 
 $$
 [\varphi(f), \varphi(g)] = 0
 $$
 
-いいい
+$$
+\begin{aligned}
+  [\varphi(f), \varphi(g)] &= [\iota_{(\cdot, k_f)}, \varepsilon_{k_g}] + [\varepsilon_{k_f}, \iota_{(\cdot, k_g)}] \\
+  &= (k_g, k_f) - (k_f, k_g) \\
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ipS(x - y)(x - y)} - e^{ipS(x - y)(x - y)}] \, d\mu(p)dxdy \\
+  &= \frac{1}{8\pi} \int_{p', x, y} \frac{1}{E(p')}f(x)g(y)[e^{ip'S(x - y)(x - y)} - e^{-ip'S(x - y)(x - y)}] \, dp'dxdy \\
+  &= 0
+\end{aligned}
+$$
+
+ただし、可測な $S: V_\mathrm{space} \to SO_0(V)$ は
+
+$$
+S(z)z = (0, \pm\sqrt{-z^2}, 0, \dots, 0)
+$$
+
+なるようにとる
