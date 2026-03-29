@@ -277,7 +277,7 @@ $$
 $$
 
 $$
-\tilde{\omega} \coloneqq -\omega = -\delta \gamma = \delta \varphi \wedge \delta * d \varphi \in \Omega^{2, |-1|}(\mathcal{F} \times V)
+\omega = \delta \gamma = -\delta \varphi \wedge \delta * d \varphi \in \Omega^{2, |-1|}(\mathcal{F} \times V)
 $$
 
 # 解の空間
@@ -289,21 +289,21 @@ $$
 $\mathrm{Sol} \times V$ 上 $d\tilde{\omega} = 0$ だから、$\Sigma$ を (空でない) 連結閉な spacelike 超曲面とすると
 
 $$
-\int_\Sigma \tilde{\omega} \in \Omega^2(\mathrm{Sol})
+\int_\Sigma \omega \in \Omega^2(\mathrm{Sol})
 $$
 
 は $\Sigma$ に依らない。各 $\Phi \in \mathrm{Sol}$ に対して
 
 $$
-[-, -]: T_\Phi\mathrm{Sol} \times T_\Phi\mathrm{Sol} \simeq \mathrm{Sol} \times \mathrm{Sol} \ni (\varphi_1, \varphi_2) \mapsto \int_\Sigma *(\varphi_1 d\varphi_2 - \varphi_2 d\varphi_1) \in \mathbb{R}
+[-, -]: T_\Phi\mathrm{Sol} \times T_\Phi\mathrm{Sol} \simeq \mathrm{Sol} \times \mathrm{Sol} \ni (\varphi_1, \varphi_2) \mapsto -\int_\Sigma *(\varphi_1 d\varphi_2 - \varphi_2 d\varphi_1) \in \mathbb{R}
 $$
 
-は $\Phi$ に依らない。Fourier 変換を使うと
+は $\Phi$ に依らない。反転を伴う Fourier 変換を使うと
 
 $$
 \begin{aligned}
   &\{ \varphi \in \mathcal{S}'(V, \mathbb{R}) \mid (\square + m^2)\varphi = 0 \} \\
-  &\quad \simeq \{ \psi \in \mathcal{S}'(V, \mathbb{C}) \mid \psi(-p) = \overline{\psi(p)}, (-p^2 + m^2)\psi = 0 \} \\
+  &\quad \simeq \{ \psi \in \mathcal{S}'(V, \mathbb{C}) \mid \psi(-p) = \overline{\psi(p)}, (-p^2 + m^2)\psi = 0 \} \quad (\psi = \mathcal{F}\varphi(-p)) \\
   &\quad \simeq \{ f \in \mathcal{S}'(\mathcal{O}_m, \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
 \end{aligned}
 $$
@@ -317,26 +317,26 @@ $f_1, f_2 \in H$ とする
 $$
 \begin{aligned}
   \psi_i(\alpha) &= \int_{p \in \mathcal{O}_m} f_i(p)\alpha(p) \, d\mu(p) \\
-  \varphi_i(u) &= (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m} f_i(p)u(x)e^{ipx} \, dx d\mu(p)
+  \varphi_i(u) &= (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_m} f_i(p)u(x)e^{-ipx} \, dx d\mu(p)
 \end{aligned}
 $$
 
 $WF(\varphi_i) \subset V \times \{ v \in V \setminus \{0\} \mid v^2 = 0 \}$ を示す。$\rho \in C^\infty_c(V)$ に対して
 
 $$
-|\widehat{\rho\varphi_i}(q)| \le (2\pi)^{-d} \int_{x, p \in \mathcal{O}_m} f_i(p)\rho(x)e^{-i(q - p)x} \, dx d\mu(p)
+|\widehat{\rho\varphi_i}(q)| \le (2\pi)^{-d} \int_{x, p \in \mathcal{O}_m} f_i(p)\rho(x)e^{-i(q + p)x} \, dx d\mu(p)
 $$
 
-$q_0 \in V \setminus \{0\}$ は $q_0^2 \ne 0$ とする。ある $\varepsilon > 0$ と open cone $q_0 \in U \subset V \setminus \{0\}$ が存在して、$p \in \mathcal{O}_m$ が十分大きければ、$|q - p| \ge \varepsilon|q| \ (q \in U)$ を示せば良い。($\mathcal{O}_0$ に近い) open cone $C \subset V \setminus \{0\}$ が存在して、$q_0 \ne C$ かつ $p \in \mathcal{O}_m$ が十分大きければ $p \in C$。$\varepsilon > 0$ と 開集合 $q_0 \in S \subset S^{d - 1}$ が存在して、$|C - S| \ge \varepsilon$。$U \coloneqq \mathbb{R}_{>0} \cdot S$ とすれば良い
+$q_0 \in V \setminus \{0\}$ は $q_0^2 \ne 0$ とする。ある $\varepsilon > 0$ と open cone $q_0 \in U \subset V \setminus \{0\}$ が存在して、$p \in \mathcal{O}_m$ が十分大きければ、$|q - p| \ge \varepsilon|q| \ (q \in U)$ を示せば良い。($\mathcal{O}_0$ に近い) open cone $C \subset V \setminus \{0\}$ が存在して、$q_0 \ne C$ かつ $p \in \mathcal{O}_m$ が十分大きければ $p \in C$。$\varepsilon > 0$ と 開集合 $q_0 \in S \subset S^{d - 1}$ が存在して、$|S - C| \ge \varepsilon$。$U \coloneqq \mathbb{R}_{>0} \cdot S$ とすれば良い
 
 $p = (p_0, p')$, $x = (t, x')$ とすると
 
 $$
-\varphi_i|_{t = 0}(v) = \varphi_i(\delta \otimes v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_m} f_i(p)v(x')e^{-ip'x'} \, dx' d\mu(p)
+\varphi_i|_{t = 0}(v) = \varphi_i(\delta \otimes v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_m} f_i(p)v(x')e^{ip'x'} \, dx' d\mu(p)
 $$
 
 $$
-\partial_t\varphi_i(u) = (2\pi)^{-d/2}i \int_{x, p \in \mathcal{O}_m} p_0 f_i(p)u(x)e^{i px} \, dx d\mu(p)
+\partial_t\varphi_i(u) = -(2\pi)^{-d/2}i \int_{x, p \in \mathcal{O}_m} p_0 f_i(p)u(x)e^{-ipx} \, dx d\mu(p)
 $$
 
 $$
@@ -344,22 +344,22 @@ WF(\partial_t\varphi_i) \subset WF(\varphi_i) \subset V \times \{ v \in V \setmi
 $$
 
 $$
-(\partial_t\varphi_i|_{t = 0})(v) = (2\pi)^{-d/2}i \int_{x', p \in \mathcal{O}_m} p_0 f_i(p)v(x')e^{-ip'x'} \, dx' d\mu(p)
+(\partial_t\varphi_i|_{t = 0})(v) = -(2\pi)^{-d/2}i \int_{x', p \in \mathcal{O}_m} p_0 f_i(p)v(x')e^{ip'x'} \, dx' d\mu(p)
 $$
 
 $E(p') \coloneqq \sqrt{m^2 + p'^2}$ とすると、$\mathcal{O}_m^\pm \simeq \{ p' \in \mathbb{R}^{d - 1} \}$ によって $d\mu(p) = \frac{dp'}{2E}$
 
 $$
 \begin{aligned}
-  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \int_{p \in \mathcal{O}_m} f_i(p)\beta(-p') \, d\mu(p) \\
-  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2}i \int_{p \in \mathcal{O}_m} p_0 f_i(p)\beta(-p') \, d\mu(p)
+  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \int_{p \in \mathcal{O}_m} f_i(p)\beta(p') \, d\mu(p) \\
+  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= -(2\pi)^{-1/2}i \int_{p \in \mathcal{O}_m} p_0 f_i(p)\beta(p') \, d\mu(p)
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \frac{1}{2E} [f_i(E, -p') + f_i(-E, -p')] \in L^2(Edp') \\
-  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \frac{i}{2} [f_i(E, -p') - f_i(-E, -p')] \in L^2\left(\frac{dp'}{E}\right)
+  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \frac{1}{2E} [f_i(E, p') + f_i(-E, p')] \in L^2(Edp') \\
+  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= -(2\pi)^{-1/2} \frac{i}{2} [f_i(E, p') - f_i(-E, p')] \in L^2\left(\frac{dp'}{E}\right)
 \end{aligned}
 $$
 
@@ -368,10 +368,129 @@ $$
   &\int_{t = 0} *(\varphi_1|_{t = 0} \, d\varphi_2|_{t = 0}) \\
   &\quad = \int_{x'} \varphi_1|_{t = 0} \, \partial_t\varphi_2|_{t = 0} \, dx' \\
   &\quad = \int_{p'} \widehat{\varphi_1|_{t = 0}}(p')\widehat{\partial_t\varphi_2|_{t = 0}}(-p') \, dp' \\
-  &\quad = \frac{i}{8\pi} \int_{p'} \frac{1}{E} [f_1(E, -p') + f_1(-E, -p')] [f_2(E, p') - f_2(-E, p')] dp' \\
-  &\quad = \frac{i}{8\pi} \int_{p'} \frac{1}{E} [f_1(E, -p')f_2(E, p') - f_1(E, -p')f_2(-E, p') \\
-  &\qquad + f_1(-E, -p')f_2(E, p') - f_1(-E, -p')f_2(-E, p')] \, dp'
+  &\quad = -\frac{i}{8\pi} \int_{p'} \frac{1}{E} [f_1(E, p') + f_1(-E, p')] [f_2(E, -p') - f_2(-E, -p')] dp' \\
+  &\quad = -\frac{i}{8\pi} \int_{p'} \frac{1}{E} [f_1(E, p')f_2(E, -p') - f_1(E, p')f_2(-E, -p') \\
+  &\qquad + f_1(-E, p')f_2(E, -p') - f_1(-E, p')f_2(-E, -p')] \, dp'
 \end{aligned}
 $$
 
+$$
+\begin{aligned}
+  &[\varphi_1, \varphi_2] \\
+  &\quad = -\int *(\varphi_1|_{t = 0} \, d\varphi_2|_{t = 0} - \varphi_2|_{t = 0} \, d\varphi_1|_{t = 0}) \\
+  &\quad = \frac{i}{4\pi} \int_{p'} \frac{1}{E} [-f_1(E, p')f_2(-E, -p') + f_1(-E, p')f_2(E, -p')] \, dp' \\
+  &\quad = \frac{i}{2\pi} \int_{p \in \mathcal{\mathcal{O}_m^+}} [-f_1(p)f_2(-p) + f_1(-p)f_2(p)] \, d\mu(p) \\
+  &\quad = \frac{1}{\pi} \int_{p \in \mathcal{\mathcal{O}_m^+}} \mathrm{Im}(f_1\bar{f_2}) \, d\mu(p)
+\end{aligned}
+$$
+
+# 対称積のスペクトル測度
+
+$V$: 有限次元 $\mathbb{R}$ 線形空間
+$\pi_i(v) = \int_\xi e^{i\langle \xi, v \rangle} dE_i \ (i = 1, 2)$: $V$ のユニタリ表現
+$\pi_1 \boxtimes \pi_2$ のスペクトル測度は $(E_1 \boxtimes E_2)(A \times B) = E_1(A) \otimes E_2(B)$ を満たす
+
+$$
+\begin{aligned}
+  \langle (\pi_1(v) \otimes \pi_2(v))(f_1 \otimes f_2), g_1 \otimes g_2 \rangle &= \int_{\xi_1} e^{i\langle \xi_1, v \rangle} d(E_1)_{f_1, g_1} \int_{\xi_2} e^{i\langle \xi_2, v \rangle} d(E_2)_{f_2, g_2} \\
+  &= \int_{\xi_1, \xi_2} e^{i\langle \xi_1 + \xi_2, v \rangle} d(E_1 \boxtimes E_2)_{f_1 \otimes g_1, f_2 \otimes g_2} \\
+  &= \int_\xi e^{i\langle \xi, v \rangle} d(s_*(E_1 \boxtimes E_2))_{f_1 \otimes g_1, f_2 \otimes g_2}
+\end{aligned}
+$$
+
+ただし、$s: V \times V \xrightarrow{+} V$。よって、$\pi_1 \otimes \pi_2$ のスペクトル測度 $E_1 \otimes E_2$ に対して
+
+$$
+E_1 \otimes E_2 = s_*(E_1 \boxtimes E_2)
+$$
+
+$\mathrm{supp}(E_1 \otimes E_2) = \overline{\mathrm{supp} E_1 + \mathrm{supp} E_2}$。同様にして、$V$ のユニタリ表現 $\pi(v) = \int_\xi e^{i\langle \xi, v \rangle} dE$ に対して
+
+$$
+\mathrm{supp}(S^n E) = \overline{\underbrace{\mathrm{supp} E + \cdots + \mathrm{supp} E}_n}
+$$
+
 # Wightman の公理を満たすモデル
+
+https://zenn.dev/link/comments/85b993ae05292a
+
+https://zenn.dev/link/comments/98f3bdb80d8a33
+
+$V$: 符号 $(1, d - 1)$ の Minkowski 空間
+$G \coloneqq \mathrm{Spin}_0(V)$
+$P \coloneqq G \ltimes V$
+
+$\rho: G \curvearrowright \mathbb{R}$: 自明表現
+$\mathcal{R} = P \times_G \rho = V \times \mathbb{R}$
+
+$P \to SO_0(V) \ltimes V \curvearrowright V$ から $P \curvearrowright H = \{ h \in L^2(\mathcal{O}_m, \mathbb{C}) \mid h(-p) = \overline{h(p)} \}$ が誘導される
+
+$$
+\begin{aligned}
+  (\Lambda, a)h &= (2\pi)^{-d/2} \int \tilde{h}(\Lambda^{-1}(x - a))e^{ipx} \, dx \quad (\tilde{h}(x) = (2\pi)^{-d/2} \int h(p)e^{-ipx} \, dp) \\
+  &= (2\pi)^{-d/2} e^{ipa} \int \tilde{h}(\Lambda^{-1}x)e^{ipx} \, dx \\
+  &= (2\pi)^{-d/2} e^{ipa} \int \tilde{h}(x)e^{i(\Lambda^{-1}p)x} \, dx \\
+  &= e^{ipa}h(\Lambda^{-1}p)
+\end{aligned}
+$$
+
+$I: H \to H$ を
+
+$$
+Ih(p) = \begin{cases}
+  ih(p) &\quad (p \in \mathcal{O}_m^+) \\
+  -ih(p) &\quad (p \in \mathcal{O}_m^-)
+\end{cases}
+$$
+
+で定める。$H_\pm = L^2(\mathcal{O}_m^\pm, \mathbb{C})$。$H_+$ 上の Hermite 形式
+
+$$
+(h_1, h_2) = \frac{i}{2} [h_1(p), \overline{h_2(-p)}] = \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+} h_1(p)\overline{h_2(p)} \, d\mu(p)
+$$
+
+は正定値。$I$ は $P$ 同変だから、$P \curvearrowright H_+$ が誘導される。さらに、$U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty S^n H_+$ が誘導される。$D_+ \coloneqq \mathcal{S}(\mathcal{O}_m^+, \mathbb{C}) \subset H_+$ とする。$\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n D_+ \subset \mathcal{H}$ と定義し、$\Omega \coloneqq 1 \in \mathcal{D}$ とする
+
+$\varphi: \mathcal{S}(\mathcal{R}) \to \mathrm{End}(\mathcal{D})$ を
+
+$$
+\varphi(f) \coloneqq \varepsilon_{k_f} + \iota_{(\cdot, k_f)}
+$$
+
+で定義する。ただし、$k_f \coloneqq \mathcal{F}f(-p)|_{\mathcal{O}_m^+} \in D_+$。まず、$\varphi$ が $P$ 同変なことは
+
+$$
+\begin{aligned}
+  k_{(\Lambda, a)f} &= (2\pi)^{-d/2} \int f(\Lambda^{-1}(x - a))e^{ipx} \, dx \\
+  &= e^{ipa} \mathcal{F}f(-\Lambda^{-1}p) \\
+  &= (\Lambda, a)k_f
+\end{aligned}
+$$
+
+から従う
+
+(2) $\varphi(f)$ は symmetric operator
+
+$$
+\varphi(f)^* = \iota_{(\cdot, k_f)} + \varepsilon_{k_f} = \varphi(f)
+$$
+
+${}$(3) $\mathcal{D}$ は $\varphi(f_1) \cdots \varphi(f_n)\Omega$ で生成される
+
+$\{ k_f \mid f \in \mathcal{S}(\mathcal{R}) \} = D_+$ から従う
+
+(1) $U|_V$ の同時スペクトル $\sigma(U) \subset V^*$ は
+
+$$
+\langle \sigma(U), \overline{V}_+ \rangle \ge 0
+$$
+
+あああ
+
+(4) $f, g \in \mathcal{S}(\mathcal{R})$ が $\mathrm{supp} f - \mathrm{supp} g \subset V_\mathrm{space}$ ならば
+
+$$
+[\varphi(f), \varphi(g)] = 0
+$$
+
+いいい
