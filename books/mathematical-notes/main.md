@@ -485,7 +485,48 @@ $$
 \langle \sigma(U), \overline{V}_+ \rangle \ge 0
 $$
 
-あああ
+$\sigma(U) \subset \overline{V}_+$ を示せば良い。$U_1: P \curvearrowright H_+$ は
+
+$$
+\begin{aligned}
+  (U_1(a)h_1, h_2) &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+} e^{ipa}h_1(p)\overline{h_2(p)} \, d\mu(p) \\
+  &= \int_{p \in \mathcal{O}_m^+} e^{ipa} \, dE_{h_1, h_2}
+\end{aligned}
+$$
+
+ただし、$H_+$ 上の射影に値をとる $\mathcal{O}_m^+$ 上のスペクトル測度 $E$ を
+
+$$
+E(A)h \coloneqq h|_A \quad (h \in H^+)
+$$
+
+で定義する。$\mathrm{supp} \, U_1 = \mathcal{O}_m^+$。$U_n: P \curvearrowright S^n H_+$ の台は
+
+$$
+\mathrm{supp} \, U_n = \begin{cases}
+  \{0\} &\quad (n = 0) \\
+  \mathcal{O}_m^+ &\quad (n = 1) \\
+  \underbrace{\mathcal{O}_m^+ + \cdots + \mathcal{O}_m^+}_n = \{ p \in V \mid p_0 > 0, p^2 \ge n^2m^2 \} &\quad (n \ge 2)
+\end{cases}
+$$
+
+最後の等号を示す。まず、$\subset$ を示す。$p_1, \dots, p_n \in \mathcal{O}_m^+$ とすると
+
+$$
+p_ip_j = p_i^0p_j^0 - p_i'p_j' \ge \sqrt{\|p_i'\|^2 + m^2}\sqrt{\|p_j'\|^2 + m^2} - \|p_i'\|\|p_j'\| \ge m^2
+$$
+
+よって $(p_1 + \cdots + p_n)^2 \ge n^2m^2$。次に、$\supset$ を示す。$p \in V$ は $p_0 > 0$ かつ $p^2 \ge n^2m^2$ とする。$\Lambda \in SO_0(V)$ が存在して
+
+$$
+\Lambda p = (\sqrt{p^2}, 0)
+$$
+
+$p_1', \dots, p_n' \in \mathbb{R}^{d - 1}$ を $p_1 + \cdots + p_n = 0$ かつ $\|p_i'\| = \sqrt{p^2 / n^2 - m^2}$ にとる。$p_i \coloneqq (\sqrt{p^2} / n, p_i') \in \mathcal{O}_m^+$ とすると
+
+$$
+p = \Lambda^{-1}(\sqrt{p^2}, 0) = \sum_{i = 1}^n \Lambda^{-1}p_i
+$$
 
 (4) $f, g \in \mathcal{S}(\mathcal{R})$ が $\mathrm{supp} f - \mathrm{supp} g \subset V_\mathrm{space}$ ならば
 
