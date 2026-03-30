@@ -582,3 +582,153 @@ S(z)z = (0, \pm\sqrt{-z^2}, 0, \dots, 0)
 $$
 
 なるようにとる
+
+# 平行移動不変な超関数
+
+$u \in \mathcal{D}'(\mathbb{R}^2)$ は $y$ 方向に平行移動不変 $\Leftrightarrow$ $\partial_y u = 0$ とする。$v \in \mathcal{D}'(\mathbb{R})$ が一意的に存在して
+
+$$
+u = \mathrm{pr}_x^*v
+$$
+
+$\rho \in C^\infty_c(\mathbb{R})$ で $\int \rho \, dy = 1$ なものを固定する
+
+$$
+v \coloneqq u(\cdot \otimes \rho)
+$$
+
+が条件を満たすことを示す。$\varphi \in C^\infty_c(\mathbb{R}^2)$ とする
+
+$$
+j(x, y) \coloneqq \varphi(x, y) - (\int \varphi(x, y) \, dy) \otimes \rho
+$$
+
+とすると、$\int j(x, y) \, dy = 0$。よって、$\int_{-\infty}^y j(x, y) \, dy \in C^\infty_c(\mathbb{R}^2)$ であり、$u(j) = 0$
+
+$$
+u(\varphi) = u((\int \varphi(x, y) \, dy) \otimes \rho) = v(\int \varphi(x, y) \, dy)
+$$
+
+# Wightman function
+
+$\rho: G \curvearrowright R$
+$U: P \curvearrowright \mathcal{H}$
+$\Omega \in \mathcal{D} \subset \mathcal{H}$
+$\varphi: \mathcal{S}(\mathcal{R}) \coloneqq \mathcal{S}(P \times_G R) \to \mathrm{End}(\mathcal{D})$
+を Wightman QFT とする
+
+$$
+\mathcal{S}(\mathcal{R}^{\boxtimes n}) \simeq \mathcal{S}(\mathcal{R})^{\hat{\otimes} n} \ni f_1 \otimes \cdots \otimes f_n \mapsto \langle \Omega, \varphi(f_1) \cdots \varphi(f_n)\Omega \rangle \in \mathbb{C}
+$$
+
+は $\mathcal{W}_n \in \mathcal{S}'((\mathcal{R}^*)^{\boxtimes n} \otimes \mathbb{C})$ を定める
+
+(1) $\mathcal{W}_n$ は $P$ 不変
+
+(2) $\mathrm{supp}(\mathcal{F}\mathcal{W}_n) \subset \{ (p_1, \dots, p_n) \in V^{\times n} \mid \sum_{i = 1}^n p_i = 0, \sum_{i = 1}^j p_i \in \overline{V}_+ \ (1 \le j \le n - 1) \}$
+
+$f_1, \cdots, f_n \in \mathcal{S}(\mathcal{R})$ とする。$1 \le j \le n$ に対して
+
+$$
+F_j(a) \coloneqq \mathcal{W}_n(f_1(x_1 - a) \otimes \cdots \otimes f_j(x_j - a) \otimes f_{j + 1} \otimes \cdots \otimes f_n) \in \mathcal{S}'(V)
+$$
+
+の Fouier 変換を考察する。まず
+
+$$
+\begin{aligned}
+  F_j(a) &= \varepsilon \langle \varphi(f_j(x_j - a)) \cdots \varphi(f_1(x_1 - a))\Omega, \varphi(f_{j + 1}) \cdots \varphi(f_n)\Omega \rangle \\
+  &= \varepsilon \langle U(a)\varphi(f_j) \cdots \varphi(f_1)\Omega, \varphi(f_{j + 1}) \cdots \varphi(f_n)\Omega \rangle \\
+  &= \varepsilon \int_{p \in \overline{V}_+} e^{ipa} dE_{\varphi(f_j) \cdots \varphi(f_1)\Omega, \varphi(f_{j + 1}) \cdots \varphi(f_n)\Omega}
+\end{aligned}
+$$
+
+だから、$\mathcal{F}F_j = \varepsilon (2\pi)^{d/2} E_{\varphi(f_j) \cdots \varphi(f_1)\Omega, \varphi(f_{j + 1}) \cdots \varphi(f_n)\Omega}$。次に
+
+$$
+\begin{aligned}
+  F_j(a) &= \mathcal{F}\mathcal{W}_n((\mathcal{F}f_1(-p_1) \otimes \cdots \otimes \mathcal{F}f_n(-p_n))e^{i(p_1 + \cdots + p_j)a}) \\
+  &= (2\pi)^{d/2} \Delta_j^*\mathcal{F}^{-1}((\mathcal{F}f_1(-p_1) \otimes \cdots \otimes \mathcal{F}f_n(-p_n))\mathcal{F}\mathcal{W}_n) \\
+  &= (2\pi)^{d/2} \mathcal{F}^{-1}(\Delta_j^*)_*((\mathcal{F}f_1(-p_1) \otimes \cdots \otimes \mathcal{F}f_n(-p_n))\mathcal{F}\mathcal{W}_n)
+\end{aligned}
+$$
+
+だから、$\mathcal{F}F_j = (2\pi)^{d/2} (\Delta_j^*)_*((\mathcal{F}f_1(-p_1) \otimes \cdots \otimes \mathcal{F}f_n(-p_n))\mathcal{F}\mathcal{W}_n)$。ただし
+
+$$
+\begin{aligned}
+  &\Delta_j: V \ni a \mapsto (\overbrace{a, \dots, a}^j, 0) \in V^{\times n} \\
+  &\Delta_j^*: V^{\times n} \ni (p_1, \dots, p_n) \mapsto \sum_{i = 1}^j p_i \in V
+\end{aligned}
+$$
+
+よって、$\mathrm{supp}((\Delta_j^*)_*(\beta\mathcal{F}\mathcal{W}_n)) \subset \overline{V}_+ \ (\beta \in \mathcal{S}(\mathcal{R}^{\boxtimes n}))$ だから
+
+$$
+\Delta_j^*(\mathrm{supp}(\mathcal{F}\mathcal{W}_n)) \subset \overline{V}_+
+$$
+
+最後に、$F_n(a)$ は定数だから、$\Delta_n^*(\mathrm{supp}(\mathcal{F}\mathcal{W}_n)) \subset \{0\}$ もわかる
+
+(3) $\mathcal{W}_n(f^*) = \overline{\mathcal{W}_n(f)}$
+
+$$
+\begin{aligned}
+  \mathcal{W}_n((f_1 \otimes \cdots \otimes f_n)^*) &= \varepsilon \mathcal{W}_n(f_n \otimes \cdots \otimes f_1) \\
+  &= \varepsilon \langle \Omega, \varphi(f_n) \cdots \varphi(f_1)\Omega \rangle \\
+  &= \langle \varphi(f_1) \cdots \varphi(f_n)\Omega, \Omega \rangle \\
+  &= \overline{\mathcal{W}_n(f)}
+\end{aligned}
+$$
+
+${}$(4) $\mathrm{supp} f_i - \mathrm{supp} f_{i + 1} \subset V_\mathrm{space}$ ならば
+
+$$
+\mathcal{W}_n(f_1 \otimes \cdots \otimes f_i \otimes f_{i + 1} \otimes \cdots \otimes f_n) = (-1)^{|f_i||f_{i + 1}|} \mathcal{W}_n(f_1 \otimes \cdots \otimes f_{i + 1} \otimes f_i \otimes \cdots \otimes f_n)
+$$
+
+${}$(5) $\mathcal{W}_{2n}(f^* \cdot f) \ge 0$
+
+# Wightman QFT と Wightman function
+
+Wightman QFT と
+$\rho: G \curvearrowright R$: 有限次元実表現
+$\mathcal{W}_n \in \mathcal{S}'((\mathcal{R}^*)^{\boxtimes n} \otimes \mathbb{C})$
+で (1) 〜 (5) を満たすものは一対一に対応する
+
+$\mathcal{W}_n$ から Wightman QFT を再構成する。$\mathcal{S} \coloneqq \bigoplus_{n = 0}^\infty \mathcal{S}(\mathcal{R})^{\otimes n} \otimes \mathbb{C}$。$\mathcal{S} \ni f_1 \otimes \cdots \otimes f_n \mapsto \varphi(f_1) \cdots \varphi(f_n)\Omega \in \mathcal{D}$ は $P$ 同変で全射。$\mathcal{N} \subset \mathcal{S}$ を核とすると、$\mathcal{D} \simeq \mathcal{S} / \mathcal{N}$。$\mathcal{S}$ 上には、半正定値 Hermite 形式
+
+$$
+\mathcal{S} \times \mathcal{S} \ni (f, g) \mapsto \mathcal{W}(f^* \cdot \overline{g}) = \langle \varphi(f)\Omega, \varphi(g)\Omega \rangle
+$$
+
+がある。退化部分は $\mathcal{N}$ と一致し、$\mathcal{H} \simeq \widehat{\mathcal{S} / \mathcal{N}}$。最後に、$f \in \mathcal{S}(\mathcal{R})$ に対して
+
+$$
+\begin{array}{ccc}
+  \mathcal{S} &\xrightarrow{f \cdot}& \mathcal{S} \\
+  \downarrow && \downarrow \\
+  \mathcal{D} &\xrightarrow{\varphi(f)}& \mathcal{D} \\
+\end{array}
+$$
+
+# 自由スカラー場の $\mathcal{W}_n$
+
+$$
+\begin{aligned}
+  \mathcal{W}_{2n + 1} &= 0 \\
+  \mathcal{W}_0 &= 1 \\
+  \mathcal{W}_2(f \otimes g) &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+} \mathcal{F}f(p)\mathcal{F}g(-p) \, d\mu \\
+  \mathcal{W}_{2m}(f_1 \cdots f_{2m}) &= \sum_{\sigma \in P_2(2m)} \prod_{\{i, j\} \in \sigma} \mathcal{W}_2(f_i, f_j)
+\end{aligned}
+$$
+
+ただし、$P_2(2m)$ は $\{ 1, \dots, 2m \}$ を $m$ 個の順序のないペアに分割する方法たち。$|P_2(2m)| = (2m - 1)!!$
+
+# 1.5, 1.6
+
+一旦スキップ
+
+# Wightman function の解析接続
+
+あああ

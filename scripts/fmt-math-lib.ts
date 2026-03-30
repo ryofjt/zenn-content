@@ -70,7 +70,7 @@ export function formatKatex(lines: string[]): string[] {
   // 3. Insert newline after \begin{...} and before \end{...}
   out = out.flatMap((l) => {
     const trimmed = l.trim();
-    const bm = trimmed.match(/^(\\begin\{[^}]+\})\s*(.+)$/);
+    const bm = trimmed.match(/^(\\begin\{[^}]+\}(?:\{[^}]*\}|\[[^\]]*\])*)\s*((?![{\[]).+)$/);
     if (bm) return [bm[1], bm[2]];
     const em = trimmed.match(/^(.+?)\s*(\\end\{[^}]+\})$/);
     if (em) return [em[1], em[2]];

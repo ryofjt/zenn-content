@@ -67,4 +67,16 @@ describe("formatKatex", () => {
     const result = formatKatex(["\\begin{cases}", "x", "\\end{cases}"]);
     strictEqual(result.join("\n"), "\\begin{cases}\n  x\n\\end{cases}");
   });
+
+  test("keeps \\begin{} arguments on the same line", () => {
+    const result = formatKatex([
+      "\\begin{array}{ccc}",
+      "a & b & c \\\\",
+      "\\end{array}",
+    ]);
+    strictEqual(
+      result.join("\n"),
+      "\\begin{array}{ccc}\n  a & b & c \\\\\n\\end{array}",
+    );
+  });
 });
