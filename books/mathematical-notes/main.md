@@ -729,6 +729,152 @@ $$
 
 一旦スキップ
 
+# 記号の準備
+
+$d \ge 3$
+$V$: 符号 $(1, d - 1)$ の Minkowski 空間
+$V_\mathbb{C} \coloneqq V \otimes \mathbb{C}$
+$G \coloneqq \mathrm{Spin}_0(V)$
+$G_\mathbb{C} \coloneqq \mathrm{Spin}(V_\mathbb{C})$
+$E \coloneqq i\mathbb{R} \times \mathbb{R}^{d - 1} \subset V_\mathbb{C}$
+$\mathcal{T} \coloneqq V - iV_+ \subset V_\mathbb{C}$
+$\tilde{\mathcal{T}}_n \coloneqq G_\mathbb{C}(\mathcal{T}^n) = SO(V_\mathbb{C})(\mathcal{T}^n)$
+$J_n \coloneqq \tilde{\mathcal{T}}_n \cap V^n$
+
+$V^{n + 1} / \Delta \ni (v_1, \dots, v_{n + 1}) \mapsto (v_2 - v_1, \dots, v_{n + 1} - v_n) \in V^n$ は同形で、左辺 (ゆえに右辺) には $\mathfrak{S}_{n + 1}$ が作用する
+
+# $SO(V_\mathbb{C})$ の分解
+
+$\tilde{\mathfrak{h}} \subset \mathfrak{so}(1, d - 1)$ を、$SO(1, d - 1)$ による共役で以下のいずれかになるような元全体とする
+
+(even)
+
+$$
+\begin{pmatrix}
+  tb &&& 0 \\
+  & \theta_1 r && \\
+  && \ddots & \\
+  0 &&& \theta_{d / 2 - 1} r
+\end{pmatrix} \quad (t, \theta_j \in \mathbb{R})
+$$
+
+(odd-1)
+
+$$
+\begin{pmatrix}
+  tb &&&& 0 \\
+  & \theta_1 r &&& \\
+  && \ddots && \\
+  &&& \theta_{(d - 3) / 2} r & \\
+  0 &&&& 0
+\end{pmatrix} \quad (t, \theta_j \in \mathbb{R})
+$$
+
+(odd-2)
+
+$$
+\begin{pmatrix}
+  0 &&& 0 \\
+  & \theta_1 r && \\
+  && \ddots & \\
+  0 &&& \theta_{(d - 1) / 2} r
+\end{pmatrix} \quad (\theta_j \in \mathbb{R})
+$$
+
+ただし
+
+$$
+\begin{aligned}
+  b &\coloneqq \begin{pmatrix} 0 & 1 \\
+    1 & 0
+  \end{pmatrix} \\
+  r &\coloneqq \begin{pmatrix} 0 & -1 \\
+    1 & 0
+  \end{pmatrix}
+\end{aligned}
+$$
+
+$\Phi: i\mathfrak{so}(1, d - 1) \times SO(1, d - 1) \ni (iX, r) \mapsto e^{iX}r \in SO(d, \mathbb{C})$ とすると、$\Phi(i\tilde{\mathfrak{h}} \times SO(1, d - 1))$ は $SO(d, \mathbb{C})$ の (実) Zariski 開集合を含む
+
+$b$, $r$ は以下を満たす
+
+$$
+\begin{aligned}
+  e^{tb} &= \begin{pmatrix} \mathrm{cosh}t & \mathrm{sinh}t \\
+    \mathrm{sinh}t & \mathrm{cosh}t
+  \end{pmatrix} \\
+  e^{\theta r} &= \begin{pmatrix} \mathrm{cos}\theta & -\mathrm{sin}\theta \\
+    \mathrm{sin}\theta & \mathrm{cos}\theta
+  \end{pmatrix} \\
+  e^{itb} &= \begin{pmatrix} \mathrm{cos}t & i\mathrm{sin}t \\
+    i\mathrm{sin}t & \mathrm{cos}t
+  \end{pmatrix} \\
+  e^{i\theta r} &= \begin{pmatrix} \mathrm{cosh}\theta & -i\mathrm{sinh}\theta \\
+    i\mathrm{sinh}\theta & \mathrm{cosh}\theta
+  \end{pmatrix}
+\end{aligned}
+$$
+
+$g \in SO(d, \mathbb{C})$ とする。$p \coloneqq g\overline{g}^{-1} \in SO(d, \mathbb{C})$ とする。まず、$p$ の固有多項式 $f_p$ は実係数なことを示す。$p\overline{p} = 1$, $J = p^T Jp$ だから
+
+$$
+\overline{f_p}(X) = \mathrm{det}(X - \overline{p}) = \mathrm{det}(X - Jp^T J) = f_p(X)
+$$
+
+$f_p$ は重根を持たないとする。$p$ の $\lambda \in \mathbb{C}$ 固有空間を $V_\mathbb{C}^\lambda$ とする。$V_\mathbb{C}^\lambda$ は $0$ or $1$ 次元。まず、$V_\mathbb{C}^\lambda \ni v \mapsto \overline{v} \in V_\mathbb{C}^{\bar{\lambda}^{-1}} \ (\lambda \ne 0)$ は同形を示す。$v \in V_\mathbb{C}^\lambda$ とすると
+
+$$
+p\overline{v} = \overline{p}^{-1}\overline{v} = \overline{p^{-1}v} = \overline{\lambda^{-1}v} = \bar{\lambda}^{-1}\overline{v}
+$$
+
+また、$\lambda\mu \ne 1$ ならば $\langle V_\mathbb{C}^\lambda, V_\mathbb{C}^\mu \rangle = 0$。これは、$v \in V_\mathbb{C}^\lambda, w \in V_\mathbb{C}^\mu$ ならば
+
+$$
+\langle v, w \rangle = \langle pv, pw \rangle = \lambda\mu\langle v, w \rangle
+$$
+
+から従う。$\langle -, - \rangle$ は非退化だから、$\langle V_\mathbb{C}^\lambda, V_\mathbb{C}^{\lambda^{-1}} \rangle = \mathbb{C} \ (V_\mathbb{C}^\lambda \ne 0)$ もわかる
+
+$|\lambda| \ne 1$ かつ $\lambda \not\in \mathbb{R}$ ならば $V_\mathbb{C}^\lambda = 0$ を示す。$v \in V_\mathbb{C}^\lambda \setminus \{0\}$ が取れると仮定する。$\overline{v} \in V_\mathbb{C}^{\bar{\lambda}^{-1}}$。$\lambda \ne \bar{\lambda}^{-1}$ だから、$v, \overline{v}$ は一次独立。$\lambda^2, \lambda\bar{\lambda}^{-1}$ はいずれも $1$ でないから $\mathrm{span}_\mathbb{C}\{ v, \overline{v} \}$ 上 pairing は消える。$W \coloneqq \mathrm{span}_\mathbb{R}\{ \mathrm{Re}v, \mathrm{Im}v \}$ は $2$ 次元で、pairing は $W$ 上消える。$\mathrm{pr}_\mathbb{R}|_W: W \to \mathbb{R}$ が単射になって矛盾する
+
+$\mathrm{det} p = 1$ だから、$V_{-1} = 0$。$V_\mathbb{C}$ は以下のように直交分解する
+
+$$
+\begin{aligned}
+  V_\mathbb{C} &= \bigoplus_{|\alpha_i| = 1, \alpha_i \ne \pm 1} (V_{\alpha_i} \oplus V_{\bar{\alpha_i}}) \oplus \bigoplus_{a_j \in \mathbb{R}^\times \setminus \{\pm 1\}} (V_{a_j} \oplus V_{a_j^{-1}}) &\quad (d \text{ は偶数}) \\
+  V_\mathbb{C} &= \bigoplus_{|\alpha_i| = 1, \alpha_i \ne \pm 1} (V_{\alpha_i} \oplus V_{\bar{\alpha_i}}) \oplus \bigoplus_{a_j \in \mathbb{R}^\times \setminus \{\pm 1\}} (V_{a_j} \oplus V_{a_j^{-1}}) \oplus V_1 &\quad (d \text{ は奇数})
+\end{aligned}
+$$
+
+まず、$V_{\alpha_i} \oplus V_{\bar{\alpha_i}}$ について考える。$V_{\alpha_i}$ は共役で閉じているから、$x_0 \in V$ があって $V_{\alpha_i} = \mathbb{C}x_0$。同様に、$y_0 \in V$ があって $V_{\bar{\alpha_i}} = \mathbb{C}y_0$。$\langle x_0, x_0 \rangle = \langle y_0, y_0 \rangle = 0$, $\langle x_0, y_0 \rangle \ne 0$。$\langle x_0, y_0 \rangle = 1 / 2$ として良い。$x \coloneqq x_0 + y_0, y \coloneqq x_0 - y_0$ とすると、$V_{\alpha_i} \oplus V_{\bar{\alpha_i}} = \mathrm{span}_\mathbb{C}\{ x, y \}$ で $\langle x, y \rangle = 0$, $\langle x, x \rangle = 1$, $\langle y, y \rangle = -1$。また
+
+$$
+\begin{aligned}
+  px &= \alpha_i x_0 + \bar{\alpha_i} y_0 = \mathrm{Re}\alpha_i x + i\mathrm{Im}\alpha_i y \\
+  py &= \alpha_i x_0 - \bar{\alpha_i} y_0 = i\mathrm{Im}\alpha_i x + \mathrm{Re}\alpha_i y
+\end{aligned}
+$$
+
+次に、$V_{a_j} \oplus V_{a_j^{-1}}$ について考える。$V_{a_j} = \mathbb{C}v$ とすると、$V_{a_j^{-1}} = \mathbb{C}\overline{v}$。$\langle v, v \rangle = 0$, $\langle v, \overline{v} \rangle \ne 0$。$\langle v, \overline{v} \rangle = \pm 2$ として良い。$x \coloneqq \mathrm{Re}v, y \coloneqq \mathrm{Im}v$ とすると、$V_{a_j} \oplus V_{a_j^{-1}} = \mathrm{span}_\mathbb{C}\{ x, y \}$ で $\langle x, y \rangle = 0$, $\langle x, x \rangle = \langle y, y \rangle = \pm 1$。符号の制約から、$\langle x, x \rangle = \langle y, y \rangle = -1$ でなければならない。また
+
+$$
+\begin{aligned}
+  px &= \frac{a_j v + a_j^{-1} \overline{v}}{2} = \frac{a_j + a_j^{-1}}{2} x + i\frac{a_j - a_j^{-1}}{2} y \\
+  py &= \frac{a_j v - a_j^{-1} \overline{v}}{2i} = -i\frac{a_j - a_j^{-1}}{2} x + \frac{a_j + a_j^{-1}}{2} y
+\end{aligned}
+$$
+
+さらに $a_j > 0$ でなければならないことを示す。$v' \coloneqq g^{-1}v, x' \coloneqq \mathrm{Re}v', y' \coloneqq \mathrm{Im}v'$ とする。$\langle v', v' \rangle = \langle v, v \rangle = 0$ だから、$\langle x', y' \rangle = 0$, $\langle x', x' \rangle = \langle y', y' \rangle$
+
+$$
+2\langle x', x' \rangle = \langle v', \overline{v'} \rangle = \langle g^{-1}v, \overline{g}^{-1}\overline{v} \rangle = \langle v, p\overline{v} \rangle = -2a_j^{-1}
+$$
+
+は符号の制約から負でなければならない
+
+最後に、$d$ が奇数の場合に、$V_1$ について考える。$V_1$ は共役不変だから、$x \in V$ があって $V_1 = \mathbb{C}x$。$\langle x, x \rangle = \pm 1$ として良い
+
+
 # Wightman function の解析接続
 
 あああ
