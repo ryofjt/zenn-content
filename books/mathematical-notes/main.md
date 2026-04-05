@@ -745,7 +745,7 @@ $V^{n + 1} / \Delta \ni (v_1, \dots, v_{n + 1}) \mapsto (v_2 - v_1, \dots, v_{n 
 
 # $SO(V_\mathbb{C})$ の分解
 
-$\tilde{\mathfrak{h}} \subset \mathfrak{so}(1, d - 1)$ を、$SO(1, d - 1)$ による共役で以下のいずれかになるような元全体とする
+$\tilde{\mathfrak{h}} \subset \mathfrak{so}(V)$ を、$SO(V)$ による共役で以下のいずれかになるような元全体とする
 
 (even)
 
@@ -794,7 +794,7 @@ $$
 \end{aligned}
 $$
 
-$\Phi: i\mathfrak{so}(1, d - 1) \times SO(1, d - 1) \ni (iX, r) \mapsto e^{iX}r \in SO(d, \mathbb{C})$ とすると、$\Phi(i\tilde{\mathfrak{h}} \times SO(1, d - 1))$ は $SO(d, \mathbb{C})$ の (実) Zariski 開集合を含む
+$\Phi: i\mathfrak{so}(V) \times SO(V) \ni (iX, r) \mapsto e^{iX}r \in SO(V_\mathbb{C})$ とすると、$\Phi(i\tilde{\mathfrak{h}} \times SO(V))$ は $SO(V_\mathbb{C})$ の (実) Zariski 開集合を含む
 
 $b$, $r$ は以下を満たす
 
@@ -815,7 +815,7 @@ $$
 \end{aligned}
 $$
 
-$g \in SO(d, \mathbb{C})$ とする。$p \coloneqq g\overline{g}^{-1} \in SO(d, \mathbb{C})$ とする。まず、$p$ の固有多項式 $f_p$ は実係数なことを示す。$p\overline{p} = 1$, $J = p^T Jp$ だから
+$g \in SO(V_\mathbb{C})$ とする。$p \coloneqq g\overline{g}^{-1} \in SO(V_\mathbb{C})$ とする。まず、$p$ の固有多項式 $f_p$ は実係数なことを示す。$p\overline{p} = 1$, $J = p^T Jp$ だから
 
 $$
 \overline{f_p}(X) = \mathrm{det}(X - \overline{p}) = \mathrm{det}(X - Jp^T J) = f_p(X)
@@ -873,6 +873,31 @@ $$
 は符号の制約から負でなければならない
 
 最後に、$d$ が奇数の場合に、$V_1$ について考える。$V_1$ は共役不変だから、$x \in V$ があって $V_1 = \mathbb{C}x$。$\langle x, x \rangle = \pm 1$ として良い
+
+# Convex cone の分離
+
+$V$: LCS over $\mathbb{R}$
+
+$G \subset V \setminus \{0\}$: open convex set
+ある $n \in V^*$ が存在して、$n(G) > 0$
+
+$G \ne \emptyset$ として良い。$g_0 \in G$ を固定する。$p(x) \coloneqq \mathrm{inf} \{ t \ge 0 \mid x \in t(g_0 - G) \}$ は劣線形。$\{ p < 1 \} = g_0 - G$。$\mathbb{R}g_0 \ni ag_0 \mapsto a \in \mathbb{R}$ は $p|_{\mathbb{R}g_0}$ で上から押さえられる。よって、Hahn–Banach の定理から、線形写像 $n: V \to \mathbb{R}$ が存在して、$n(g_0) = 1$ かつ $n \le p$。$|n((g_0 - G) \cap -(g_0 - G))| < 1$ だから、$n$ は連続。また、$x \in G$ ならば
+
+$$
+n(x) = n(g_0) - n(g_0 - x) \ge 1 - p(g_0 - x) > 0
+$$
+
+$C, D \subset V \setminus \{0\}$: 交わらない open convex cone
+ある $n \in V^*$ が存在して、$n(D) < 0 < n(C)$
+
+$C, D$ は空でないとして良い。$G \coloneqq C - D$ は open convex (cone) で $0$ を含まない。よって、ある $n \in V^*$ が存在して、$n(G) > 0$。よって、$n(C) > n(D)$。$n(C)$ は convex open set だから、$n(C) > 0$。同様に、$n(D) < 0$
+
+$C, D \subset V \setminus \{0\}$: 空でない open convex cone
+$D$ と $C \cup -C$ は交わらないとする
+$C^* \coloneqq \{ n \in V^* \mid n(C) > 0 \}$ とする
+ある $n \in \partial C^*$ が存在して、$n(D) < 0$ (自動的に、$n(C) > 0$ も成り立つことに注意)
+
+$n_1, n_2 \in V^*$ が存在して、$n_1(C) > 0 > n_1(D)$, $-n_2(C) > 0 > n_2(D)$。$n_1 \in C^*$, $n_2 \not\in C^*$ だから、$n_1$ と $n_2$ を結ぶ線分を考えれば良い
 
 
 # Wightman function の解析接続
