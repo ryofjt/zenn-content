@@ -878,7 +878,7 @@ $$
 
 $V$: LCS over $\mathbb{R}$
 
-$G \subset V \setminus \{0\}$: open convex set
+$G \subset V$: $0$ を含まない open convex set
 ある $n \in V^*$ が存在して、$n(G) > 0$
 
 $G \ne \emptyset$ として良い。$g_0 \in G$ を固定する。$p(x) \coloneqq \mathrm{inf} \{ t \ge 0 \mid x \in t(g_0 - G) \}$ は劣線形。$\{ p < 1 \} = g_0 - G$。$\mathbb{R}g_0 \ni ag_0 \mapsto a \in \mathbb{R}$ は $p|_{\mathbb{R}g_0}$ で上から押さえられる。よって、Hahn–Banach の定理から、線形写像 $n: V \to \mathbb{R}$ が存在して、$n(g_0) = 1$ かつ $n \le p$。$|n((g_0 - G) \cap -(g_0 - G))| < 1$ だから、$n$ は連続。また、$x \in G$ ならば
@@ -887,18 +887,60 @@ $$
 n(x) = n(g_0) - n(g_0 - x) \ge 1 - p(g_0 - x) > 0
 $$
 
-$C, D \subset V \setminus \{0\}$: 交わらない open convex cone
-ある $n \in V^*$ が存在して、$n(D) < 0 < n(C)$
+$E \subset V$: $0$ を含まない closed convex set
+ある $n \in V^*$ が存在して、$n(E) > 0$
 
-$C, D$ は空でないとして良い。$G \coloneqq C - D$ は open convex (cone) で $0$ を含まない。よって、ある $n \in V^*$ が存在して、$n(G) > 0$。よって、$n(C) > n(D)$。$n(C)$ は convex open set だから、$n(C) > 0$。同様に、$n(D) < 0$
+開凸集合 $0 \in U$ が存在して、$E \cap U = \emptyset$。$0$ を含まない開凸集合 $G \coloneqq E - U$ に直前の結果を適用すれば良い
 
-$C, D \subset V \setminus \{0\}$: 空でない open convex cone
-$D$ と $C \cup -C$ は交わらないとする
-$C^* \coloneqq \{ n \in V^* \mid n(C) > 0 \}$ とする
-ある $n \in \partial C^*$ が存在して、$n(D) < 0$ (自動的に、$n(C) > 0$ も成り立つことに注意)
+ここからは $V$ は有限次元とする
 
-$n_1, n_2 \in V^*$ が存在して、$n_1(C) > 0 > n_1(D)$, $-n_2(C) > 0 > n_2(D)$。$n_1 \in C^*$, $n_2 \not\in C^*$ だから、$n_1$ と $n_2$ を結ぶ線分を考えれば良い
+$C \subset V$: closed convex cone で直線を含まない ($\Leftrightarrow$ $C \cap -C \subset \{0\}$) もの
+ある $n \in V^*$ が存在して、$n(C \setminus \{0\}) > 0$
 
+$V$ に適当なノルムを入れる。$S \subset V$ を単位球面とする。$K \coloneqq \mathrm{co}(C \cap S)$ はコンパクトで、$0$ を含まない。よって、ある $n \in V^*$ が存在して、$n(K) > 0$
+
+$C, D \subset V$: 直線を含まない closed convex cone
+$C \cap D \subset \{0\}$ ならば、ある $n \in V^*$ が存在して、$n(C \setminus \{0\}) > 0 > n(D \setminus \{0\})$
+
+$C, D$ は空でないとして良い。$E \coloneqq C - D$ は直線を含まない convex cone。$E$ は閉なことを示す。$c_i - d_i \to x$ とする。$V$ に適当なノルムを入れる。$\|c_i\| \to \infty$ と仮定すると矛盾することを示す。$c_i / \|c_i\| \to \beta$ として良い。$d_i / \|c_i\| \to -\beta$ だから、$C \cap D \subset \{0\}$ に矛盾する。よって、ある $n \in V^*$ が存在して、$n(E \setminus \{0\}) > 0$。$C \subset E$ だから、$n(C \setminus \{0\}) > 0$。同様にして、$n(D \setminus \{0\}) < 0$
+
+$C, D \subset V$: 直線を含まない closed convex cone
+$C \not\subset \{0\}$ かつ $D \cap (C \cup -C) \subset \{0\}$ とする
+$C^* \coloneqq \{ n \in V^* \mid n(C) \ge 0 \}$ とすると、ある $n \in \partial C^*$ が存在して、$n(D \setminus \{0\}) < 0$
+
+$n_1, n_2 \in V^*$ が存在して、$n_1(C \setminus \{0\}) > 0 > n_1(D \setminus \{0\})$, $-n_2(C \setminus \{0\}) > 0 > n_2(D \setminus \{0\})$。$n_1 \in C^*$, $n_2 \not\in C^*$ だから、$n_1$ と $n_2$ を結ぶ線分を考えれば良い
+
+## Jost の定理
+
+$$
+J_n = \{ (v_1, \dots, v_n) \in V^n \mid \forall (\lambda_1, \dots, \lambda_n) \in \mathbb{R}_{\ge 0}^n \setminus \{0\}, \lambda_1 v_1 + \cdots + \lambda_n v_n \in V_\mathrm{space} \}
+$$
+
+$\subset$
+$(v_1, \dots, v_n) \in J_n$ とする。$g \in G_\mathbb{C}$ が存在して、$gv_1, \dots, gv_n \in \mathcal{T}$。よって、$(\lambda_1, \dots, \lambda_n) \in \mathbb{R}_{\ge 0}^n \setminus \{0\}$ ならば $g(\lambda_1 v_1 + \cdots + \lambda_n v_n) \in \mathcal{T}$。$\xi - i\eta \coloneqq g(\lambda_1 v_1 + \cdots + \lambda_n v_n)$ とすると
+
+$$
+(\xi - i\eta)^2 = \xi^2 - \eta^2 - 2i\xi\eta = (\lambda_1 v_1 + \cdots + \lambda_n v_n)^2 \in \mathbb{R}
+$$
+
+だから、$\xi\eta = 0$。よって、$\xi^2 \le 0$ ($SO_0(V)$ を使って、$\eta$ を標準形にすれば従う)
+
+$$
+(\lambda_1v_1 + \cdots + \lambda_nv_n)^2 = \xi^2 - \eta^2 < 0
+$$
+
+$\supset$
+$(v_1, \dots, v_n) \in V^n$ は右辺の条件を満たすとする。$E \coloneqq \{ \lambda_1 v_1 + \cdots + \lambda_n v_n \mid (\lambda_1, \dots, \lambda_n) \in \mathbb{R}_{\ge 0}^n \} \subset V$ は直線を含まない closed convex cone で、$E \cap (\overline{V}_+ \cup \overline{V}_-) = \{0\}$。$\partial(\overline{V}_+)^* = \partial\overline{V}_+ = \mathcal{O}^+_0 \cup \{0\}$ だから、$\alpha \in \mathcal{O}^+_0$ が存在して、$\alpha v_j < 0$。同様にして、$\beta \in \mathcal{O}^-_0$ が存在して、$\beta v_j < 0$。$\alpha\beta \le 0$ だが、$\alpha\beta < 0$ を示す。$\alpha\beta = 0$ と仮定すると、$c > 0$ が存在して、$\beta = -c\alpha$。これは $\alpha v_1 < 0$, $\beta v_1 < 0$ に矛盾する。よって、$W \coloneqq \mathrm{span}_\mathbb{R}\{ \alpha, \beta \}$ 上 pairing は非退化で $V = W \oplus W^\perp$ と直交分解する。$g \in SO(V_\mathbb{C})$ を
+
+$$
+\begin{aligned}
+  g\alpha &= -i\alpha \\
+  g\beta &= i\beta \\
+  gw' &= w' \quad (w' \in W^\perp)
+\end{aligned}
+$$
+
+で定義する。$gv_j \in \mathcal{T}$ を示す。$v_j = s_j\alpha + t_j\beta + w'_j$ と分解する。$\alpha v_j < 0$, $\beta v_j < 0$ だから、$s_j > 0$, $t_j > 0$。$\mathrm{Im}gv_j = -s_j\alpha + t_j\beta \in V_-$
 
 # Wightman function の解析接続
 
