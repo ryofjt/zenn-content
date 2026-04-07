@@ -627,7 +627,7 @@ $$
 
 (2) $\mathrm{supp}(\mathcal{F}\mathcal{W}_n) \subset \{ (p_1, \dots, p_n) \in V^{\times n} \mid \sum_{i = 1}^n p_i = 0, \sum_{i = 1}^j p_i \in \overline{V}_+ \ (1 \le j \le n - 1) \}$
 
-$f_1, \cdots, f_n \in \mathcal{S}(\mathcal{R})$ とする。$1 \le j \le n$ に対して
+$f_1, \dots, f_n \in \mathcal{S}(\mathcal{R})$ とする。$1 \le j \le n$ に対して
 
 $$
 F_j(a) \coloneqq \mathcal{W}_n(f_1(x_1 - a) \otimes \cdots \otimes f_j(x_j - a) \otimes f_{j + 1} \otimes \cdots \otimes f_n) \in \mathcal{S}'(V)
@@ -732,7 +732,7 @@ $$
 # $SO(V_\mathbb{C})$ の分解
 
 $V$: 符号 $(1, d - 1)$ の Minkowski 空間
-$\tilde{\mathfrak{h}} \subset \mathfrak{so}(V)$ を、$SO(V)$ による共役で以下のいずれかに含まれる元全体とする
+$\mathfrak{so}(V)^\mathrm{reg} \subset \mathfrak{so}(V)$ を、$SO_0(V)$ による共役で以下のいずれかに含まれる元全体とする
 
 $$
 \mathfrak{h}_s^\text{even} = \left\{ \begin{pmatrix}
@@ -774,7 +774,7 @@ $$
 \end{aligned}
 $$
 
-$\Phi: i\mathfrak{so}(V) \times SO(V) \ni (iX, r) \mapsto e^{iX}r \in SO(V_\mathbb{C})$ とすると、$\Phi(i\tilde{\mathfrak{h}} \times SO(V))$ は $SO(V_\mathbb{C})$ の (実) Zariski 開集合を含む
+$\Phi: i\mathfrak{so}(V) \times SO_0(V) \ni (iX, r) \mapsto e^{iX}r \in SO(V_\mathbb{C})$ とすると、$\Phi(i\mathfrak{so}(V)^\mathrm{reg} \times SO_0(V))$ は $SO(V_\mathbb{C})$ の (実) Zariski 開集合を含む
 
 $b$, $r$ は以下を満たす
 
@@ -940,7 +940,67 @@ $$
 
 (a) 任意の $\sigma \in \mathfrak{S}_{n + 1}$ に対して、$J_n \cap \sigma(J_n) \ne \emptyset$
 
+$$
+v \coloneqq (\overbrace{e_2, \dots, e_2}^n) + \sigma(\overbrace{e_3, \dots, e_3}^n) \in V^n
+$$
+
+$\{ \lambda_1 v_1 + \cdots + \lambda_n v_n \mid (\lambda_1, \dots, \lambda_n) \in \mathbb{R}_{\ge 0}^n \setminus \{0\} \} \subset \mathbb{R}_{> 0} e_2 + \mathbb{R} e_3 \subset V_\mathrm{space}$ だから、$v \in J_n$。$\sigma^{-1}v = \sigma^{-1}(\overbrace{e_2, \dots, e_2}^n) + (\overbrace{e_3, \dots, e_3}^n) \in J_n$ も同様
+
 (b) 任意の $\sigma \in \mathfrak{S}_{n + 1}$ に対して、$\tilde{\mathcal{T}}_n \cap \sigma(\tilde{\mathcal{T}}_n)$ は連結
+
+$P \coloneqq \{ (g, \underline{v}) \in SO(V_\mathbb{C}) \times \mathcal{T}^n \mid g\sigma^{-1}\underline{v} \in \mathcal{T}^n \}$ とすると
+
+$$
+SO(V_\mathbb{C}) \times P \ni (g_1, (g_2, \underline{v})) \mapsto g_1 g_2 \underline{v} \in \tilde{\mathcal{T}}_n \cap \sigma(\tilde{\mathcal{T}}_n)
+$$
+
+は全射だから、$P$ が連結を示せば良い。$Q_{\mathfrak{h}_*^*} \coloneqq \{ (e^{iX}, \underline{v}) \mid X \in \mathfrak{h}_*^*, \underline{v} \in \mathcal{T}^n, e^{iX}\sigma^{-1}\underline{v} \in \mathcal{T}^n \} \ (\mathfrak{h}_*^* = \mathfrak{h}_s^\text{even}, \mathfrak{h}_s^\text{odd}, \mathfrak{h}_c)$ とすると
+
+$$
+\bigsqcup_{\mathfrak{h}_*^*} SO_0(V) \times Q_{\mathfrak{h}_*^*} \times SO_0(V) \ni (g_0, (e^{iX}, \underline{v}), r) \mapsto (g_0 e^{iX}g_0^{-1}r, r^{-1}g_0\underline{v}) \in P
+$$
+
+は像が稠密だから、$Q_{\mathfrak{h}_*^*}$ の連結成分たちが $P$ 内で繋がっていることを示せば良い。まず、$Q_{\mathfrak{h}_c}$ が連結を示す。$\varphi_t: \mathcal{T} \ni v \mapsto (v_1, tv_2, \dots, tv_n) \in \mathcal{T} \ (0 \le t \le 1)$ は $\tilde{\varphi}_t: Q_{\mathfrak{h}_c} \to Q_{\mathfrak{h}_c}$ を定める。よって
+
+$$
+\begin{aligned}
+  &\{ \underline{x} - i\underline{y} \mid \underline{x} \in \mathbb{R}^n, \underline{y} \in \mathbb{R}_{> 0}^n, \sigma^{-1}\underline{y} \in \mathbb{R}_{> 0}^n \} \\
+  &\quad \simeq \mathbb{R}^n \times \{ (0, \tilde{y}_1, \dots, \tilde{y}_n) \mid (0, \tilde{y}) \text{ は単調増加で } \sigma^{-1}(0, \tilde{y}) \text{ も単調増加} \} \\
+  &\quad \simeq \begin{cases} \mathbb{R}^n \times \mathbb{R}_{> 0}^n \quad (\sigma = 1) \\
+    \emptyset \quad (\sigma \ne 1)
+  \end{cases}
+\end{aligned}
+$$
+
+が連結から従う
+
+次に、$Q_{\mathfrak{h}_s^*}$ の連結成分が $P$ 内で繋がっていることを示す。$\psi_t: \mathcal{T} \ni v \mapsto (v_1, v_2, tv_3, \dots, tv_n) \in \mathcal{T} \ (0 \le t \le 1)$ は $\tilde{\psi}_t: Q_{\mathfrak{h}_s^*} \to Q_{\mathfrak{h}_s^*}$ を定める。よって
+
+$$
+X \coloneqq \{ (t, \underline{x} - i\underline{y}) \mid t \in \mathbb{R} / 2\pi\mathbb{Z}, \underline{x} \in (\mathbb{R}^2)^n, \underline{y} \in (V_+(\mathbb{R}^2))^n, \mathrm{Im}(-e^{itb}\sigma^{-1}(\underline{x} - i\underline{y})) \in (V_+(\mathbb{R}^2))^n \}
+$$
+
+の連結成分が $P$ 内で繋がっていることを示せば良い。射影 $X \to \mathbb{R} / 2\pi\mathbb{Z}$ による $(0, \pi), (-\pi, 0)$ の引き戻し $X^{(0, \pi)}, X^{(-\pi, 0)}$ が連結で、$P$ 内で繋がっていることを示せば良い。まず、$X^{(0, \pi)}$ が連結を示す。射影 $\mathrm{pr}_{t, y}: X^{(0, \pi)} \to (\mathbb{R} / 2\pi\mathbb{Z}) \times (V_+(\mathbb{R}^2))^n$ のファイバーは凸集合。$\mathrm{pr}_{t, y}$ の切断が存在することを示せば良い。$\mathrm{Im}(-e^{itb}\sigma^{-1}(\underline{x} - i\underline{y})) = \mathrm{Im}(-(\mathrm{cos}t + i(\mathrm{sin}t)b)(\sigma^{-1}\underline{x} - i\sigma^{-1}\underline{y})) = (\mathrm{cos}t)\sigma^{-1}\underline{y} - (\mathrm{sin}t)b\sigma^{-1}\underline{x}$ だから
+
+$$
+(\mathbb{R} / 2\pi\mathbb{Z}) \times (V_+(\mathbb{R}^2))^n \ni (t, y) \mapsto \frac{1}{\mathrm{sin}t}\sigma b((\mathrm{cos}t)\sigma^{-1}\underline{y} - (\overbrace{e_1, \dots, e_1}^n)) \in X^{(0, \pi)}_{t, y}
+$$
+
+とすれば良い。同様にして、$X^{(-\pi, 0)}$ も連結。最後に、$X^{(0, \pi)}, X^{(-\pi, 0)}$ が $P$ 内で繋がっていることを示す。$(t, \underline{x} - i\underline{y}) \in X^{(0, \pi)}$ とする。この点は $p_0 \coloneqq (e^{itb}, \underline{x} - i\underline{y}) \in P$ に対応する。$R(\theta) \coloneqq e^{\theta\mathrm{diag}(0, r, \overbrace{0, \dots, 0}^{d - 3})} \in SO(d - 1)$ とすると
+
+$$
+\Phi(\theta) \coloneqq (R(\theta)e^{itb}R(-\theta), R(\theta)(\underline{x} - i\underline{y})) \in P \quad (0 \le \theta \le \pi)
+$$
+
+によって、$p_0$ は $p_\pi \coloneqq (R(\pi)e^{itb}R(\pi), R(\pi)(\underline{x} - i\underline{y})) \in P$ と繋がっている。$p_\pi$ は
+
+$$
+(-t, R(\pi)(\underline{x} - i\underline{y})) \in X^{(-\pi, 0)}
+$$
+
+に対応する
+
+最後に、$\sigma = 1$ の場合、$\{1\} \times \mathcal{T}^n \subset Q_{\mathfrak{h}_s^\text{odd}} \cap Q_{\mathfrak{h}_c}$
 
 (c) $\bigcup_{\sigma \in \mathfrak{S}_{n + 1}} \sigma(\tilde{\mathcal{T}}_n) \supset (E^{n + 1} - \Delta) / \Delta$
 
