@@ -719,7 +719,7 @@ $$
   \mathcal{W}_{2n + 1} &= 0 \\
   \mathcal{W}_0 &= 1 \\
   \mathcal{W}_2(f \otimes g) &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+} \mathcal{F}f(p)\mathcal{F}g(-p) \, d\mu \\
-  \mathcal{W}_{2m}(f_1 \cdots f_{2m}) &= \sum_{\sigma \in P_2(2m)} \prod_{\{i, j\} \in \sigma} \mathcal{W}_2(f_i, f_j)
+  \mathcal{W}_{2m}(f_1 \otimes \cdots \otimes f_{2m}) &= \sum_{\sigma \in P_2(2m)} \prod_{\{i, j\} \in \sigma, i < j} \mathcal{W}_2(f_i, f_j)
 \end{aligned}
 $$
 
@@ -801,7 +801,7 @@ $$
 \overline{f_p}(X) = \mathrm{det}(X - \overline{p}) = \mathrm{det}(X - Jp^T J) = f_p(X)
 $$
 
-$f_p$ は重根を持たないとする。$p$ の $\lambda \in \mathbb{C}$ 固有空間を $V_\mathbb{C}^\lambda$ とする。$V_\mathbb{C}^\lambda$ は $0$ or $1$ 次元。まず、$V_\mathbb{C}^\lambda \ni v \mapsto \overline{v} \in V_\mathbb{C}^{\bar{\lambda}^{-1}} \ (\lambda \ne 0)$ は同形を示す。$v \in V_\mathbb{C}^\lambda$ とすると
+$f_p$ は重根を持たないとする。$p$ の $\lambda \ (\in \mathbb{C})$ 固有空間を $V_\mathbb{C}^\lambda$ とする。$V_\mathbb{C}^\lambda$ は $0$ or $1$ 次元。まず、$V_\mathbb{C}^\lambda \ni v \mapsto \overline{v} \in V_\mathbb{C}^{\bar{\lambda}^{-1}} \ (\lambda \ne 0)$ は同形を示す。$v \in V_\mathbb{C}^\lambda$ とすると
 
 $$
 p\overline{v} = \overline{p}^{-1}\overline{v} = \overline{p^{-1}v} = \overline{\lambda^{-1}v} = \bar{\lambda}^{-1}\overline{v}
@@ -989,20 +989,61 @@ $$
 とすれば良い。同様にして、$X^{(-\pi, 0)}$ も連結。最後に、$X^{(0, \pi)}, X^{(-\pi, 0)}$ が $P$ 内で繋がっていることを示す。$(t, \underline{x} - i\underline{y}) \in X^{(0, \pi)}$ とする。この点は $p_0 \coloneqq (e^{itb}, \underline{x} - i\underline{y}) \in P$ に対応する。$R(\theta) \coloneqq e^{\theta\mathrm{diag}(0, r, \overbrace{0, \dots, 0}^{d - 3})} \in SO(d - 1)$ とすると
 
 $$
-\Phi(\theta) \coloneqq (R(\theta)e^{itb}R(-\theta), R(\theta)(\underline{x} - i\underline{y})) \in P \quad (0 \le \theta \le \pi)
+\theta \mapsto (R(\theta)e^{itb}R(-\theta), R(\theta)(\underline{x} - i\underline{y})) \in P \quad (0 \le \theta \le \pi)
 $$
 
-によって、$p_0$ は $p_\pi \coloneqq (R(\pi)e^{itb}R(\pi), R(\pi)(\underline{x} - i\underline{y})) \in P$ と繋がっている。$p_\pi$ は
-
-$$
-(-t, R(\pi)(\underline{x} - i\underline{y})) \in X^{(-\pi, 0)}
-$$
-
-に対応する
+によって、$p_0$ は $p_\pi \coloneqq (R(\pi)e^{itb}R(\pi), R(\pi)(\underline{x} - i\underline{y})) \in P$ と繋がっている。$p_\pi$ は $(-t, R(\pi)(\underline{x} - i\underline{y})) \in X^{(-\pi, 0)}$ に対応する
 
 最後に、$\sigma = 1$ の場合、$\{1\} \times \mathcal{T}^n \subset Q_{\mathfrak{h}_s^\text{odd}} \cap Q_{\mathfrak{h}_c}$
 
-(c) $\bigcup_{\sigma \in \mathfrak{S}_{n + 1}} \sigma(\tilde{\mathcal{T}}_n) \supset (E^{n + 1} - \Delta) / \Delta$
+(c) $E_{n + 1}^0 \coloneqq \{ (v_1, \dots, v_{n + 1}) \in E^{n + 1} \mid v_i \ne v_j \}$ とすると、$\bigcup_{\sigma \in \mathfrak{S}_{n + 1}} \sigma(\tilde{\mathcal{T}}_n) \supset E_{n + 1}^0 / \Delta$
+
+$(v_1, \dots, v_{n + 1}) \in E_{n + 1}^0$ とする。$g \in SO(E)$ が存在して、$(gv_i)_1 - (gv_j)_1 = (g(v_i - v_j))_1 \ne 0$。$\sigma \in \mathfrak{S}_{n + 1}$ が一意的に存在して、$-i(gv_{\sigma(1)})_1 > \cdots > -i(gv_{\sigma(n + 1)})_1$。よって、$(gv_{\sigma(1)}, \dots, gv_{\sigma(n + 1)})$ に対応する $V_\mathbb{C}^n$ の元は $\mathcal{T}^n$ に入る
+
+# Support function $H_K$
+
+$V$: LCS over $\mathbb{R}$
+
+$K \subset V$: 空でない閉凸集合
+
+$$
+H_K(\xi) \coloneqq \mathrm{sup}_{x \in K} \langle \xi, x \rangle \in \mathbb{R} \cup \{\infty\} \quad (\xi \in V^*)
+$$
+
+は以下を満たす
+
+(a) $H_K \not\equiv \infty$
+(b) $H_K(t\xi) = tH_K(\xi) \quad (t > 0, \xi \in V^*)$
+(c) $H_K(\xi_1 + \xi_2) \le H_K(\xi_1) + H_K(\xi_2)$
+(d) wk\* 位相で下半連続 ($a \in \mathbb{R}$ に対して、$\{ H_K > a \}$ が wk\* open)
+
+逆に、$H: V^* \to \mathbb{R} \cup \{\infty\}$ が (a) 〜 (d) を満たせば、$K_H \coloneqq \{ x \in V \mid \langle -, x \rangle \le H \}$ は空でない閉凸集合になる。$K_H = \bigcap_{\xi \in V^*} \{ \xi \le H(\xi) \}$ から閉凸集合になることが従う。空でないことを示す。まず、$H(0) = 0$ を示す。$\xi_0 \in V^*$ が存在して、$H(\xi_0) < \infty$。$H(t\xi_0) = tH(\xi_0) \to 0 \ (t \to 0)$ から、$H(0) \le 0$。また、$H(0) \le H(0) + H(0)$ から $H(0) = 0$ でなければならない。$E_H \coloneqq \{ (\xi, r) \in V^*_\sigma \times \mathbb{R} \mid H(\xi) \le r \}$ とすると、$E$ は closed convex cone。$(0, -1) \not\in E_H$ だから、Hahn–Banach の分離定理から $(x, \lambda) \in (V^*_\sigma \times \mathbb{R})^* \simeq V \times \mathbb{R}$ が存在して
+
+$$
+\xi x + r\lambda > -\lambda \quad ((\xi, r) \in E_H)
+$$
+
+$(0, 0) \in E_H$ だから $\lambda > 0$。$E_H$ は cone だから、$\xi x + r\lambda \ge 0 \ ((\xi, r) \in E_H)$。特に、$\xi x + H(\xi)\lambda \ge 0 \ (H(\xi) < \infty)$。よって、$-x / \lambda \in K_H$
+
+$K_{H_K} = K$
+$\supset$ は明らか。$x \not\in K$ ならば $x \not\in K_{H_K}$ は Hahn–Banach の分離定理から従う
+
+$H_{K_H} = H$
+$H_{K_H} \le H$ は明らか。$\xi_0 \in V^*$ が存在して、$H_{K_H}(\xi_0) < H(\xi_0)$ と仮定する。$(\xi_0, H_{K_H}(\xi_0)) \not\in E_H$ だから、$(x, \lambda) \in V \times \mathbb{R}$ が存在して
+
+$$
+\xi x + r\lambda > \xi_0 x + H_{K_H}(\xi_0)\lambda \quad ((\xi, r) \in E_H)
+$$
+
+$(0, 0) \in E_H$ と $E_H$ が cone であることから
+
+$$
+\xi x + r\lambda \ge 0 > \xi_0 x + H_{K_H}(\xi_0)\lambda \quad ((\xi, r) \in E_H)
+$$
+
+$(0, 1) \in E_H$ だから $\lambda \ge 0$。まず、$\lambda = 0$ の場合を考える。$K_H$ は空でないから、$x_0 \in K_H$ が取れる。$x_0 - tx \in K_H \ (t > 0)$。$H_{K_H}(\xi_0) \ge \langle \xi_0, x_0 - tx \rangle \to \infty \ (t \to \infty)$ となり、仮定に矛盾する
+次に、$\lambda > 0$ の場合を考える。$-x / \lambda \in K_H$ だが $\langle \xi_0, -x / \lambda \rangle > H_{K_H}(\xi_0)$ となり、$H_{K_H}$ の定義に矛盾する
+
 
 # Wightman function の解析接続
 
