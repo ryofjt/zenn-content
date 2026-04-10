@@ -1044,6 +1044,131 @@ $$
 $(0, 1) \in E_H$ だから $\lambda \ge 0$。まず、$\lambda = 0$ の場合を考える。$K_H$ は空でないから、$x_0 \in K_H$ が取れる。$x_0 - tx \in K_H \ (t > 0)$。$H_{K_H}(\xi_0) \ge \langle \xi_0, x_0 - tx \rangle \to \infty \ (t \to \infty)$ となり、仮定に矛盾する
 次に、$\lambda > 0$ の場合を考える。$-x / \lambda \in K_H$ だが $\langle \xi_0, -x / \lambda \rangle > H_{K_H}(\xi_0)$ となり、$H_{K_H}$ の定義に矛盾する
 
+# Montel 空間での収束
+
+$E$: Montel 空間
+$\{ x_\lambda \}$ は有界で、元の位相よりも弱い Hausdorff 位相 $\tau$ で $x \in E$ に収束しているとする。このとき、元の位相で $x_\lambda \to x$
+
+有界閉集合 $K$ が存在して、$x_\lambda, x \in K$。$E$ は Montel だから、$K$ はコンパクト。$K$ 上元の位相と $\tau$ は一致する
+
+$f_\lambda, f \in \mathcal{S}(\mathbb{R}^n)$ は
+(1) $|x^\alpha\partial^\beta f_\lambda| \le C_{\alpha, \beta}$
+(2) 各点収束で $f_\lambda \to f$
+を満たすとする。このとき、$\mathcal{S}(\mathbb{R}^n)$ 内で $f_\lambda \to f$
+
+# Paley–Wiener–Schwartz の定理
+
+$V = \mathbb{R}^n$
+
+$u \in \mathcal{D}'(V)$ に対して
+
+$$
+\Gamma_u \coloneqq \{ \eta \in V^* \mid e^\eta u \in \mathcal{S}'(V)\}
+$$
+
+$\Gamma_u$ は凸なことを示す。$\eta_1, \eta_2 \in \Gamma_u$, $0 \le t \le 1$ とする
+
+$$
+e^{t\eta_1 + (1 - t)\eta_2}u = \frac{e^{t\eta_1 + (1 - t)\eta_2}}{e^{\eta_1} + e^{\eta_2}}(e^{\eta_1}u + e^{\eta_2}u)
+$$
+
+だから、$\frac{e^{t\eta_1 + (1 - t)\eta_2}}{e^{\eta_1} + e^{\eta_2}} = \frac{e^{t(\eta_1 - \eta_2)}}{e^{\eta_1 - \eta_2} + 1} = f \circ (\eta_1 - \eta_2)$ の任意階の微分が有界なことを示せば良い。ただし、$f(x) \coloneqq \frac{e^{tx}}{e^x + 1} \ (x \in \mathbb{R})$。$m$ 次多項式 $P_m$ があって $f^{(m)} = e^{tx}(e^x + 1)^{-m - 1}P_m(e^x)$ と表せることから従う
+
+$K \subset V$: 空でない閉凸集合
+$u \in \Gamma_K(V, \mathcal{D}')$
+$\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u)$ は正則関数で、コンパクト部分集合 $M \subset \mathrm{int}\Gamma_u$ に対して、$N \ge 0$ と $C > 0$ が存在して
+
+$$
+|\hat{u}(\zeta)| \le C(1 + |\zeta|)^N e^{H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u, \eta \in M, H_K(\mathrm{Im}\zeta - \eta) < \infty)
+$$
+
+これは ($M \ne \emptyset$ とすると)
+
+$$
+|\hat{u}(\zeta)| \le C(1 + |\zeta|)^N e^{\mathrm{min}_{\eta \in M} H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u)
+$$
+
+とも表せる
+
+逆に、空でない開凸集合 $\Gamma \subset V^*$ と正則関数 $U: V^* + i\Gamma \to \mathbb{C}$ があって、コンパクト部分集合 $M \subset \Gamma$ に対して、$N \ge 0$ と $C > 0$ が存在して
+
+$$
+|U(\zeta)| \le C(1 + |\zeta|)^N e^{H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i\Gamma, \eta \in M, H_K(\mathrm{Im}\zeta - \eta) < \infty)
+$$
+
+を満たせば、$u \in \Gamma_K(V, \mathcal{D}')$ が存在して、$\Gamma \subset \Gamma_u$ かつ $U(\xi + i\eta) = \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i\Gamma)$
+
+前半
+まず、$\widehat{e^\eta u}(\xi)$ は正則関数になることを示す。$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとする。それらの張る単体 $\Delta$ は $\Gamma_u$ に含まれる。$L_\Delta \subset \Delta$ をコンパクト部分集合とし、$\eta \in L_\Delta$ とすると
+
+$$
+e^\eta u = \frac{e^\eta}{e^{\eta_0} + \cdots + e^{\eta_n}}(e^{\eta_0}u + \cdots + e^{\eta_n}u)
+$$
+
+$$
+\Phi_\eta(x) \coloneqq \frac{e^\eta}{e^{\eta_0} + \cdots + e^{\eta_n}} = \frac{1}{e^{\eta_0 - \eta} + \cdots + e^{\eta_n - \eta}} = f \circ (\eta_0 - \eta, \dots, \eta_n - \eta)
+$$
+
+ただし、$f(t_0, \dots, t_n) \coloneqq \frac{1}{e^{t_0} + \cdots + e^{t_n}}$
+
+$$
+\varepsilon\|x\| \le \max_j \langle \eta_j - \eta, x \rangle \quad (\eta \in L_\Delta)
+$$
+
+を示す。ある $x_0 \in S$ と $\eta' \in L_\Delta$ が存在して、$\langle \eta_j - \eta', x_0 \rangle \le 0$ と仮定する。$\Delta - \eta'$ が原点を通るある閉半平空間に含まれることになり矛盾する。よって、$e^{\eta_0 - \eta} + \cdots + e^{\eta_n - \eta} \ge \max_j e^{\langle \eta_j - \eta, x \rangle} = e^{\max_j \langle \eta_j - \eta, x \rangle} \ge e^{\varepsilon\|x\|}$。また、$|\alpha|$ 次の多項式 $P_\alpha$ があって、$\partial_t^\alpha f = P_\alpha(e^t_0, \dots, e^t_n)(e^{t_0} + \cdots + e^{t_n})^{-|\alpha| - 1}$ だから
+
+$$
+|\partial_x^\alpha \Phi_\eta(x)| \le C_\alpha e^{-\varepsilon\|x\|} \quad (\eta \in L_\Delta)
+$$
+
+$$
+\begin{aligned}
+  \widehat{e^\eta u}(\xi) &= (2\pi)^{-n/2} \langle u, e^\eta \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \quad (\varphi \in \mathcal{S}(V^*)) \\
+  &= (2\pi)^{-n/2} \langle u, \sum_j e^{\eta_j}\Phi_\eta(x) \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} \sum_j \langle e^{\eta_j}u, \int \varphi(\xi)\Phi_\eta(x)e^{-i\xi x} \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} \sum_j \int \varphi(\xi) \langle e^{\eta_j}u, \Phi_\eta(x)e^{-i\xi x} \rangle \, d\xi \\
+  &= (2\pi)^{-n/2} \sum_j \langle e^{\eta_j}u, \Phi_\eta(x)e^{-i\xi x} \rangle \\
+  &= (2\pi)^{-n/2} \sum_j \langle e^{\eta_j}u, \frac{e^{-i(\xi + i\eta)}}{e^{\eta_0} + \cdots + e^{\eta_n}} \rangle
+\end{aligned}
+$$
+
+は $\xi + i\eta \in V^* + i \, \mathrm{int}L_\Delta$ で $C^\infty$ 級。Cauchy–Riemann の等式を満たすから正則関数になる。総合すると、$\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u$ で正則になる
+
+次に評価を示す。$B_r \coloneqq \{ x \in V \mid \|x\| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \Delta$ をコンパクト部分集合とし、$\eta \in L_\Delta$ とする。$\zeta = \xi + i\omega \in V^* + i \, \mathrm{int}\Gamma_u$ は $H_K(\omega - \eta) < \infty$ を満たすとすると
+
+$$
+\begin{aligned}
+  \hat{u}(\zeta) &= \widehat{e^\omega u}(\xi) \\
+  &= (2\pi)^{-n/2} \langle u, e^\omega \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \quad (\varphi \in \mathcal{S}(V^*)) \\
+  &= (2\pi)^{-n/2} \langle u, \chi_\delta e^\omega \sum_j \frac{e^{\eta_j}}{e^{\eta_0} + \cdots + e^{\eta_n}} \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \langle u, \sum_j e^{\eta_j} \int \varphi(\xi)W_{\zeta, \eta, \delta}(x) \, d\xi \rangle
+\end{aligned}
+$$
+
+ただし、$W_{\zeta, \eta, \delta}(x) \coloneqq \frac{\chi_\delta e^{\omega}e^{-H_K(\omega - \eta)}e^{-i\xi}}{e^{\eta_0} + \cdots + e^{\eta_n}} = \chi_\delta e^{\omega x - \eta x - H_K(\omega - \eta)}e^{-i\xi x}\Phi_\eta(x)$
+
+$x \in K + B_{3\delta}$ ならば
+
+$$
+\omega x - \eta x - H_K(\omega - \eta) \le 3\delta\|\omega - \eta\|
+$$
+
+$\delta = (1 + \|\omega\|)^{-1}$ とし、$W_{\zeta, \eta} \coloneqq W_{\zeta, \eta, (1 + \|\omega\|)^{-1}}$ とすると
+
+$$
+|\partial_x^\alpha W_{\zeta, \eta}(x)| \le C'_\alpha(1 + |\zeta|)^{|\alpha|}e^{-\varepsilon|x|} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u, \eta \in L_\Delta)
+$$
+
+$$
+\begin{aligned}
+  \hat{u}(\zeta) &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \langle u, \sum_j e^{\eta_j} \int \varphi(\xi)W_{\zeta, \eta}(x) \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \sum_j \langle e^{\eta_j}u, \int \varphi(\xi)W_{\zeta, \eta}(x) \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \sum_j \int \varphi(\xi) \langle e^{\eta_j}u, W_{\zeta, \eta}(x) \rangle \, d\xi \\
+  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \sum_j \langle e^{\eta_j}u, W_{\zeta, \eta}(x) \rangle
+\end{aligned}
+$$
+
+後半
 
 # Wightman function の解析接続
 
