@@ -1076,21 +1076,22 @@ $$
 
 $K \subset V$: 空でない閉凸集合
 $u \in \Gamma_K(V, \mathcal{D}')$
+$\Gamma_u + \{ H_K < \infty \} \subset \Gamma_u$
 $\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u)$ は正則関数で、コンパクト部分集合 $M \subset \mathrm{int}\Gamma_u$ に対して、$N \ge 0$ と $C > 0$ が存在して
 
 $$
 |\hat{u}(\zeta)| \le C(1 + |\zeta|)^N e^{H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u, \eta \in M, H_K(\mathrm{Im}\zeta - \eta) < \infty)
 $$
 
-これは ($M \ne \emptyset$ とすると)
+これは
 
 $$
-|\hat{u}(\zeta)| \le C(1 + |\zeta|)^N e^{\mathrm{min}_{\eta \in M} H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u)
+|\hat{u}(\xi + i\eta + i\theta)| \le C(1 + |\xi| + |\theta|)^N e^{H_K(\theta)} \quad (\xi \in V^*, \eta \in M, \theta \in \{ H_K < \infty \})
 $$
 
 とも表せる
 
-逆に、空でない開凸集合 $\Gamma \subset V^*$ と正則関数 $U: V^* + i\Gamma \to \mathbb{C}$ があって、コンパクト部分集合 $M \subset \Gamma$ に対して、$N \ge 0$ と $C > 0$ が存在して
+逆に、空でない開凸集合 $\Gamma \subset V^*$ で $\Gamma + \{ H_K < \infty \} \subset \Gamma$ なものと正則関数 $U: V^* + i\Gamma \to \mathbb{C}$ があって、コンパクト部分集合 $M \subset \Gamma$ に対して、$N \ge 0$ と $C > 0$ が存在して
 
 $$
 |U(\zeta)| \le C(1 + |\zeta|)^N e^{H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i\Gamma, \eta \in M, H_K(\mathrm{Im}\zeta - \eta) < \infty)
@@ -1134,41 +1135,87 @@ $$
 
 は $\xi + i\eta \in V^* + i \, \mathrm{int}L_\Delta$ で $C^\infty$ 級。Cauchy–Riemann の等式を満たすから正則関数になる。総合すると、$\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u$ で正則になる
 
-次に評価を示す。$B_r \coloneqq \{ x \in V \mid \|x\| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \Delta$ をコンパクト部分集合とし、$\eta \in L_\Delta$ とする。$\zeta = \xi + i\omega \in V^* + i \, \mathrm{int}\Gamma_u$ は $H_K(\omega - \eta) < \infty$ を満たすとすると
+次に評価を示す。$B_r \coloneqq \{ x \in V \mid \|x\| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \Delta$ をコンパクト部分集合とする。$\xi \in V^*$, $\eta \in L_\Delta$, $\theta \in \{ H_K < \infty \}$ とすると
 
 $$
 \begin{aligned}
-  \hat{u}(\zeta) &= \widehat{e^\omega u}(\xi) \\
-  &= (2\pi)^{-n/2} \langle u, e^\omega \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \quad (\varphi \in \mathcal{S}(V^*)) \\
-  &= (2\pi)^{-n/2} \langle u, \chi_\delta e^\omega \sum_j \frac{e^{\eta_j}}{e^{\eta_0} + \cdots + e^{\eta_n}} \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \\
-  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \langle u, \sum_j e^{\eta_j} \int \varphi(\xi)W_{\zeta, \eta, \delta}(x) \, d\xi \rangle
+  \hat{u}(\xi + i\eta + i\theta) &= \widehat{e^{\eta + \theta}u}(\xi) \\
+  &= (2\pi)^{-n/2} \langle u, e^{\eta + \theta} \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \quad (\varphi \in \mathcal{S}(V^*)) \\
+  &= (2\pi)^{-n/2} \langle u, \chi_\delta e^{\eta + \theta} \sum_j \frac{e^{\eta_j}}{e^{\eta_0} + \cdots + e^{\eta_n}} \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} e^{H_K(\theta)} \langle u, \sum_j e^{\eta_j} \int \varphi(\xi)W_{\xi, \eta, \theta, \delta}(x) \, d\xi \rangle
 \end{aligned}
 $$
 
-ただし、$W_{\zeta, \eta, \delta}(x) \coloneqq \frac{\chi_\delta e^{\omega}e^{-H_K(\omega - \eta)}e^{-i\xi}}{e^{\eta_0} + \cdots + e^{\eta_n}} = \chi_\delta e^{\omega x - \eta x - H_K(\omega - \eta)}e^{-i\xi x}\Phi_\eta(x)$
+ただし、$W_{\xi, \eta, \theta, \delta}(x) \coloneqq \frac{\chi_\delta e^{\eta + \theta}e^{-H_K(\theta)}e^{-i\xi}}{e^{\eta_0} + \cdots + e^{\eta_n}} = \chi_\delta e^{\theta x - H_K(\theta)}e^{-i\xi x}\Phi_\eta(x)$
 
 $x \in K + B_{3\delta}$ ならば
 
 $$
-\omega x - \eta x - H_K(\omega - \eta) \le 3\delta\|\omega - \eta\|
+\theta x - H_K(\theta) \le 3\delta\|\theta\|
 $$
 
-$\delta = (1 + \|\omega\|)^{-1}$ とし、$W_{\zeta, \eta} \coloneqq W_{\zeta, \eta, (1 + \|\omega\|)^{-1}}$ とすると
+$\delta = (1 + \|\theta\|)^{-1}$ とし、$W_{\xi, \eta, \theta} \coloneqq W_{\xi, \eta, \theta, (1 + \|\theta\|)^{-1}}$ とすると
 
 $$
-|\partial_x^\alpha W_{\zeta, \eta}(x)| \le C'_\alpha(1 + |\zeta|)^{|\alpha|}e^{-\varepsilon|x|} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u, \eta \in L_\Delta)
+|\partial_x^\alpha W_{\xi, \eta, \theta}(x)| \le C'_\alpha(1 + |\xi| + |\theta|)^{|\alpha|}e^{-\varepsilon|x|}
 $$
 
 $$
 \begin{aligned}
-  \hat{u}(\zeta) &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \langle u, \sum_j e^{\eta_j} \int \varphi(\xi)W_{\zeta, \eta}(x) \, d\xi \rangle \\
-  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \sum_j \langle e^{\eta_j}u, \int \varphi(\xi)W_{\zeta, \eta}(x) \, d\xi \rangle \\
-  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \sum_j \int \varphi(\xi) \langle e^{\eta_j}u, W_{\zeta, \eta}(x) \rangle \, d\xi \\
-  &= (2\pi)^{-n/2} e^{H_K(\omega - \eta)} \sum_j \langle e^{\eta_j}u, W_{\zeta, \eta}(x) \rangle
+  \hat{u}(\xi + i\eta + i\theta) &= (2\pi)^{-n/2} e^{H_K(\theta)} \langle u, \sum_j e^{\eta_j} \int \varphi(\xi)W_{\xi, \eta, \theta}(x) \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} e^{H_K(\theta)} \sum_j \langle e^{\eta_j}u, \int \varphi(\xi)W_{\xi, \eta, \theta}(x) \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} e^{H_K(\theta)} \sum_j \int \varphi(\xi) \langle e^{\eta_j}u, W_{\xi, \eta, \theta}(x) \rangle \, d\xi \\
+  &= (2\pi)^{-n/2} e^{H_K(\theta)} \sum_j \langle e^{\eta_j}u, W_{\xi, \eta, \theta}(x) \rangle
 \end{aligned}
 $$
 
 後半
+$\eta \in \Gamma$ とすると $U(\cdot + i\eta) \in \mathcal{S}'(V^*)$ だから $u_\eta \coloneqq \mathcal{F}^{-1}U(\cdot + i\eta) \in \mathcal{S}'(V)$ が定まる
+
+$$
+\partial_{\eta_j}U(\xi + i\eta) = i\partial_{\xi_j}U(\xi + i\eta)
+$$
+
+だから、$\partial_{\eta_j}u_\eta = x_j u_\eta$。よって、$u \coloneqq e^{-\eta}u_\eta \in \mathcal{D}'(V)$ は $\eta \in \Gamma$ に依らない。$\mathrm{supp} u \subset K$ を示す。$x_0 \not\in K$ とする。$\theta_0 \in V^*$ が存在して、$\langle \theta_0, x_0 \rangle > H_K(\theta_0)$。$\eta_0 \in \Gamma$ を固定する。$t > 0$ に対して
+
+$$
+|U(\xi + i\eta_0 + it\theta_0)| \le C(1 + |\xi| + t)^N e^{tH_K(\theta_0)}
+$$
+
+開集合 $x_0 \in U$ が存在して、$\langle \theta_0, x \rangle \ge H_K(\theta_0) + \varepsilon \ (x \in U)$。$\varphi \in C^\infty_c(U)$ とすると
+
+$$
+\begin{aligned}
+  |u(\varphi)| &= |(e^{\eta_0 + t\theta_0}u)(e^{-\eta_0 - t\theta_0}\varphi)| \\
+  &= |\int U(\xi + i\eta_0 + it\theta_0)\widehat{e^{-\eta_0 - t\theta_0}\varphi}(-\xi) \, d\xi| \\
+  &= (2\pi)^{-n/2} |\int U(\xi + i\eta_0 + it\theta_0) \, d\xi \int e^{-\eta_0 x - t\theta_0 x}\varphi(x)e^{ix\xi} \, dx| \\
+  &= (2\pi)^{-n/2} |\int U(\xi + i\eta_0 + it\theta_0) \, d\xi \int e^{-\eta_0 x - t\theta_0 x}\varphi(x)M_\xi^{N + n + 1}(e^{ix\xi}) \, dx| \\
+  &= (2\pi)^{-n/2} |\int U(\xi + i\eta_0 + it\theta_0) \, d\xi \int (-M_\xi)^{N + n + 1}[e^{-\eta_0 x - t\theta_0 x}\varphi(x)]e^{ix\xi} \, dx| \\
+  &\le C' \int |U(\xi + i\eta_0 + it\theta_0)| (1 + t)^{N + n + 1}(1 + |\xi|)^{-N - n - 1}e^{-tH_K(\theta) - t\varepsilon} \, d\xi \\
+  &\le C'' (1 + t)^{2N + n + 1}e^{-t\varepsilon}
+\end{aligned}
+$$
+
+ただし、$M_\xi \coloneqq \frac{1}{i|\xi|^2} \sum_i \xi_i \frac{\partial}{\partial x_i}$。$t \to \infty$ とすれば良い
+
+# 畳み込み
+
+$V = \mathbb{R}^n$
+$s: V \times V \xrightarrow{+} V$ とする
+
+$\Gamma_1, \Gamma_2 \subset T^*V$: closed cone
+$s|_{(\Gamma_1 \cap 0_V) \times (\Gamma_2 \cap 0_V)} \to V$ は proper とする
+畳み込み
+
+$$
+\begin{aligned}
+  \mathcal{D}'_{\Gamma_1}(V) \otimes \mathcal{D}'_{\Gamma_2}(V) \ni f \otimes g &\mapsto f \boxtimes g \in \mathcal{D}'_{\Gamma_1 \times \Gamma_2}(V \times V) \\
+  &\overset{s_*}{\mapsto} f * g \in \mathcal{D}'_\Gamma(V)
+\end{aligned}
+$$
+
+は各変数ごとに連続。ただし、$\Gamma \coloneqq \{ (x, \xi) \in T^*V \mid \exists a, b \in V, a + b = x \text{ かつ } \xi \in \Gamma_{1, a} \cap \Gamma_{2, b} \}$
+
 
 # Wightman function の解析接続
 
