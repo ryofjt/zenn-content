@@ -1077,7 +1077,7 @@ $$
 $K \subset V$: 空でない閉凸集合
 $u \in \Gamma_K(V, \mathcal{D}')$
 $\Gamma_u + \{ H_K < \infty \} \subset \Gamma_u$
-$\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u)$ は正則関数で、コンパクト部分集合 $M \subset \mathrm{int}\Gamma_u$ に対して、$N \ge 0$ と $C > 0$ が存在して
+$\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u)$ は正則関数で、コンパクト部分集合 $M \subset \mathrm{int}\Gamma_u$ に対して、$N \ge 0$ と $C \ge 0$ が存在して
 
 $$
 |\hat{u}(\zeta)| \le C(1 + |\zeta|)^N e^{H_K(\mathrm{Im}\zeta - \eta)} \quad (\zeta \in V^* + i \, \mathrm{int}\Gamma_u, \eta \in M, H_K(\mathrm{Im}\zeta - \eta) < \infty)
@@ -1113,13 +1113,13 @@ $$
 ただし、$f(t_0, \dots, t_n) \coloneqq \frac{1}{e^{t_0} + \cdots + e^{t_n}}$
 
 $$
-\varepsilon\|x\| \le \max_j \langle \eta_j - \eta, x \rangle \quad (\eta \in L_\Delta)
+\varepsilon|x| \le \max_j \langle \eta_j - \eta, x \rangle \quad (\eta \in L_\Delta)
 $$
 
-を示す。ある $x_0 \in S$ と $\eta' \in L_\Delta$ が存在して、$\langle \eta_j - \eta', x_0 \rangle \le 0$ と仮定する。$\Delta - \eta'$ が原点を通るある閉半平空間に含まれることになり矛盾する。よって、$e^{\eta_0 - \eta} + \cdots + e^{\eta_n - \eta} \ge \max_j e^{\langle \eta_j - \eta, x \rangle} = e^{\max_j \langle \eta_j - \eta, x \rangle} \ge e^{\varepsilon\|x\|}$。また、$|\alpha|$ 次の多項式 $P_\alpha$ があって、$\partial_t^\alpha f = P_\alpha(e^t_0, \dots, e^t_n)(e^{t_0} + \cdots + e^{t_n})^{-|\alpha| - 1}$ だから
+を示す。ある $x_0 \in S$ と $\eta' \in L_\Delta$ が存在して、$\langle \eta_j - \eta', x_0 \rangle \le 0$ と仮定する。$\Delta - \eta'$ が原点を通るある閉半平空間に含まれることになり矛盾する。よって、$e^{\eta_0 - \eta} + \cdots + e^{\eta_n - \eta} \ge \max_j e^{\langle \eta_j - \eta, x \rangle} = e^{\max_j \langle \eta_j - \eta, x \rangle} \ge e^{\varepsilon|x|}$。また、$|\alpha|$ 次の多項式 $P_\alpha$ があって、$\partial_t^\alpha f = P_\alpha(e^t_0, \dots, e^t_n)(e^{t_0} + \cdots + e^{t_n})^{-|\alpha| - 1}$ だから
 
 $$
-|\partial_x^\alpha \Phi_\eta(x)| \le C_\alpha e^{-\varepsilon\|x\|} \quad (\eta \in L_\Delta)
+|\partial_x^\alpha \Phi_\eta(x)| \le C_\alpha e^{-\varepsilon|x|} \quad (\eta \in L_\Delta)
 $$
 
 $$
@@ -1135,7 +1135,7 @@ $$
 
 は $\xi + i\eta \in V^* + i \, \mathrm{int}L_\Delta$ で $C^\infty$ 級。Cauchy–Riemann の等式を満たすから正則関数になる。総合すると、$\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u$ で正則になる
 
-次に評価を示す。$B_r \coloneqq \{ x \in V \mid \|x\| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \Delta$ をコンパクト部分集合とする。$\xi \in V^*$, $\eta \in L_\Delta$, $\theta \in \{ H_K < \infty \}$ とすると
+次に評価を示す。$B_r \coloneqq \{ x \in V \mid |x| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \Delta$ をコンパクト部分集合とする。$\xi \in V^*$, $\eta \in L_\Delta$, $\theta \in \{ H_K < \infty \}$ とすると
 
 $$
 \begin{aligned}
@@ -1151,10 +1151,10 @@ $$
 $x \in K + B_{3\delta}$ ならば
 
 $$
-\theta x - H_K(\theta) \le 3\delta\|\theta\|
+\theta x - H_K(\theta) \le 3\delta|\theta|
 $$
 
-$\delta = (1 + \|\theta\|)^{-1}$ とし、$W_{\xi, \eta, \theta} \coloneqq W_{\xi, \eta, \theta, (1 + \|\theta\|)^{-1}}$ とすると
+$\delta = (1 + |\theta|)^{-1}$ とし、$W_{\xi, \eta, \theta} \coloneqq W_{\xi, \eta, \theta, (1 + |\theta|)^{-1}}$ とすると
 
 $$
 |\partial_x^\alpha W_{\xi, \eta, \theta}(x)| \le C'_\alpha(1 + |\xi| + |\theta|)^{|\alpha|}e^{-\varepsilon|x|}
@@ -1214,7 +1214,18 @@ $$
 \end{aligned}
 $$
 
-は各変数ごとに連続。ただし、$\Gamma \coloneqq \{ (x, \xi) \in T^*V \mid \exists a, b \in V, a + b = x \text{ かつ } \xi \in \Gamma_{1, a} \cap \Gamma_{2, b} \}$
+は各変数ごとに連続。ただし、$\Gamma \coloneqq s_*(\Gamma_1 \times \Gamma_2) = \{ (x, \xi) \in T^*V \mid \exists a, b \in V, a + b = x \text{ かつ } \xi \in \Gamma_{1, a} \cap \Gamma_{2, b} \}$
+
+$u, v \in \mathcal{D}'(V)$ とする。$s: \mathrm{supp}u \times \mathrm{supp}v \xrightarrow{+} V$ は proper とする。$P$ を定数係数の微分作用素とすると
+
+$$
+\begin{aligned}
+  (Pu * v)(\varphi) &= (Pu \boxtimes v)(s^*\varphi) \\
+  &= (u \boxtimes v)(P^*_x s^*\varphi) \\
+  &= (u \boxtimes v)(s^*P^*\varphi) \\
+  &= (P(u * v))(\varphi)
+\end{aligned}
+$$
 
 
 # Wightman function の解析接続
