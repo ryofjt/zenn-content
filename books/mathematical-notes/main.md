@@ -902,7 +902,7 @@ $\mathcal{T} \coloneqq V - iV_+ \subset V_\mathbb{C}$
 $\tilde{\mathcal{T}}_n \coloneqq G_\mathbb{C}(\mathcal{T}^n) = SO(V_\mathbb{C})(\mathcal{T}^n)$
 $J_n \coloneqq \tilde{\mathcal{T}}_n \cap V^n$
 
-$V^{n + 1} / \Delta \ni (v_1, \dots, v_{n + 1}) \mapsto (v_2 - v_1, \dots, v_{n + 1} - v_n) \in V^n$ は同形で、左辺 (ゆえに右辺) には $\mathfrak{S}_{n + 1}$ が作用する
+$V^{n + 1} / \Delta \ni (v_1, \dots, v_{n + 1}) \mapsto (v_1 - v_2, \dots, v_n - v_{n + 1}) \in V^n$ は同形で、左辺 (ゆえに右辺) には $\mathfrak{S}_{n + 1}$ が作用する
 
 ## Jost の定理
 
@@ -965,7 +965,7 @@ $$
 $$
 \begin{aligned}
   &\{ \underline{x} - i\underline{y} \mid \underline{x} \in \mathbb{R}^n, \underline{y} \in \mathbb{R}_{> 0}^n, \sigma^{-1}\underline{y} \in \mathbb{R}_{> 0}^n \} \\
-  &\quad \simeq \mathbb{R}^n \times \{ (0, \tilde{y}_1, \dots, \tilde{y}_n) \mid (0, \tilde{y}) \text{ は単調増加で } \sigma^{-1}(0, \tilde{y}) \text{ も単調増加} \} \\
+  &\quad \simeq \mathbb{R}^n \times \{ (\tilde{y}_1, \dots, \tilde{y}_n, 0) \mid (\tilde{y}, 0) \text{ は単調減少で } \sigma^{-1}(\tilde{y}, 0) \text{ も単調減少} \} \\
   &\quad \simeq \begin{cases} \mathbb{R}^n \times \mathbb{R}_{> 0}^n \quad (\sigma = 1) \\
     \emptyset \quad (\sigma \ne 1)
   \end{cases}
@@ -998,7 +998,7 @@ $$
 
 (c) $E_{n + 1}^0 \coloneqq \{ (v_1, \dots, v_{n + 1}) \in E^{n + 1} \mid v_i \ne v_j \}$ とすると、$\bigcup_{\sigma \in \mathfrak{S}_{n + 1}} \sigma(\tilde{\mathcal{T}}_n) \supset E_{n + 1}^0 / \Delta$
 
-$(v_1, \dots, v_{n + 1}) \in E_{n + 1}^0$ とする。$g \in SO(E)$ が存在して、$(gv_i)_1 - (gv_j)_1 = (g(v_i - v_j))_1 \ne 0$。$\sigma \in \mathfrak{S}_{n + 1}$ が一意的に存在して、$-i(gv_{\sigma(1)})_1 > \cdots > -i(gv_{\sigma(n + 1)})_1$。よって、$(gv_{\sigma(1)}, \dots, gv_{\sigma(n + 1)})$ に対応する $V_\mathbb{C}^n$ の元は $\mathcal{T}^n$ に入る
+$(v_1, \dots, v_{n + 1}) \in E_{n + 1}^0$ とする。$g \in SO(E)$ が存在して、$(gv_i)_1 - (gv_j)_1 = (g(v_i - v_j))_1 \ne 0$。$\sigma \in \mathfrak{S}_{n + 1}$ が一意的に存在して、$-i(gv_{\sigma(1)})_1 < \cdots < -i(gv_{\sigma(n + 1)})_1$。よって、$(gv_{\sigma(1)}, \dots, gv_{\sigma(n + 1)})$ に対応する $V_\mathbb{C}^n$ の元は $\mathcal{T}^n$ に入る
 
 # Support function $H_K$
 
@@ -1227,6 +1227,112 @@ $$
 \end{aligned}
 $$
 
+# 波動方程式の前進基本解
+
+$\square \coloneqq \partial_t^2 - \partial_x^2$ の基本解を考える。形式的には、$\square E = \delta$ とすると、$-\xi^2\hat{E} = (2\pi)^{-d/2}$ だから、$\hat{E} = -(2\pi)^{-d/2}\frac{1}{\xi^2}$
+
+以降は厳密に構成をする。まず、$|(\xi + i\eta)^2| \ge -\eta^2 \ (\eta \in V_-)$ を示す。$SO_0(1, d - 1)$ の作用を考えると、$\eta = (\eta_0, 0)$ として良い
+
+$$
+\begin{aligned}
+  |(\xi + i\eta)^2|^2 - (\eta^2)^2 &= |(\xi^2 - \eta^2) + 2i\xi\eta|^2 - (\eta^2)^2 \\
+  &= (\xi_0^2 - \xi'^2 - \eta_0^2)^2 + 4\xi_0^2\eta_0^2 - \eta_0^4 \\
+  &= (\xi_0^2 - \xi'^2)^2 + 2\xi'^2\eta_0^2 + 2\xi_0^2\eta_0^2 \\
+  &\ge 0
+\end{aligned}
+$$
+
+$$
+U(\xi + i\eta) \coloneqq -(2\pi)^{-d/2}\frac{1}{(\xi + i\eta)^2} \quad (\eta \in V_-)
+$$
+
+は正則関数
+
+$$
+H_{\overline{V}_+}(\theta) = \begin{cases} 0 &\quad (\theta \in \overline{V}_-) \\
+  \infty &\quad (\theta \not\in \overline{V}_-)
+\end{cases}
+$$
+
+よって、$\{ H_{\overline{V}_+} < \infty \} = \overline{V}_-$
+
+$M \subset V_-$ をコンパクト部分集合とすると
+
+$$
+|U(\xi + i\eta + i\theta)| \le C \quad (\eta \in M, \theta \in \overline{V}_-)
+$$
+
+よって、Paley–Wiener–Schwartz の定理から、対応する $E_+ \in \mathcal{D}'_{\overline{V}_+}(V)$ が構成できる
+
+$$
+E_+(\varphi) = -(2\pi)^{-d} \int \frac{1}{(\xi + i\eta)^2}\varphi(x)e^{ix(\xi + i\eta)} \, dx d\xi \quad (\eta \in V_-)
+$$
+
+$E_+$ が基本解になっていることは
+
+$$
+(\square E_+)(\varphi) = E_+(\square\varphi) = (2\pi)^{-d} \int \varphi(x)e^{ix(\xi + i\eta)} \, dx d\xi = \varphi(0)
+$$
+
+から従う
+
+最後に、基本解で $\mathrm{supp} \subset \overline{V}_+$ なものは一意的なことを示す。$F \in \mathcal{D}'_{\overline{V}_+}(V)$ も基本解だとする。$+: \overline{V}_+ \times \overline{V}_+ \to V$ は時間成分を考えれば proper だから
+
+$$
+\begin{aligned}
+  E_+ - F &= \delta * (E_+ - F) \\
+  &= \square E_+ * (E_+ - F) \\
+  &= \square(E_+ * (E_+ - F)) \\
+  &= E_+ * \square(E_+ - F) \\
+  &= 0
+\end{aligned}
+$$
+
+# $d = 2$ での $E_+$ の具体形
+
+$d = 2$ とする。$\psi \in C^\infty_c(V)$ とすると
+
+$$
+\begin{aligned}
+  &E_+(\psi(t, x)) \\
+  &\quad = -\frac{1}{4\pi^2} \int_{-\infty + i\eta_0}^{\infty + i\eta_0} d\zeta_0 \int_{-\infty + i\eta_1}^{\infty + i\eta_1} d\zeta_1 \int \frac{1}{\zeta_0^2 - \zeta_1^2}\psi(t, x)e^{i(t\zeta_0 - x\zeta_1)} \, dtdx \quad ((\eta_0, \eta_1) \in V_-) \\
+  &\quad = -\frac{1}{8\pi^2} \int_{-\infty + i\varepsilon_0}^{\infty + i\varepsilon_0} dz \int_{-\infty + i\varepsilon_1}^{\infty + i\varepsilon_1} dw \int \frac{1}{zw}\psi(t, x)e^{i(\frac{t - x}{2}z + \frac{t + x}{2}w)} \, dtdx \quad (\varepsilon_0, \varepsilon_1 < 0) \\
+  &\quad = -\frac{1}{8\pi^2} \int \psi(t, x) \, dtdx \left(\int_{-\infty + i\varepsilon_0}^{\infty + i\varepsilon_0} \frac{1}{z}e^{i\frac{t - x}{2}z} \, dz\right)\left(\int_{-\infty + i\varepsilon_1}^{\infty + i\varepsilon_1} \frac{1}{w}e^{i\frac{t + x}{2}w} \, dw\right) \quad (\varepsilon_0, \varepsilon_1 < 0)
+\end{aligned}
+$$
+
+ただし、$z = \zeta_0 + \zeta_1, w = \zeta_0 - \zeta_1$ と変換した
+
+$$
+\lim_{\varepsilon \to +0} \int_{-\infty}^\infty dx \int \frac{1}{x - i\varepsilon}e^{ia(x - i\varepsilon)}\varphi(a) \, da = 2\pi i \int_0^\infty \varphi(a) \, da \quad (\varphi \in C^\infty_c(\mathbb{R}))
+$$
+
+を示す
+
+$$
+\begin{aligned}
+  &\int_{-\infty}^\infty dx \int \frac{1}{x - i\varepsilon}e^{ia(x - i\varepsilon)}\varphi(a) \, da \\
+  &\quad = \int_{-\infty}^\infty dx \int \frac{x}{x^2 + \varepsilon^2}e^{iax}e^{a\varepsilon}\varphi(a) \, da + i\int_{-\infty}^\infty dx \int \frac{\varepsilon}{x^2 + \varepsilon^2}e^{iax}e^{a\varepsilon}\varphi(a) \, da \\
+  &\quad = \int I(a)e^{a\varepsilon}\varphi(a) \, da + \pi i \int_{-\infty}^\infty k_\varepsilon(x) \left(\int e^{a\varepsilon}\varphi(a)e^{iax} \, da\right) dx \\
+  &\quad \xrightarrow{\varepsilon \to +0} \pi i \left(\int_0^\infty \varphi(a) \, da - \int_{-\infty}^0 \varphi(a) \, da\right) + \pi i \int_{-\infty}^\infty \varphi(a) \, da \\
+  &\quad = 2\pi i \int_0^\infty \varphi(a) \, da
+\end{aligned}
+$$
+
+ただし、$k(x) \coloneqq \frac{1}{\pi(x^2 + 1)}$, $k_\varepsilon(x) \coloneqq \frac{1}{\varepsilon}k(x / \varepsilon) = \frac{\varepsilon}{\pi(x^2 + \varepsilon^2)}$ であり
+
+$$
+I(a) \coloneqq \int_{-\infty}^\infty \frac{x}{x^2 + \varepsilon^2}e^{iax} \, dx = \begin{cases} \pi i e^{-\varepsilon a} &\quad (a > 0) \\
+  0 &\quad (a = 0) \\
+  -\pi i e^{\varepsilon a} &\quad (a < 0)
+\end{cases}
+$$
+
+は留数定理から従う。総合すると
+
+$$
+E_+(\psi) = \frac{1}{2} \int \psi(x, t)1_{[0, \infty)}\left(\frac{t - x}{2}\right)1_{[0, \infty)}\left(\frac{t + x}{2}\right) \, dtdx = \frac{1}{2}1_{\overline{V}_+}
+$$
 
 # Wightman function の解析接続
 
