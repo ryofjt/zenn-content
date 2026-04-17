@@ -297,7 +297,7 @@ $J_n \coloneqq \tilde{\mathcal{T}}_n \cap V^n$
 
 $V^{n + 1} / \Delta \ni (v_1, \dots, v_{n + 1}) \mapsto (v_1 - v_2, \dots, v_n - v_{n + 1}) \in V^n$ は同形で、左辺 (ゆえに右辺) には $\mathfrak{S}_{n + 1}$ が作用する
 
-## Jost の定理
+# Jost の定理
 
 $$
 J_n = \{ (v_1, \dots, v_n) \in V^n \mid \forall (\lambda_1, \dots, \lambda_n) \in \mathbb{R}_{\ge 0}^n \setminus \{0\}, \lambda_1 v_1 + \cdots + \lambda_n v_n \in V_\mathrm{space} \}
@@ -392,6 +392,95 @@ $$
 (c) $E_{n + 1}^0 \coloneqq \{ (v_1, \dots, v_{n + 1}) \in E^{n + 1} \mid v_i \ne v_j \}$ とすると、$\bigcup_{\sigma \in \mathfrak{S}_{n + 1}} \sigma(\tilde{\mathcal{T}}_n) \supset E_{n + 1}^0 / \Delta$
 
 $(v_1, \dots, v_{n + 1}) \in E_{n + 1}^0$ とする。$g \in SO(E)$ が存在して、$(gv_i)_1 - (gv_j)_1 = (g(v_i - v_j))_1 \ne 0$。$\sigma \in \mathfrak{S}_{n + 1}$ が一意的に存在して、$-i(gv_{\sigma(1)})_1 < \cdots < -i(gv_{\sigma(n + 1)})_1$。よって、$(gv_{\sigma(1)}, \dots, gv_{\sigma(n + 1)})$ に対応する $V_\mathbb{C}^n$ の元は $\mathcal{T}^n$ に入る
+
+(d) $K \subset \mathcal{T}^n$ はコンパクトとする。$\{ g \in SO(d, \mathbb{C}) \mid gK \subset \mathcal{T}^n \}$ は連結
+
+$g \in SO(d, \mathbb{C})$ は $gK \subset \mathcal{T}^n$ とする。$g$ が $e$ と曲線で結べることを示せば良い。$g$ は $g = g_0 e^{iX}g_0^{-1}r \ (X \in \mathfrak{h}_*^*)$ と表せるとして良い。$g_0 = r = e$ として良い。$X$ に $tb$ が含まれる場合、$-\pi < t \le \pi$ として良い。$e^{isX}K \subset \mathcal{T}^n \ (0 \le s \le 1)$ を示す。他の場合も同様だから、$X \in \mathfrak{h}_s^\text{odd}$ とし、$X = \mathrm{diag}(tb, \theta_1 r, \dots, \theta_{(d - 3) / 2}r, 0) \ (-\pi < t \le \pi, \theta_k \in \mathbb{R})$ とする。$\underline{v} \in K$ と $1 \le j \le n$ を固定する。$v_j \eqqcolon (x_0 - i y_0, \dots, x_{d - 1} - i y_{d - 1})$ とする
+
+$$
+(y_0(s), \dots, y_{d - 2}(s), y_{d - 1}) \coloneqq -\mathrm{Im}(e^{isX}v_j)
+$$
+
+とおく。$y_0(s) > 0$ かつ $y_0(s)^2 - y_1(s)^2 - \dots - y_{d - 2}(s)^2 - y_{d - 1}^2 > 0$ を示せば良い
+
+$$
+\begin{aligned}
+  F(s) &\coloneqq \sqrt{y_0(s)^2 - y_1(s)^2} \\
+  G_\varepsilon(s) &\coloneqq \sqrt{y_2(s)^2 + \dots + y_{d - 2}(s)^2 + y_{d - 1}^2 + \varepsilon}
+\end{aligned}
+$$
+
+とすると、$y_0(s) \pm y_1(s) > 0$ かつ $F(s)$ が上に凸で $G_\varepsilon(s)$ が下に凸を示せば良い
+
+$$
+\begin{aligned}
+  \begin{pmatrix}
+    y_0(s) \\
+    y_1(s)
+  \end{pmatrix} &= -\mathrm{Im} \left\{ \begin{pmatrix}
+    \mathrm{cos}(st) & i\mathrm{sin}(st) \\
+    i\mathrm{sin}(st) & \mathrm{cos}(st)
+  \end{pmatrix} \begin{pmatrix}
+    x_0 - iy_0 \\
+    x_1 - iy_1
+  \end{pmatrix} \right\} \\
+  &= \begin{pmatrix}
+    \mathrm{cos}(st)y_0 - \mathrm{sin}(st)x_1 \\
+    -\mathrm{sin}(st)x_0 + \mathrm{cos}(st)y_1
+  \end{pmatrix}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \begin{pmatrix}
+    y_{2k}(s) \\
+    y_{2k + 1}(s)
+  \end{pmatrix} &= -\mathrm{Im} \left\{ \begin{pmatrix}
+    \mathrm{cosh}(s\theta_k) & -i\mathrm{sinh}(s\theta_k) \\
+    i\mathrm{sinh}(s\theta_k) & \mathrm{cosh}(s\theta_k)
+  \end{pmatrix} \begin{pmatrix}
+    x_{2k} - iy_{2k} \\
+    x_{2k + 1} - iy_{2k + 1}
+  \end{pmatrix}\right\} \\
+  &= \begin{pmatrix}
+    \mathrm{cosh}(s\theta_k)y_{2k} + \mathrm{sinh}(s\theta_k)x_{2k + 1} \\
+    -\mathrm{sinh}(s\theta_k)x_{2k} + \mathrm{cosh}(s\theta_k)y_{2k + 1}
+  \end{pmatrix}
+\end{aligned}
+$$
+
+$$
+y_0(s) \pm y_1(s) = (y_0 \pm y_1)\mathrm{cos}(st) - (x_1 \pm x_0)\mathrm{sin}(st)
+$$
+
+は $s = 0, 1$ で正だから、常に正
+
+$$
+F'(s) = (y_0(s)y_0'(s) - y_1(s)y_1'(s))F(s)^{-1}
+$$
+
+$$
+\begin{aligned}
+  F''(s) &= (y_0'(s)^2 - y_1'(s)^2)F(s)^{-1} - t^2F(s) \\
+  &\quad -(y_0(s)y_0'(s) - y_1(s)y_1'(s))^2F(s)^{-3} \\
+  &= -(y_0(s)y_1'(s) - y_1(s)y_0'(s))^2F(s)^{-3} - t^2F(s) \le 0
+\end{aligned}
+$$
+
+$$
+G_\varepsilon'(s) = (y_2(s)y_2'(s) + \dots + y_{d - 2}(s)y_{d - 2}'(s))G_\varepsilon(s)^{-1}
+$$
+
+$$
+\begin{aligned}
+  G_\varepsilon''(s) &= (y_2'(s)^2 + \dots + y_{d - 2}'(s)^2)G_\varepsilon(s)^{-1} \\
+  &\quad +\left(\sum_k \theta_k^2(y_{2k}(s)^2 + y_{2k + 1}(s)^2)\right)G_\varepsilon(s)^{-1} \\
+  &\quad -(y_2(s)y_2'(s) + \dots + y_{d - 2}(s)y_{d - 2}'(s))^2 G_\varepsilon(s)^{-3} \\
+  &\ge (y_2'(s)^2 + \dots + y_{d - 2}'(s)^2)(y_{d - 1}^2 +\varepsilon)G_\varepsilon(s)^{-3} \\
+  &\quad +\left(\sum_k \theta_k^2(y_{2k}(s)^2 + y_{2k + 1}(s)^2)\right)G_\varepsilon(s)^{-1} \ge 0
+\end{aligned}
+$$
 
 # Support function $H_K$
 
@@ -493,7 +582,7 @@ $$
 を満たせば、$u \in \Gamma_K(V, \mathcal{D}')$ が存在して、$\Gamma \subset \Gamma_u$ かつ $U(\xi + i\eta) = \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i\Gamma)$
 
 前半
-まず、$\widehat{e^\eta u}(\xi)$ は正則関数になることを示す。$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとする。それらの張る単体 $\Delta$ は $\Gamma_u$ に含まれる。$L_\Delta \subset \Delta$ をコンパクト部分集合とし、$\eta \in L_\Delta$ とすると
+まず、$\widehat{e^\eta u}(\xi)$ は正則関数になることを示す。$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとする。それらの張る単体 $\Delta$ は $\Gamma_u$ に含まれる。$L_\Delta \subset \mathrm{int}\Delta$ をコンパクト部分集合とし、$\eta \in L_\Delta$ とすると
 
 $$
 e^\eta u = \frac{e^\eta}{e^{\eta_0} + \cdots + e^{\eta_n}}(e^{\eta_0}u + \cdots + e^{\eta_n}u)
@@ -528,7 +617,7 @@ $$
 
 は $\xi + i\eta \in V^* + i \, \mathrm{int}L_\Delta$ で $C^\infty$ 級。Cauchy–Riemann の等式を満たすから正則関数になる。総合すると、$\xi + i\eta \in V^* + i \, \mathrm{int}\Gamma_u$ で正則になる
 
-次に評価を示す。$B_r \coloneqq \{ x \in V \mid |x| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \Delta$ をコンパクト部分集合とする。$\xi \in V^*$, $\eta \in L_\Delta$, $\theta \in \{ H_K < \infty \}$ とすると
+次に評価を示す。$B_r \coloneqq \{ x \in V \mid |x| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。再び、$\eta_0, \dots, \eta_n \in \mathrm{int}\Gamma_u$ は一般の位置にあるとし、それらの張る単体を $\Delta$ とする。$L_\Delta \subset \mathrm{int}\Delta$ をコンパクト部分集合とする。$\xi \in V^*$, $\eta \in L_\Delta$, $\theta \in \{ H_K < \infty \}$ とすると
 
 $$
 \begin{aligned}
