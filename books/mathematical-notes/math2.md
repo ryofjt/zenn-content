@@ -961,3 +961,11 @@ $$
 \tilde{W}_n(y) = W_n(y) = \mathcal{W}_n(q(y)) = \mathcal{W}_n(\sigma q(y)) = W_n(\sigma y) = \tilde{W}_n(\sigma y)
 $$
 
+# Schwinger function
+
+$\bigcup_{\sigma \in \mathfrak{S}_{n + 1}} \sigma(\tilde{\mathcal{T}}_n) \supset E_{n + 1}^0 / \Delta$ だから
+
+$S_n \coloneqq \mathrm{pr}^*(\tilde{W}_n|_{E_{n + 1}^0 / \Delta}) \in \Gamma^\omega(E_{n + 1}^0, ((SO(E) \ltimes E) \times_{SO(E)} (R^* \otimes \mathbb{C}))^{\boxtimes n})$
+
+は $(SO(E) \ltimes E) \times \mathfrak{S}_n$ 不変
+
