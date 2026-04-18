@@ -895,4 +895,69 @@ $$
 
 # Wightman function の解析接続
 
-あああ
+$\mathrm{pr}: V^n \to V^n / \Delta \ni (v_1, \dots, v_n) \mapsto (v_1 - v_2, \dots, v_{n - 1} - v_n) \in V^{n - 1}$
+
+$(P \times_G R)^{\boxtimes n} = \mathcal{R}^{\boxtimes n} \to V^n$ は $P \times \mathfrak{S}_n$ 同変 super 実ベクトル束。$P = G \ltimes V$ だから $G \times \mathfrak{S}_n$ 同変 super 実ベクトル束 $\overline{\mathcal{R}}_n \to V^n / \Delta \simeq V^{n - 1}$ を誘導する
+
+https://zenn.dev/link/comments/2cd72a58d02e67
+
+$G_\mathbb{C} / G \simeq SO(d, \mathbb{C}) / SO_0(1, d - 1) \simeq SO(d) / SO(d - 1) \simeq S^{d - 1}$ は単連結だから、$G \curvearrowright R$ は $G_\mathbb{C} \curvearrowright R \otimes \mathbb{C}$ に拡張する
+
+$P_\mathbb{C} \coloneqq G_\mathbb{C} \ltimes V_\mathbb{C}$
+$(P_\mathbb{C} \times_{G_\mathbb{C}} (R \otimes \mathbb{C}))^{\boxtimes n} \to V_\mathbb{C}^n$ は $P_\mathbb{C} \times \mathfrak{S}_n$ 同変 super 正則ベクトル束。$P_\mathbb{C} = G_\mathbb{C} \ltimes V_\mathbb{C}$ だから $G_\mathbb{C} \times \mathfrak{S}_n$ 同変 super 正則ベクトル束 $\overline{\mathcal{E}}_n \to V_\mathbb{C}^n / \Delta \simeq V_\mathbb{C}^{n - 1}$ を誘導する
+
+$\mathcal{W}_n \in \mathcal{S}'((\mathcal{R}^*)^{\boxtimes n} \otimes \mathbb{C})$ は $P$ 不変だから、$G$ 不変な $W_n \in \mathcal{S}'(\overline{\mathcal{R}}_n^* \otimes \mathbb{C})$ を誘導する
+
+$$
+\mathcal{W}_n = \mathrm{pr}^*W_n
+$$
+
+$\mathrm{pr}^*: (V^*)^{n - 1} \ni (p_1, \dots, p_{n - 1}) \mapsto (p_1, p_2 - p_1, \dots, p_{n - 1} - p_{n - 2}, -p_{n - 1}) \in (V^*)^n$
+
+$$
+\mathcal{F}\mathcal{W}_n = (\mathrm{pr}^*)_*\mathcal{F}W_n
+$$
+
+$\mathrm{supp}(\mathcal{F}\mathcal{W}_n) \subset \{ (p_1, \dots, p_n) \in V^n \mid \sum_{i = 1}^n p_i = 0, \sum_{i = 1}^j p_i \in \overline{V}_+ \ (1 \le j \le n  - 1) \}$ だから $\mathrm{supp}(\mathcal{F}W_n) \subset \overline{V}_+^{n - 1}$
+
+$$
+H_{\overline{V}_+^{n - 1}}(v) = \sum_{i = 1}^{n - 1} H_{\overline{V}_+}(v_i) = \begin{cases}
+  0 &\quad (v \in \overline{V}_-^{n - 1}) \\
+  \infty &\quad (v \not\in (\overline{V}_-)^{n - 1})
+\end{cases}
+$$
+
+$\{ H_{\overline{V}_+^{n - 1}} < \infty \} = \overline{V}_-^{n - 1}$。Paley–Wiener–Schwartz の定理から、対応する $\tilde{W}_n \in \mathcal{O}(\mathcal{T}^{n - 1}, \overline{\mathcal{E}}_n^*)$ がある。$\tilde{W}_n$ も $G$ 不変
+
+$g \in G_\mathbb{C}$, $x, g^{-1}x \in \mathcal{T}^{n - 1}$ ならば
+
+$$
+\tilde{W}_n(x) = (g\tilde{W}_n)(x)
+$$
+
+を示せば、$G_\mathbb{C}$ 不変な $\tilde{W}_n \in \mathcal{O}(\tilde{\mathcal{T}}_{n - 1}, \overline{\mathcal{E}}_n^*)$ まで拡張できることがわかる
+
+$X \coloneqq \{ h \in G_\mathbb{C} \mid h^{-1}x \in \mathcal{T}^{n - 1} \}$ は連結で、$e, g \in X$。$X \ni h \mapsto (h\tilde{W}_n)(x)$ は $G$ 上一定だから、一定
+
+$\tilde{W}_n$ は $\tilde{T}_{n - 1} \cap V^{n - 1} = J_{n - 1}$ 上 $W_n$ と一致することを示す。$x \in J_{n - 1}$ とする。$\theta \coloneqq (\overbrace{e_1, \dots, e_1}^{n - 1})$ とすると、$\mathcal{D}'(J_{n - 1})$ 内で
+
+$$
+\tilde{W}_n|_{J_{n - 1}}(x - it\theta) \to W_n|_{J_{n - 1}}(x) \quad (t \to 0)
+$$
+
+よって、$\tilde{W}_n|_{J_{n - 1}} = W_n|_{J_{n - 1}}$
+
+さらに、$\sigma \in \mathfrak{S}_n$, $x, \sigma^{-1}x \in \tilde{\mathcal{T}}^{n - 1}$ ならば
+
+$$
+\tilde{W}_n(x) = (\sigma\tilde{W}_n)(x)
+$$
+
+を示せば、$G_\mathbb{C} \times \mathfrak{S}_n$ 不変な $\tilde{W}_n \in \mathcal{O}(\bigcup_{\sigma \in \mathfrak{S}_n} \sigma\tilde{\mathcal{T}}_{n - 1}, \overline{\mathcal{E}}_n^*)$ まで拡張できることがわかる
+
+$\tilde{\mathcal{T}}^{n - 1} \cap \sigma\tilde{\mathcal{T}}^{n - 1}$ は連結。$\tilde{\mathcal{T}}^{n - 1} \cap \sigma\tilde{\mathcal{T}}^{n - 1} \cap V_{n - 1} = J_{n - 1} \cap \sigma J_{n - 1} \ne \emptyset$。$y \in J_{n - 1} \cap \sigma J_{n - 1}$ とする。Jost の定理から、$y \in J_{n - 1} \subset V_\mathrm{space}^{n - 1}$。$q: V^{n - 1} \ni v \mapsto (v_1 + \cdots + v_{n - 1}, v_2 + \cdots + v_{n - 1}, \dots, 0) \in V^n$ とすると
+
+$$
+\tilde{W}_n(y) = W_n(y) = \mathcal{W}_n(q(y)) = \mathcal{W}_n(\sigma q(y)) = W_n(\sigma y) = \tilde{W}_n(\sigma y)
+$$
+
