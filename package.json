@@ -16,6 +16,6 @@
   "devDependencies": {
     "@types/node": "^25.5.0",
     "prettier": "^3.8.1",
-    "zenn-cli": "^0.4.6"
+    "zenn-cli": "^0.4.7"
   }
 }
