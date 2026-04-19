@@ -95,7 +95,7 @@ J(a) = a \int_0^\infty \frac{1}{u^2}e^{-(u - \frac{a}{u})^2} \, du \quad \left(u
 $$
 
 $$
-2J(a) = \int_0^\infty e^{-(y - \frac{a}{y})^2}(1 + \frac{a}{y^2}) \, dy = \int_{-\infty}^\infty e^{-z^2} \, dz = \sqrt{\pi}
+2J(a) = \int_0^\infty e^{-(y - \frac{a}{y})^2}\left(1 + \frac{a}{y^2}\right) \, dy = \int_{-\infty}^\infty e^{-z^2} \, dz = \sqrt{\pi}
 $$
 
 総合すると、$S_2(x) = \frac{1}{32\pi^3\|x\|} e^{-m\|x\|} \quad (x_0 < 0)$
