@@ -72,8 +72,8 @@ $$
 
 $$
 \begin{aligned}
-  S_2(x) &= \frac{1}{8\pi^2}(2\pi)^{-d} \int_0^\infty ds \, e^{-s m^2} \int dp \, e^{-s\|p\|^2 - ipx} \\
-  &= \frac{1}{8\pi^2}2^{-d}\pi^{-d/2} \int_0^\infty s^{-d/2}e^{-s m^2 - \|x\|^2 / 4s} \, ds
+  S_2(x) &= \frac{1}{8\pi^2}(2\pi)^{-d} \int_0^\infty ds \, e^{-m^2 s} \int dp \, e^{-s\|p\|^2 - ipx} \\
+  &= \frac{1}{8\pi^2}2^{-d}\pi^{-d/2} \int_0^\infty s^{-d/2}e^{-m^2 s - \|x\|^2 / 4s} \, ds
 \end{aligned}
 $$
 
@@ -81,7 +81,7 @@ $d = 3$ の場合に計算を続行する。$x_0 < 0$ で
 
 $$
 \begin{aligned}
-  S_2(x) &= \frac{1}{64}\pi^{-7/2} \int_0^\infty s^{-3/2}e^{-s m^2 - \|x\|^2 / 4s} \, ds \\
+  S_2(x) &= \frac{1}{64}\pi^{-7/2} \int_0^\infty s^{-3/2}e^{-m^2 s - \|x\|^2 / 4s} \, ds \\
   &= \frac{1}{32}\pi^{-7/2} \int_0^\infty e^{-\frac{m^2}{y^2} - \frac{\|x\|^2y^2}{4}} \, dy \quad (y = s^{-1/2}) \\
   &= \frac{1}{32}\pi^{-7/2} e^{-m\|x\|} \int_0^\infty e^{-(\frac{\|x\|y}{2} - \frac{m}{y})^2} \, dy \\
   &= \frac{1}{16\|x\|}\pi^{-7/2} J\left(\frac{m\|x\|}{2}\right) e^{-m\|x\|}
@@ -115,6 +115,25 @@ $$
 \end{aligned}
 $$
 
+$d = 1$ の場合も計算する。$x < 0$ で
+
+$$
+\begin{aligned}
+  S_2(x) &= \frac{1}{16}\pi^{-5/2} \int_0^\infty s^{-1/2}e^{-m^2 s - |x|^2 / 4s} \, ds \\
+  &= \frac{1}{8}\pi^{-5/2} \int_0^\infty e^{-m^2y^2 - \frac{|x|^2}{4y^2}} \, dy \quad (y = s^{1/2}) \\
+  &= \frac{1}{8}\pi^{-5/2} e^{-m|x|} \int_0^\infty e^{-(my - \frac{|x|}{2y})^2} \, dy \\
+  &= \frac{1}{8m}\pi^{-5/2} e^{-m|x|} \int_0^\infty e^{-(y - \frac{m|x|}{2y})^2} \, dy \\
+  &= \frac{1}{8m}\pi^{-5/2} e^{-m|x|} J\left(\frac{m|x|}{2}\right) \\
+  &= \frac{1}{16\pi^2m} e^{-m|x|}
+\end{aligned}
+$$
+
+$\mathfrak{S}_2$ 対称だとすると
+
+$$
+S_2(x) = \frac{1}{16\pi^2m} e^{-m|x|} \quad (x \ne 0)
+$$
+
 最後に、$\tilde{T} = \{ v \in V_\mathbb{C} \mid v^2 \not\in \mathbb{R}_{\ge 0} \}$ を示す。$\mathfrak{S}_2\tilde{T} = \tilde{T}$ もわかる
 
 $\subset$
@@ -123,6 +142,106 @@ $x - iy \in \mathcal{T}$ は $(x - iy)^2 \in \mathbb{R}_{\ge 0}$ と仮定する
 $\supset$
 $v \in V_\mathbb{C}$ は $v^2 \not\in \mathbb{R}_{\ge 0}$ とする。$\alpha \in \mathbb{C}$ を $\alpha^2 = v^2$ かつ $\mathrm{Im}\alpha < 0$ なるように取れる。$z \coloneqq (\alpha, 0, \dots, 0) \in \mathcal{T}$ とする。$v^2 = z^2$ だから $g \in SO(d, \mathbb{C})$ が存在して、$v = gz$
 
-# example1, 2
+# 熱核
 
-調和振動の場合に、測度のモーメントとしての $G_n$ の定義オルンシュタイン＝ウーレンベック（OU）測度と、メーラー核との関係
+$\Delta \coloneqq \frac{1}{2}\frac{d^2}{dx^2}$ の熱核 $p^\Delta_t(x, y) \coloneqq (2\pi t)^{-1/2} e^{-\frac{(x - y)^2}{2t}} \ (t > 0)$ は以下を満たす
+
+(1) $\partial_t p^\Delta_t(x, y) = \Delta_x p^\Delta_t(x, y)$
+(2) $\varphi \in \mathcal{S}'(\mathbb{R})$ とすると、$\mathcal{S}'(\mathbb{R})$ 内で
+
+$$
+\int p^\Delta_t(x, y)\varphi(y) \, dy \xrightarrow{t \to 0} \varphi(x)
+$$
+
+$H \coloneqq \frac{1}{2}\frac{d^2}{dx^2} - \frac{1}{2}m^2x^2$ の熱核は
+
+$$
+p^H_t(x, y) = \sqrt{\frac{m}{2\pi \sinh(mt)}} \exp\left(-\frac{m}{2\sinh(mt)}\left[\cosh(mt)(x^2 + y^2) - 2xy\right]\right)
+$$
+
+$p^H_t(x, y) \le p^\Delta_t(x, y)$ が成り立つ
+
+# Brown 運動
+
+$(\Omega, P)$: 確率空間
+
+以下、等号や不等号は特に断らない限り $P$-a.s. で成立するものとする
+
+連続過程 $B_t: \Omega \to \mathbb{R} \ (t \ge 0)$ が Brown 運動とは以下を満たすことをいう
+(1) $B_0 \equiv 0$
+(2) $0 \le t_0 < \dots < t_n$ に対して、$B_{t_1} - B_{t_0}, \dots, B_{t_n} - B_{t_{n - 1}}$ は独立
+(3) $0 \le s < t$ に対して、$B_t - B_s$ は $N(0, t - s)$ に従う
+ただし、$N(m, v)$ は平均 $m$ 分散 $v$ の正規分布。$N(m, v)$ の密度は $(2\pi v)^{-1/2}e^{-\frac{(x - m)^2}{2v}}$
+
+$0 \le s < t$ とする。$B_s = x$ のもとで $B_t \in E$ となる確率 $p(s, x, t, E)$ は
+
+$$
+\begin{aligned}
+  p(s, x, t, E) &\coloneqq P(B_t \in E \mid B_s = x) \\
+  &= P(B_t - B_s \in E - x \mid B_s = x) \\
+  &= P(B_t - B_s \in E - x) \\
+  &= (2\pi(t - s))^{-1/2} \int_E e^{-\frac{(y ー x)^2}{2(t - s)}} \, dy
+\end{aligned}
+$$
+
+$\int_E p_{t - s}(x, y) \, dy \coloneqq p(s, x, t, E)$ とすると、$p_t(x, y)$ は $\Delta = \frac{1}{2}\frac{d^2}{dx^2}$ の熱核と一致する
+
+# 伊藤積分
+
+確率空間 $(\Omega, P)$ と Brown 運動 $B_t$ を固定する
+
+$\mathcal{N}$ を $P$-零集合全体とする。$t \ge 0$ に対して、$\mathcal{F}_t$ を $B_s^{-1}(\mathcal{B}(\mathbb{R})) \ (0 \le s \le t)$ と $\mathcal{N}$ から生成される $\sigma$ 加法族とする
+
+以降、確率過程は全て $\mathcal{F}_t$ 適合とする。ただし、確率過程 $X_t$ が $\mathcal{F}_t$ 適合とは、各 $X_t$ が $\mathcal{F}_t$ 可測なことをいう
+
+連続過程 $Y_t$ に対して、確率積分と呼ばれる連続過程 $I_t(Y)$ が定まる。確率積分は以下の性質を満たす
+(1) $I_t(Y)$ は $Y$ に関して線形
+
+さらに、$E(\int_0^t Y_s^2 \, ds) < \infty$ ならば
+
+(2) $E(I_t(Y) \mid \mathcal{F_s}) = I_s(Y) \quad (0 \le s < t)$
+(3) $E(I_t(Y)^2) = E(\int_0^t Y_s^2 \, ds)$
+
+(3) から $I_0(Y) = 0$ がわかる。また、$E(\int_0^t Y_s^2 \, ds) < \infty$ ならば、(2) から $E(I_t(Y)) = E(I_0(Y)) = 0$
+
+$I_t(Y)$ を $\int_0^t Y_s dB_s$ と表す
+
+# 伊藤の公式
+
+確率空間 $(\Omega, P)$ と Brown 運動 $B_t$ を固定し、$B_t$ から誘導される $\mathcal{F}_t$ を考える
+
+連続過程 $Y_t, Z_t$ と確率変数 $X_0$ を用いて
+
+$$
+X_t = \int_0^t Y_s dB_s + \int_0^t Z_s ds + X_0
+$$
+
+と表される $X_t$ たち全体を $\mathcal{Q}$ とする。$X_t \in \mathcal{Q}$ に対して
+
+$$
+dX_t \coloneqq Y_s dB_s + Z_s ds
+$$
+
+と定義する。これは $X_t$ の表し方に依らないことが知られている。$dX_t$ たち全体を $d\mathcal{Q}$ と表す。$\mathcal{C}$ で連続過程全体を表せば、$d\mathcal{Q}$ は $\mathcal{C}$ 加群になる
+
+さらに、$X_1, X_2 \in \mathcal{Q}$ に対して
+
+$$
+\langle X_1, X_2 \rangle \coloneqq \int_0^t Y_{1, s}Y_{2, s} ds
+$$
+
+と定義する。これを用いて、$d\mathcal{Q}$ 上の積を
+
+$$
+dX_1 dX_2 \coloneqq d\langle X_1, X_2 \rangle
+$$
+
+と定義する。$d\mathcal{Q}$ はこの積で可換な $\mathcal{C}$ 上の代数になる
+
+$f \in C^\infty(\mathbb{R}^n)$
+$X^1_t, \dots, X^n_t \in \mathcal{Q}$ とすると、$f(X^1_t, \dots, X^n_t) \in \mathcal{Q}$ であり
+
+$$
+d[f(X^1_t, \dots, X^n_t)] = \sum_{i = 1}^n \frac{\partial f}{\partial x_i} dX_i + \frac{1}{2} \sum_{i, j} \frac{\partial^2 f}{\partial x_i \partial x_j} dX_i dX_j
+$$
+
