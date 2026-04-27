@@ -161,6 +161,26 @@ $$
 
 $p^H_t(x, y) \le p^\Delta_t(x, y)$ が成り立つ
 
+$L \coloneqq \frac{1}{2}\frac{d^2}{dx^2} - mx\frac{d}{dx}$ の熱核は
+
+$$
+p^L_t(x, y) = \sqrt{\frac{m}{\pi(1 - e^{-2mt})}} \exp\left(-\frac{m(y - xe^{-mt})^2}{1 - e^{-2mt}}\right)
+$$
+
+$\psi_0(x) \coloneqq e^{-\frac{mx^2}{2}}$ とすると、微分作用素として
+
+$$
+H + \frac{m}{2} = \psi_0 L \psi_0^{-1}
+$$
+
+形式的には $e^{\frac{mt}{2}}e^{tH} = e^{t(H + \frac{m}{2})} = e^{t\psi_0 L \psi_0^{-1}} = \psi_0 e^{tL} \psi_0^{-1}$ だから
+
+$$
+e^{\frac{mt}{2}}p^H_t(x, y) = \psi_0(x)p^L_t(x, y)\psi_0^{-1}(y)
+$$
+
+となるはずだが、実際に成り立つ
+
 # Brown 運動
 
 $(\Omega, P)$: 確率空間
@@ -184,7 +204,7 @@ $$
 \end{aligned}
 $$
 
-$\int_E p_{t - s}(x, y) \, dy \coloneqq p(s, x, t, E)$ とすると、$p_t(x, y)$ は $\Delta = \frac{1}{2}\frac{d^2}{dx^2}$ の熱核と一致する
+$\int_E p_{t - s}(x, y) \, dy \coloneqq p(s, x, t, E)$ とすると、$p_t(x, y)$ は $\Delta = \frac{1}{2}\frac{d^2}{dx^2}$ の熱核と一致する。$p_{t - s}(x, y) dy = P(B_t \in dy \mid B_s = x)$ などと表記する
 
 # 伊藤積分
 
@@ -242,6 +262,161 @@ $f \in C^\infty(\mathbb{R}^n)$
 $X^1_t, \dots, X^n_t \in \mathcal{Q}$ とすると、$f(X^1_t, \dots, X^n_t) \in \mathcal{Q}$ であり
 
 $$
-d[f(X^1_t, \dots, X^n_t)] = \sum_{i = 1}^n \frac{\partial f}{\partial x_i} dX_i + \frac{1}{2} \sum_{i, j} \frac{\partial^2 f}{\partial x_i \partial x_j} dX_i dX_j
+d[f(X^1_t, \dots, X^n_t)] = \sum_{i = 1}^n \frac{\partial f}{\partial x_i}(X_t) dX_i + \frac{1}{2} \sum_{i, j} \frac{\partial^2 f}{\partial x_i \partial x_j}(X_t) dX_i dX_j
 $$
+
+特に、$f \in C^\infty(\mathbb{R})$ とすると
+
+$$
+d[f(t)X_t] = d[F(t, X_t)] = f'(t)X_t dt + f(t) dX_t
+$$
+
+ただし、$F(t, x) \coloneqq f(t)x$
+
+$f \in C^\infty(\mathbb{R})$ は $\int_0^t f(s)^2 \, ds < \infty$ とする。$G_t \coloneqq \int_0^t f(s) \, dB_s$ は Gauss 分布に従う
+
+$E(e^{i\xi G_t})$ を計算すれば良い。$Z_t \coloneqq e^{i\xi G_t}$ とすると
+
+$$
+dZ_t = i\xi Z_t dG_t - \frac{\xi^2}{2} Z_t dG_t^2 = i\xi f(t) Z_t dB_t - \frac{\xi^2}{2} f(t)^2 Z_t dt
+$$
+
+両辺の $E(\int_0^u - \, dt)$ を計算して
+
+$$
+E(Z_u) - 1 = -\frac{\xi^2}{2} \int_0^u f(t)^2 E(Z_t) \, dt
+$$
+
+$y(u) \coloneqq E(Z_u)$ は $y'(u) = -\frac{\xi^2}{2} f(u)^2 y(u)$ を満たすから
+
+$$
+E(e^{i\xi G_u}) = y(u) = e^{-\frac{\xi^2}{2} \int_0^u f(t)^2 \, dt}
+$$
+
+よって、$G_t$ は $N(0, \int_0^t f(s)^2 \, ds)$ に従う
+
+# Ornstein-Uhlenbeck 過程
+
+Ornstein-Uhlenbeck 過程 $q_t \in \mathcal{Q}$ は、確率微分方程式
+
+$$
+dq_t = -m q_t dt + dB_t
+$$
+
+で定義される。$C_t \coloneqq e^{mt}q_t$ とすると
+
+$$
+dC_t = me^{mt}q_t dt + e^{mt}dq_t = e^{mt}dB_t
+$$
+
+$C_t = \int_0^t e^{ms} \, dB_s + q_0$ だから
+
+$$
+q_t = e^{-mt} \int_0^t e^{ms} \, dB_s + e^{-mt} q_0
+$$
+
+以降、$q_0$ は $N(0, \frac{1}{2m})$ に従うとする。$q_t$ は常に $N(0, \frac{1}{2m})$ に従う。遷移確率は
+
+$$
+\begin{aligned}
+  p(q_t \in E \mid q_s = x) &= p(\int_s^t e^{mu} \, dB_u \in e^{mt}E - e^{ms}x) \\
+  &= p(\int_0^{t - s} e^{mu} \, dB_u \in e^{m(t - s)}E - x) \\
+  &= (2\pi v(t - s))^{-1/2} \int_{e^{m(t - s)}E - x} e^{-\frac{y^2}{2v(t - s)}} \, dy \\
+  &= e^{m(t - s)} (2\pi v(t - s))^{-1/2} \int_E e^{-\frac{(e^{m(t - s)}y - x)^2}{2v(t - s)}} \, dy \\
+  &= \int_E p^L(x, y) \, dy
+\end{aligned}
+$$
+
+ただし、$v(t) \coloneqq \int_0^t e^{2ms} \, ds = \frac{e^{2mt} - 1}{2m}$
+
+$\psi_0(x) \coloneqq e^{-\frac{mx^2}{2}}$ だった。規格化すると、$\tilde{\psi}_0(x) \coloneqq \left(\frac{m}{\pi}\right)^{1/4} e^{-\frac{mx^2}{2}}$。$\tilde{\psi_0}$ は時間発展 $U_t \coloneqq e^{t(H + \frac{m}{2})}$ で不変。状態は時刻をも包括して時間変化せず、演算子が時間変化すると解釈する (Heisenberg 描像)。時刻 $0$ での位置演算子 $X_0$ を $x$ による掛け算作用素と定義する。時刻 $t$ での位置演算子 $X_t$ は $X_t \coloneqq U_t^{-1} X_0 U_t$ だと考える。状態 $\tilde{\psi}_0$ において、$X_s$ を測定してから $X_t$ を測定した時の $X_s$ と $X_t$ の相関は $\langle X_t X_s \tilde{\psi}_0, \tilde{\psi}_0 \rangle$ と定義されるが
+
+$$
+\begin{aligned}
+  \langle X_t X_s \tilde{\psi}_0, \tilde{\psi}_0 \rangle &= \langle X_0 U_{t - s} X_0 \tilde{\psi}_0, \tilde{\psi}_0 \rangle \\
+  &= e^{\frac{m(t - s)}{2}} \langle x \int p^H_{t - s}(x, y) y \tilde{\psi}_0(y) \, dy, \tilde{\psi}_0(x) \rangle \\
+  &= e^{\frac{m(t - s)}{2}} \int xy p^H_{t - s}(x, y) \tilde{\psi}_0(x)\tilde{\psi}_0(y) \, dxdy \\
+  &= \int xy p^L_{t - s}(x, y) \tilde{\psi}_0(x)^2 \, dxdy \\
+  &= \int xy E(q_t \in dy \mid q_s = x) P(q_s \in dx) \\
+  &= E(q_t q_s)
+\end{aligned}
+$$
+
+$0 \le s < t$ ならば
+
+$$
+\begin{aligned}
+  E(q_t q_s) &= e^{-mt}e^{-ms} E\left(\left\{\int_0^t e^{mu} \, dB_u + q_0\right\}\left\{\int_0^s e^{mu} \, dB_u + q_0\right\}\right) \\
+  &= e^{-mt}e^{-ms} \left[E\left(\left\{\int_0^s e^{mu} \, dB_u\right\}^2\right) + E(q_0^2)\right] \\
+  &= e^{-mt}e^{-ms} \left(\int_0^s e^{2mu} \, du + \frac{1}{2m}\right) \\
+  &= \frac{1}{2m} e^{-m(t - s)}
+\end{aligned}
+$$
+
+これは定数倍を除いて $d = 1$ の $\mathcal{S}_2(t, s)$ と一致する。同様に、$0 \le t_1 < \cdots < t_n$ とすると
+
+$$
+\langle X_{t_n} \cdots X_{t_1} \tilde{\psi}_0, \tilde{\psi}_0 \rangle = E(q_{t_n} \cdots q_{t_1})
+$$
+
+であり、定数倍を除いて $d = 1$ の $\mathcal{S}_n(t_n, \dots, t_1)$ と一致する
+
+# Feynman–Kac の公式
+
+$V \in C^\infty(\mathbb{R})$ は $V \ge 0$ とする。$u(t, x)$ は熱方程式
+
+$$
+\frac{\partial u}{\partial t}(t, x) = \frac{1}{2} \frac{\partial^2 u}{\partial x^2}(t, x) - V(x)u(t, x) \quad (t > 0)
+$$
+
+の滑らかな解だとする。$C^\infty(\mathbb{R})$ の位相で $u(t, x) \xrightarrow{t \to 0} f(x) \in C^\infty(\mathbb{R})$ とすると、以下の等式が成り立つ
+
+$$
+u(t, x) = E\left[f(B_t + x)\exp\left(-\int_0^t V(B_s + x) \, ds\right)\right]
+$$
+
+$t > 0$ を固定する
+
+$$
+M_s \coloneqq u(t - s, B_s + x)\exp\left(-\int_0^s V(B_u + x) \, du\right) \eqqcolon X_s Y_s \quad (0 \le s < t)
+$$
+
+$$
+dX_s = -\frac{\partial u}{\partial t}(t - s, B_s + x) ds + \frac{\partial u}{\partial x}(t - s, B_s + x) dB_s + \frac{1}{2} \frac{\partial^2 u}{\partial x^2}(t - s, B_s + x) ds
+$$
+
+$$
+dY_s = -Y_s V(B_s + x) ds
+$$
+
+$$
+dM_s = Y_s dX_s + X_s dY_s = \frac{\partial u}{\partial x}(t - s, B_s + x) Y_s dB_s
+$$
+
+よって、$E(M_0) = \lim_{s \to t} E(M_s)$ となる
+
+
+$$
+\begin{aligned}
+  \mathcal{F}q_t &= E(e^{i\xi q_t}) \\
+  &= E(e^{i\xi e^{-mt} \int_0^t e^{ms} \, dB_s})E(e^{i\xi q_0}) \\
+  &= E(e^{i\xi e^{-mt} \int_0^t e^{ms} \, dB_s})e^{-\frac{\xi^2}{4m}}
+\end{aligned}
+$$
+
+確率論の標準に従って、$\mathcal{F}$ の定義が今までと少し異なることに注意。$Z_t \coloneqq e^{i\xi e^{-mt} \int_0^t e^{ms} \, dB_s}$ とすると
+
+$$
+dZ_t = Z_t[-(im\xi e^{-mt} \int_0^t e^{ms} \, dB_s + \frac{\xi^2}{2})dt + i\xi dB_t]
+$$
+
+両辺 $E(\int_0^u - \, dt)$ をとると
+
+$$
+E(Z_u) - 1 = -im\xi \int_0^u dt \, e^{-mt} E(Z_t \int_0^t e^{ms} \, dB_s) - \frac{\xi^2}{2} \int_0^u E(Z_t) \, dt
+$$
+
+$$
+
+$y(u) \coloneqq E(Z_t)$ は $y' = -\frac{\xi^2}{2}y$ を満たすから
 

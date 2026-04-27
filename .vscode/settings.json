@@ -19,5 +19,6 @@
       "command": "node scripts/fmt-math.ts ${file}",
       "runIn": "backend"
     }
-  ]
+  ],
+  "files.saveConflictResolution": "overwriteFileOnDisk"
 }
