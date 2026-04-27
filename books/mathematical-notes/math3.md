@@ -394,29 +394,3 @@ dM_s = Y_s dX_s + X_s dY_s = \frac{\partial u}{\partial x}(t - s, B_s + x) Y_s d
 $$
 
 よって、$E(M_0) = \lim_{s \to t} E(M_s)$ となる
-
-
-$$
-\begin{aligned}
-  \mathcal{F}q_t &= E(e^{i\xi q_t}) \\
-  &= E(e^{i\xi e^{-mt} \int_0^t e^{ms} \, dB_s})E(e^{i\xi q_0}) \\
-  &= E(e^{i\xi e^{-mt} \int_0^t e^{ms} \, dB_s})e^{-\frac{\xi^2}{4m}}
-\end{aligned}
-$$
-
-確率論の標準に従って、$\mathcal{F}$ の定義が今までと少し異なることに注意。$Z_t \coloneqq e^{i\xi e^{-mt} \int_0^t e^{ms} \, dB_s}$ とすると
-
-$$
-dZ_t = Z_t[-(im\xi e^{-mt} \int_0^t e^{ms} \, dB_s + \frac{\xi^2}{2})dt + i\xi dB_t]
-$$
-
-両辺 $E(\int_0^u - \, dt)$ をとると
-
-$$
-E(Z_u) - 1 = -im\xi \int_0^u dt \, e^{-mt} E(Z_t \int_0^t e^{ms} \, dB_s) - \frac{\xi^2}{2} \int_0^u E(Z_t) \, dt
-$$
-
-$$
-
-$y(u) \coloneqq E(Z_t)$ は $y' = -\frac{\xi^2}{2}y$ を満たすから
-
