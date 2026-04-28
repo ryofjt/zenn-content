@@ -394,3 +394,26 @@ dM_s = Y_s dX_s + X_s dY_s = \frac{\partial u}{\partial x}(t - s, B_s + x) Y_s d
 $$
 
 よって、$E(M_0) = \lim_{s \to t} E(M_s)$ となる
+
+# $SO(n)$ 不変な超関数
+
+回転作用 $SO(n) \curvearrowright \mathbb{R}^n$ を考える
+
+Borel の定理 (https://ncatlab.org/nlab/show/Borel%27s+theorem) から
+
+$$
+C^\infty(\mathbb{R}^n) \ni \varphi \mapsto \sum_{\alpha} \frac{\partial^\alpha\varphi(0)}{\alpha!}X^\alpha \in \mathbb{R}[\![X_1, \dots, X_n]\!]
+$$
+
+は全射
+
+$C^\infty(\mathbb{R}) \ni \psi \mapsto \psi(\|x\|^2) \in C^\infty(\mathbb{R}^n)^{SO(n)}$ は全射を示す
+
+$\varphi \in C^\infty(\mathbb{R}^n)^{SO(n)}$ とする。$\varphi(t, 0, \dots, 0)$ は偶関数。よって
+
+$$
+\varphi(t, 0, \dots, 0) \sim \sum_{j = 0}^\infty \frac{1}{(2j)!} \frac{\partial^{2j}\varphi}{\partial x_1^{2j}}(0)t^{2j}
+$$
+
+と Taylor 展開できる。Borel の定理から、$\psi_0(s) \in C^\infty(\mathbb{R})$ を Taylor 展開が $\sum_{j = 0}^\infty \frac{1}{(2j)!} \frac{\partial^{2j}\varphi}{\partial x_1^{2j}}(0)s^j$ になるようにとれる。$n(s) \coloneqq \varphi(\sqrt{s}, 0, \dots, 0) - \psi_0(s) \ (s > 0)$ とすると、$n^{(j)}(s) \to 0 \ (s \to 0)$。よって、$0$ 延長すれば $n(s)$ は $\tilde{n}(s) \in C^\infty(\mathbb{R})$ に拡張できる。$\varphi(x) = \varphi(\|x\|, 0, \dots, 0) = (\psi_0 + \tilde{n})(\|x\|^2)$
+
