@@ -585,14 +585,14 @@ $$
 
 $$
 \begin{aligned}
-  \hat{u}(\xi + i\eta + i\theta) &= (2\pi)^{-n/2} \langle u, \int \varphi(\xi)W_{\xi, \eta}(x) \, d\xi \rangle \\
+  \hat{u}(\xi + i\eta) &= (2\pi)^{-n/2} \langle u, \int \varphi(\xi)W_{\xi, \eta}(x) \, d\xi \rangle \\
   &= (2\pi)^{-n/2} \int \langle u, W_{\xi, \eta} \rangle \varphi(\xi) \, d\xi \\
   &= (2\pi)^{-n/2} \langle u, W_{\xi, \eta} \rangle
 \end{aligned}
 $$
 
 $$
-|\hat{u}(\xi + i\eta + i\theta)| \le C (1 + |\xi| + |\eta|)^N \|(1 + |x|)^M e^{-\frac{1}{2}\Delta(\eta)|x|}\|
+|\hat{u}(\xi + i\eta)| \le C (1 + |\xi| + |\eta|)^N \|(1 + |x|)^M e^{-\frac{1}{2}\Delta(\eta)|x|}\|
 $$
 
 あとは、$m \ge 0, a > 0$ に対して、$f_{m, a}(x) \coloneqq x^m e^{-ax} \ (x \ge 0)$ の最大値が $(\frac{m}{ea})^m$ になることから従う
