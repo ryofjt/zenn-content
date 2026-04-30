@@ -395,6 +395,53 @@ $$
 
 よって、$E(M_0) = \lim_{s \to t} E(M_s)$ となる
 
+# LF 空間
+
+$V$: Fréchet 空間
+$M \subset V$: 閉部分空間
+$M$, $V / M$ も Fréchet 空間
+
+$M$ が Fréchet 空間なことは容易。$V / M$ が Fréchet 空間を示す。$V$ はセミノルム $p_1 \le p_2 \le \cdots$ で定義されるとする。$\bar{p}_n$ を $V / M$ に誘導されるセミノルムとする。$V / M$ が $\bar{p}_n$ に関して完備なことを示せば良い。$\bar{x}_j \in V / M$ は $\bar{p}_n$ に関して Cauchy だとする。$\bar{p}_j(\bar{x}_j - \bar{x}_k) < \frac{1}{2^j} \ (k > j)$ を満たすとしてよい。$m_j \in M$ を $p_j(x_j - x_{j + 1} + m_j) < \frac{1}{2^j}$ なるように取る。$x \coloneqq x_1 - \sum_{j = 1}^\infty (x_j - x_{j + 1} + m_j)$ とする。$\bar{x}_j$ は $\bar{x}$ に収束する
+
+Fréchet 空間の有限直和も Fréchet
+
+https://zenn.dev/link/comments/5e779f491cb393
+
+LF 空間の可算直和も LF
+
+$E_n = \varinjlim_j E_{n, j}$ とする。$F_j \coloneqq \bigoplus_{n = 1}^j E_{n, j}$ は Fréchet 空間。$\varinjlim_j F_j \to \bigoplus_n E_n$ があるが、普遍性で逆写像も構成できる
+
+$E = \varinjlim_n E_n$: LF 空間
+$M \subset E$: 閉部分空間
+$E / M \simeq \varinjlim_n E_n / (E_n \cap M)$
+
+普遍性を使えば容易。$E_n / (E_n \cap M)$ は Fréchet 空間だが、$E / M$ は LF 空間とは限らないことに注意
+
+$E$: Fréchet 空間
+$F = \varinjlim_n F_n$: LF 空間
+$f: E \to F$ はある $F_N$ を経由する
+
+$E = \bigcup_n f^{-1}(F_n)$ だから、ある $N$ が存在して、$f^{-1}(F_N)$ は内点を持つ
+
+https://zenn.dev/link/comments/0fd346460ed01b
+
+$E = \varinjlim_n E_n, F = \varinjlim_m F_m$: LF 空間
+$f: E \to F$ が全射なら開写像
+
+$E_{n, m} \coloneqq E_n \cap f^{-1}(F_m)$ とする。$F_m = \bigcup_n f(E_{n, m})$ だから、ある $n_m$ が存在して、$f(E_{n_m, m})$ は $F_m$ 内で meager (可算個の疎な閉集合で覆える) でない。Fréchet 空間の開写像定理から $f|_{E_{n_m, m}}: E_{n_m, m} \to F_m$ は開写像
+
+開集合 $0 \in U \subset E$ に対して、$f(U)$ が $0 \in F$ の近傍になることを示せば良い。$f(U) \cap F_m$ が $0 \in F_m$ の近傍になることを示せば良い。$f(U \cap E_{n_m, m}) \subset F_m$ は開集合なことから従う
+
+$E$: LF 空間
+$M, L \subset E$: 閉部分空間
+LCS として $M \oplus L = E$ だとすると、$M, L$ は LF 空間になる
+
+$\mathrm{pr}_M|_{E_n}: E_n \to E$ はある $E_{N_n}$ を経由する
+
+$$
+M \simeq E / L \simeq \varinjlim_n E_n / (E_n \cap L) \simeq \varinjlim_n (E_n \cap M)
+$$
+
 # $SO(n)$ 不変な超関数
 
 回転作用 $SO(n) \curvearrowright \mathbb{R}^n$ を考える
@@ -402,7 +449,7 @@ $$
 Borel の定理 (https://ncatlab.org/nlab/show/Borel%27s+theorem) から
 
 $$
-C^\infty(\mathbb{R}^n) \ni \varphi \mapsto \sum_{\alpha} \frac{\partial^\alpha\varphi(0)}{\alpha!}X^\alpha \in \mathbb{R}[\![X_1, \dots, X_n]\!]
+C^\infty(\mathbb{R}^n) \ni \varphi \mapsto \sum_{\alpha} \frac{\partial^\alpha\varphi(0)}{\alpha!}X^\alpha \in \mathbb{C}[\![X_1, \dots, X_n]\!]
 $$
 
 は全射
@@ -416,4 +463,144 @@ $$
 $$
 
 と Taylor 展開できる。Borel の定理から、$\psi_0(s) \in C^\infty(\mathbb{R})$ を Taylor 展開が $\sum_{j = 0}^\infty \frac{1}{(2j)!} \frac{\partial^{2j}\varphi}{\partial x_1^{2j}}(0)s^j$ になるようにとれる。$n(s) \coloneqq \varphi(\sqrt{s}, 0, \dots, 0) - \psi_0(s) \ (s > 0)$ とすると、$n^{(j)}(s) \to 0 \ (s \to 0)$。よって、$0$ 延長すれば $n(s)$ は $\tilde{n}(s) \in C^\infty(\mathbb{R})$ に拡張できる。$\varphi(x) = \varphi(\|x\|, 0, \dots, 0) = (\psi_0 + \tilde{n})(\|x\|^2)$
+
+$$
+\mathcal{D}'(\mathbb{R}^n)^{SO(n)} \xrightarrow{\sim} (C^\infty_c(\mathbb{R}^n)^{SO(n)})'
+$$
+
+逆写像は $(C^\infty(\mathbb{R}^n)^{SO(n)})' \ni u \mapsto (\varphi \mapsto u(\int_{SO(n)} g\varphi \, dg)) \in \mathcal{D}'(\mathbb{R}^n)^{SO(n)}$ で与えられる。ただし、$dg$ は正規化された $SO(n)$ 上の Haar 測度
+
+$$
+\Gamma_{\mathbb{R}_{\ge 0}}(\mathbb{R}, \mathcal{D}') \simeq (C^\infty_c(\mathbb{R}^n)^{SO(n)})'
+$$
+
+$C^\infty_c(\mathbb{R}) \ni \psi \mapsto \psi(x^2) \in C^\infty_c(\mathbb{R}^n)^{SO(n)}$ は全射連続。核 $K$ は $K = \{ \psi \in C^\infty_c(\mathbb{R}) \mid \mathrm{supp}\psi \subset \mathbb{R}_{\le 0} \}$。$C^\infty_c(\mathbb{R}) / K \to C^\infty_c(\mathbb{R}^n)^{SO(n)}$ は連続全単射だが、同型になることを示す。$C^\infty_c(\mathbb{R}) / K$, $C^\infty_c(\mathbb{R}^n)^{SO(n)}$ が LF 空間になることを示せば、LF 空間の開写像定理から従う
+
+まず、$C^\infty_c(\mathbb{R}^n)^{SO(n)}$ は $C^\infty_c(\mathbb{R}^n)$ の直和因子だから、LF 空間
+
+$$
+C^\infty_c(\mathbb{R}) / K \simeq \varinjlim_n C^\infty_{[-n, n]} / (C^\infty_{[-n, n]} \cap K)
+$$
+
+$p_k(\psi) \coloneqq \|\psi^{(k)}\|_{[n, n]} \ (\psi \in C^\infty_{[-n, n]})$ から $C^\infty_{[-n, n]} / (C^\infty_{[-n, n]} \cap K)$ に誘導されるセミノルム $\bar{p}_k$ は
+
+$$
+\bar{p}_k(\bar{\varphi}) = \|\psi^{(k)}\|_{[0, n]} \quad (\psi \in C^\infty_{[-n, n]})
+$$
+
+だから、$C^\infty_c(\mathbb{R}) / K$ も LF 空間になる
+
+双対をとれば
+
+$$
+\begin{aligned}
+  (C^\infty_c(\mathbb{R}^n)^{SO(n)})' &\simeq (C^\infty_c(\mathbb{R}) / K)' \\
+  &\simeq \{ v \in \mathcal{D}'(\mathbb{R}) \mid \varphi(K) = 0 \} \\
+  &= \Gamma_{\mathbb{R}_{\ge 0}}(\mathbb{R}, \mathcal{D}')
+\end{aligned}
+$$
+
+総合すると $\Gamma_{\mathbb{R}_{\ge 0}}(\mathbb{R}, \mathcal{D}') \simeq \mathcal{D}'(\mathbb{R}^n)^{SO(n)}$ が
+
+$$
+\begin{aligned}
+  \Gamma_{\mathbb{R}_{\ge 0}}(\mathbb{R}, \mathcal{D}') \ni v &\mapsto (\varphi \mapsto v(s \mapsto \frac{1}{\sigma(S^{n - 1})} \int_{S^{n - 1}} \varphi(\sqrt{s}\omega) \, d\sigma(\omega))) \in \mathcal{D}'(\mathbb{R}^n)^{SO(n)} \\
+  \mathcal{D}'(\mathbb{R}^n)^{SO(n)} \ni u &\mapsto (\psi \mapsto u(\psi(x^2))) \in \Gamma_{\mathbb{R}_{\ge 0}}(\mathbb{R}, \mathcal{D}')
+\end{aligned}
+$$
+
+で与えられる。ただし、$\sigma$ は $S^{n - 1}$ 上の標準的な測度
+
+# Paley-Wiener-Schwartz 型の境界評価 (Vladimirov の評価式)
+
+$V = \mathbb{R}^n$
+$K \subset V$: 空でない閉凸錐
+$K^\circ = \{ \eta \in V^* \mid \eta(K) \le 0 \}$
+
+$$
+H_K(\eta) = \begin{cases}
+  0 &\quad (\eta \in K^\circ) \\
+  \infty &\quad (\eta \not\in K^\circ)
+\end{cases}
+$$
+
+$\Gamma_K \coloneqq \mathrm{int}\{ H_K < \infty \} = \mathrm{int}(K^\circ) \subset V^*$
+
+$u \in \mathcal{S}'(V)$ は $\mathrm{supp}u \subset K$ とする。$\Gamma_K \subset \mathrm{int}\Gamma_u$
+
+Paley–Wiener–Schwartz の定理から、$\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i\Gamma_K)$ は正則関数で、$\eta_0 \in \Gamma_K$ に対して、$C_{\eta_0}, N_{\eta_0} \ge 0$ が存在して
+
+$$
+|\hat{u}(\zeta)| \le C_{\eta_0}(1 + |\zeta|)^{N_{\eta_0}} \quad (\zeta \in V^* + i(\eta_0 + \Gamma_K))
+$$
+
+この評価は次のように改善できる。$C, N, M \ge 0$ が存在して
+
+$$
+|\hat{u}(\xi + i\eta)| \le C(1 + |\xi| + |\eta|)^N \Delta(\eta)^{-M} \quad (\xi \in V^*, \eta \in \Gamma_K)
+$$
+
+ただし、$\Delta(\eta)$ は $\eta$ と $\partial\Gamma_K$ の Euclid 距離
+
+$B_r \coloneqq \{ x \in V \mid |x| \le r \}$。$\rho \in C^\infty_{B_1}(V)$ は $\int \rho \, dx = 1$ とする。$\rho_\delta(x) \coloneqq \delta^{-n}\rho(x / \delta)$。$\chi_\delta(x) \coloneqq 1_{K + B_{2\delta}} * \rho_\delta = \int_{K + B_{2\delta}} \rho_\delta(x - y) \, dy \in C^\infty(V)$ とする。$\chi_\delta$ は $K + B_\delta$ 上 $1$ かつ $K + B_{3\delta}$ の外で消える。$\xi \in V^*$, $\eta \in \Gamma_K$ とすると
+
+$$
+\begin{aligned}
+  \hat{u}(\xi + i\eta) &= \widehat{e^\eta u}(\xi) \\
+  &= (2\pi)^{-n/2} \langle u, e^\eta \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \quad (\varphi \in \mathcal{S}(V^*)) \\
+  &= (2\pi)^{-n/2} \langle u, \chi_\delta e^\eta \int \varphi(\xi)e^{-i\xi x} \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} \langle u, \int \varphi(\xi)W_{\xi, \eta, \delta}(x) \, d\xi \rangle
+\end{aligned}
+$$
+
+ただし、$W_{\xi, \eta, \delta}(x) \coloneqq \chi_\delta(x) e^{\eta x} e^{i\xi x}$
+
+$\delta = (1 + |\xi| + |\eta|)^{-1}$ とし、$W_{\xi, \eta} \coloneqq W_{\xi, \eta, (1 + |\xi| + |\eta|)^{-1}}$ とすると
+
+$$
+|\partial_x^\alpha W_{\xi, \eta}(x)| \le C_\alpha(1 + |\xi| + |\eta|)^{|\alpha|}e^{\eta x}
+$$
+
+$x \in K \setminus \{0\}$ ならば、$\omega \coloneqq \langle \frac{x}{|x|}, \cdot \rangle \in V^*$ とすると
+
+$$
+\begin{aligned}
+  \eta x &\le (\eta + \frac{1}{2}\Delta(\eta)\omega)x - \frac{1}{2}\Delta(\eta)|x| \\
+  &\le H_K(\eta + \frac{1}{2}\Delta(\eta)\omega) - \frac{1}{2}\Delta(\eta)|x| \\
+  &= -\frac{1}{2}\Delta(\eta)|x|
+\end{aligned}
+$$
+
+$x \in K + B_{3\delta}$ ならば、$\Delta(\eta) \le |\eta|$ だから
+
+$$
+\eta x \le -\frac{1}{2}\Delta(\eta)(|x| - 3\delta) + 3\delta|\eta| \le -\frac{1}{2}\Delta(\eta)|x| + \frac{3}{2} + 3
+$$
+
+よって
+
+$$
+|\partial_x^\alpha W_{\xi, \eta}(x)| \le C'_\alpha(1 + |\xi| + |\eta|)^{|\alpha|}e^{-\frac{1}{2}\Delta(\eta)|x|}
+$$
+
+$$
+\begin{aligned}
+  \hat{u}(\xi + i\eta + i\theta) &= (2\pi)^{-n/2} \langle u, \int \varphi(\xi)W_{\xi, \eta}(x) \, d\xi \rangle \\
+  &= (2\pi)^{-n/2} \int \langle u, W_{\xi, \eta} \rangle \varphi(\xi) \, d\xi \\
+  &= (2\pi)^{-n/2} \langle u, W_{\xi, \eta} \rangle
+\end{aligned}
+$$
+
+$$
+|\hat{u}(\xi + i\eta + i\theta)| \le C (1 + |\xi| + |\eta|)^N \|(1 + |x|)^M e^{-\frac{1}{2}\Delta(\eta)|x|}\|
+$$
+
+あとは、$m \ge 0, a > 0$ に対して、$f_{m, a}(x) \coloneqq x^m e^{-ax} \ (x \ge 0)$ の最大値が $(\frac{m}{ea})^m$ になることから従う
+
+# $SO(1, d - 1)$ 不変な超関数
+
+$V \coloneqq (\mathbb{R}^d, x_1^2 - x_2^2 - \cdots - x_d^2)$
+$G \coloneqq SO(V)$
+
+一般の $\mathcal{D}'(V)^G$ は難しかったので、$\{ u \in \mathcal{S}'(V) \mid \mathrm{supp}u \subset \overline{V}_+ \}^G$ を調べる
 
