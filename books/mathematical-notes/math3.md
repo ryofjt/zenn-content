@@ -134,7 +134,7 @@ $$
 S_2(x) = \frac{1}{16\pi^2m} e^{-m|x|} \quad (x \ne 0)
 $$
 
-最後に、$\tilde{T} = \{ v \in V_\mathbb{C} \mid v^2 \not\in \mathbb{R}_{\ge 0} \}$ を示す。$\mathfrak{S}_2\tilde{T} = \tilde{T}$ もわかる
+最後に、$\tilde{\mathcal{T}}_1 = \{ v \in V_\mathbb{C} \mid v^2 \not\in \mathbb{R}_{\ge 0} \}$ を示す。$\mathfrak{S}_2\tilde{\mathcal{T}}_1 = \tilde{\mathcal{T}}_1$ もわかる
 
 $\subset$
 $x - iy \in \mathcal{T}$ は $(x - iy)^2 \in \mathbb{R}_{\ge 0}$ と仮定する。$xy = 0$, $x^2 - y^2 \ge 0$。$y \in V_+$ だから、$x \in V_\mathrm{space} \sqcup \{0\}$。$x^2 - y^2 < 0$ となって矛盾する
@@ -528,13 +528,13 @@ $\Gamma_K \coloneqq \mathrm{int}\{ H_K < \infty \} = \mathrm{int}(K^\circ) \subs
 
 $u \in \mathcal{S}'(V)$ は $\mathrm{supp}u \subset K$ とする。$\Gamma_K \subset \mathrm{int}\Gamma_u$
 
-Paley–Wiener–Schwartz の定理から、$\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i\Gamma_K)$ は正則関数で、$\eta_0 \in \Gamma_K$ に対して、$C_{\eta_0}, N_{\eta_0} \ge 0$ が存在して
+Paley–Wiener–Schwartz の定理から、$\hat{u}(\xi + i\eta) \coloneqq \widehat{e^\eta u}(\xi) \ (\xi + i\eta \in V^* + i\Gamma_K)$ は正則関数で、$\eta_0 \in \Gamma_K$ に対して、$C_{\eta_0} \ge 0$, $N_{\eta_0} \ge 0$ が存在して
 
 $$
 |\hat{u}(\zeta)| \le C_{\eta_0}(1 + |\zeta|)^{N_{\eta_0}} \quad (\zeta \in V^* + i(\eta_0 + \Gamma_K))
 $$
 
-この評価は次のように改善できる。$C, N, M \ge 0$ が存在して
+この評価は次のように改善できる。$C \ge 0$, $N, M \ge 0$ が存在して
 
 $$
 |\hat{u}(\xi + i\eta)| \le C(1 + |\xi| + |\eta|)^N \Delta(\eta)^{-M} \quad (\xi \in V^*, \eta \in \Gamma_K)
@@ -597,9 +597,146 @@ $$
 
 あとは、$m \ge 0, a > 0$ に対して、$f_{m, a}(x) \coloneqq x^m e^{-ax} \ (x \ge 0)$ の最大値が $(\frac{m}{ea})^m$ になることから従う
 
+# 正則関数の境界値
+
+開集合 $W \subset \{ \mathrm{Im}z > 0 \}$ は $\mathbb{R}$ を edge とする wedge ($W \cup \mathbb{R} \subset \{ \mathrm{Im}z \ge 0 \}$ が開集合) だとする
+
+$F: W \to \mathbb{C}$ は正則で、任意の $R > 0$ に対して、$\varepsilon > 0$, $C \ge 0$, $N \ge 0$ が存在して
+
+$$
+|F(z)| \le C (\mathrm{Im}z)^{-N} \quad (|\mathrm{Re}z| < R, 0 < \mathrm{Im}z < \varepsilon)
+$$
+
+だとする。このとき、$\mathcal{D}'(\mathbb{R})$ 内で
+
+$$
+\lim_{\varepsilon \to +0} F(x + i\varepsilon) \coloneqq \lim_{\varepsilon \to +0} \int F(x + i\varepsilon)\varphi(x) \, dx
+$$
+
+が定まる
+
+$\mathbb{R}$ を edge とする $1$ 連結な wedge $W_0 \subset W$ をとる。正則関数 $F_n: W_0 \to \mathbb{C}$ を $F$ の $n$ 階の原始関数とする。$F_n$ は $n - 1$ 次の多項式を除いて一意的。$|\mathrm{Re}z| < R, 0 < \mathrm{Im}z < \varepsilon$ ならば
+
+$$
+|F_n(z)| \le \begin{cases}
+  C_n (\mathrm{Im}z)^{-N + n} &\quad (0 \le n \le N - 1) \\
+  -C_N \log(\mathrm{Im}z) &\quad (n = N) \\
+\end{cases}
+$$
+
+よって、$F_{N + 1}$ は $W_0 \cup \mathbb{R}$ 上の連続関数に拡張できる
+
+$$
+\begin{aligned}
+  \int F(x + i\varepsilon)\varphi(x) \, dx &= (-1)^{N + 1} \int F_{N + 1}(x + i\varepsilon) d_x^{N + 1}\varphi(x) \, dx \\
+  &\xrightarrow{\varepsilon \to +0} d_x^{N + 1}F_{N + 1}(x)
+\end{aligned}
+$$
+
+さらに、$W = \{ z \in \mathbb{C} \mid 0 < \mathrm{Im}z < \varepsilon_0 \}$ かつ
+
+$$
+|F(x + iy)| \le C (1 + |x|)^K y^{-N} \quad (x \in \mathbb{R}, 0 < y < \varepsilon_0)
+$$
+
+だとすると
+
+$$
+|F_n(x + iy)| \le \begin{cases}
+  C_n (1 + |x|)^{K + n} y^{-N + n} &\quad (0 \le n \le N - 1) \\
+  -C_N (1 + |x|)^{K + N} \log y &\quad (n = N)
+\end{cases}
+$$
+
+$F_{N + 1}(x) \le C_{N + 1} (1 + |x|)^{K + N + 1}$ だから、$\lim_{\varepsilon \to +0} F(x + i\varepsilon) = d_x^{N + 1}F_{N + 1}(x) \in \mathcal{S}'(\mathbb{R})$
+
+# 超関数の構造定理の別証明
+
+https://zenn.dev/link/comments/0c130c0ac682f5
+
+の別証明をする。$1$ の分割を使えば、開集合 $U \subset \mathbb{R}^n$ と $u \in \mathcal{E}'(U)$ に対して、$\varphi_\alpha \in C_c(U) \ (|\alpha| \le N)$ があって
+
+$$
+u = \sum_{|\alpha| \le N} \partial^\alpha \varphi_\alpha
+$$
+
+と表せることを示せば良い
+
+(別証明 1)
+
+$\hat{u}(\xi) = (2\pi)^{-n/2}u(e^{ix\xi})$ は
+
+$$
+|\hat{u}(\xi)| \le C(1 + |\xi|)^K
+$$
+
+と評価できる。$M > \frac{K + n}{2}$ を固定する。$\alpha(\xi) \coloneqq \frac{\hat{u}(\xi)}{(1 + |\xi|^2)^M} \in L^1(\mathbb{R}^n)$ だから、$\mathcal{F}^{-1}\alpha \in C(\mathbb{R}^n)$
+
+$$
+u = (1 - \Delta)^M \mathcal{F}^{-1}\alpha
+$$
+
+$\chi \in C^\infty_c(U)$ を $\mathrm{supp}u$ の近傍で $1$ になるように取れば
+
+$$
+u = \chi (1 - \Delta)^M \mathcal{F}^{-1}\alpha
+$$
+
+あとは
+
+$$
+f \partial^\beta g = \sum_{\gamma \le \beta} (-1)^{|\gamma|} \binom{\beta}{\gamma} \partial^{\beta - \gamma}((\partial^\gamma f)g)
+$$
+
+を使って整理すれば良い
+
+(別証明 2)
+
+$$
+F(z_1, \dots, z_n) \coloneqq (2\pi i)^{-n} u_t\left(\frac{1}{t_1 - z_1} \cdots \frac{1}{t_n - z_n}\right) \quad (z_j \in \mathbb{C} \setminus \mathbb{R})
+$$
+
+$|t_j - z_j| \ge |\mathrm{Im}z_j|$ から
+
+$$
+|F(z_1, \dots, z_n)| \le C |\mathrm{Im}z_1|^{-N} \cdots |\mathrm{Im}z_n|^{-N}
+$$
+
+$\mathbb{R}^+ \coloneqq \mathbb{R}_{>0}$, $\mathbb{R}^- \coloneqq \mathbb{R}_{<0}$, $H^\pm \coloneqq \mathbb{R} + i\mathbb{R}^\pm$ とする。$\sigma \in \{ \pm 1 \}^n$ に対して
+
+正則関数 $G^\sigma: H^\sigma \to \mathbb{C}$ を $F|_{H^\sigma}$ の $z_1$ に関して $N + 1$ 階, $\dots$, $z_n$ に関して $N + 1$ 階の原始関数とする。$G^\sigma$ は境界まで連続に拡張できる
+
+$$
+F^\sigma(x) \coloneqq \lim_{y \in \mathbb{R}^\sigma, y \to 0} F(x + iy) = d_{x_1}^{N + 1} \cdots d_{x_n}^{N + 1} G^\sigma(x) \in \mathcal{D}'(\mathbb{R}^n)
+$$
+
+$$
+u(x) = \sum_{\sigma \in \{ \pm 1 \}^n} \left(\prod_{j = 1}^n \sigma_j\right) F^\sigma(x)
+$$
+
+を示せば、あとは別証明 1 と同様にカットオフを考えれば良い
+
+$$
+\begin{aligned}
+  &\sum_{\sigma \in \{ \pm 1 \}^n} \left(\prod_{j = 1}^n \sigma_j\right) F^\sigma(x) \\
+  &\quad = \lim_{y \to 0, y_j \in \mathbb{R}_{>0}} \sum_{\sigma \in \{ \pm 1 \}^n} \left(\prod_{j = 1}^n \sigma_j\right) F(x_1 + i\sigma_1 y_1, \dots, x_n + i\sigma_n y_n) \\
+  &\quad = (2\pi i)^{-n} \lim_{y \to 0, y_j \in \mathbb{R}_{>0}} \sum_{\sigma \in \{ \pm 1 \}^n} \left(\prod_{j = 1}^n \sigma_j\right) u_t\left(\frac{1}{t_1 - x_1 - i\sigma_1 y_1} \cdots \frac{1}{t_n - x_n - i\sigma_n y_n}\right) \\
+  &\quad = (2\pi i)^{-n} \lim_{y \to 0, y_j \in \mathbb{R}_{>0}} u_t\left(\prod_{j = 1}^n \left(\frac{1}{t_j - x_j - iy_j} - \frac{1}{t_j - x_j + iy_j}\right)\right)
+\end{aligned}
+$$
+
+$k(x) \coloneqq \frac{1}{\pi(x^2 + 1)}$, $k_\varepsilon \coloneqq \frac{1}{\varepsilon}k(x / \varepsilon) = \frac{\varepsilon}{\pi(x^2 + \varepsilon^2)}$ とすると、$\frac{1}{2 \pi i} \left(\frac{1}{t_j - x_j - iy_j} - \frac{1}{t_j - x_j + iy_j}\right) = \frac{1}{\pi} \frac{y_j}{(t_j - x_j)^2 + y_j^2} = k_{y_j}(t_j - x_j)$
+
+$$
+\begin{aligned}
+  \sum_{\sigma \in \{ \pm 1 \}^n} \left(\prod_{j = 1}^n \sigma_j\right) F^\sigma(x) &= \lim_{y \to 0, y_j \in \mathbb{R}_{>0}} u_t\left(\prod_{j = 1}^n k_{y_j}(t_j - x_j)\right) \\
+  &= u(x)
+\end{aligned}
+$$
+
 # $SO(1, d - 1)$ 不変な超関数
 
-$V \coloneqq (\mathbb{R}^d, x_1^2 - x_2^2 - \cdots - x_d^2)$
+$V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
 $G \coloneqq SO(V)$
 
 一般の $\mathcal{D}'(V)^G$ は難しかったので、$\{ u \in \mathcal{S}'(V) \mid \mathrm{supp}u \subset \overline{V}_+ \}^G$ を調べる
