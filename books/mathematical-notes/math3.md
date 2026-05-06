@@ -973,3 +973,66 @@ $$
 |F(s)| = |\hat{u}(q^{-1}(s), 0, \dots, 0)| \le C (1 + |s|)^N d(s)^{-M}
 $$
 
+$G: \mathbb{C} \setminus \mathbb{R}_{\ge 0} \to \mathbb{C}$ を $F$ の $M + 1$ 階の原始関数とすると
+
+$$
+\begin{aligned}
+  \lim_{s \in \mathbb{R} + i\mathbb{R}_{>0}, s \to x} &G(s) \eqqcolon G(x + i0) &\quad (x > 0) \\
+  \lim_{s \in \mathbb{R} + i\mathbb{R}_{<0}, s \to x} &G(s) \eqqcolon G(x - i0) &\quad (x > 0) \\
+  \lim_{s \to 0} &G(s)
+\end{aligned}
+$$
+
+が存在する。Cauchy の積分公式から
+
+$$
+G^{(N + M + 2)}(s) = \frac{(N + M + 2)!}{2\pi i} \int_0^\infty \frac{G(x + i0) - G(x - i0)}{(x - s)^{N + M + 3}} \, dx \quad (s \in \mathbb{C} \setminus \mathbb{R}_{\ge 0})
+$$
+
+$s_0 \in \mathbb{C} \setminus \mathbb{R}_{\ge 0}$ を固定する。$k \ge 0$, $s \in \mathbb{C} \setminus \mathbb{R}_{\ge 0}$, $x \in \mathbb{R}_{\ge 0}$ に対して
+
+$$
+\begin{aligned}
+  \Psi_k(s, x) &\coloneqq \overbrace{\int_{s_0}^s ds \ \dots \int_{s_0}^s ds}^k \frac{k!}{(x - s)^{k + 1}} \\
+  &= \overbrace{\int_{s_0}^s ds \ \dots \int_{s_0}^s ds}^{k - 1} \left(\frac{(k - 1)!}{(x - s)^k} - \frac{(k - 1)!}{(x - s_0)^k}\right) \\
+  &= \frac{1}{x - s} - \sum_{j = 0}^{k - 1} \frac{(s - s_0)^j}{(x - s_0)^{j + 1}} \\
+  &= \frac{1}{x - s} - \frac{1}{x - s} \left(1 - \left(\frac{s - s_0}{x - s_0}\right)^k\right) \\
+  &= \frac{(s - s_0)^k}{(x - s)(x - s_0)^k}
+\end{aligned}
+$$
+
+よって、$N + M + 1$ 次の多項式 $P$ が存在して
+
+$$
+G(s) = \frac{1}{2\pi i} \int_0^\infty (G(x + i0) - G(x - i0)) \Psi_{N + M + 2}(s, x) \, dx + P(s) \quad (s \in \mathbb{C} \setminus \mathbb{R}_{\ge 0})
+$$
+
+$s \in \mathbb{C} \setminus \mathbb{R}_{\ge 0}$ に対して
+
+$$
+\begin{aligned}
+  F(s) &= G^{(M + 1)}(s) \\
+  &= \frac{1}{2\pi i} \int_0^\infty (G(x + i0) - G(x - i0)) \partial_s^{M + 1}\Psi_{N + M + 2}(s, x) \, dx + P^{(M + 1)}(s)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \partial_s^{M + 1}\Psi_{N + M + 2}(s, x) &= \overbrace{\int_{s_0}^s ds \ \dots \int_{s_0}^s ds}^{N + 1} \frac{(N + M + 2)!}{(x - s)^{N + M + 3}} \\
+  &= (-1)^{M + 1} \partial_x^{M + 1} \left[\overbrace{\int_{s_0}^s ds \ \dots \int_{s_0}^s ds}^{N + 1} \frac{(N + 1)!}{(x - s)^{N + 2}}\right] \\
+  &= (-1)^{M + 1} \partial_x^{M + 1} \Psi_{N + 1}(s, x)
+\end{aligned}
+$$
+
+$s \in \mathbb{C} \setminus \mathbb{R}_{\ge 0}$ に対して
+
+$$
+\begin{aligned}
+  F(s) &= \frac{1}{2\pi i} \int_0^\infty d_x^{M + 1}(G(x + i0) - G(x - i0)) \Psi_{N + 1}(s, x) \, dx + P^{(M + 1)}(s) \\
+  &= \frac{1}{2\pi i} \langle F(x + i0) - F(x - i0), \Psi_{N + 1}(s, x) \rangle + P^{(M + 1)}(s) \\
+  &= (s - s_0)^{N + 1} \left\langle \frac{\rho(x)}{(x - s_0)^{N + 1}}, \frac{1}{x - s} \right\rangle + Q(s)
+\end{aligned}
+$$
+
+ただし、$\rho(x) \coloneqq \frac{1}{2\pi i}(F(x + i0) - F(x - i0)) \in \mathcal{S}'(\mathbb{R})$, $Q(s) \coloneqq P^{(M + 1)}(s)$。$\mathrm{supp}\rho \subset \mathbb{R}_{\ge 0}$ であり、$Q$ は $N$ 次の多項式
+
