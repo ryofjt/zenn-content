@@ -4,7 +4,10 @@ export function formatMathBlocks(src: string): string {
   let inMath = false;
   let mathBuf: string[] = [];
 
-  for (const line of src.split("\n")) {
+  const queue = src.split("\n");
+  while (queue.length > 0) {
+    const line = queue.shift()!;
+
     if (/^(`{3,}|~{3,})/.test(line.trimStart())) {
       inCode = !inCode;
       result.push(line);
@@ -23,16 +26,21 @@ export function formatMathBlocks(src: string): string {
       continue;
     }
 
-    if (!inMath && line.trimStart() === "$$") {
+    const trimmed = line.trimStart();
+    const indent = line.slice(0, line.length - trimmed.length);
+
+    if (!inMath && trimmed === "$$") {
       inMath = true;
       mathBuf = [];
       result.push(line);
       continue;
     }
 
-    if (inMath && line.trimStart() === "$$") {
+    if (inMath && trimmed.startsWith("$$")) {
       inMath = false;
-      result.push(...formatKatex(mathBuf), line);
+      result.push(...formatKatex(mathBuf), `${indent}$$`);
+      const rest = trimmed.slice(2).trim();
+      if (rest) queue.unshift(rest);
       continue;
     }
 

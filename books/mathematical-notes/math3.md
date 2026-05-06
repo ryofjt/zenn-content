@@ -13,7 +13,7 @@ $$
 \end{aligned}
 $$
 
-ただし、$E(p') = \sqrt{p'^2 + m^2}$
+ただし、$E(p') = \sqrt{|p'|^2 + m^2}$
 
 $\mathcal{F}W_2(-p) \in \mathcal{S}'(V, \mathbb{C})$ は $G$ 不変で $\mathrm{supp}(\mathcal{F}W_2) \subset \overline{V}_+$。ここからは、自由スカラー場を考える。$\mathbb{R}_{\ge 0}$ 上の測度 $\rho$ を $\rho \coloneqq \frac{1}{4\pi}(2\pi)^{-d/2} \delta_{m^2}$ で定義すると
 
@@ -734,10 +734,242 @@ $$
 \end{aligned}
 $$
 
+# 波動方程式の前進基本解 (質量 $m \ge 0$)
+
+$m \ge 0$
+
+$\square + m^2 = \partial_t^2 - \partial_x^2 + m^2$ の基本解を考える。形式的には、$(\square + m^2)E = \delta$ とすると、$(-\xi^2 + m^2)\hat{E} = (2\pi)^{-d/2}$ だから、$\hat{E} = (2\pi)^{-d/2}\frac{1}{m^2 - \xi^2}$
+
+以降は厳密に構成をする。$\zeta \in \mathcal{T} = V - iV_+$ ならば、$\zeta^2 \not\in \mathbb{R}_{\ge 0}$ だから
+
+$$
+U(\zeta) \coloneqq (2\pi)^{-d/2}\frac{1}{m^2 - \zeta^2} \quad (\zeta \in \mathcal{T})
+$$
+
+は正則関数
+
+$M \subset V_-$ をコンパクト部分集合とすると
+
+$$
+|U(\xi + i\eta + i\theta)| \le C \quad (\eta \in M, \theta \in \overline{V}_-)
+$$
+
+よって、Paley–Wiener–Schwartz の定理から、対応する $E_+(x, m^2) \in \mathcal{D}'_{\overline{V}_+}(V)$ が構成できる。$E(x, m^2) \in \mathcal{S}'(V)$ もわかる
+
+$$
+\begin{aligned}
+  E_+(x, m^2)(\varphi) &= (2\pi)^{-d} \int \frac{1}{m^2 - (\xi + i\eta)^2}\varphi(x)e^{ix(\xi + i\eta)} \, dx d\xi \quad (\eta \in V_-) \\
+  &= (2\pi)^{-d} \lim_{\eta \in \Gamma \setminus \{0\}, \eta \to 0} \int \frac{1}{m^2 - (\xi + i\eta)^2}\varphi(x)e^{ix\xi} \, dx d\xi \quad (\text{in } \mathcal{S}'(V))
+\end{aligned}
+$$
+
+ただし、$\{0\} \subsetneq \Gamma \subset V$ は closed cone で、$\Gamma \setminus \{0\} \subset V_-$
+
+$E_+(x, m^2)$ が基本解になっていることは
+
+$$
+\begin{aligned}
+  ((\square + m^2)E_+(x, m^2))(\varphi) &= E_+(x, m^2)((\square + m^2)\varphi) \\
+  &= (2\pi)^{-d} \int \varphi(x)e^{ix(\xi + i\eta)} \, dx d\xi \\
+  &= \varphi(0)
+\end{aligned}
+$$
+
+から従う
+
+最後に、基本解で $\mathrm{supp} \subset \overline{V}_+$ なものは一意的なことを示す。$F \in \mathcal{D}'_{\overline{V}_+}(V)$ も基本解だとする。$+: \overline{V}_+ \times \overline{V}_+ \to V$ は時間成分を考えれば proper だから
+
+$$
+\begin{aligned}
+  E_+(x, m^2) - F &= \delta * (E_+(x, m^2) - F) \\
+  &= (\square + m^2)E_+(x, m^2) * (E_+(x, m^2) - F) \\
+  &= (\square + m^2)(E_+(x, m^2) * (E_+(x, m^2) - F)) \\
+  &= E_+(x, m^2) * (\square + m^2)(E_+(x, m^2) - F) \\
+  &= 0
+\end{aligned}
+$$
+
+# Sokhotski–Plemelj の公式
+
+$\mathcal{S}'(\mathbb{R})$ 内で
+
+$$
+\int \frac{1}{x \pm i\varepsilon} \varphi(x) \, dx \xrightarrow{\varepsilon \to +0} \lim_{\varepsilon \to +0} \int_{|x| \ge \varepsilon} \frac{1}{x} \varphi(x) \, dx \mp i\pi\varphi(0) = \mathrm{p. v.} \frac{1}{x} \mp i\pi\delta(x)
+$$
+
+$\frac{\varphi(x) - \varphi(-x)}{x} \xrightarrow{x \to 0} 2\varphi'(0)$ だから、右辺は $\lim_{\varepsilon \to +0} \int_{|x| \ge \varepsilon} \frac{1}{x} \varphi(x) \, dx = \int_0^\infty \frac{\varphi(x) - \varphi(-x)}{x}$ により正当化される
+
+$$
+\begin{aligned}
+  \int \frac{1}{x \pm i\varepsilon} \varphi(x) \, dx &= \int \frac{x}{x^2 + \varepsilon^2} \varphi(x) \, dx \mp i \int \frac{\varepsilon}{x^2 + \varepsilon^2} \varphi(x) \, dx \\
+  &= \int_0^\infty \frac{x}{x^2 + \varepsilon^2}(\varphi(x) - \varphi(-x)) \, dx \mp i\pi \int k_\varepsilon(x) \varphi(x) \, dx \\
+  &\xrightarrow{\varepsilon \to +0} \int_0^\infty \frac{\varphi(x) - \varphi(-x)}{x} \, dx \mp i\pi\varphi(0)
+\end{aligned}
+$$
+
+だだし、$k(x) \coloneqq \frac{1}{\pi(x^2 + 1)}$, $k_\varepsilon \coloneqq \frac{1}{\varepsilon}k(x / \varepsilon) = \frac{\varepsilon}{\pi(x^2 + \varepsilon^2)}$
+
+# $\mathrm{p. v.}\frac{1}{x}$ の Fourier 変換
+
+$$
+\mathcal{F}\left(\mathrm{p. v.}\frac{1}{x}\right)(\xi) = -i\sqrt{\frac{\pi}{2}} \mathrm{sgn}(\xi)
+$$
+
+$$
+\begin{aligned}
+  \mathcal{F}\left(\mathrm{p. v.}\frac{1}{x}\right)(\xi) &= (2\pi)^{-1/2} \lim_{\varepsilon \to +0} \int \frac{x}{x^2 + \varepsilon^2} e^{-ix\xi} \varphi(\xi) \, dx d\xi \\
+  &= -i\sqrt{\frac{\pi}{2}} \lim_{\varepsilon \to +0} \int \mathrm{sgn}(\xi) e^{-\varepsilon|\xi|} \varphi(\xi) \, d\xi \\
+  &= -i\sqrt{\frac{\pi}{2}} \mathrm{sgn}(\xi)
+\end{aligned}
+$$
+
+ただし
+
+$$
+\begin{aligned}
+  \int_{-\infty}^\infty \frac{x}{x^2 + \varepsilon^2}e^{iax} \, dx &= \begin{cases} \pi i e^{-\varepsilon a} &\quad (a > 0) \\
+    0 &\quad (a = 0) \\
+    -\pi i e^{\varepsilon a} &\quad (a < 0)
+  \end{cases} \\
+  &= \mathrm{sgn}(a) \pi i e^{-\varepsilon|a|}
+\end{aligned}
+$$
+
+は留数定理から従う
+
+# 前進基本解の $\Delta_+(x, m^2)$ による表示
+
+$e_0 \coloneqq (1, 0, \dots, 0) \in V_+$ とすると、$\mathcal{S}'(V)$ 内で
+
+$$
+\begin{aligned}
+  (2\pi)^d E_+(x, m^2)(\varphi) &= \lim_{\varepsilon \to +0} \int \frac{1}{m^2 - (p - i\varepsilon e_0)^2} \varphi(x) e^{ipx} \, dx dp \\
+  &= \lim_{\varepsilon \to +0} \int \frac{1}{m^2 - p_0^2 + |p'|^2 + \varepsilon^2 + 2i\varepsilon p_0} \varphi(x) e^{ipx} \, dx dp \\
+  &= \lim_{\varepsilon \to +0} \int \frac{1}{E^2 - (p_0 - i\varepsilon)^2} \varphi(x) e^{ipx} \, dx dp \\
+  &= \lim_{\varepsilon \to +0} \int \frac{1}{2E} \left(\frac{1}{E - p_0 + i\varepsilon} + \frac{1}{E + p_0 - i\varepsilon}\right) \varphi(x) e^{ipx} \, dx dp
+\end{aligned}
+$$
+
+ただし、$E(p') = \sqrt{|p'|^2 + m^2}$
+
+$$
+\begin{aligned}
+  &\int \frac{1}{2E} \frac{1}{E - p_0 + i\varepsilon} \varphi(x) e^{ipx} \, dx dp \\
+  &\quad = \int \frac{1}{2E} \frac{1}{E - p_0 + i\varepsilon} \varphi(x) e^{ip_0x_0} e^{-ip'x'} \, dx dp_0 dp' \\
+  &\quad = \int \frac{1}{2E} \frac{1}{p_0 + i\varepsilon} \varphi(x) e^{-ip_0x_0} e^{iEx_0} e^{-ip'x'} \, dx dp_0 dp' \\
+  &\xrightarrow{\varepsilon \to +0} \int \frac{1}{2E} \left(\mathrm{p. v.}\frac{1}{p_0} - i\pi\delta(p_0)\right) \varphi(x) e^{-ip_0x_0} e^{iEx_0} e^{-ip'x'} \, dx dp_0 dp' \\
+  &\quad = \int \frac{1}{2E} \left(-i\pi\mathrm{sgn}(x_0) - i\pi\right) \varphi(x) e^{iEx_0} e^{-ip'x'} \, dx dp' \\
+  &\quad = -2\pi i \int \frac{1}{2E} \theta(x_0) \varphi(x) e^{iEx_0} e^{-ip'x'} \, dx dp' \\
+  &\quad = -2\pi i \int_{\mathcal{O}^+_m} \theta(x_0) \varphi(x) e^{ipx} \, dx d\mu(p)
+\end{aligned}
+$$
+
+ただし
+
+$$
+\theta(x) \coloneqq \begin{cases}
+  1 &\quad (x > 0) \\
+  \frac{1}{2} &\quad (x = 0) \\
+  0 &\quad (x < 0)
+\end{cases}
+$$
+
+同様に
+
+$$
+\begin{aligned}
+  &\int \frac{1}{2E} \frac{1}{E + p_0 - i\varepsilon} \varphi(x) e^{ipx} \, dx dp \\
+  &\quad = \int \frac{1}{2E} \frac{1}{E + p_0 - i\varepsilon} \varphi(x) e^{ip_0x_0} e^{-ip'x'} \, dx dp_0 dp' \\
+  &\quad = \int \frac{1}{2E} \frac{1}{p_0 - i\varepsilon} \varphi(x) e^{ip_0x_0} e^{-iEx_0} e^{-ip'x'} \, dx dp_0 dp' \\
+  &\xrightarrow{\varepsilon \to +0} \int \frac{1}{2E} \left(\mathrm{p. v.}\frac{1}{p_0} + i\pi\delta(p_0)\right) \varphi(x) e^{ip_0x_0} e^{-iEx_0} e^{-ip'x'} \, dx dp_0 dp' \\
+  &\quad = \int \frac{1}{2E} \left(i\pi\mathrm{sgn}(x_0) + i\pi\right) \varphi(x) e^{-iEx_0} e^{-ip'x'} \, dx dp' \\
+  &\quad = 2\pi i \int \frac{1}{2E} \theta(x_0) \varphi(x) e^{-iEx_0} e^{-ip'x'} \, dx dp' \\
+  &\quad = 2\pi i \int_{\mathcal{O}^+_m} \theta(x_0) \varphi(x) e^{-ipx} \, dx d\mu(p)
+\end{aligned}
+$$
+
+$$
+\Delta_+(x, m^2) = \mathcal{F}^{-1}(\delta_{\mathcal{O}_m^+})(-x) = (2\pi)^{-d/2} \int_{p \in \mathcal{O}_m^+} e^{-ipx} \, d\mu(p) \in \mathcal{S}'(V)
+$$
+
+だったから
+
+$$
+\begin{aligned}
+  E_+(x, m^2) &= -i(2\pi)^{-d + 1} \theta(x_0) \int_{\mathcal{O}^+_m} e^{ipx} \, d\mu(p) + i(2\pi)^{-d + 1} \theta(x_0) \int_{\mathcal{O}^+_m} e^{-ipx} \, d\mu(p) \\
+  &= i(2\pi)^{-d/2 + 1} \theta(x_0) (\Delta_+(x, m^2) - \Delta_+(-x, m^2))
+\end{aligned}
+$$
+
 # $SO(1, d - 1)$ 不変な超関数
 
 $V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
 $G \coloneqq SO(V)$
+$G_\mathbb{C} \coloneqq SO(V \otimes \mathbb{C})$
 
 一般の $\mathcal{D}'(V)^G$ は難しかったので、$\{ u \in \mathcal{S}'(V) \mid \mathrm{supp}u \subset \overline{V}_+ \}^G$ を調べる
+
+$\mathrm{int}\{ H_{\overline{V}_+} < \infty \} = V_-$。まず、$\partial V_-$ との距離 $\Delta$ は
+
+$$
+\Delta(\eta) = \frac{-\eta_0 - |\eta'|}{\sqrt{2}} \quad (\eta \in V_-)
+$$
+
+を示す
+
+$$
+\begin{aligned}
+  \Delta(\eta)^2 &= \inf_{b_0 \in \mathbb{R}_{\le 0}, |b'| = |b_0|} ((\eta_0 - b_0)^2 + |\eta' - b'|^2) \\
+  &= \inf_{b_0 \in \mathbb{R}_{\le 0}} ((\eta_0 - b_0)^2 + (|\eta'| + b_0)^2) \\
+  &= \inf_{b_0 \in \mathbb{R}_{\le 0}} (2b_0^2 + 2(|\eta'| - \eta_0)b_0 + \eta_0^2 + |\eta'|^2) \\
+  &= \frac{1}{2}(\eta_0 + |\eta'|)^2
+\end{aligned}
+$$
+
+$u \in \mathcal{S}'(V)$ は $G$ 不変で、$\mathrm{supp}u \subset \overline{V}_+$ とする。Paley-Wiener-Schwartz の定理から、正則関数 $\hat{u}: \mathcal{T} = V - iV_+ \to \mathbb{C}$ ができる。$\hat{u}$ は $G$ 不変で、Vladimirov の評価式から
+
+$$
+|\hat{u}(\zeta)| \le C_0 (1 + |\zeta|)^{N_0} \Delta(\mathrm{Im}\zeta)^{-M_0} \quad (\zeta \in \mathcal{T})
+$$
+
+$g \in G_\mathbb{C}$, $\zeta, g^{-1}\zeta \in \mathcal{T}$ ならば
+
+$$
+\hat{u}(\zeta) = \hat{u}(g^{-1}\zeta)
+$$
+
+を示せば、$G_\mathbb{C}$ 不変な $\hat{u}: \tilde{\mathcal{T}}_1 = \{ \zeta \in V_\mathbb{C} \mid \zeta^2 \not\in \mathbb{R}_{\ge 0} \} \to \mathbb{C}$ まで拡張できることがわかる
+
+$X \coloneqq \{ h \in G_\mathbb{C} \mid h^{-1}\zeta \in \mathcal{T} \}$ は連結で、$e, g \in X$。$X \ni h \mapsto \hat{u}(h^{-1}\zeta)$ は $G$ 上一定だから、一定
+
+$q: \{ \mathrm{Im}t < 0 \} \ni t \mapsto t^2 \in \mathbb{C} \setminus \mathbb{R}_{\ge 0}$ は同型で
+
+$$
+F(s) \coloneqq \hat{u}(q^{-1}(s), 0, \dots, 0) \quad (s \in \mathbb{C} \setminus \mathbb{R}_{\ge 0})
+$$
+
+とすると、$G_\mathbb{C}$ 不変性から
+
+$$
+\hat{u}(\zeta) = F(\zeta^2) \quad (\zeta \in \tilde{\mathcal{T}}_1)
+$$
+
+$d$ を $\mathbb{R}_{\ge 0}$ との距離とする。$\Delta(\mathrm{Im}(t, 0, \dots, 0)) \ge \frac{d(t^2)}{2\sqrt{2}|t|} \ (\mathrm{Im}t < 0)$ を示す。$t = a - ib \ (a \in \mathbb{R}, b \in \mathbb{R}_{>0})$ とすると、$\Delta(\mathrm{Im}(t, 0, \dots, 0)) = \frac{b}{\sqrt{2}}$
+
+$$
+\begin{aligned}
+  d(t^2) &= d((a^2 - b^2) - 2iab) \\
+  &= \begin{cases}
+    2|a|b &\quad (|a| \ge b) \\
+    |t|^2 &\quad (|a| < b)
+  \end{cases} \\
+  & \le 2b|t|
+\end{aligned}
+$$
+
+よって
+
+$$
+|F(s)| = |\hat{u}(q^{-1}(s), 0, \dots, 0)| \le C (1 + |s|)^N d(s)^{-M}
+$$
 

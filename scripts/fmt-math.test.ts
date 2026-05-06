@@ -50,6 +50,37 @@ describe("formatMathBlocks", () => {
     const src = ["$$", "a + b"].join("\n");
     strictEqual(formatMathBlocks(src), src);
   });
+
+  test("closes math block when $$ is followed by text", () => {
+    const src = ["$$", "a + b", "$$ text follows"].join("\n");
+    const expected = ["$$", "a + b", "$$", "text follows"].join("\n");
+    strictEqual(formatMathBlocks(src), expected);
+  });
+
+  test("does not slurp later $$ blocks after malformed close", () => {
+    const src = [
+      "$$",
+      "\\begin{aligned}",
+      "  x",
+      "\\end{aligned}",
+      "$$ text",
+      "$$ y + z $$",
+      "後ろのテキスト",
+    ].join("\n");
+    const expected = [
+      "$$",
+      "\\begin{aligned}",
+      "  x",
+      "\\end{aligned}",
+      "$$",
+      "text",
+      "$$",
+      "y + z",
+      "$$",
+      "後ろのテキスト",
+    ].join("\n");
+    strictEqual(formatMathBlocks(src), expected);
+  });
 });
 
 describe("formatKatex", () => {
