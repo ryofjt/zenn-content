@@ -915,7 +915,7 @@ $$
 と定義する。$d = 2$ かつ $x = 0$ の場合のみ発散して、$(M\varphi)(0) \in \{ 0, \pm\infty \}$ なことに注意。$d$ が奇数なら、$M\varphi \in \mathcal{S}'(\mathbb{R}_{\ge 0})$。$d$ が偶数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
 
 $$
-(M\varphi)(x) = f(x) + x^{\frac{d}{2} - 1} \log x \cdot g(x)
+(M\varphi)(x) = x^{\frac{d}{2} - 1} \log x \cdot f(x) + g(x)
 $$
 
 と表せる
@@ -1031,7 +1031,7 @@ $$
 J(x) \sim -x^m \log x \sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k} + C^\infty([0, 1))
 $$
 
-Borel の定理から、Taylor 展開が $\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $g \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) + x^m \log x \cdot g(x) \in \mathcal{S}'(\mathbb{R}_{\ge 0})$ を示す
+Borel の定理から、Taylor 展開が $\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $f \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) + x^m \log x \cdot f(x) \in \mathcal{S}'(\mathbb{R}_{\ge 0})$ を示す
 
 $$
 H_1(t, x) = \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) t^j x^k + R_N(t, x)
@@ -1041,14 +1041,25 @@ $$
 
 $$
 \begin{aligned}
-  &J(x) + x^m \log x \cdot g(x) \\
-  &= x^m \log x \left(g(x) - \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}\right) \\
+  &J(x) + x^m \log x \cdot f(x) \\
+  &= x^m \log x \left(f(x) - \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}\right) \\
   &\quad + \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) f_j(x) x^k \\
   &\quad + \int_x^1 (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} R_N(t, x) \, dt
 \end{aligned}
 $$
 
-第 $1$ 項は $C^{N + m - 1}([0, 1))$ に属し、第 $3$ 項も $C^{N + m - 1}([0, 1))$ に属するから、$J(x) + x^m \log x \cdot g(x)$ も $C^{N + m - 1}([0, 1))$ に属する。$N$ は任意だから、$J(x) + x^m \log x \cdot g(x)$ は $C^\infty([0, 1))$ に属する
+第 $1$ 項は $C^{N + m - 1}([0, 1))$ に属し、第 $3$ 項も $C^{N + m - 1}([0, 1))$ に属するから、$J(x) + x^m \log x \cdot f(x)$ も $C^{N + m - 1}([0, 1))$ に属する。$N$ は任意だから、$J(x) + x^m \log x \cdot f(x)$ は $C^\infty([0, 1))$ に属する
+
+$M\mathcal{S}(V) \coloneqq \{ M\varphi \mid \varphi \in \mathcal{S}(V) \}$ と定義する
+
+$$
+M\mathcal{S}(V) \subset \begin{cases}
+  \mathcal{S}(\mathbb{R}_{\ge 0}) &\quad (d \text{ は奇数}) \\
+  x^{\frac{d}{2} - 1} \log x \cdot \mathcal{S}(\mathbb{R}_{\ge 0}) + \mathcal{S}(\mathbb{R}_{\ge 0}) &\quad (d \text{ は偶数})
+\end{cases}
+$$
+
+だが、一致することが知られている。https://en.wikipedia.org/wiki/Abel_transform を使って証明するらしい。$M\mathcal{S}(V)$ には $\mathcal{S}(V) \twoheadrightarrow M\mathcal{S}(V)$ で商位相を入れる
 
 
 # $SO(1, d - 1)$ 不変な超関数
