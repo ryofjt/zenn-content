@@ -901,6 +901,156 @@ $$
 \end{aligned}
 $$
 
+# $S(1, d - 1) \curvearrowright \mathbb{R}^d$ に関する軌道積分
+
+$d \ge 2$
+$V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
+
+$\varphi \in \mathcal{S}(V)$ に対して
+
+$$
+(M\varphi)(x) \coloneqq \int_{\mathcal{O}_{\sqrt{x}}} \varphi(v) \, d\mu_{\sqrt{x}} \quad (x \ge 0)
+$$
+
+と定義する。$d = 2$ かつ $x = 0$ の場合のみ発散して、$(M\varphi)(0) \in \{ 0, \pm\infty \}$ なことに注意。$d$ が奇数なら、$M\varphi \in \mathcal{S}'(\mathbb{R}_{\ge 0})$。$d$ が偶数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
+
+$$
+(M\varphi)(x) = f(x) + x^{\frac{d}{2} - 1} \log x \cdot g(x)
+$$
+
+と表せる
+
+$$
+\psi(u, s) \coloneqq \int_{S^{d - 2}} \varphi(u, \sqrt{s}\omega) \, d\sigma(\omega) \in \mathcal{S}(\mathbb{R} \times \mathbb{R}_{\ge 0})
+$$
+
+ただし、$\sigma$ は $S^{d - 2}$ 上の標準的な測度。$x \ge 0$ に対して
+
+$$
+\begin{aligned}
+  (M\varphi)(x) &= \frac{1}{2} \int \frac{1}{\sqrt{|v'|^2 + x}} \varphi(\sqrt{|v'|^2 + x}, v') \, dv' \\
+  &= \frac{1}{2} \int_{r \ge 0, \omega \in S^{d - 2}} \frac{1}{\sqrt{r^2 + x}} \varphi(\sqrt{r^2 + x}, r\omega) \, r^{d - 2} \, dr d\sigma(\omega) \\
+  &= \frac{1}{4} \int_{s \ge 0, \omega \in S^{d - 2}} \frac{1}{\sqrt{s + x}} \varphi(\sqrt{s + x}, \sqrt{s}\omega) \, s^{\frac{d - 3}{2}} \, ds d\sigma(\omega) \\
+  &= \frac{1}{4} \int_0^\infty \frac{1}{\sqrt{s + x}} \psi(\sqrt{s + x}, s) \, s^{\frac{d - 3}{2}} \, ds \\
+  &= \frac{1}{2} \int_{\sqrt{x}}^\infty (u^2 - x)^{\frac{d - 3}{2}} \psi(u, u^2 - x) \, du
+\end{aligned}
+$$
+
+https://ncatlab.org/nlab/show/Hadamard+lemma
+
+$\psi(u, u^2 - x)$ を $u$ に関して偶関数と奇関数に分ける。$H_\text{even}, H_\text{odd} \in \mathcal{S}(\{ (t, x) \in \mathbb{R}^2 \mid 0 \le x \le t \})$ が一意的に存在して
+
+$$
+\psi(u, u^2 - x) = H_\text{even}(u^2, x) + u H_\text{odd}(u^2, x)
+$$
+
+$$
+\begin{aligned}
+  M\varphi(x) &= \frac{1}{2} \int_{\sqrt{x}}^\infty (u^2 - x)^{\frac{d - 3}{2}} H_\text{even}(u^2, x) \, du + \frac{1}{2} \int_{\sqrt{x}}^\infty (u^2 - x)^{\frac{d - 3}{2}} u H_\text{odd}(u^2, x) \, du \\
+  &\eqqcolon I_\text{even}(x) + I_\text{odd}(x)
+\end{aligned}
+$$
+
+まず、$I_\text{odd}(x)$ は
+
+$$
+I_\text{odd}(x) = \frac{1}{4} \int_0^\infty w^{\frac{d - 3}{2}} H_\text{odd}(w + x, x) \, dw \in \mathcal{S}'(\mathbb{R}_{\ge 0})
+$$
+
+次に、$I_\text{even}(x)$ は
+
+$$
+I_\text{even}(x) = \frac{1}{4} \int_x^\infty (t - x)^{\frac{d - 3}{2}} t^{-\frac{1}{2}} H_\text{even}(t, x) \, dt
+$$
+
+だから、$d$ が奇数なら $I_\text{even}(x) \in \mathcal{S}'(\mathbb{R}_{\ge 0})$。$d$ は偶数とする。$d = 2m + 2 \ (m \ge 0)$ とおく。$\chi(t) \in C^\infty(\mathbb{R}_{\ge 0})$ を $\chi(t) = 1 \ (0 \le t \le \frac{1}{2})$ かつ $\chi(t) = 0 \ (t \ge 1)$ なるようにとり
+
+$$
+H_\text{even}(t, x) = \chi(t)H_\text{even}(t, x) + (1 - \chi(t))H_\text{even}(t, x) \eqqcolon H_1(t, x) + H_2(t, x)
+$$
+
+と分解する
+
+$$
+\begin{aligned}
+  4 I_\text{even}(x) &= \int_x^\infty (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} H_1(t, x) \, dt + \int_x^\infty (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} H_2(t, x) \, dt \\
+  &= \int_x^1 (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} H_1(t, x) \, dt + \int_0^\infty w^{m - \frac{1}{2}} (w + x)^{-\frac{1}{2}} H_2(w + x, x) \, dw
+\end{aligned}
+$$
+
+と分割する。最右辺の後半は、$w + x \ge \frac{1}{2}$ として良いから滑らか。最右辺の前半
+
+$$
+J(x) \coloneqq \int_x^1 (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} H_1(t, x) \, dt
+$$
+
+を調べれば良い。$J(x) = \int_0^\infty w^{m - \frac{1}{2}} (w + x)^{-\frac{1}{2}} H_1(w + x, x) \, dw$ だから、$x > 0$ で滑らかなことがわかる。$x = 0$ の近傍での滑らかでない特異性を抽出する
+
+$$
+H_1(t, x) \sim \sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) t^j x^k
+$$
+
+と形式的に Taylor 展開する。$0 < x < 1$ に対して
+
+$$
+\begin{aligned}
+  J_j(x) &\coloneqq \int_x^1 (t - x)^{m - \frac{1}{2}} t^{j-\frac{1}{2}} \, dt \\
+  &= \int_1^{1 / x} (xu - x)^{m - \frac{1}{2}} (xu)^{j - \frac{1}{2}} x \, du \\
+  &= x^{m + j} \int_1^{1 / x} (u - 1)^{m - \frac{1}{2}} u^{j - \frac{1}{2}} \, du \\
+  &= x^{m + j} \int_1^{1 / x} (u - 1)^m u^j \left(\left(u - \frac{1}{2}\right)^2 - \frac{1}{4}\right)^{-\frac{1}{2}} \, du \\
+  &= x^{m + j} \int_0^{\Lambda(x)} P_j(\mathrm{cosh}\alpha) \, d\alpha \quad (\cosh\alpha = 2u - 1)
+\end{aligned}
+$$
+
+ただし、$\Lambda(x) \coloneqq \cosh^{-1}(\frac{2}{x} - 1)$ で $P_j(X)$ は $j + m$ 次の多項式
+
+$$
+\Lambda(x) = \log\left(\frac{2 - x + 2\sqrt{1 - x}}{x}\right) = \log(2 - x + 2\sqrt{1 - x}) - \log x
+$$
+
+$Y(x) \coloneqq 2 - x + 2\sqrt{1 - x} \ (x < 1)$ とすると、$Y(x) > 0 \ (x < 1)$
+
+$$
+P_j(\mathrm{cosh}\alpha) = \sum_{l = 0}^{j + m} c_{j, l} \cosh(l\alpha)
+$$
+
+と表せるから、$0 < x < 1$ で
+
+$$
+\begin{aligned}
+  J_j(x) &= x^{j + m} \int_0^{\Lambda(x)} P_j(\mathrm{cosh}\alpha) \, d\alpha \\
+  &= c_{j, 0} x^{j + m} \Lambda(x) + x^{j + m} \sum_{l = 1}^{j + m} \frac{c_{j, l}}{l} \mathrm{sinh}(l\Lambda(x)) \\
+  &= c_{j, 0} x^{j + m} (\log Y(x) - \log x) + x^{j + m} \sum_{l = 1}^{j + m} \frac{c_{j, l}}{2l} (\frac{Y(x)^l}{x^l} - \frac{x^l}{Y(x)^l}) \\
+  &= -c_{j, 0} x^{j + m} \log x + f_j(x)
+\end{aligned}
+$$
+
+ただし、$f_j(x) \in C^\infty([0, 1))$。よって、形式的に
+
+$$
+J(x) \sim -x^m \log x \sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k} + C^\infty([0, 1))
+$$
+
+Borel の定理から、Taylor 展開が $\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $g \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) + x^m \log x \cdot g(x) \in \mathcal{S}'(\mathbb{R}_{\ge 0})$ を示す
+
+$$
+H_1(t, x) = \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) t^j x^k + R_N(t, x)
+$$
+
+と剰余項付きで Taylor 展開する。$R_N(t, x) \in C^\infty(\{ (t, x) \in \mathbb{R}^2 \mid 0 \le x \le t \})$。$0 < x < 1$ で
+
+$$
+\begin{aligned}
+  &J(x) + x^m \log x \cdot g(x) \\
+  &= x^m \log x \left(g(x) - \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}\right) \\
+  &\quad + \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) f_j(x) x^k \\
+  &\quad + \int_x^1 (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} R_N(t, x) \, dt
+\end{aligned}
+$$
+
+第 $1$ 項は $C^{N + m - 1}([0, 1))$ に属し、第 $3$ 項も $C^{N + m - 1}([0, 1))$ に属するから、$J(x) + x^m \log x \cdot g(x)$ も $C^{N + m - 1}([0, 1))$ に属する。$N$ は任意だから、$J(x) + x^m \log x \cdot g(x)$ は $C^\infty([0, 1))$ に属する
+
+
 # $SO(1, d - 1)$ 不変な超関数
 
 $V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
@@ -1035,4 +1185,8 @@ $$
 $$
 
 ただし、$\rho(x) \coloneqq \frac{1}{2\pi i}(F(x + i0) - F(x - i0)) \in \mathcal{S}'(\mathbb{R})$, $Q(s) \coloneqq P^{(M + 1)}(s)$。$\mathrm{supp}\rho \subset \mathbb{R}_{\ge 0}$ であり、$Q$ は $N$ 次の多項式
+
+$$
+\hat{u}(\zeta) = F(\zeta^2) = \left\langle \frac{\rho(x)}{(x - s_0)^{N + 1}}, (\zeta^2 - s_0)^{N + 1} \frac{1}{x - \zeta^2} \right\rangle + Q(\zeta^2)
+$$
 
