@@ -901,7 +901,7 @@ $$
 \end{aligned}
 $$
 
-# $S(1, d - 1) \curvearrowright \mathbb{R}^d$ に関する軌道積分
+# $SO(1, d - 1) \curvearrowright \mathbb{R}^d$ に関する軌道積分
 
 $d \ge 2$
 $V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
@@ -912,7 +912,7 @@ $$
 (M\varphi)(x) \coloneqq \int_{\mathcal{O}_{\sqrt{x}}} \varphi(v) \, d\mu_{\sqrt{x}} \quad (x \ge 0)
 $$
 
-と定義する。$d = 2$ かつ $x = 0$ の場合のみ発散して、$(M\varphi)(0) \in \{ 0, \pm\infty \}$ なことに注意。$d$ が奇数なら、$M\varphi \in \mathcal{S}'(\mathbb{R}_{\ge 0})$。$d$ が偶数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
+と定義する。$d = 2$ かつ $x = 0$ の場合のみ発散して、$(M\varphi)(0) \in \{ 0, \pm\infty \}$ なことに注意。$d$ が奇数なら、$M\varphi \in \mathcal{S}(\mathbb{R}_{\ge 0})$。$d$ が偶数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
 
 $$
 (M\varphi)(x) = x^{\frac{d}{2} - 1} \log x \cdot f(x) + g(x)
@@ -954,7 +954,7 @@ $$
 まず、$I_\text{odd}(x)$ は
 
 $$
-I_\text{odd}(x) = \frac{1}{4} \int_0^\infty w^{\frac{d - 3}{2}} H_\text{odd}(w + x, x) \, dw \in \mathcal{S}'(\mathbb{R}_{\ge 0})
+I_\text{odd}(x) = \frac{1}{4} \int_0^\infty w^{\frac{d - 3}{2}} H_\text{odd}(w + x, x) \, dw \in \mathcal{S}(\mathbb{R}_{\ge 0})
 $$
 
 次に、$I_\text{even}(x)$ は
@@ -963,7 +963,7 @@ $$
 I_\text{even}(x) = \frac{1}{4} \int_x^\infty (t - x)^{\frac{d - 3}{2}} t^{-\frac{1}{2}} H_\text{even}(t, x) \, dt
 $$
 
-だから、$d$ が奇数なら $I_\text{even}(x) \in \mathcal{S}'(\mathbb{R}_{\ge 0})$。$d$ は偶数とする。$d = 2m + 2 \ (m \ge 0)$ とおく。$\chi(t) \in C^\infty(\mathbb{R}_{\ge 0})$ を $\chi(t) = 1 \ (0 \le t \le \frac{1}{2})$ かつ $\chi(t) = 0 \ (t \ge 1)$ なるようにとり
+だから、$d$ が奇数なら $I_\text{even}(x) \in \mathcal{S}(\mathbb{R}_{\ge 0})$。$d$ は偶数とする。$d = 2m + 2 \ (m \ge 0)$ とおく。$\chi(t) \in C^\infty(\mathbb{R}_{\ge 0})$ を $\chi(t) = 1 \ (0 \le t \le \frac{1}{2})$ かつ $\chi(t) = 0 \ (t \ge 1)$ なるようにとり
 
 $$
 H_\text{even}(t, x) = \chi(t)H_\text{even}(t, x) + (1 - \chi(t))H_\text{even}(t, x) \eqqcolon H_1(t, x) + H_2(t, x)
@@ -1031,7 +1031,7 @@ $$
 J(x) \sim -x^m \log x \sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k} + C^\infty([0, 1))
 $$
 
-Borel の定理から、Taylor 展開が $\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $f \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) + x^m \log x \cdot f(x) \in \mathcal{S}'(\mathbb{R}_{\ge 0})$ を示す
+Borel の定理から、Taylor 展開が $\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $f \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) + x^m \log x \cdot f(x) \in \mathcal{S}(\mathbb{R}_{\ge 0})$ を示す
 
 $$
 H_1(t, x) = \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) t^j x^k + R_N(t, x)
