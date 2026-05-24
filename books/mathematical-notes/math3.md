@@ -754,7 +754,7 @@ $$
 |U(\xi + i\eta + i\theta)| \le C \quad (\eta \in M, \theta \in \overline{V}_-)
 $$
 
-よって、Paley–Wiener–Schwartz の定理から、対応する $E_+(x, m^2) \in \mathcal{D}'_{\overline{V}_+}(V)$ が構成できる。$E(x, m^2) \in \mathcal{S}'(V)$ もわかる
+よって、Paley–Wiener–Schwartz の定理から、対応する $E_+(x, m^2) \in \mathcal{D}'_{\overline{V}_+}(V)$ が構成できる。$E_+(x, m^2) \in \mathcal{S}'(V)$ もわかる
 
 $$
 \begin{aligned}
@@ -903,22 +903,29 @@ $$
 
 # $SO(1, d - 1) \curvearrowright \mathbb{R}^d$ に関する軌道積分
 
-$d \ge 2$
 $V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
 
 $\varphi \in \mathcal{S}(V)$ に対して
 
 $$
-(M\varphi)(x) \coloneqq \int_{\mathcal{O}_{\sqrt{x}}} \varphi(v) \, d\mu_{\sqrt{x}} \quad (x \ge 0)
+(M\varphi)(x) \coloneqq \int_{\mathcal{O}_{\sqrt{x}}} \varphi(v) \, d\mu_{\sqrt{x}}(v) \quad (x \ge 0)
 $$
 
-と定義する。$d = 2$ かつ $x = 0$ の場合のみ発散して、$(M\varphi)(0) \in \{ 0, \pm\infty \}$ なことに注意。$d$ が奇数なら、$M\varphi \in \mathcal{S}(\mathbb{R}_{\ge 0})$。$d$ が偶数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
+と定義する。$d = 1, 2$ かつ $x = 0$ の場合のみ発散して、$(M\varphi)(0) \in \{ 0, \pm\infty \}$ なことに注意。$d$ が奇数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
+
+$$
+(M\varphi)(x) = x^{\frac{d}{2} - 1} f(x) + g(x)
+$$
+
+と表せる。また、$d$ が偶数なら、$f, g \in \mathcal{S}(\mathbb{R}_{\ge 0})$ があって
 
 $$
 (M\varphi)(x) = x^{\frac{d}{2} - 1} \log x \cdot f(x) + g(x)
 $$
 
 と表せる
+
+まず、$d = 1$ の場合は、$M\varphi(x) = \frac{1}{2\sqrt{x}} \varphi(\sqrt{x})$ から明らか。$d \ge 2$ とする
 
 $$
 \psi(u, s) \coloneqq \int_{S^{d - 2}} \varphi(u, \sqrt{s}\omega) \, d\sigma(\omega) \in \mathcal{S}(\mathbb{R} \times \mathbb{R}_{\ge 0})
@@ -957,13 +964,25 @@ $$
 I_\text{odd}(x) = \frac{1}{4} \int_0^\infty w^{\frac{d - 3}{2}} H_\text{odd}(w + x, x) \, dw \in \mathcal{S}(\mathbb{R}_{\ge 0})
 $$
 
-次に、$I_\text{even}(x)$ は
+あとは、$I_\text{even}(x)$ を考えれば良い。$d$ が奇数なら
 
 $$
-I_\text{even}(x) = \frac{1}{4} \int_x^\infty (t - x)^{\frac{d - 3}{2}} t^{-\frac{1}{2}} H_\text{even}(t, x) \, dt
+I_\text{even}(x) = \frac{1}{2} \int_0^\infty (u^2 - x)^{\frac{d - 3}{2}} H_\text{even}(u^2, x) \, du - \frac{1}{2} \int_0^{\sqrt{x}} (u^2 - x)^{\frac{d - 3}{2}} H_\text{even}(u^2, x) \, du
 $$
 
-だから、$d$ が奇数なら $I_\text{even}(x) \in \mathcal{S}(\mathbb{R}_{\ge 0})$。$d$ は偶数とする。$d = 2m + 2 \ (m \ge 0)$ とおく。$\chi(t) \in C^\infty(\mathbb{R}_{\ge 0})$ を $\chi(t) = 1 \ (0 \le t \le \frac{1}{2})$ かつ $\chi(t) = 0 \ (t \ge 1)$ なるようにとり
+第 1 項は滑らか。第 2 項は
+
+$$
+\int_0^{\sqrt{x}} (u^2 - x)^{\frac{d - 3}{2}} H_\text{even}(u^2, x) \, du = x^{\frac{d}{2} - 1} \int_0^1 (v^2 - 1)^{\frac{d - 3}{2}} H_{\text{even}}(xv^2, x) \, dv
+$$
+
+$d$ は偶数とし、$d = 2m + 2 \ (m \ge 0)$ とおく
+
+$$
+I_\text{even}(x) = \frac{1}{4} \int_x^\infty (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} H_\text{even}(t, x) \, dt
+$$
+
+$\chi(t) \in C^\infty(\mathbb{R}_{\ge 0})$ を $\chi(t) = 1 \ (0 \le t \le \frac{1}{2})$ かつ $\chi(t) = 0 \ (t \ge 1)$ なるようにとり
 
 $$
 H_\text{even}(t, x) = \chi(t)H_\text{even}(t, x) + (1 - \chi(t))H_\text{even}(t, x) \eqqcolon H_1(t, x) + H_2(t, x)
@@ -1021,17 +1040,17 @@ $$
   J_j(x) &= x^{j + m} \int_0^{\Lambda(x)} P_j(\mathrm{cosh}\alpha) \, d\alpha \\
   &= c_{j, 0} x^{j + m} \Lambda(x) + x^{j + m} \sum_{l = 1}^{j + m} \frac{c_{j, l}}{l} \mathrm{sinh}(l\Lambda(x)) \\
   &= c_{j, 0} x^{j + m} (\log Y(x) - \log x) + x^{j + m} \sum_{l = 1}^{j + m} \frac{c_{j, l}}{2l} (\frac{Y(x)^l}{x^l} - \frac{x^l}{Y(x)^l}) \\
-  &= -c_{j, 0} x^{j + m} \log x + f_j(x)
+  &= -c_{j, 0} x^{j + m} \log x + g_j(x)
 \end{aligned}
 $$
 
-ただし、$f_j(x) \in C^\infty([0, 1))$。よって、形式的に
+ただし、$g_j(x) \in C^\infty([0, 1))$。よって、形式的に
 
 $$
 J(x) \sim -x^m \log x \sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k} + C^\infty([0, 1))
 $$
 
-Borel の定理から、Taylor 展開が $\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $f \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) + x^m \log x \cdot f(x) \in \mathcal{S}(\mathbb{R}_{\ge 0})$ を示す
+Borel の定理から、Taylor 展開が $-\sum_{j = 0}^\infty \sum_{k = 0}^\infty \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}$ に一致する $f \in C^\infty_c(\mathbb{R})$ が存在する。$J(x) - x^m \log x \cdot f(x) \in \mathcal{S}(\mathbb{R}_{\ge 0})$ を示す
 
 $$
 H_1(t, x) = \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) t^j x^k + R_N(t, x)
@@ -1041,14 +1060,14 @@ $$
 
 $$
 \begin{aligned}
-  &J(x) + x^m \log x \cdot f(x) \\
-  &= x^m \log x \left(f(x) - \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}\right) \\
+  &J(x) - x^m \log x \cdot f(x) \\
+  &= -x^m \log x \left(f(x) + \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) c_{j, 0} x^{j + k}\right) \\
   &\quad + \sum_{j + k \le N - 1} \frac{1}{j!k!} \frac{\partial^{j + k}H_1}{\partial t^j \partial x^k}(0, 0) f_j(x) x^k \\
   &\quad + \int_x^1 (t - x)^{m - \frac{1}{2}} t^{-\frac{1}{2}} R_N(t, x) \, dt
 \end{aligned}
 $$
 
-第 $1$ 項は $C^{N + m - 1}([0, 1))$ に属し、第 $3$ 項も $C^{N + m - 1}([0, 1))$ に属するから、$J(x) + x^m \log x \cdot f(x)$ も $C^{N + m - 1}([0, 1))$ に属する。$N$ は任意だから、$J(x) + x^m \log x \cdot f(x)$ は $C^\infty([0, 1))$ に属する
+第 $1$ 項は $C^{N + m - 1}([0, 1))$ に属し、第 $3$ 項も $C^{N + m - 1}([0, 1))$ に属するから、$J(x) - x^m \log x \cdot f(x)$ も $C^{N + m - 1}([0, 1))$ に属する。$N$ は任意だから、$J(x) - x^m \log x \cdot f(x)$ は $C^\infty([0, 1))$ に属する
 
 $M\mathcal{S}(V) \coloneqq \{ M\varphi \mid \varphi \in \mathcal{S}(V) \}$ と定義する
 
@@ -1061,6 +1080,109 @@ $$
 
 だが、一致することが知られている。https://en.wikipedia.org/wiki/Abel_transform を使って証明するらしい。$M\mathcal{S}(V)$ には $\mathcal{S}(V) \twoheadrightarrow M\mathcal{S}(V)$ で商位相を入れる
 
+# $\square$ の軌道に沿った分解
+
+$H^{d - 1} \coloneqq \mathcal{O}_1^+ = \{ v \in V \mid v^2 = 1, v_0 > 0 \}$
+
+$H^{d - 1}$ に $V$ から誘導される計量は負定値だが、$-1$ 倍した正定値の計量 $g_{H^{d - 1}}$ を考える
+
+$V_+ \simeq \mathbb{R}_{>0} \times H^{d - 1}$ を $v \mapsto (v^2, \frac{v}{\sqrt{v^2}})$ で与える。$\mathbb{R}_{>0}$ の座標を $s$ で表す。$V_+$ の計量 $g_{V_+}$ は
+
+$$
+g_{V_+} = (d(\sqrt{s}))^2 - sg_{H^{d - 1}} = \frac{1}{4s}ds^2 - sg_{H^{d - 1}}
+$$
+
+よって、$V_+$ の体積形式 $\omega_{V_+}$ は
+
+$$
+\omega_{V_+} = \frac{1}{2} s^{\frac{d}{2} - 1} ds \wedge \omega_{H^{d - 1}}
+$$
+
+https://zenn.dev/link/comments/6d8f1376d24ad1
+
+https://zenn.dev/link/comments/06dccd75df0bb0
+
+$f \in C^\infty(V_+)$ に対して
+
+$$
+\begin{aligned}
+  \square f &= (-1)^{d - 1} * d * df \\
+  &= (-1)^{d - 1} * d * \left(\frac{\partial f}{\partial s}ds + d_{H^{d - 1}}f\right) \\
+  &= (-1)^{d - 1} * d \left(2s^{\frac{d}{2}}\frac{\partial f}{\partial s}\omega_{H^{d - 1}} + \frac{1}{2}s^{\frac{d}{2} - 2}ds \wedge *_{H^{d - 1}}d_{H^{d - 1}}f\right) \\
+  &= (-1)^{d - 1} * \left(\left[2\frac{\partial}{\partial s}\left(s^{\frac{d}{2}}\frac{\partial f}{\partial s}\right) - \frac{1}{2}s^{\frac{d}{2} - 2}\Delta_{H^{d - 1}}f\right]ds \wedge \omega_{H^{d - 1}}\right) \\
+  &= 2s^{-\frac{d}{2} + 1} \left[2\frac{\partial}{\partial s}\left(s^{\frac{d}{2}}\frac{\partial f}{\partial s}\right) - \frac{1}{2}s^{\frac{d}{2} - 2}\Delta_{H^{d - 1}}f\right] \\
+  &= 4s^{-\frac{d}{2} + 1}\frac{\partial}{\partial s}\left(s^{\frac{d}{2}}\frac{\partial f}{\partial s}\right) - \frac{1}{s}\Delta_{H^{d - 1}}f
+\end{aligned}
+$$
+
+$P \coloneqq 4s^{-\frac{d}{2} + 1}\frac{d}{ds}s^{\frac{d}{2}}\frac{d}{ds} = 4s\frac{d^2}{ds^2} + 2d\frac{d}{ds}$ とする
+
+$$
+P^* = 4\frac{d}{ds}s^{\frac{d}{2}}\frac{d}{ds}s^{-\frac{d}{2} + 1} = 4s\frac{d^2}{ds^2} + (8 - 2d)\frac{d}{ds}
+$$
+
+$\varphi \in \mathcal{S}(V)$ に対して
+
+$$
+\begin{aligned}
+  M(\square \varphi)(s) &= \int_{\mathcal{O}_{\sqrt{s}}^+} (\square \varphi)(v) d\mu_{\sqrt{s}}(v) \\
+  &= \frac{1}{2} s^{\frac{d}{2} - 1} \int_{H^{d - 1}} (\square \varphi)(\sqrt{s}v) \omega_{H^{d - 1}} \\
+  &= \frac{1}{2} s^{\frac{d}{2} - 1} \int_{H^{d - 1}} \left(P_s - \frac{1}{s}\Delta_{H^{d - 1}, v}\right)\varphi(\sqrt{s}v) \omega_{H^{d - 1}} \\
+  &= \frac{1}{2} s^{\frac{d}{2} - 1} P \int_{H^{d - 1}} \varphi(\sqrt{s}v) \omega_{H^{d - 1}} - \frac{1}{2} s^{\frac{d}{2} - 2} \int_{H^{d - 1}} d_v *_v d_v \varphi(\sqrt{s}v) \\
+  &= \frac{1}{2} s^{\frac{d}{2} - 1} P \int_{H^{d - 1}} \varphi(\sqrt{s}v) \omega_{H^{d - 1}} \\
+  &= P^* \left(\frac{1}{2} s^{\frac{d}{2} - 1} \int_{H^{d - 1}} \varphi(\sqrt{s}v) \omega_{H^{d - 1}}\right) \\
+  &= (P^* M\varphi)(s)
+\end{aligned}
+$$
+
+# $(\square^n \varphi)(0)$ の軌道積分 $M\varphi$ による表現
+
+$M\varphi(x)$ の特異部分 $f(x)$ の定数項を取り出す操作は
+
+$$
+E_0(M\varphi) \coloneqq f(0) = \begin{cases}
+  \frac{1}{(d / 2 - 1)!} \lim_{x \to +0} x\frac{d^{d / 2}}{dx^{d / 2}}M\varphi(x) &\quad (d \text{ は偶数}) \\
+  \frac{1}{(d - 2)!} \left.\frac{d^{d - 2}}{dy^{d - 2}}\right|_{y = 0}M\varphi(y^2) &\quad (d \text{ は奇数})
+\end{cases}
+$$
+
+と表せる。$d = 1$ なら $E_0(M\varphi) = \frac{1}{2}\varphi(0)$。$d$ が $3$ 以上の奇数なら
+
+$$
+E_0(M\varphi) = -\frac{1}{2} H_{\text{even}}(0, 0) \int_0^1 (v^2 - 1)^{\frac{d - 3}{2}} \, dv
+$$
+
+$H_{\text{even}}(0, 0) = \psi(0, 0) = \sigma(S^{d - 2})\varphi(0)$。$d$ が偶数なら
+
+$$
+E_0(M\varphi) = -c_{0, 0}H_1(0, 0) = -c_{0, 0}H_\text{even}(0, 0) = -c_{0, 0}\sigma(S^{d - 2})\varphi(0)
+$$
+
+$m \coloneqq \frac{d}{2} - 1$ とすると、$P_0(X) = \left(\frac{X - 1}{2}\right)^m$
+
+$$
+\begin{aligned}
+  P_0(\cosh\alpha) &= \sinh^{2m}\frac{\alpha}{2} \\
+  &= 2^{-2m} \sum_{j = 0}^{2m} (-1)^j \binom{2m}{j} e^{(m - j)\alpha} \\
+  &= 2^{-2m} \left[(-1)^m \binom{2m}{m} + 2\sum_{j = 0}^{m - 1} (-1)^j \binom{2m}{j} \mathrm{cosh}{(m - j)\alpha}\right]
+\end{aligned}
+$$
+
+よって、$c_{0, 0} = (-1)^m 2^{-2m} \binom{2m}{m}$。いずれにせよ、$\varphi(0) = C_d E_0(M\varphi) \ (C_d \ne 0)$
+
+$$
+(\square^n \varphi)(0) = C_d E_0(M(\square^n \varphi)) = C_d E_0((P^*)^n M\varphi) = C_{d, n} f^{(n)}(0) \quad (C_{d, n} \ne 0)
+$$
+
+# 前進基本解の軌道上での表現
+
+前進基本解 $E_+(x, m^2) \in \mathcal{S}'(V)$ は $e_+(s, m^2) \in (M\mathcal{S}(V))'$ を用いて
+
+$$
+\langle E_+(x, m^2), \varphi \rangle = \langle e_+(s, m^2), M\varphi \rangle \quad (\varphi \in \mathcal{S}(V))
+$$
+
+と表せる
 
 # $SO(1, d - 1)$ 不変な超関数
 
