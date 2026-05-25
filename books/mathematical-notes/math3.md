@@ -1189,6 +1189,21 @@ $$
 
 と表せる
 
+$\varphi \in \mathcal{S}(V)$ に対して
+
+$$
+\begin{aligned}
+  \langle E_+(x, m^2), \varphi \rangle &= 2 (2\pi)^{-d + 1} \int_{\mathcal{O}_m^+} d\mu(p) \int_{x \in V, x_0 > 0} \sin(px) \varphi(x) \, dx \\
+  &= 2 (2\pi)^{-d + 1} \int_{\mathcal{O}_m^+} d\mu(p) \int_{x \in V_+} \sin(px) \varphi(x) \, dx \\
+  &= 2 (2\pi)^{-d + 1} \int_{\mathcal{O}_m^+} d\mu(p) \int_{x \in V_+} \sin(p_0\sqrt{x^2}) \varphi(x) \, dx \\
+  &= (2\pi)^{-d + 1} \int \frac{1}{E(p')} \, dp' \int_{x \in V_+} \sin(E(p')\sqrt{x^2}) \varphi(x) \, dx \\
+  &= (2\pi)^{-d + 1} \int \frac{1}{E(p')} \, dp' \int_0^\infty \sin(E(p')\sqrt{s}) \, ds \int_{x \in \mathcal{O}_{\sqrt{s}}} \varphi(x) \, d\mu(x) \\
+  &= (2\pi)^{-d + 1} \int \frac{1}{E(p')} \, dp' \int_0^\infty \sin(E(p')\sqrt{s}) (M\varphi)(s) \, ds
+\end{aligned}
+$$
+
+よって、$e_+(s, m^2) \coloneqq (2\pi)^{-d + 1} \int \frac{1}{E(p')} \sin(E(p')\sqrt{s}) \, dp'$ とすれば良い。ただし、$E(p') \coloneqq \sqrt{|p'|^2 + m^2}$
+
 # $SO(1, d - 1)$ 不変な超関数
 
 $V \coloneqq (\mathbb{R}^d, x_0^2 - x_1^2 - \cdots - x_{d - 1}^2)$
