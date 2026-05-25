@@ -1021,7 +1021,7 @@ $$
 \end{aligned}
 $$
 
-ただし、$\Lambda(x) \coloneqq \cosh^{-1}(\frac{2}{x} - 1)$ で $P_j(X)$ は $j + m$ 次の多項式
+ただし、$\Lambda(x) \coloneqq \cosh^{-1}(\frac{2}{x} - 1)$ で $P_j(X) \coloneqq \left(\frac{X - 1}{2}\right)^m \left(\frac{X + 1}{2}\right)^j$
 
 $$
 \Lambda(x) = \log\left(\frac{2 - x + 2\sqrt{1 - x}}{x}\right) = \log(2 - x + 2\sqrt{1 - x}) - \log x
@@ -1073,7 +1073,7 @@ $M\mathcal{S}(V) \coloneqq \{ M\varphi \mid \varphi \in \mathcal{S}(V) \}$ と�
 
 $$
 M\mathcal{S}(V) \subset \begin{cases}
-  \mathcal{S}(\mathbb{R}_{\ge 0}) &\quad (d \text{ は奇数}) \\
+  x^{\frac{d}{2} - 1} \mathcal{S}(\mathbb{R}_{\ge 0}) + \mathcal{S}(\mathbb{R}_{\ge 0}) &\quad (d \text{ は奇数}) \\
   x^{\frac{d}{2} - 1} \log x \cdot \mathcal{S}(\mathbb{R}_{\ge 0}) + \mathcal{S}(\mathbb{R}_{\ge 0}) &\quad (d \text{ は偶数})
 \end{cases}
 $$
@@ -1137,7 +1137,7 @@ $$
 
 # $(\square^n \varphi)(0)$ の軌道積分 $M\varphi$ による表現
 
-$M\varphi(x)$ の特異部分 $f(x)$ の定数項を取り出す操作は
+$(M\varphi)(x)$ の特異部分 $f(x)$ の定数項を取り出す操作は
 
 $$
 E_0(M\varphi) \coloneqq f(0) = \begin{cases}
@@ -1158,20 +1158,25 @@ $$
 E_0(M\varphi) = -c_{0, 0}H_1(0, 0) = -c_{0, 0}H_\text{even}(0, 0) = -c_{0, 0}\sigma(S^{d - 2})\varphi(0)
 $$
 
-$m \coloneqq \frac{d}{2} - 1$ とすると、$P_0(X) = \left(\frac{X - 1}{2}\right)^m$
+$m \coloneqq \frac{d}{2} - 1$ とすると
 
 $$
 \begin{aligned}
-  P_0(\cosh\alpha) &= \sinh^{2m}\frac{\alpha}{2} \\
+  P_0(\cosh\alpha) &= \left(\frac{\mathrm{cosh}\alpha - 1}{2}\right)^m \\
+  &= \sinh^{2m}\frac{\alpha}{2} \\
   &= 2^{-2m} \sum_{j = 0}^{2m} (-1)^j \binom{2m}{j} e^{(m - j)\alpha} \\
   &= 2^{-2m} \left[(-1)^m \binom{2m}{m} + 2\sum_{j = 0}^{m - 1} (-1)^j \binom{2m}{j} \mathrm{cosh}{(m - j)\alpha}\right]
 \end{aligned}
 $$
 
-よって、$c_{0, 0} = (-1)^m 2^{-2m} \binom{2m}{m}$。いずれにせよ、$\varphi(0) = C_d E_0(M\varphi) \ (C_d \ne 0)$
+よって、$c_{0, 0} = (-1)^m 2^{-2m} \binom{2m}{m}$。いずれにせよ、$C_d \ne 0$ が存在して、$\varphi(0) = C_d E_0(M\varphi)$
 
 $$
-(\square^n \varphi)(0) = C_d E_0(M(\square^n \varphi)) = C_d E_0((P^*)^n M\varphi) = C_{d, n} f^{(n)}(0) \quad (C_{d, n} \ne 0)
+\begin{aligned}
+  (\square^n \varphi)(0) &= C_d E_0(M(\square^n \varphi)) \\
+  &= C_d E_0((P^*)^n M\varphi) \\
+  &= C_d 4^n \overbrace{\left(\frac{d}{2} + n - 1\right) \cdots \left(\frac{d}{2}\right)}^n f^{(n)}(0)
+\end{aligned}
 $$
 
 # 前進基本解の軌道上での表現
@@ -1321,5 +1326,18 @@ $$
 
 $$
 \hat{u}(\zeta) = F(\zeta^2) = \left\langle \frac{\rho(x)}{(x - s_0)^{N + 1}}, (\zeta^2 - s_0)^{N + 1} \frac{1}{x - \zeta^2} \right\rangle + Q(\zeta^2)
+$$
+
+$e_0 \coloneqq (1, 0, \dots, 0) \in V_+$ とする。$\xi \in V$ に対して、$\mathcal{S}'(V)$ 内で
+
+$$
+\begin{aligned}
+  \hat{u}(\xi) &= \lim_{\varepsilon \to +0} \hat{u}(\xi - i\varepsilon e_0) \\
+  &= \left\langle \frac{\rho(x)}{(x - s_0)^{N + 1}}, \langle (\mathcal{F}_v E_+(v, x))(\xi), (\xi^2 - s_0)^{N + 1} \psi(\xi) \rangle \right\rangle + \int Q(\xi^2)\psi(\xi) \, d\xi
+\end{aligned}
+$$
+
+$$
+u(\varphi) = \left\langle \frac{\rho(x)}{(x - s_0)^{N + 1}}, \langle E_+(v, x), (-\square_v - s_0)^{N + 1} \varphi(v) \rangle \right\rangle + (Q(-\square)\varphi)(0)
 $$
 
