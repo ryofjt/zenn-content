@@ -1356,3 +1356,188 @@ $$
 u(\varphi) = \left\langle \frac{\rho(x)}{(x - s_0)^{N + 1}}, \langle E_+(v, x), (-\square_v - s_0)^{N + 1} \varphi(v) \rangle \right\rangle + (Q(-\square)\varphi)(0)
 $$
 
+# $\overline{V}_+$ 上の準不変測度
+
+可測空間 $X$ 上の測度 $\mu, \nu$ が同値とは、任意の可測集合 $A \subset X$ に対して、$\mu(A) = 0 \Leftrightarrow \nu(A) = 0$ が成り立つことをいう
+
+$G \curvearrowright X$ とする。$X$ 上の測度 $\nu$ が準不変とは、任意の $g \in G$ に対して、$\nu$ と $g\nu$ が同値なことをいう
+
+以降、測度は全て正則 Borel 測度とする
+
+$G$: Lie 群
+$H \subset G$: 閉部分群
+$G / H$ 上の非自明な $G$ 不変測度が存在するとする。これは、$H \curvearrowright |\wedge^{\mathrm{top}} (\mathfrak{g} / \mathfrak{h})^*|$ が自明なことと同値。$\Delta_G|_H = \Delta_H$ とも同値。$G$, $H$ が連結で $\mathfrak{g}, \mathfrak{h}$ の根基が冪零ならば十分。$G / H$ 上の非自明な $G$ 不変測度は $\mathbb{R}_{>0}$ 倍を除いて一意的
+
+$\mu$ は $G / H$ 上の非自明な $G$ 不変測度とする。$\pi_*: C_c(G) \ni f \mapsto (x \mapsto \int_H f(xh) \, dh) \in C_c(G / H)$ は $G$ 同変かつ全射
+
+$$
+(\pi^*\mu)(f) \coloneqq \int_{G / H} \pi_* f \, d\mu \quad (f \in C_c(G))
+$$
+
+は $G$ 不変だから、$G$ 上の (左) Haar 測度と $\mathbb{R}_{>0}$ 倍を除いて一致する
+
+$G / H$ 上の非自明な $G$ 不変測度が存在するとする。$G / H$ 上の準不変測度は、$G$ 不変測度と同値
+
+$\mu$ は $G / H$ 上の準不変測度とする。$\pi^*\mu$ は準不変だから、$H = 1$ として良い。$A \subset G$ を Borel 集合とする。$\mu(A) = 0 \Leftrightarrow \int_G \mu(gA) \, dg = 0$。$\int_G \mu(gA) \, dg \in [0, \infty]$ なことに注意
+
+$$
+\begin{aligned}
+  \int_G \mu(gA) \, dg &= \int_G dg \int_{x \in gA} \, d\mu(x) \\
+  &= \int_G d\mu(x) \int_{g \in xA^{-1}} \, dg \\
+  &= \mu(G) \mu_G(A^{-1})
+\end{aligned}
+$$
+
+ただし、$\mu_G$ は $G$ 上の (左) Haar 測度。よって、$\mu(A) = 0 \Leftrightarrow \mu_G(A^{-1}) = 0 \Leftrightarrow \mu_G(A) = 0$
+
+https://en.wikipedia.org/wiki/Disintegration_theorem
+
+$B = \mathbb{R}^n$, $E = \mathbb{R}^m$
+$\pi: E \to B$: 可測
+$\mu$: $E$ 上の確率測度
+各 $b \in B$ に対して、$E_b \coloneqq \pi^{-1}(b)$ 上の確率測度 $\mu_b$ が存在して、任意の Borel 集合 $X \subset E$ に対して、$b \mapsto \mu_b(X_b)$ は可測かつ
+
+$$
+\mu(X) = \int_B \mu_b(X_b) \, d(\pi_*\mu)(b)
+$$
+
+略記すると、$\mu = \int_B \mu_b \, d(\pi_*\mu)(b)$。また、$\mu_b \ (b \in B)$ は $\pi_*\mu$-a.e. で一意的
+
+$C_0(E)$ は可分だから、可算稠密部分集合 $\mathcal{V} \subset C_0(E)$ が取れる。$\mathcal{V}$ は $\mathbb{Q}$ 線形部分空間として良い。$f \in \mathcal{V}$ とすると、$\pi_*(f\mu)$ は $\pi_*\mu$ に対して絶対連続だから
+
+$$
+\lambda_f \coloneqq \frac{d(\pi_*(f\mu))}{d(\pi_*\mu)} \in L^1(B, \pi_*\mu)
+$$
+
+が取れる。代表元 $\lambda_f: B \to \mathbb{R}$ を選択する。$\pi_*\mu$-零集合 $N \subset B$ が存在して、$b \in B \setminus N$ ならば
+
+$$
+\begin{aligned}
+  \lambda_{af + bg}(b) &= a\lambda_f(b) + b\lambda_g(b) &\quad (a, b \in \mathbb{Q}, f, g \in \mathcal{V}) \\
+  \lambda_f(b) &\ge 0 &\quad (f \in \mathcal{V}, f \ge 0) \\
+  |\lambda_f(b)| &\le \|f\|_\infty &\quad (f \in \mathcal{V})
+\end{aligned}
+$$
+
+$b \in B \setminus N$ に対して、$\mathcal{V} \ni f \mapsto \lambda_f(b) \in \mathbb{R}$ は正値な有界線形汎関数 $\mu_b: C_0(E) \to \mathbb{R}$ に一意的に拡張する。$f \in \mathcal{V}$ かつ $A \subset B$ が Borel 集合ならば
+
+$$
+\int_A d(\pi_*\mu)(b) \int f \, d\mu_b = \int_A \lambda_f(b) \, d(\pi_*\mu)(b) = \int_{\pi^{-1}(A)} f \, d\mu
+$$
+
+極限を取れば、$f \in C_0(E)$ で成り立つ。さらに、単調収束定理から、任意の開集合 $X \subset E$ に対して
+
+$$
+\int_A \mu_b(X) \, d(\pi_*\mu)(b) = \mu(\pi^{-1}(A) \cap X)
+$$
+
+極限を取れば、$X$ が Borel 集合で成り立つ。よって、任意の Borel 集合 $Z \subset B$ に対して
+
+$$
+\int_A \mu_b(\pi^{-1}(Z)) \, d(\pi_*\mu)(b) = \mu(\pi^{-1}(A \cap Z)) = \int_A 1_Z(b) \, d(\pi_*\mu)(b)
+$$
+
+よって、$\pi_*\mu$-a.e. で $\mu_b(\pi^{-1}(Z)) = 1_Z(b)$。$Z = B$ とすれば、$\pi_*\mu$-a.e. で $\mu_b(E) = 1$。また、$U_i \subset B$ を可算開基とすると、$\pi_*\mu$-a.e. で
+
+$$
+\mu_b(\pi^{-1}(U_i)) = 1_{U_i}(b) \quad (i = 1, 2, \dots)
+$$
+
+よって、$\pi_*\mu$-a.e. で
+
+$$
+\mu_b(E \setminus E_b) \le \sum_{b \not\in U_i} \mu(\pi^{-1}(U_i)) = 0
+$$
+
+総合すると、$\mu_b$ は $\pi_*\mu$-a.e. で $E_b$ 上の確率測度になる
+
+https://ja.wikipedia.org/wiki/%E3%83%87%E3%82%A3%E3%83%B3%E3%82%AD%E3%83%B3%E6%97%8F#%E3%83%87%E3%82%A3%E3%83%B3%E3%82%AD%E3%83%B3%E6%97%8F%E5%AE%9A%E7%90%86
+
+最後に一意性を示す。$\tilde{\mu}_b$ も条件を満たすとする。任意の Borel 集合 $X \subset E$ と $A \subset B$ に対して
+
+$$
+\int_A \mu_b(X_b) \, d(\pi_*\mu)(b) = \int_A \tilde{\mu}_b(X_b) \, d(\pi_*\mu)(b)
+$$
+
+よって、$\pi_*\mu$-a.e. で $\mu_b(X_b) = \tilde{\mu}_b(X_b)$。$W_j \subset E$ を可算開基とし、$W_j$ が生成する乗法族を $\mathcal{W}$ とする。$\pi_*\mu$-a.e. で
+
+$$
+\mu_b(W_b) = \tilde{\mu}_b(W_b) \quad (\forall W \in \mathcal{W})
+$$
+
+よって、$\pi_*\mu$-a.e. で
+
+$$
+\{ W_b \mid W \in \mathcal{W} \} \subset \{ F \subset E_b \mid F \text{ は Borel 集合で } \mu_b(F) = \tilde{\mu}_b(F) \}
+$$
+
+右辺は Dynkin 族で、左辺は乗法族かつ $\sigma$-加法族 $E_b$ を生成する
+
+$\nu$: $\overline{V}_+$ 上の準不変な有限測度
+$c \ge 0$ と $\mathbb{R}_{\ge 0}$ 上の有限測度 $\rho$ と $f \in L^1(\overline{V}_+ \setminus \{0\}, \int_{s \ge 0} \mu_{\sqrt{s}} \, d\rho(s))$ で $f > 0 \ (\int_{s \ge 0} \mu_{\sqrt{s}} \, d\rho(s)\text{-a.e.})$ なものが存在して
+
+$$
+\nu(E) = c \delta(E \cap \{0\}) + \int_{s \ge 0} d\rho(s) \int_{E_s} f(v) \, d\mu_{\sqrt{s}}(v) \quad (E \subset \overline{V}_+ \text{ は Borel 集合})
+$$
+
+ただし、$E_s \coloneqq E \cap \mathcal{O}_{\sqrt{s}}$ で $\mu_{\sqrt{s}}$ は $\mathcal{O}_{\sqrt{s}}$ 上の標準的な不変測度。略記すると、$\nu = c \delta + \int_{s \ge 0} d\rho(s) f(v) \mu_{\sqrt{s}}(v)$
+
+$\nu - \nu(\{0\})\delta$ を考えれば、$\nu(\{0\}) = 0$ として良い。$s: \overline{V}_+ \setminus \{0\} \ni v \mapsto v^2 \in \mathbb{R}_{\ge 0}$ とする。$\rho \coloneqq s_*\nu$ は $\mathbb{R}_{\ge 0}$ 上の有限測度。$\nu$ が $\int_{s \ge 0} \mu_{\sqrt{s}} \, d\rho(s)$ と同値なことを示せば良い。分解定理から、$s \ge 0$ に対して、$\mathcal{O}_{\sqrt{s}}$ 上の確率測度 $\nu_s$ が存在して
+
+$$
+\nu = \int_{s \ge 0} \nu_s \, d\rho(s)
+$$
+
+$\rho$-a.e. で $\nu_s$ が準不変なことを示したいが、複雑なので、以下のように回避する。$\alpha \in L^1(G)$ で $\alpha > 0$ なものを固定する
+
+$$
+\tilde{\nu} \coloneqq \int_G \alpha(g) (g\nu) \, dg
+$$
+
+と定義すると、$\nu$ は $\tilde{\nu}$ と同値
+
+$$
+\tilde{\nu} = \int_G \alpha(g) \, dg \int_{s \ge 0} g\nu_s \, d\rho(s) = \int_{s \ge 0} d\rho(s) \int_G \alpha(g) (g\nu_s) \, dg \eqqcolon \int_{s \ge 0} \tilde{\nu}_s \, d\rho(s)
+$$
+
+$\tilde{\nu}_s$ が準不変なことを示す
+
+$$
+\begin{aligned}
+  \tilde{\nu}_s(E) &= \int_G \alpha(g) \nu_s(g^{-1}E_s) \, dg \\
+  &= \int_G \alpha(g) \, dg \int_{x \in g^{-1}E_s} d\nu_s(x) \\
+  &= \int_{\mathcal{O}_{\sqrt{s}}} d\nu_s(x) \int_G \alpha(g) 1_{E_s}(gx) \, dg \\
+  &= C \int_{\mathcal{O}_{\sqrt{s}}} d\nu_s(x) \int_{E_s} d\mu_{\sqrt{s}}(y) \int_{G_x} \alpha(g(y, x)h) \, dh \\
+  &= C \int_{E_s} d\mu_{\sqrt{s}}(y) \int_{\mathcal{O}_{\sqrt{s}}} d\nu_s(x) \int_{G_x} \alpha(g(y, x)h) \, dh \\
+  &= C \int_{E_s} d\mu_{\sqrt{s}}(y) \int_{\mathcal{O}_{\sqrt{s}}} d\nu_s(x) \int_{G_{x_0}} \alpha(g(y, x_0)h g(x, x_0)^{-1}) \, dh
+\end{aligned}
+$$
+
+ただし、可測関数 $g(y, x): \mathcal{O}_{\sqrt{s}} \times \mathcal{O}_{\sqrt{s}} \to G$ は $g(y, x)x = y$ なるように取り、$x_0 \in \mathcal{O}_{\sqrt{s}}$ は適当に固定する
+
+$A \subset \overline{V}_+ \setminus \{0\}$ を Borel 集合とすると
+
+$$
+\begin{aligned}
+  &\int_{s \ge 0} \mu_{\sqrt{s}}(A_s) \, d\rho(s) = 0 \\
+  &\quad \Leftrightarrow \rho\text{-a.e. で } \mu_{\sqrt{s}}(A_s) = 0 \\
+  &\quad \Leftrightarrow \rho\text{-a.e. で } \tilde{\nu}_s(A_s) = 0 \\
+  &\quad \Leftrightarrow \tilde{\nu}(A) = 0 \\
+  &\quad \Leftrightarrow \nu(A) = 0
+\end{aligned}
+$$
+
+# 真空の一意性
+
+https://zenn.dev/link/comments/85b993ae05292a
+
+Wightman QFT を考える
+
+$\mathcal{H}$ の $V$ 不変空間 $\mathcal{H}^V$ が $1$ 次元なことと、任意の $n, m \ge 0$ と $a \in V_\mathrm{space}$ に対して
+
+$$
+\mathcal{W}_{n + m}(v_1, \dots, v_n, w_1 + \lambda a, \dots, w_m + \lambda a) \xrightarrow{\lambda \to \infty} \mathcal{W}_n(v_1, \dots, v_n) \mathcal{W}_m(w_1, \dots, w_m)
+$$
+
+が成り立つことは同値
+
