@@ -334,7 +334,7 @@ Wightman QFT を考える
 $\mathcal{H}$ の $V$ 不変空間 $\mathcal{H}^V$ が $1$ 次元なことと、任意の $n, m \ge 0$ と $a \in V_\mathrm{space}$ に対して
 
 $$
-\mathcal{W}_{n + m}(v_1, \dots, v_n, w_1 - \lambda a, \dots, w_m - \lambda a) \xrightarrow{\lambda \to \infty} \mathcal{W}_n(v_1, \dots, v_n) \mathcal{W}_m(w_1, \dots, w_m)
+\mathcal{W}_{n + m}(v_1, \dots, v_n, w_1 + \lambda a, \dots, w_m + \lambda a) \xrightarrow{\lambda \to \infty} \mathcal{W}_n(v_1, \dots, v_n) \mathcal{W}_m(w_1, \dots, w_m)
 $$
 
 が成り立つことは同値
