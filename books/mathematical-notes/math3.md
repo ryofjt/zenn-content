@@ -1536,8 +1536,104 @@ Wightman QFT を考える
 $\mathcal{H}$ の $V$ 不変空間 $\mathcal{H}^V$ が $1$ 次元なことと、任意の $n, m \ge 0$ と $a \in V_\mathrm{space}$ に対して
 
 $$
-\mathcal{W}_{n + m}(v_1, \dots, v_n, w_1 + \lambda a, \dots, w_m + \lambda a) \xrightarrow{\lambda \to \infty} \mathcal{W}_n(v_1, \dots, v_n) \mathcal{W}_m(w_1, \dots, w_m)
+\mathcal{W}_{n + m}(v_1, \dots, v_n, w_1 - \lambda a, \dots, w_m - \lambda a) \xrightarrow{\lambda \to \infty} \mathcal{W}_n(v_1, \dots, v_n) \mathcal{W}_m(w_1, \dots, w_m)
 $$
 
 が成り立つことは同値
 
+まず、$a \in V_\mathrm{space}$ ならば WOT で $U(\lambda a) \xrightarrow{\lambda \to \infty} \mathrm{pr}_{\mathcal{H}^V}$ を示す
+
+$$
+U(x) = \int_{\overline{V}_+} e^{ipx} \, dE
+$$
+
+とすると、$\mathrm{pr}_{\mathcal{H}^V} = E(\{0\})$。これは、一般に
+
+$$
+\begin{aligned}
+  \left(\int f \, dE\right)x = 0 &\Leftrightarrow \|\left(\int f \, dE\right)x\| = 0 \\
+  &\Leftrightarrow \int |f|^2 \, dE_{x, x} = 0
+\end{aligned}
+$$
+
+が成り立つことから従う。$\Phi, \Psi \in \mathcal{H}$ に対して
+
+$$
+\int_{\overline{V}_+ \setminus \{0\}} e^{i\lambda pa} \, dE_{\Phi, \Psi} \xrightarrow{\lambda \to \infty} 0
+$$
+
+を示せば良い。$U(g)U(x)U(g)^{-1} = U(gx) \ (g \in G, x \in V)$ だから
+
+$$
+U(g)E(A)U(g)^{-1} = E(gA) \quad (g \in G, A \subset \overline{V}_+ \text{ は Borel 集合})
+$$
+
+$$
+\begin{aligned}
+  \int_{\overline{V}_+ \setminus \{0\}} e^{i\lambda pa} \, dE_{\Phi, \Psi} &= \int_{\overline{V}_+ \setminus \{0\}} e^{-i\lambda(\Lambda p)_1\sqrt{-a^2}} \, dE_{\Phi, \Psi} \\
+  &= \int_{\overline{V}_+ \setminus \{0\}} e^{-i\lambda\sqrt{-a^2}p_1} \, dE_{\Phi', \Psi'} \\
+  &= \int e^{-i\lambda\sqrt{-a^2}p_1} \, d(p_{1, *}(E_{\Phi', \Psi'}|_{\overline{V}_+ \setminus \{0\}}))
+\end{aligned}
+$$
+
+ただし、$\Lambda \in G$ は $\Lambda a = (0, \sqrt{-a^2}, 0, \dots, 0)$ なるように取り、$\Phi' \coloneqq U(\Lambda)\Phi$, $\Psi' \coloneqq U(\Lambda)\Psi$ とした
+
+https://en.wikipedia.org/wiki/Riemann%E2%80%93Lebesgue_lemma
+
+Riemann–Lebesgue の補題から、$p_{1, *}(E_{\Phi', \Psi'}|_{\overline{V}_+ \setminus \{0\}})$ が絶対連続なことを示せば良い。$\mathcal{S}(\mathcal{R})$ は可分だから、$\mathcal{H}$ も可分。$\{ e_i \}_{i = 1}^\infty \subset \mathcal{H}$ を正規直交基底とすると
+
+$$
+\nu \coloneqq \sum_{i = 1}^\infty \frac{1}{2^i} E_{e_i, e_i}
+$$
+
+は $\overline{V}_+$ 上の確率測度で、任意の Borel 集合 $A \subset \overline{V}_+$ に対して、$E(A) = 0 \Leftrightarrow E(A)e_i = 0 \ (i = 1, 2, \dots) \Leftrightarrow \nu(A) = 0$。また、任意の $g \in G$ と Borel 集合 $A \subset \overline{V}_+$ に対して
+
+$$
+\nu(gA) = 0 \Leftrightarrow E(gA) = 0 \Leftrightarrow E(A) = 0 \Leftrightarrow \nu(A) = 0
+$$
+
+だから $\nu$ は準不変。よって
+
+$$
+\nu = c_0\delta + \int_{s \ge 0} d\rho(s) f_0(v) \mu_{\sqrt{s}}(v)
+$$
+
+と表せる。ただし、$c_0 \ge 0$ で $\rho$ は $\mathbb{R}_{\ge 0}$ 上の有限測度であり、$f_0 \in L^1(\overline{V}_+ \setminus \{0\}, \int_{s \ge 0} \mu_{\sqrt{s}} \, d\rho(s))$ は $f_0 > 0 \ (\int_{s \ge 0} \mu_{\sqrt{s}} \, d\rho(s)\text{-a.e.})$ を満たす。$E_{\Phi', \Psi'}$ は $\nu$ に対して絶対連続だから、$c \ge 0$ と $f \in L^1(\overline{V}_+ \setminus \{0\}, \int_{s \ge 0} \mu_{\sqrt{s}} \, d\rho(s))$ があって
+
+$$
+E_{\Phi', \Psi'} = c\delta + \int_{s \ge 0} d\rho(s) f(v) \mu_{\sqrt{s}}(v)
+$$
+
+と表せる。よって、Borel 集合 $X \subset \mathbb{R}$ に対して
+
+$$
+\begin{aligned}
+  (p_{1, *}(E_{\Phi', \Psi'}|_{\overline{V}_+ \setminus \{0\}}))(X) &= \int_{s \ge 0} d\rho(s) (p_{1, *}(f(v) \mu_{\sqrt{s}}(v)))(X) \\
+  &= \int_{s \ge 0} d\rho(s) \int_X dp_1 \int_{\mathbb{R}^{d - 2}} f(E, p_1, p'') \frac{1}{2E} dp''
+\end{aligned}
+$$
+
+ただし、$E \coloneqq \sqrt{p_1^2 + |p''|^2 + s}$
+
+$$
+\begin{aligned}
+  &\mathcal{W}_{n + m}(f_1, \dots, f_n, g_1(\cdot - \lambda a), \dots, g_m(\cdot - \lambda a)) \\
+  &\quad = \langle \Omega, \varphi(f_1) \cdots \varphi(f_n)U(\lambda a)\varphi(g_1) \cdots \varphi(g_m)\Omega \rangle \\
+  &\quad = \langle \varphi(f_n) \cdots \varphi(f_1)\Omega, U(\lambda a)\varphi(g_1) \cdots \varphi(g_m)\Omega \rangle \\
+  &\xrightarrow{\lambda \to \infty} \langle \varphi(f_n) \cdots \varphi(f_1)\Omega, \mathrm{pr}_{\mathcal{H}^V}\varphi(g_1) \cdots \varphi(g_m)\Omega \rangle
+\end{aligned}
+$$
+
+$\mathrm{dim} \mathcal{H}^V = 1$ $\Rightarrow$ クラスター分解性
+
+$$
+\begin{aligned}
+  &\langle \varphi(f_n) \cdots \varphi(f_1)\Omega, \mathrm{pr}_{\mathcal{H}^V}\varphi(g_1) \cdots \varphi(g_m)\Omega \rangle \\
+  &\quad = \langle \varphi(f_n) \cdots \varphi(f_1)\Omega, \Omega \rangle \langle \Omega, \varphi(g_1) \cdots \varphi(g_m)\Omega \rangle \\
+  &\quad = \mathcal{W}_n(f_1, \dots, f_n) \mathcal{W}_m(g_1, \dots, g_m)
+\end{aligned}
+$$
+
+クラスター分解性 $\Rightarrow$ $\mathrm{dim} \mathcal{H}^V = 1$
+
+$\mathrm{pr}_{\mathcal{H}^V} = \mathrm{pr}_{\mathbb{C}\Omega}$ から従う
