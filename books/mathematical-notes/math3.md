@@ -1395,13 +1395,13 @@ https://en.wikipedia.org/wiki/Disintegration_theorem
 $B = \mathbb{R}^n$, $E = \mathbb{R}^m$
 $\pi: E \to B$: 可測
 $\mu$: $E$ 上の確率測度
-各 $b \in B$ に対して、$E_b \coloneqq \pi^{-1}(b)$ 上の確率測度 $\mu_b$ が存在して、任意の Borel 集合 $X \subset E$ に対して、$b \mapsto \mu_b(X_b)$ は可測かつ
+$\pi_*\mu$-a.e. の $b \in B$ に対して、$E_b \coloneqq \pi^{-1}(b)$ 上の確率測度 $\mu_b$ が存在して、任意の Borel 集合 $X \subset E$ に対して、$b \mapsto \mu_b(X_b)$ は可測かつ
 
 $$
 \mu(X) = \int_B \mu_b(X_b) \, d(\pi_*\mu)(b)
 $$
 
-略記すると、$\mu = \int_B \mu_b \, d(\pi_*\mu)(b)$。また、$\mu_b \ (b \in B)$ は $\pi_*\mu$-a.e. で一意的
+略記すると、$\mu = \int_B \mu_b \, d(\pi_*\mu)(b)$。また、$\mu_b$ は $\pi_*\mu$-a.e. で一意的
 
 $C_0(E)$ は可分だから、可算稠密部分集合 $\mathcal{V} \subset C_0(E)$ が取れる。$\mathcal{V}$ は $\mathbb{Q}$ 線形部分空間として良い。$f \in \mathcal{V}$ とすると、$\pi_*(f\mu)$ は $\pi_*\mu$ に対して絶対連続だから
 
@@ -1425,7 +1425,7 @@ $$
 \int_A d(\pi_*\mu)(b) \int f \, d\mu_b = \int_A \lambda_f(b) \, d(\pi_*\mu)(b) = \int_{\pi^{-1}(A)} f \, d\mu
 $$
 
-極限を取れば、$f \in C_0(E)$ で成り立つ。さらに、単調収束定理から、任意の開集合 $X \subset E$ に対して
+極限を取れば、$f \in C_0(E)$ で成り立つ。さらに、任意の開集合 $X \subset E$ に対して、$1_X$ を近似すれば
 
 $$
 \int_A \mu_b(X) \, d(\pi_*\mu)(b) = \mu(\pi^{-1}(A) \cap X)
