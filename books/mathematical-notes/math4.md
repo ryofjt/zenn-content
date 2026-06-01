@@ -435,3 +435,43 @@ $$
 クラスター分解性 $\Rightarrow$ $\mathrm{dim} \mathcal{H}^V = 1$
 
 $\mathrm{pr}_{\mathcal{H}^V} = \mathrm{pr}_{\mathbb{C}\Omega}$ から従う
+
+# PCT 定理
+
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math2#wightman-function-%E3%81%AE%E8%A7%A3%E6%9E%90%E6%8E%A5%E7%B6%9A
+
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math2#%E3%81%AB%E8%BF%91%E3%81%A5%E3%81%8F%E6%99%82%E3%81%AE%E6%8C%AF%E3%82%8B%E8%88%9E%E3%81%84
+
+スカラー Wightman QFT を考える。次元 $d$ は偶数とすると
+
+$$
+\mathcal{W}_n(v_1, \dots, v_n) = \mathcal{W}_n(-v_n, \dots, -v_1)
+$$
+
+が成り立つ
+
+$\mathcal{W}_n \in \mathcal{S}'(V^n, \mathbb{C})$。$\mathrm{pr}: V^n \ni (v_1, \dots, v_n) \mapsto (v_1 - v_2, \dots, v_{n - 1} - v_n) \in V^{n - 1}$ とすると、$W_n \in \mathcal{S}'(V^{n - 1}, \mathbb{C})$ があって
+
+$$
+\mathcal{W}_n = \mathrm{pr}^* W_n
+$$
+
+$\mathrm{supp}(\mathcal{F}W_n) \subset \overline{V}_+^{n - 1}$ だから、$\tilde{W}_n \in \mathcal{O}(\mathcal{T}^{n - 1})$ が構成でき、$G_\mathbb{C} \times \mathfrak{S}_n$ 不変な $\tilde{W}_n \in \mathcal{O}(\bigcup_{\sigma \in \mathfrak{S}_n} \sigma\tilde{\mathcal{T}}^{n - 1})$ まで拡張できた
+
+$w_0 \in \mathfrak{S}_n$ を逆順にする置換とする。$V_{n - 1} \xrightarrow{\times -1} V_{n - 1} \xrightarrow{w_0 \cdot} V_{n - 1}$ は $(\xi_1, \dots, \xi_n) \mapsto (\xi_n, \dots, \xi_1)$ と一致する。$-1 \in G_\mathbb{C}$ に注意。目標の等式は $W_n$ で見ると
+
+$$
+W_n(\xi_1, \dots, \xi_{n - 1}) = W_n(\xi_{n - 1}, \dots, \xi_1)
+$$
+
+$\eta_1, \dots, \eta_{n - 1} \in V_+$ とすると、$\mathcal{S}'(V^{n - 1})$ 内で
+
+$$
+\begin{aligned}
+  W_n(\xi_1, \dots, \xi_{n - 1}) &= \lim_{\varepsilon \to +0} \tilde{W}_n(\xi_1 - i\varepsilon\eta_1, \dots, \xi_n - i\varepsilon\eta_{n - 1}) \\
+  &= \lim_{\varepsilon \to +0} \tilde{W}_n(\xi_n - i\varepsilon\eta_{n - 1}, \dots, \xi_1 - i\varepsilon\eta_1) \\
+  &= W_n(\xi_{n - 1}, \dots, \xi_1)
+\end{aligned}
+$$
+
+# Time-ordering

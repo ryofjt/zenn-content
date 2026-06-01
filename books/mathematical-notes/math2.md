@@ -954,7 +954,7 @@ $$
 $\tilde{\mathcal{T}}^{n - 1} \cap \sigma\tilde{\mathcal{T}}^{n - 1}$ は連結。$\tilde{\mathcal{T}}^{n - 1} \cap \sigma\tilde{\mathcal{T}}^{n - 1} \cap V_{n - 1} = J_{n - 1} \cap \sigma J_{n - 1} \ne \emptyset$。$y \in J_{n - 1} \cap \sigma J_{n - 1}$ とする。Jost の定理から、$y \in J_{n - 1} \subset V_\mathrm{space}^{n - 1}$。$q: V^{n - 1} \ni v \mapsto (v_1 + \cdots + v_{n - 1}, v_2 + \cdots + v_{n - 1}, \dots, 0) \in V^n$ とすると
 
 $$
-\tilde{W}_n(y) = W_n(y) = \mathcal{W}_n(q(y)) = \mathcal{W}_n(\sigma q(y)) = W_n(\sigma y) = \tilde{W}_n(\sigma y)
+\tilde{W}_n(y) = W_n(y) = \mathcal{W}_n(q(y)) = \varepsilon \mathcal{W}_n(\sigma q(y)) = \varepsilon W_n(\sigma y) = \varepsilon \tilde{W}_n(\sigma y) = (\sigma\tilde{W}_n)(y)
 $$
 
 # Schwinger function
