@@ -555,10 +555,17 @@ $$
 \end{aligned}
 $$
 
-ただし、ベクトル束 $\mathcal{A} \to \mathcal{O}_0$ は以下のように定義する。$\mathcal{O}_0 \times S^\pm$ は $\mathrm{Spin}(V)$ 同変ベクトル束。$s(p): \mathcal{O}_0 \times S^+ \to \mathcal{O}_0 \times S^-$ は $\mathrm{Spin}(V)$ 同変ベクトル束の射。$\mathcal{A}_{\pm e_0 + e_1} = \mathrm{Ker}(s(\pm e_0 + e_1): S^+ \to S^-)$ を調べる。$\gamma \in S^+$ に対して
+ただし、実ベクトル束 $\mathcal{A} \to \mathcal{O}_0$ は以下のように定義する。$\mathcal{O}_0 \times S^\pm$ は $\mathrm{Spin}(V)$ 同変ベクトル束。$s(p): \mathcal{O}_0 \times S^+ \to \mathcal{O}_0 \times S^-$ は $\mathrm{Spin}(V)$ 同変ベクトル束の射になる。$g \in \mathrm{Spin}(V)$, $p \in \mathcal{O}_0$, $\eta \in S^+$ とすると
 
 $$
-s(\pm e_0 + e_1)\gamma = 0 \Leftrightarrow (\pm 1 + s(e_0)s(e_1))\gamma = 0
+s(gp)g\eta = gs(p)\eta
 $$
 
-$(s(e_0)s(e_1))^2 = 1$ で $\mathrm{Ker}(s(e_0)s(e_1) - 1) \xrightarrow{s(e_1)s(e_2)} \mathrm{Ker}(s(e_0)s(e_1) + 1)$ は同型。よって、$s(p)$ は constant rank だから、ベクトル束 $\mathcal{A} \coloneqq \mathrm{Ker}(s(p))$ が定まる。$\mathrm{rk}\mathcal{A} = \frac{1}{2} \mathrm{dim}S^+ = 2^{\frac{d}{2} - 2}$
+$\mathrm{Spin}(V) \curvearrowright \mathcal{O}_0$ は推移的だから、$s(p)$ は constant rank であり、ベクトル束 $\mathcal{A} \coloneqq \mathrm{Ker}(s(p))$ が定まる。$\mathcal{A}_{e_0 + e_1} = \mathrm{Ker}(s(e_0 + e_1): S^+ \to S^-)$ を調べる。$\eta \in S^+$ に対して
+
+$$
+s(e_0 + e_1)\eta = 0 \Leftrightarrow (1 + s(e_0)s(e_1))\eta = 0
+$$
+
+$(s(e_0)s(e_1))^2 = 1$ で $\mathrm{Ker}(s(e_0)s(e_1) - 1) \xrightarrow{s(e_1)s(e_2)} \mathrm{Ker}(s(e_0)s(e_1) + 1)$ は同型。よって、$\mathrm{rk}\mathcal{A} = \frac{1}{2} \mathrm{dim}S^+ = 2^{\frac{d}{2} - 2}$
+
