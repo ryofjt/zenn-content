@@ -298,7 +298,7 @@ $$
 [-, -]: T_\Phi\mathrm{Sol} \times T_\Phi\mathrm{Sol} \simeq \mathrm{Sol} \times \mathrm{Sol} \ni (\varphi_1, \varphi_2) \mapsto -\int_\Sigma *(\varphi_1 d\varphi_2 - \varphi_2 d\varphi_1) \in \mathbb{R}
 $$
 
-は $\Phi$ に依らない。反転を伴う Fourier 変換を使うと
+が定まるが、$\Phi$ に依らない。反転を伴う Fourier 変換を使うと
 
 $$
 \begin{aligned}

@@ -474,4 +474,91 @@ $$
 \end{aligned}
 $$
 
-# Time-ordering
+# Spinor QFT
+
+https://zenn.dev/link/comments/bbb4f536f2afbc
+
+https://zenn.dev/link/comments/394ad0291e8897
+
+https://zenn.dev/link/comments/3577eea2639d97
+
+$d \equiv 2 \mod 8$ とする。$C(V) \simeq M_{2^{\frac{d}{2} - 1}|2^{\frac{d}{2} - 1}}(\mathbb{R})$
+
+既約な $C(V)$ 加群は $S, \Pi S$ の $2$ つ。$S = S^+ \oplus S^-$ とすると、$S^\pm$ は $2^{\frac{d}{2} - 1}$ 次元。既約 $C(V)^+$ 加群は $S^\pm$ の $2$ つ
+
+$C(V)$ の作用から $s: V \otimes S^\pm \to S^\mp$ がある
+
+https://zenn.dev/link/comments/f6a08b7b13411b
+
+$C(V)$ 加群 $S^*$ を $\beta$ で捻って定義すると、既約性から $S$ または $\Pi S$ と同型。$\otimes \mathbb{C}$ を考えると、分類から、$S^* \simeq \Pi S$ がわかる。よって、odd な非退化 pairing $(-, -): S \otimes S \to \mathbb{R}$ が $\mathbb{R}^\times$ 倍を除いて一意的に定まる。$\beta$ は involutive だから、この pairing は対称または反対称。$\otimes \mathbb{C}$ を考えると、再び分類から、この pairing は対称なことがわかる。以降、pairing $(-, -): S \otimes S \to \mathbb{R}$ を固定する
+
+$\Gamma_+: S^+ \otimes S^+ \to V$ を、$S^+ \otimes S^+ \otimes V^* \simeq S^+ \otimes S^+ \otimes V \xrightarrow{s} S^+ \otimes S^- \to \mathbb{R}$ で定義する。$\Gamma_+$ は非自明かつ対称で $\mathrm{Spin}(V)$ 同変。$\Gamma_-: S^- \otimes S^- \to V$ も同様に定義する
+
+$\mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm)$ を supermanifold から集合への関手 $B \mapsto \mathrm{Map}(V \times B, \mathbb{R}^{0|1} \otimes S^\pm) \simeq \mathcal{O}_1(V \times B) \otimes S^\pm \simeq C^\infty(V) \hat{\otimes} \mathcal{O}_1(B) \otimes S^\pm \simeq C^\infty(V, S^\pm) \hat{\otimes} \mathcal{O}_1(B)$ で定義する
+
+$D: \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm) \to \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\mp)$ を
+
+$$
+\mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm) \xrightarrow{d} \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm \otimes V^*) \xrightarrow{\Gamma_\pm} \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\mp)
+$$
+
+で定義する。$D^2 = \square$ を示す
+
+$$
+D^2 \psi = D(\sum_i s(e_i) \frac{\partial \psi}{\partial x_i}) = \sum_{i, j} s(e_i)s(e_j) \frac{\partial^2 \psi}{\partial x_i \partial x_j} = \square \psi
+$$
+
+$\psi \in \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^+)$ 上の Lagrangian
+
+$$
+L \coloneqq \frac{1}{2} (\psi, D\psi) |dx|
+$$
+
+を考える
+
+$$
+\delta L = (\delta\psi, D\psi) |dx| - \frac{1}{2} d(\iota(\Gamma_+(\psi, \delta\psi)) |dx|)
+$$
+
+運動方程式は $D\psi = 0$ で
+
+$$
+\begin{aligned}
+  \gamma &= \frac{1}{2} \iota(\Gamma_+(\psi, \delta\psi)) |dx| \\
+  \omega &= \delta\gamma = \frac{1}{2} \iota(\Gamma_+(\delta\psi, \delta\psi)) |dx|
+\end{aligned}
+$$
+
+$$
+\mathrm{Sol} \coloneqq \{ \Psi \in \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^+) \mid D\Psi = 0 \}
+$$
+
+$\Sigma$ を (空でない) 連結閉な spacelike 超曲面とすると
+
+$$
+\int_\Sigma \omega \in \Omega^2(\mathrm{Sol})
+$$
+
+は $\Sigma$ に依らない。各 $\Psi \in \mathrm{Sol}$ に対して
+
+$$
+[-, -]: T_\Psi\mathrm{Sol} \times T_\Psi\mathrm{Sol} \simeq \mathrm{Sol} \times \mathrm{Sol} \ni (\psi_1, \psi_2) \mapsto \int_\Sigma \iota(\Gamma_+(\psi_1, \psi_2)) |dx| \in \mathbb{R}
+$$
+
+が定まるが、$\Psi$ に依らない。以降 $d \ne 2$ とする。反転を伴う Fourier 変換を使うと、$p = 0$ などは無視して形式的に
+
+$$
+\begin{aligned}
+  \Pi \mathrm{Sol} &\sim \{ \psi \in \mathcal{S}'(V, S^+) \mid D\psi = 0 \} \\
+  &\simeq \{ F \in \mathcal{S}'(V, S^+ \otimes \mathbb{C}) \mid F(-p) = \overline{F(p)}, s(p)F = 0 \} \quad (F = \mathcal{F}\psi(-p)) \\
+  &\sim \{ f \in \mathcal{S}'(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
+\end{aligned}
+$$
+
+ただし、ベクトル束 $\mathcal{A} \to \mathcal{O}_0$ は以下のように定義する。$\mathcal{O}_0 \times S^\pm$ は $\mathrm{Spin}(V)$ 同変ベクトル束。$s(p): \mathcal{O}_0 \times S^+ \to \mathcal{O}_0 \times S^-$ は $\mathrm{Spin}(V)$ 同変ベクトル束の射。$\mathcal{A}_{\pm e_0 + e_1} = \mathrm{Ker}(s(\pm e_0 + e_1): S^+ \to S^-)$ を調べる。$\gamma \in S^+$ に対して
+
+$$
+s(\pm e_0 + e_1)\gamma = 0 \Leftrightarrow (\pm 1 + s(e_0)s(e_1))\gamma = 0
+$$
+
+$(s(e_0)s(e_1))^2 = 1$ で $\mathrm{Ker}(s(e_0)s(e_1) - 1) \xrightarrow{s(e_1)s(e_2)} \mathrm{Ker}(s(e_0)s(e_1) + 1)$ は同型。よって、$s(p)$ は constant rank だから、ベクトル束 $\mathcal{A} \coloneqq \mathrm{Ker}(s(p))$ が定まる。$\mathrm{rk}\mathcal{A} = \frac{1}{2} \mathrm{dim}S^+ = 2^{\frac{d}{2} - 2}$
