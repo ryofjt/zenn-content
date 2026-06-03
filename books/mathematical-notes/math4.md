@@ -474,7 +474,7 @@ $$
 \end{aligned}
 $$
 
-# Spinor QFT
+# Spinor QFT の導入
 
 https://zenn.dev/link/comments/bbb4f536f2afbc
 
@@ -550,8 +550,9 @@ $$
 $$
 \begin{aligned}
   \Pi \mathrm{Sol} &\sim \{ \psi \in \mathcal{S}'(V, S^+) \mid D\psi = 0 \} \\
-  &\simeq \{ F \in \mathcal{S}'(V, S^+ \otimes \mathbb{C}) \mid F(-p) = \overline{F(p)}, s(p)F = 0 \} \quad (F = \mathcal{F}\psi(-p)) \\
-  &\sim \{ f \in \mathcal{S}'(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
+  &\simeq \{ F \in \mathcal{S}'(V, S^+ \otimes \mathbb{C}) \mid F(-p) = \overline{F(p)}, s(p)F = 0 \} &\quad (F = \mathcal{F}\psi(-p)) \\
+  &\sim \{ f \in \mathcal{S}'(\mathcal{O}_0, S^+ \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)}, s(p)f = 0 \} &\quad (s(p)^2 = p^2) \\
+  &\simeq \{ f \in \mathcal{S}'(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
 \end{aligned}
 $$
 
@@ -569,3 +570,49 @@ $$
 
 $(s(e_0)s(e_1))^2 = 1$ で $\mathrm{Ker}(s(e_0)s(e_1) - 1) \xrightarrow{s(e_1)s(e_2)} \mathrm{Ker}(s(e_0)s(e_1) + 1)$ は同型。よって、$\mathrm{rk}\mathcal{A} = \frac{1}{2} \mathrm{dim}S^+ = 2^{\frac{d}{2} - 2}$
 
+$\mathrm{Spin}(V)$ 同変ベクトル束の射 $\Gamma_+: \mathcal{A} \otimes \mathcal{A} \to \mathcal{O}_0 \times V$ は、自明な線束 $\Theta$ を $\Theta \coloneqq \{ (p, \mathbb{R}p) \mid p \in \mathcal{O}_0 \} \subset \mathcal{O}_0 \times V$ で定義すると、$\Gamma_+: \mathcal{A} \otimes \mathcal{A} \to \Theta$ を誘導することを示す。$e_0 + e_1 \in \mathcal{O}_0$ で示せば良い。$\xi, \eta \in \mathcal{A}_{e_0 + e_1}$ とする。$(\Gamma_+(\xi, \eta), v) = (\xi, s(v)\eta)$ だから
+
+$$
+\Gamma_+(\xi, \eta) = (\xi, s(e_0)\eta)e_0 - \sum_{j = 1}^d (\xi, s(e_j)\eta)e_j
+$$
+
+$$
+\begin{aligned}
+  (\xi, s(e_0)\eta)e_0 - (\xi, s(e_1)\eta)e_1 &= (\xi, s(e_0)\eta)(e_0 + e_1) \\
+  &= (\xi, s(q)\xi)(e_0 + e_1) \quad (q \in V, (e_0 + e_1)q = 1)
+\end{aligned}
+$$
+
+また、$j \ge 2$ ならば
+
+$$
+\begin{aligned}
+  (\xi, s(e_j)\eta) &= -(\xi, s(e_j)s(e_0)s(e_1)\eta) \\
+  &= -(\xi, s(e_0)s(e_1)s(e_j)\eta) \\
+  &= -(s(e_1)s(e_0)\xi, s(e_j)\eta) \\
+  &= (s(e_0)s(e_1)\xi, s(e_j)\eta) \\
+  &= -(\xi, s(e_j)\eta)
+\end{aligned}
+$$
+
+$\Theta$ は自明だから、$\mathrm{Spin}(V)$ 不変で対称な非退化 pairing $\langle -, - \rangle_{\mathcal{A}} \in \Gamma(\mathcal{O}_0, \mathcal{A}^* \otimes \mathcal{A}^*)$ ができる
+
+$$
+\begin{aligned}
+  \langle \xi, \eta \rangle_{\mathcal{A}_p} &= (\xi, s(q)\eta) \quad (q \in V, pq = 1) \\
+  &= \frac{1}{p_0} (\xi, s(e_0)\eta)
+\end{aligned}
+$$
+
+$\langle -, - \rangle_{\mathcal{A}}$ は正定値または負定値なことを示す。Hermite 形式 $h: (S^+ \otimes \mathbb{C}) \otimes (S^+ \otimes \mathbb{C}) \ni (\xi, \eta) \mapsto (\xi, s(e_0)\bar{\eta})$ が正定値または負定値なことを示せば良い。$E \coloneqq i\mathbb{R} \oplus \mathbb{R}^{d - 1} \subset V_\mathbb{C}$ とする。$\mathrm{Spin}(E)$ はコンパクトで $\mathrm{Spin}(E) \curvearrowright S^+ \otimes \mathbb{C}$ は既約だから、$h$ が $\mathrm{Spin}(E)$ 不変なことを示せば良い。$\mathfrak{spin}(E) = \mathrm{span}_{\mathbb{R}} \{ is(e_0)s(e_j), s(e_j)s(e_k) \mid 1 \le j, k \le d \}$ であり
+
+$$
+\begin{aligned}
+  h(is(e_0)s(e_j)\xi, \eta) &= i(\xi, s(e_j)\bar{\eta}) = -h(\xi, is(e_0)s(e_j)\eta) \\
+  h(s(e_j)s(e_k)\xi, \eta) &= (s(e_j)s(e_k)\xi, s(e_0)\bar{\eta}) = -h(\xi, s(e_j)s(e_k)\eta)
+\end{aligned}
+$$
+
+**以降、pairing $(-, -): S \otimes S \to \mathbb{R}$ は $\langle -, - \rangle_{\mathcal{A}}$ が正定値になるようにとる**
+
+$H \coloneqq \{ f \in L^2(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}$
