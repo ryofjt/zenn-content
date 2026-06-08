@@ -358,8 +358,8 @@ $$
 
 $$
 \begin{aligned}
-  \widehat{\varphi_i|_{t = 0}}(\beta) &= (2\pi)^{-1/2} \frac{1}{2E} [f_i(E, p') + f_i(-E, p')] \in L^2(Edp') \\
-  \widehat{\partial_t\varphi_i|_{t = 0}}(\beta) &= -(2\pi)^{-1/2} \frac{i}{2} [f_i(E, p') - f_i(-E, p')] \in L^2\left(\frac{dp'}{E}\right)
+  \widehat{\varphi_i|_{t = 0}} &= (2\pi)^{-1/2} \frac{1}{2E} [f_i(E, p') + f_i(-E, p')] \in L^2(Edp') \\
+  \widehat{\partial_t\varphi_i|_{t = 0}} &= -(2\pi)^{-1/2} \frac{i}{2} [f_i(E, p') - f_i(-E, p')] \in L^2\left(\frac{dp'}{E}\right)
 \end{aligned}
 $$
 
@@ -433,6 +433,9 @@ $$
 $$
 \mathcal{S}_m \simeq SO_0(1, d - 1) / SO_0(1, d - 2)
 $$
+
+# 振動積分
+
 
 # Wightman の公理を満たすモデル
 

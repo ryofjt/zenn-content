@@ -494,7 +494,7 @@ $C(V)$ 加群 $S^*$ を $\beta$ で捻って定義すると、既約性から $S
 
 $\Gamma_+: S^+ \otimes S^+ \to V$ を、$S^+ \otimes S^+ \otimes V^* \simeq S^+ \otimes S^+ \otimes V \xrightarrow{s} S^+ \otimes S^- \to \mathbb{R}$ で定義する。$\Gamma_+$ は非自明かつ対称で $\mathrm{Spin}(V)$ 同変。$\Gamma_-: S^- \otimes S^- \to V$ も同様に定義する
 
-$\mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm)$ を supermanifold から集合への関手 $B \mapsto \mathrm{Map}(V \times B, \mathbb{R}^{0|1} \otimes S^\pm) \simeq \mathcal{O}_1(V \times B) \otimes S^\pm \simeq C^\infty(V) \hat{\otimes} \mathcal{O}_1(B) \otimes S^\pm \simeq C^\infty(V, S^\pm) \hat{\otimes} \mathcal{O}_1(B)$ で定義する
+$\mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm)$ を supermanifold から集合への反変関手 $B \mapsto \mathrm{Map}(V \times B, \mathbb{R}^{0|1} \otimes S^\pm) \simeq \mathcal{O}_1(V \times B) \otimes S^\pm \simeq C^\infty(V) \hat{\otimes} \mathcal{O}_1(B) \otimes S^\pm \simeq C^\infty(V, S^\pm) \hat{\otimes} \mathcal{O}_1(B)$ で定義する
 
 $D: \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\pm) \to \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^\mp)$ を
 
@@ -549,10 +549,10 @@ $$
 
 $$
 \begin{aligned}
-  \Pi \mathrm{Sol} &\sim \{ \psi \in \mathcal{S}'(V, S^+) \mid D\psi = 0 \} \\
-  &\simeq \{ F \in \mathcal{S}'(V, S^+ \otimes \mathbb{C}) \mid F(-p) = \overline{F(p)}, s(p)F = 0 \} &\quad (F = \mathcal{F}\psi(-p)) \\
-  &\sim \{ f \in \mathcal{S}'(\mathcal{O}_0, S^+ \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)}, s(p)f = 0 \} &\quad (s(p)^2 = p^2) \\
-  &\simeq \{ f \in \mathcal{S}'(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
+  \mathrm{Sol} &\sim \Pi \{ \psi \in \mathcal{S}'(V, S^+) \mid D\psi = 0 \} \\
+  &\simeq \Pi \{ F \in \mathcal{S}'(V, S^+ \otimes \mathbb{C}) \mid F(-p) = \overline{F(p)}, s(p)F = 0 \} &\quad (F = \mathcal{F}\psi(-p)) \\
+  &\sim \Pi \{ f \in \mathcal{S}'(\mathcal{O}_0, S^+ \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)}, s(p)f = 0 \} &\quad (s(p)^2 = p^2) \\
+  &\sim \Pi \{ f \in \mathcal{S}'(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
 \end{aligned}
 $$
 
@@ -573,7 +573,7 @@ $(s(e_0)s(e_1))^2 = 1$ で $\mathrm{Ker}(s(e_0)s(e_1) - 1) \xrightarrow{s(e_1)s(
 $\mathrm{Spin}(V)$ 同変ベクトル束の射 $\Gamma_+: \mathcal{A} \otimes \mathcal{A} \to \mathcal{O}_0 \times V$ は、自明な線束 $\Theta$ を $\Theta \coloneqq \{ (p, \mathbb{R}p) \mid p \in \mathcal{O}_0 \} \subset \mathcal{O}_0 \times V$ で定義すると、$\Gamma_+: \mathcal{A} \otimes \mathcal{A} \to \Theta$ を誘導することを示す。$e_0 + e_1 \in \mathcal{O}_0$ で示せば良い。$\xi, \eta \in \mathcal{A}_{e_0 + e_1}$ とする。$(\Gamma_+(\xi, \eta), v) = (\xi, s(v)\eta)$ だから
 
 $$
-\Gamma_+(\xi, \eta) = (\xi, s(e_0)\eta)e_0 - \sum_{j = 1}^d (\xi, s(e_j)\eta)e_j
+\Gamma_+(\xi, \eta) = (\xi, s(e_0)\eta)e_0 - \sum_{j = 1}^{d - 1} (\xi, s(e_j)\eta)e_j
 $$
 
 $$
@@ -604,7 +604,7 @@ $$
 \end{aligned}
 $$
 
-$\langle -, - \rangle_{\mathcal{A}}$ は正定値または負定値なことを示す。Hermite 形式 $h: (S^+ \otimes \mathbb{C}) \otimes (S^+ \otimes \mathbb{C}) \ni (\xi, \eta) \mapsto (\xi, s(e_0)\bar{\eta})$ が正定値または負定値なことを示せば良い。$E \coloneqq i\mathbb{R} \oplus \mathbb{R}^{d - 1} \subset V_\mathbb{C}$ とする。$\mathrm{Spin}(E)$ はコンパクトで $\mathrm{Spin}(E) \curvearrowright S^+ \otimes \mathbb{C}$ は既約だから、$h$ が $\mathrm{Spin}(E)$ 不変なことを示せば良い。$\mathfrak{spin}(E) = \mathrm{span}_{\mathbb{R}} \{ is(e_0)s(e_j), s(e_j)s(e_k) \mid 1 \le j, k \le d \}$ であり
+$\langle -, - \rangle_{\mathcal{A}}$ は $\mathcal{O}_0^+$ 上正定値または負定値なことを示す。Hermite 形式 $h: (S^+ \otimes \mathbb{C}) \times (S^+ \otimes \mathbb{C}) \ni (\xi, \eta) \mapsto (\xi, s(e_0)\bar{\eta}) \in \mathbb{C}$ が正定値または負定値なことを示せば良い。$E \coloneqq i\mathbb{R} \oplus \mathbb{R}^{d - 1} \subset V_\mathbb{C}$ とする。$\mathrm{Spin}(E)$ はコンパクトで $\mathrm{Spin}(E) \curvearrowright S^+ \otimes \mathbb{C}$ は既約だから、$h$ が $\mathrm{Spin}(E)$ 不変なことを示せば良い。$\mathfrak{spin}(E) = \mathrm{span}_{\mathbb{R}} \{ is(e_0)s(e_j), s(e_j)s(e_k) \mid 1 \le j, k \le d - 1 \}$ であり
 
 $$
 \begin{aligned}
@@ -613,6 +613,204 @@ $$
 \end{aligned}
 $$
 
-**以降、pairing $(-, -): S \otimes S \to \mathbb{R}$ は $\langle -, - \rangle_{\mathcal{A}}$ が正定値になるようにとる**
+**以降、pairing $(-, -): S \otimes S \to \mathbb{R}$ は $\langle -, - \rangle_{\mathcal{A}}$ が $\mathcal{O}_0^+$ 上正定値になるようにとる。** この時、$\langle -, - \rangle_{\mathcal{A}}$ は $\mathcal{O}_0^-$ 上負定値になる
 
-$H \coloneqq \{ f \in L^2(\mathcal{O}_0, \mathcal{A} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}$
+$H \coloneqq \Pi \{ f \in L^2(\mathcal{O}_0^+, \mathcal{A} \otimes \mathbb{C}, \mu_0) \oplus L^2(\mathcal{O}_0^-, \mathcal{A} \otimes \mathbb{C}, \mu_0) \mid f(-p) = \overline{f(p)} \}$
+
+# $H$ での $[−, −]$ の記述
+
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math1#%E3%81%A7%E3%81%AE-%E3%81%AE%E8%A8%98%E8%BF%B0
+
+$f_1, f_2 \in H$ とする
+
+$$
+\begin{aligned}
+  F_i(\alpha) &= \int_{p \in \mathcal{O}_0} f_i(p)\alpha(p) \, d\mu_0(p) \\
+  \psi_i(u) &= (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_0} f_i(p)u(x)e^{-ipx} \, dx d\mu_0(p)
+\end{aligned}
+$$
+
+$p = (p_0, p')$, $x = (t, x')$ とすると
+
+$$
+\psi_i|_{t = 0}(v) = \psi_i(\delta \otimes v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_0} f_i(p)v(x')e^{ip'x'} \, dx' d\mu_0(p)
+$$
+
+$\mathcal{O}_0^\pm \simeq \{ p' \in \mathbb{R}^{d - 1} \setminus \{0\} \}$ によって $d\mu_0(p) = \frac{dp'}{2|p'|}$
+
+$$
+\widehat{\psi_i|_{t = 0}}(\beta) = (2\pi)^{-1/2} \int_{p \in \mathcal{O}_0} f_i(p)\beta(p') \, d\mu_0(p)
+$$
+
+$S^+ \otimes \mathbb{C}$ 上の Hermite 内積を $(S^+ \otimes \mathbb{C}) \times (S^+ \otimes \mathbb{C}) \ni (\xi, \eta) \mapsto (\xi, s(e_0)\bar{\eta}) \in \mathbb{C}$ で定義する
+
+$$
+\widehat{\psi_i|_{t = 0}} = (2\pi)^{-1/2} \frac{1}{2|p'|} (f_i(|p'|, p') + f_i(-|p'|, p')) \in \Pi L^2(\mathbb{R}^{d - 1}, S^+ \otimes \mathbb{C}, dp')
+$$
+
+$(p_0, p') \in \mathcal{O}_0$ に対して、$\mathcal{A}_{(p_0, p')} \otimes \mathbb{C}$ と $\mathcal{A}_{(p_0, -p')} \otimes \mathbb{C}$ は直交することを示す。$\xi \in \mathcal{A}_{(p_0, p')} \otimes \mathbb{C}$, $\eta \in \mathcal{A}_{(p_0, -p')} \otimes \mathbb{C}$ とすると、$(p_0s(e_0) + s(p'))\xi = 0$, $(p_0s(e_0) - s(p'))\eta = 0$ だから
+
+$$
+(\xi, s(e_0)\bar{\eta}) = \frac{1}{p_0} (\xi, s(p')\bar{\eta}) = \frac{1}{p_0} (s(p')\xi, \bar{\eta}) = -(s(e_0)\xi, \bar{\eta}) = -(\xi, s(e_0)\bar{\eta})
+$$
+
+$$
+\begin{aligned}
+  [\psi_1, \psi_2] &= \int (\psi_1|_{t = 0}, s(e_0)\psi_2|_{t = 0}) \, dx' \\
+  &= \int (\widehat{\psi_1|_{t = 0}}(p'), s(e_0)\widehat{\psi_2|_{t = 0}}(-p')) \, dp' \\
+  &= \frac{1}{8\pi} \int \frac{1}{|p'|^2} (f_1(|p'|, p') + f_1(-|p'|, p'), s(e_0)[f_2(|p'|, -p') + f_2(-|p'|, -p')]) \, dp' \\
+  &= \frac{1}{8\pi} \int \frac{1}{|p'|^2} [(f_1(|p'|, p'), s(e_0)f_2(-|p'|, -p')) + (f_1(-|p'|, p'), s(e_0)f_2(|p'|, -p'))] \, dp' \\
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_0^+} [(f_1(p), f_2(-p))_{\mathcal{A}} + (f_1(-p), f_2(p))_{\mathcal{A}}] \, d\mu_0(p) \\
+  &= \frac{1}{2\pi} \int_{p \in \mathcal{O}_0^+} \mathrm{Re}(f_1, \bar{f}_2)_{\mathcal{A}} \, d\mu_0(p)
+\end{aligned}
+$$
+
+# Spinor Wightman QFT
+
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math1#wightman-%E3%81%AE%E5%85%AC%E7%90%86%E3%82%92%E6%BA%80%E3%81%9F%E3%81%99%E3%83%A2%E3%83%87%E3%83%AB
+
+$V$: 符号 $(1, d - 1)$ の Minkowski 空間
+$G \coloneqq \mathrm{Spin}_0(V)$
+$P \coloneqq G \ltimes V$
+
+$\rho: G \curvearrowright \Pi S^-$
+$\mathcal{R} = P \times_G \rho = P \times_G \Pi S^-$
+
+$\tau \in G$ は $-1 \in C^+(V)$ に対応し、$-1$ 倍で作用している
+
+$V \times \Pi S^+ \to V$ は $P$ 同変ベクトル束だから、$P \curvearrowright H = \Pi \{ h \in L^2(\mathcal{O}_0^+, \mathcal{A} \otimes \mathbb{C}, \mu_0) \oplus L^2(\mathcal{O}_0^-, \mathcal{A} \otimes \mathbb{C}, \mu_0) \mid h(-p) = \overline{h(p)} \}$ が誘導される
+
+$$
+\begin{aligned}
+  (\Lambda, a)h &= (2\pi)^{-d/2} \int \Lambda\tilde{h}(\Lambda^{-1}(x - a))e^{ipx} \, dx \quad (\tilde{h}(x) = (2\pi)^{-d/2} \int h(p)e^{-ipx} \, dp) \\
+  &= (2\pi)^{-d/2} e^{ipa} \Lambda \int \tilde{h}(\Lambda^{-1}x)e^{ipx} \, dx \\
+  &= (2\pi)^{-d/2} e^{ipa} \Lambda \int \tilde{h}(x)e^{i(\Lambda^{-1}p)x} \, dx \\
+  &= e^{ipa} \Lambda h(\Lambda^{-1}p)
+\end{aligned}
+$$
+
+$I: H \to H$ を
+
+$$
+Ih(p) = \begin{cases}
+  ih(p) &\quad (p \in \mathcal{O}_0^+) \\
+  -ih(p) &\quad (p \in \mathcal{O}_0^-)
+\end{cases}
+$$
+
+で定める。$H_\pm = \Pi L^2(\mathcal{O}_0^\pm, \mathcal{A} \otimes \mathbb{C}, \mu_0)$。$H_+$ 上の Hermite 形式
+
+$$
+(h_1, h_2) = \frac{i}{2} [h_1(p), \overline{h_2(-p)}] = \frac{i}{8\pi} \int_{p \in \mathcal{O}_0^+} (h_1(p), \overline{h_2(p)})_{\mathcal{A}} \, d\mu_0(p)
+$$
+
+は正定値。$I$ は $P$ 同変だから、$P \curvearrowright H_+$ が誘導される。さらに、$U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty \wedge^n H_+$ が誘導される。$\mathcal{S}(\mathcal{O}_0^+) \coloneqq \mathcal{S}(V) / \{ f|_{\mathcal{O}_0^+} \equiv 0 \}$。$D_+ \coloneqq \Pi \{ f \in \mathcal{S}(\mathcal{O}_0^+, S^+ \otimes \mathbb{C}) \mid s(p)f(p) = 0, f(0) = 0 \} \subset H_+$ とする。$\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty \wedge^n D_+ \subset \mathcal{H}$ と定義し、$\Omega \coloneqq 1 \in \mathcal{D}$ とする
+
+$\varphi: \mathcal{S}(\mathcal{R}) \to \mathrm{End}(\mathcal{D})$ を
+
+$$
+\varphi(f) \coloneqq \varepsilon_{k_f} + \iota_{(\cdot, k_f)}
+$$
+
+で定義する。ただし、$k_f \coloneqq s(-p)\mathcal{F}f(-p)|_{\mathcal{O}_0^+} \in D_+$。まず、$\varphi$ が $P$ 同変なことは
+
+$$
+\begin{aligned}
+  k_{(\Lambda, a)f} &= (2\pi)^{-d/2} s(-p) \int \Lambda f(\Lambda^{-1}(x - a))e^{ipx} \, dx \\
+  &= e^{ipa} s(-p) \Lambda \mathcal{F}f(-\Lambda^{-1}p) \\
+  &= e^{ipa} \Lambda s(-\Lambda^{-1}p) \mathcal{F}f(-\Lambda^{-1}p) \\
+  &= (\Lambda, a)k_f
+\end{aligned}
+$$
+
+から従う
+
+(2) $\varphi(f)$ は symmetric operator
+
+$$
+\varphi(f)^* = \iota_{(\cdot, k_f)} + \varepsilon_{k_f} = \varphi(f)
+$$
+
+${}$(3) $\mathcal{D}$ は $\varphi(f_1) \cdots \varphi(f_n)\Omega$ で生成される
+
+$\{ k_f \mid f \in \mathcal{S}(\mathcal{R}) \} = D_+$ から従う
+
+(1) $U|_V$ の同時スペクトル $\sigma(U) \subset V^*$ は
+
+$$
+\langle \sigma(U), \overline{V}_+ \rangle \ge 0
+$$
+
+$\sigma(U) \subset \overline{V}_+$ を示せば良い。$U_1: P \curvearrowright H_+$ は
+
+$$
+\begin{aligned}
+  (U_1(a)h_1, h_2) &= \frac{i}{8\pi} \int_{p \in \mathcal{O}_0^+} e^{ipa}(h_1(p), \overline{h_2(p)})_{\mathcal{A}} \, d\mu_0(p) \\
+  &= \int_{p \in \mathcal{O}_0^+} e^{ipa} \, dE_{h_1, h_2}
+\end{aligned}
+$$
+
+ただし、$H_+$ 上の射影に値をとる $\mathcal{O}_0^+$ 上のスペクトル測度 $E$ を
+
+$$
+E(A)h \coloneqq h|_A \quad (h \in H^+)
+$$
+
+で定義する。$\mathrm{supp} \, U_1 = \overline{\mathcal{O}_0^+}$。$U_n: P \curvearrowright \wedge^n H_+$ の台は
+
+$$
+\mathrm{supp} \, U_n = \begin{cases}
+  \{0\} &\quad (n = 0) \\
+  \overline{\mathcal{O}_0^+} &\quad (n = 1) \\
+  \underbrace{\overline{\mathcal{O}_0^+} + \cdots + \overline{\mathcal{O}_0^+}}_n = \overline{V}_+ &\quad (n \ge 2)
+\end{cases}
+$$
+
+最後の等号を示す。まず、$\subset$ を示す。$p_1, \dots, p_n \in \overline{\mathcal{O}_0^+}$ とすると
+
+$$
+p_ip_j = p_i^0p_j^0 - p_i'p_j' \ge 0
+$$
+
+よって $(p_1 + \cdots + p_n)^2 \ge 0$。次に、$\supset$ を示す。$p \in V_+$ とする。$\Lambda \in SO_0(V)$ が存在して
+
+$$
+\Lambda p = (\sqrt{p^2}, 0)
+$$
+
+$p_1', \dots, p_n' \in \mathbb{R}^{d - 1}$ を $p_1 + \cdots + p_n = 0$ かつ $\|p_i'\| = \sqrt{p^2} / n$ にとる。$p_i \coloneqq (\sqrt{p^2} / n, p_i') \in \mathcal{O}_0^+$ とすると
+
+$$
+p = \Lambda^{-1}(\sqrt{p^2}, 0) = \sum_{i = 1}^n \Lambda^{-1}p_i
+$$
+
+総合すると
+
+$$
+\mathrm{supp} \, U = \overline{V}_+
+$$
+
+${}$(4) $f, g \in \mathcal{S}(\mathcal{R})$ が $\mathrm{supp} f - \mathrm{supp} g \subset V_\mathrm{space} = \{ v \in V \mid v^2 < 0 \}$ ならば
+
+$$
+[\varphi(f), \varphi(g)] = 0
+$$
+
+$$
+\begin{aligned}
+  [\varphi(f), \varphi(g)] &= [\iota_{(\cdot, k_f)}, \varepsilon_{k_g}] + [\varepsilon_{k_f}, \iota_{(\cdot, k_g)}] \\
+  &= (k_g, k_f) - (k_f, k_g) \\
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ipS(x - y)(x - y)} - e^{ipS(x - y)(x - y)}] \, d\mu(p)dxdy \\
+  &= \frac{1}{8\pi} \int_{p', x, y} \frac{1}{E(p')}f(x)g(y)[e^{ip'S(x - y)(x - y)} - e^{-ip'S(x - y)(x - y)}] \, dp'dxdy \\
+  &= 0
+\end{aligned}
+$$
+
+ただし、可測な $S: V_\mathrm{space} \to SO_0(V)$ は
+
+$$
+S(z)z = (0, \pm\sqrt{-z^2}, 0, \dots, 0)
+$$
+
+なるようにとる
