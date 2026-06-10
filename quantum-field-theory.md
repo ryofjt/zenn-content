@@ -9,14 +9,30 @@ style: |
     color: #1f2937;
     font-family: "Helvetica Neue", "Hiragino Sans", "Yu Gothic", sans-serif;
     padding: 56px 64px;
+    line-height: 1.6;
   }
-  h1, h2 {
-    color: #111827;
+  section p, section li { margin: 0.45em 0; }
+  section ul, section ol { margin: 0.4em 0; padding-left: 1.4em; }
+  section li { padding-left: 0.2em; }
+  mjx-container[display="true"] { margin: 0.7em 0 !important; }
+  h1 {
+    color: #4338ca;
+    font-weight: 700;
     border-bottom: 2px solid #e5e7eb;
     padding-bottom: 8px;
   }
-  h1 { font-weight: 600; }
-  h2 { font-weight: 600; }
+  h2 {
+    color: #111827;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    position: absolute;
+    top: 48px;
+    left: 64px;
+    right: 64px;
+    margin: 0;
+  }
+  section:has(h2) { padding-top: 130px; }
   strong { color: #2563eb; }
   a { color: #2563eb; }
   code {
@@ -33,6 +49,16 @@ style: |
     border-left: 3px solid #d1d5db;
     color: #4b5563;
     padding-left: 12px;
+  }
+  .refs {
+    position: absolute;
+    left: 64px;
+    right: 64px;
+    bottom: 56px;
+    font-size: 0.7em;
+    color: #6b7280;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 8px;
   }
 ---
 
@@ -60,7 +86,7 @@ style: |
 
 ## ばねの運動 → 場の理論
 
-ばねの運動はニュートンの運動方程式 $\ddot{\varphi}(t) = -k\varphi(t)$ で表される。これを「場」の言葉で書き直したい。
+ばねの運動は**ニュートンの運動方程式** $\ddot{\varphi}(t) = -k\varphi(t)$ で表される。これを「場」の言葉で書き直したい。
 
 - **場全体**: $\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{R} \}$
 - **ラグランジアン** $L: \mathcal{F} \times \mathbb{R} \to \mathbb{R}$、**作用** $S: \mathcal{F} \to \mathbb{R}$ を
@@ -85,7 +111,7 @@ $$
   = \dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi
 $$
 
-積分して部分積分：
+積分して **部分積分**：
 
 $$
 \delta S_{\varphi_0}(\xi)
@@ -117,7 +143,7 @@ $$
 
 ## 解空間とシンプレクティック形式
 
-解空間：
+**解空間**：
 
 $$
 \mathrm{Sol} \coloneqq \{ pe^{it} + qe^{-it} \mid p, q \in \mathbb{C} \}
@@ -150,7 +176,7 @@ $$
 H_+ \coloneqq \{ pe^{it} \mid p \in \mathbb{C} \} \subset \mathrm{Sol}
 $$
 
-シンプレクティック形式 $\omega_\mathrm{Sol}$ から $H_+$ 上の内積が誘導される：
+シンプレクティック形式 $\omega_\mathrm{Sol}$ から $H_+$ 上の **内積** が誘導される：
 
 $$
 (p_1 e^{it}, p_2 e^{it}) \coloneqq \tfrac{i}{2}\omega_\mathrm{Sol}(p_1 e^{it}, \overline{p_2 e^{it}}) = p_1\bar{p_2}
@@ -162,7 +188,7 @@ $$
 
 ## フォック空間
 
-対称テンソル積でフォック空間を作ると、 **多項式環** として実現される：
+対称テンソル積で **フォック空間** を作ると、 **多項式環** として実現される：
 
 $$
 \mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n H_+ = \mathbb{C}[e^{it}] = \mathrm{span}_{\mathbb{C}}\{ e^{ikt} \mid k \in \mathbb{Z}_{\ge 0} \}
@@ -180,6 +206,8 @@ $$
 
 ## 場の演算子
 
+残るは **場の演算子** $\Phi: \mathbb{R} \to \mathrm{End}(\mathcal{D})$。次のように定義する：
+
 $$
 \Phi(s) \coloneqq e^{is}\varepsilon + e^{-is}\iota
 $$
@@ -187,8 +215,8 @@ $$
 **生成演算子** $\varepsilon$ と **消滅演算子** $\iota$ は
 
 $$
-\varepsilon\, e^{ikt} \coloneqq e^{i(k+1)t} \quad (\text{次数を上げる}), \qquad
-\iota\, e^{ikt} \coloneqq k\, e^{i(k-1)t} \quad (\text{次数を下げる})
+\varepsilon\, e^{ikt} \coloneqq e^{i(k+1)t} \quad ({\color{#16a34a}\textbf{次数}\pmb{\uparrow}}), \qquad
+\iota\, e^{ikt} \coloneqq k\, e^{i(k-1)t} \quad ({\color{#dc2626}\textbf{次数}\pmb{\downarrow}})
 $$
 
 $\varepsilon, \iota$ は内積に関して互いに共役 ⇒ $\Phi(s)$ は **自己共役**
@@ -215,14 +243,24 @@ $$
 
 ---
 
-## まとめ & 参考文献
+## まとめ
 
-- 作用の停留点として **運動方程式** が出る
-- 境界項を回収すると、解空間に **シンプレクティック形式** $\omega_\mathrm{Sol}$ が乗る
-- 正エネルギー部分 $H_+$ から フォック空間 $\mathbb{C}[e^{it}]$
-- と場の演算子 $\Phi(s)$ が決まる
-- $1+0$ 次元では量子力学に一致し、$\Phi(0)$ は位置演算子
+$$
+\boxed{\text{作用 }S}
+  \xrightarrow{\,\delta S = 0\,}
+\boxed{\text{運動方程式}}
+  \xrightarrow{\,\gamma,\ \omega\,}
+\boxed{(\mathrm{Sol},\ \omega_\mathrm{Sol})}
+  \xrightarrow{\,H_+,\ \mathbb{C}[e^{it}]\,}
+\boxed{\mathcal{H},\ \Phi(s)}
+$$
 
-参考文献
-P. Deligne, P. Etingof, D. S. Freed, L. C. Jeffrey, D. Kazhdan, J. W. Morgan, D. R. Morrison, and E. Witten (eds.),
-_Quantum Fields and Strings: A Course for Mathematicians, Vol. 1_, AMS, 1999.
+<br>
+
+そして $1 + 0$ 次元では **量子力学** に一致し、$\Phi(0)$ は **位置演算子** だった！
+
+<div class="refs">
+
+参考文献: P. Deligne, P. Etingof, D. S. Freed, L. C. Jeffrey, D. Kazhdan, J. W. Morgan, D. R. Morrison, and E. Witten (eds.), _Quantum Fields and Strings: A Course for Mathematicians, Vol. 1_, AMS, 1999.
+
+</div>
