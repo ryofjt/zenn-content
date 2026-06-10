@@ -38,207 +38,180 @@ style: |
 
 # 場の量子論入門
 
-5 min LT / @ryofjt
+@dokadokaas
 
 ---
 
 ## 自己紹介
 
-- **@ryofjt**
-- 数学 / 物理が好きで、最近は場の量子論を勉強中
-- Zenn で数学・物理のノートを公開しています
-  - 本: _Mathematical Notes_
-  - 記事: _場の量子論入門_（今日の元ネタ）
-- 今日は 5 分で「**場の理論 → 場の量子論 → 量子力学**」を駆け抜けます
+- **@dokadokaas**
+- 興味は 数理物理 / 表現論 / 作用素環、最近は場の量子論を勉強中
+- 最近シーシャ吸いながら勉強するのにハマってます 🚬
 
 ---
 
 ## この発表の流れ
 
-$$
-\begin{aligned}
-\text{場の理論} \quad &\xrightarrow{\text{ 停留点 }} \quad \text{運動方程式} \\
-\text{場の理論} \quad &\xrightarrow[\text{ シンプレクティック構造 }]{\text{ 解空間上の }} \quad \text{場の量子論} \quad \longrightarrow \quad \text{量子力学}
-\end{aligned}
-$$
+![w:1000](assets/qft-flow.svg)
 
 もっとたくさんの矢印があるとは思うけど、今回の流れはこんな感じ
 
 ---
 
-## ばねの運動と場の理論
+## ばねの運動 → 場の理論
 
-ばねの運動はニュートンの運動方程式 $\ddot{\varphi}(t) = -k\varphi(t)$ で表される。
-これを場 $\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{R} \}$ で定式化する。
+ばねの運動はニュートンの運動方程式 $\ddot{\varphi}(t) = -k\varphi(t)$ で表される。これを「場」の言葉で書き直したい。
 
-ラグランジアン $L: \mathcal{F} \times \mathbb{R} \to \mathbb{R}$ と作用 $S: \mathcal{F} \to \mathbb{R}$ を
+- **場全体**: $\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{R} \}$ （関数 1 個 = 場 1 個）
+- **ラグランジアン** $L: \mathcal{F} \times \mathbb{R} \to \mathbb{R}$、**作用** $S: \mathcal{F} \to \mathbb{R}$ を
 
 $$
 L(\varphi, t) \coloneqq \tfrac{1}{2}\dot{\varphi}(t)^2 - \tfrac{k}{2}\varphi(t)^2, \qquad S(\varphi) \coloneqq \int_{-\infty}^\infty L(\varphi, t) \, dt
 $$
 
-で定義する。$L$ の $\mathcal{F}$ 方向の微分は
+で定義する
 
-$$
-\delta L_{(\varphi_0, t)}(\xi)
-  = \lim_{\varepsilon \to 0} \frac{L(\varphi_0 + \varepsilon\xi, t) - L(\varphi_0, t)}{\varepsilon}
-  = \dot{\varphi_0}(t)\dot{\xi}(t) - k\varphi_0(t)\xi(t)
-$$
+**目標**: 作用 $S$ の **停留点** として運動方程式を取り戻す
 
 ---
 
-## 作用の停留点 = 運動方程式
+## 停留点 = 運動方程式
 
-部分積分して
+停留点条件は $\delta S = 0$。 $S = \int L\, dt$ なので $\delta S = \int \delta L \, dt$、まず $\delta L$ を計算する：
+
+$$
+\delta L_{(\varphi_0, t)}(\xi)
+  \coloneqq \lim_{\varepsilon \to 0} \frac{L(\varphi_0 + \varepsilon\xi, t) - L(\varphi_0, t)}{\varepsilon}
+  = \dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi
+$$
+
+積分して部分積分：
 
 $$
 \delta S_{\varphi_0}(\xi)
-  = \int_{-\infty}^\infty (\dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi) \, dt
-  = \int_{-\infty}^\infty (-\ddot{\varphi_0} - k\varphi_0)\xi \, dt
+  = \int (\dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi) \, dt
+  = \int (-\ddot{\varphi_0} - k\varphi_0)\xi \, dt
 $$
 
-よって
-
-$$
-\delta S_{\varphi_0} = 0 \ \Longleftrightarrow \ \ddot{\varphi_0}(t) = -k\varphi_0(t)
-$$
-
-作用 $S$ の停留点として **運動方程式が復元** された ✅
+任意の $\xi$ で $\delta S = 0 \ \Longleftrightarrow \ \ddot{\varphi_0} = -k\varphi_0$ ← **運動方程式が復元** ✅
 
 ---
 
 ## $1 + 0$ 次元のクライン-ゴルドン場
 
-場全体を $\mathbb{C}$ 値に変更：$\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{C} \}$。
+場を $\mathbb{C}$ 値に拡張：$\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{C} \}$、ラグランジアンは
 
 $$
-L(\varphi, t) \coloneqq |\dot{\varphi}(t)|^2 - m^2|\varphi(t)|^2 = \dot{\varphi}\bar{\dot{\varphi}} - m^2 \varphi \bar{\varphi}
+L(\varphi, t) \coloneqq |\dot{\varphi}|^2 - m^2|\varphi|^2
 $$
 
-物理的には $m$ は粒子の質量。無限次元多様体 $\mathcal{F}$ の幾何で計算すると、
+物理的には $m$ は粒子の質量。同じ要領で変分を取ると
 
 $$
-\begin{aligned}
-\delta S
-  &= \int (\dot{\varphi}\delta(\bar{\dot{\varphi}}) + \bar{\dot{\varphi}}\delta(\dot{\varphi}) - m^2\varphi\delta\bar{\varphi} - m^2\bar{\varphi}\delta\varphi) \, dt \\
-  &= -\int [(\ddot{\varphi} + m^2\varphi)\delta\bar{\varphi} + \overline{(\ddot{\varphi} + m^2\varphi)}\delta\varphi] \, dt
-\end{aligned}
+\delta S = 0 \ \Longleftrightarrow \ \ddot{\varphi} + m^2\varphi = 0
 $$
 
-$$
-\delta S_{\varphi} = 0 \ \Longleftrightarrow \ \ddot{\varphi} + m^2\varphi = 0 \quad (\text{クライン-ゴルドン方程式})
-$$
+これが **クライン-ゴルドン方程式**。以降は $m = 1$ とする
 
 ---
 
 ## 解空間とシンプレクティック形式
 
-以降は $m = 1$ とする。解空間を
+解空間：
 
 $$
-\mathrm{Sol} \coloneqq \{ \varphi \mid \ddot{\varphi} + \varphi = 0 \} = \{ pe^{it} + qe^{-it} \mid p, q \in \mathbb{C} \}
+\mathrm{Sol} \coloneqq \{ pe^{it} + qe^{-it} \mid p, q \in \mathbb{C} \}
 $$
 
-とする。先程の計算で捨てた境界項を $d_t$ で外に出して書き直すと、
+部分積分で捨てた **境界項** を $\gamma$ にまとめ、外微分して $\omega$ を作る：
 
 $$
-\delta L \wedge dt = -(\ddot{\varphi} + \varphi)\delta\bar{\varphi} \wedge dt - \overline{(\ddot{\varphi} + \varphi)}\delta\varphi \wedge dt - d_t(\dot{\varphi}\delta\bar{\varphi} + \bar{\dot{\varphi}}\delta\varphi)
+\gamma \coloneqq -\dot{\varphi}\delta\bar{\varphi} - \bar{\dot{\varphi}}\delta\varphi, \quad
+\omega \coloneqq \delta\gamma
 $$
 
-第2項から $d_t$ を外して
+$\varphi = pe^{it} + qe^{-it}$ を代入して計算（略）すると、
 
 $$
-\gamma \coloneqq -\dot{\varphi}\delta\bar{\varphi} - \bar{\dot{\varphi}}\delta\varphi \in \Omega^{1,0}(\mathcal{F} \times \mathbb{R})
+\omega_\mathrm{Sol} \coloneqq -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q})
 $$
 
-$$
-\omega \coloneqq \delta\gamma = -\delta\dot{\varphi} \wedge \delta\bar{\varphi} - \delta\bar{\dot{\varphi}} \wedge \delta\varphi \in \Omega^{2,0}(\mathcal{F} \times \mathbb{R})
-$$
+← $\mathrm{Sol}$ 上の **シンプレクティック形式** 🎉
 
 ---
 
-## $\omega$ を $\mathrm{Sol}$ に制限する
+## 場の量子論 = ヒルベルト空間 + 場の演算子
 
-$\varphi = pe^{it} + qe^{-it}$ を代入：
+ゴール：**ヒルベルト空間** $\mathcal{H}$ と **場の演算子** $\Phi: \mathbb{R} \to \mathrm{End}(\mathcal{H})$ を構成する
 
-$$
-\begin{aligned}
-\omega|_{\mathrm{Sol} \times \mathbb{R}}
-  &= -i(e^{it}dp - e^{-it}dq) \wedge (e^{-it}d\bar{p} + e^{it}d\bar{q}) \\
-  &\quad + i(e^{-it}d\bar{p} - e^{it}d\bar{q}) \wedge (e^{it}dp + e^{-it}dq) \\
-  &= -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q})
-\end{aligned}
-$$
-
-点に依らないので、$\mathrm{Sol}$ 上のシンプレクティック形式
+まず $\mathrm{Sol}$ の **正エネルギー部分** を取る：
 
 $$
-\omega_\mathrm{Sol} \coloneqq -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q}): \mathrm{Sol} \times \mathrm{Sol} \to \mathbb{C}
+H_+ \coloneqq \{ pe^{it} \mid p \in \mathbb{C} \} \subset \mathrm{Sol}
 $$
 
-が得られた 🎉
+シンプレクティック形式 $\omega_\mathrm{Sol}$ から $H_+$ 上の内積が誘導される：
+
+$$
+(p_1 e^{it}, p_2 e^{it}) \coloneqq \tfrac{i}{2}\omega_\mathrm{Sol}(p_1 e^{it}, \overline{p_2 e^{it}}) = p_1\bar{p_2}
+$$
+
+特に $(e^{it}, e^{it}) = 1$（あとで効く）
 
 ---
 
-## 場の理論 → 場の量子論
+## フォック空間
 
-場の量子論 = ヒルベルト空間 $\mathcal{H}$ と場の演算子 $\Phi: \mathbb{R} \to \mathcal{E}\mathrm{nd}(\mathcal{H})$。
-
-正エネルギー部分 $H_+ \coloneqq \{ pe^{it} \mid p \in \mathbb{C} \} \subset \mathrm{Sol}$ を取ると、$\omega_\mathrm{Sol}$ から内積が誘導される：
-
-$$
-(p_1 e^{it}, p_2 e^{it}) \coloneqq \tfrac{i}{2}\omega_\mathrm{Sol}(p_1 e^{it}, \overline{p_2 e^{it}}) = p_1\bar{p_2}, \quad (e^{it}, e^{it}) = 1
-$$
-
-フォック空間を多項式環として実現：
+対称テンソル積でフォック空間を作ると、 **多項式環** として実現される：
 
 $$
 \mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n H_+ = \mathbb{C}[e^{it}] = \mathrm{span}_{\mathbb{C}}\{ e^{ikt} \mid k \in \mathbb{Z}_{\ge 0} \}
 $$
 
+内積は「全組ペアリング」：
+
 $$
-(e^{ikt}, e^{ilt}) \coloneqq \begin{cases} k! & (k = l) \\ 0 & (k \ne l) \end{cases}, \quad \mathcal{H} \coloneqq \widehat{\mathcal{D}}
+(e^{ikt}, e^{ilt}) \coloneqq \begin{cases} k! & (k = l) \\ 0 & (k \ne l) \end{cases}
 $$
+
+ヒルベルト空間 $\mathcal{H} \coloneqq \widehat{\mathcal{D}}$（完備化）
 
 ---
 
 ## 場の演算子
 
 $$
-\Phi(s) \coloneqq \varepsilon_{e^{i(s + t)}} + \iota_{(-, e^{i(s + t)})} = e^{is}\varepsilon_{e^{it}} + e^{-is}\iota_{(-, e^{it})}
+\Phi(s) \coloneqq e^{is}\varepsilon + e^{-is}\iota
 $$
 
-ただし生成演算子 $\varepsilon$ と消滅演算子 $\iota$ は
+**生成演算子** $\varepsilon$ と **消滅演算子** $\iota$ は
 
 $$
-\varepsilon_{e^{it}} e^{ikt} \coloneqq e^{i(k+1)t}, \qquad
-\iota_{(-, e^{it})} e^{ikt} \coloneqq k\, e^{i(k-1)t}
+\varepsilon\, e^{ikt} \coloneqq e^{i(k+1)t} \quad (\text{次数を上げる}), \qquad
+\iota\, e^{ikt} \coloneqq k\, e^{i(k-1)t} \quad (\text{次数を下げる})
 $$
 
-$\varepsilon$ と $\iota$ は $\mathcal{D}$ の内積に関して互いに共役作用素であり、$\Phi(s)$ は **自己共役** になる。
+$\varepsilon, \iota$ は内積に関して互いに共役 ⇒ $\Phi(s)$ は **自己共役**
 
 ---
 
 ## 実はこれは量子力学です
 
-$1 + 0$ 次元で空間が無いので、これは量子力学。ハミルトニアン $H \coloneqq \varepsilon\iota$ は
+$1 + 0$ 次元で空間が無いので、これは量子力学。**ハミルトニアン** $H \coloneqq \varepsilon\iota$ とすると
 
 $$
-H e^{ikt} = \varepsilon\iota\, e^{ikt} = k\, e^{ikt}
+H\, e^{ikt} = k\, e^{ikt}
 $$
 
-固有値として **エネルギー** を取り出す。さらに
+固有値として **エネルギー** を取り出す。さらに計算すると
 
 $$
-\begin{aligned}
-e^{isH}\Phi(0)e^{-isH}e^{ikt}
-  &= e^{-isk}e^{isH}(e^{i(k+1)t} + ke^{i(k-1)t}) \\
-  &= e^{is}e^{i(k+1)t} + ke^{-is}e^{i(k-1)t} = \Phi(s)e^{ikt}
-\end{aligned}
+\Phi(s) = e^{isH}\Phi(0)\, e^{-isH}
 $$
 
-つまり $\Phi(s) = e^{isH}\Phi(0)e^{-isH}$ は **時間発展**。
-$\Phi(0) = \varepsilon + \iota$ は **位置演算子** で、真空 $1 \in \mathbb{C}[e^{it}]$ に繰り返し作用させると $\mathcal{D}$ 全体が生成される。
+← $\Phi(0)$ の **時間発展**
+
+しかも $\Phi(0) = \varepsilon + \iota$ を真空 $1$ に繰り返し作用させると $\mathcal{D}$ 全体が生成される — つまり $\Phi(0)$ は **位置演算子** だった！
 
 ---
 
@@ -249,6 +222,6 @@ $\Phi(0) = \varepsilon + \iota$ は **位置演算子** で、真空 $1 \in \mat
 - 正エネルギー部分 $H_+$ から フォック空間 $\mathbb{C}[e^{it}]$ と場の演算子 $\Phi(s)$ が決まる
 - $1+0$ 次元では量子力学に一致し、$\Phi(0)$ は位置演算子
 
-**参考文献**
+参考文献
 P. Deligne, P. Etingof, D. S. Freed, L. C. Jeffrey, D. Kazhdan, J. W. Morgan, D. R. Morrison, and E. Witten (eds.),
 _Quantum Fields and Strings: A Course for Mathematicians, Vol. 1_, AMS, 1999.
