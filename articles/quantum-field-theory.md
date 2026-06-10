@@ -3,7 +3,7 @@ title: "場の量子論入門"
 emoji: "⚛️"
 type: "tech"
 topics: ["場の量子論"]
-published: false
+published: true
 ---
 
 # まず、この記事の流れ
