@@ -18,6 +18,7 @@ style: |
   h1 {
     color: #4338ca;
     font-weight: 700;
+    font-size: 1.5em;
     border-bottom: 2px solid #e5e7eb;
     padding-bottom: 8px;
   }
@@ -60,6 +61,13 @@ style: |
     border-top: 1px solid #e5e7eb;
     padding-top: 8px;
   }
+  img.whale {
+    position: absolute;
+    top: 140px;
+    right: 64px;
+    width: 300px;
+    height: auto;
+  }
 ---
 
 # 最近 QFT (場の量子論) に少し入門したので話してみたい
@@ -69,6 +77,8 @@ style: |
 ---
 
 ## 自己紹介
+
+<img class="whale" src="assets/docker-whale.jpg" alt="Docker whale">
 
 - **@dokadokaas**
 - 興味は 数理物理 / 表現論 / 作用素環 / 確率論、最近は場の量子論を勉強中
@@ -80,19 +90,21 @@ style: |
 
 ![w:1000](assets/qft-flow.svg)
 
+<br>
+
 もっとたくさんの矢印があるとは思うけど、今回の流れはこんな感じ
 
 ---
 
 ## ばねの運動 → 場の理論
 
-ばねの運動は**ニュートンの運動方程式** $\ddot{\varphi}(t) = -k\varphi(t)$ で表される。これを「場」の言葉で書き直したい。
+ばねの運動は**ニュートンの運動方程式** $\bbox[5px, #dbeafe]{\ddot{\varphi}(t) = -k\varphi(t)}$ で表される。これを「場」の言葉で書き直したい。
 
 - **場全体**: $\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{R} \}$
 - **ラグランジアン** $L: \mathcal{F} \times \mathbb{R} \to \mathbb{R}$、**作用** $S: \mathcal{F} \to \mathbb{R}$ を
 
 $$
-L(\varphi, t) \coloneqq \tfrac{1}{2}\dot{\varphi}(t)^2 - \tfrac{k}{2}\varphi(t)^2, \qquad S(\varphi) \coloneqq \int_{-\infty}^\infty L(\varphi, t) \, dt
+\bbox[5px, #dbeafe]{L(\varphi, t) \coloneqq \tfrac{1}{2}\dot{\varphi}(t)^2 - \tfrac{k}{2}\varphi(t)^2, \qquad S(\varphi) \coloneqq \int_{-\infty}^\infty L(\varphi, t) \, dt}
 $$
 
 で定義する
@@ -106,20 +118,20 @@ $$
 停留点条件は $\delta S = 0$。 $S = \int L\, dt$ なので $\delta S = \int \delta L \, dt$、まず $\delta L$ を計算する：
 
 $$
-\delta L_{(\varphi_0, t)}(\xi)
-  \coloneqq \lim_{\varepsilon \to 0} \frac{L(\varphi_0 + \varepsilon\xi, t) - L(\varphi_0, t)}{\varepsilon}
-  = \dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi
+\bbox[5px, #dbeafe]{\delta L_{(\varphi_0, t)}(\xi)
+\coloneqq \lim_{\varepsilon \to 0} \frac{L(\varphi_0 + \varepsilon\xi, t) - L(\varphi_0, t)}{\varepsilon}}
+= \dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi
 $$
 
 積分して **部分積分**：
 
 $$
 \delta S_{\varphi_0}(\xi)
-  = \int (\dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi) \, dt
-  = \int (-\ddot{\varphi_0} - k\varphi_0)\xi \, dt
+= \int (\dot{\varphi_0}\dot{\xi} - k\varphi_0 \xi) \, dt
+= \int (-\ddot{\varphi_0} - k\varphi_0)\xi \, dt
 $$
 
-任意の $\xi$ で $\delta S = 0 \ \Longleftrightarrow \ \ddot{\varphi_0} = -k\varphi_0$ ← **運動方程式が復元** ✅
+任意の $\xi$ で $\delta S = 0 \ \Longleftrightarrow \ \bbox[5px, #dbeafe]{\ddot{\varphi_0} = -k\varphi_0}$ ← **運動方程式が復元** ✅
 
 ---
 
@@ -128,13 +140,13 @@ $$
 場を $\mathbb{C}$ 値に拡張：$\mathcal{F} \coloneqq \{ \varphi: \mathbb{R} \to \mathbb{C} \}$、ラグランジアンは
 
 $$
-L(\varphi, t) \coloneqq |\dot{\varphi}|^2 - m^2|\varphi|^2
+\bbox[5px, #dbeafe]{L(\varphi, t) \coloneqq |\dot{\varphi}|^2 - m^2|\varphi|^2}
 $$
 
 物理的には $m$ は粒子の質量。同じ要領で変分を取ると
 
 $$
-\delta S = 0 \ \Longleftrightarrow \ \ddot{\varphi} + m^2\varphi = 0
+\delta S = 0 \ \Longleftrightarrow \ \bbox[5px, #dbeafe]{\ddot{\varphi} + m^2\varphi = 0}
 $$
 
 これが **クライン-ゴルドン方程式**。以降は $m = 1$ とする
@@ -146,7 +158,7 @@ $$
 **解空間**：
 
 $$
-\mathrm{Sol} \coloneqq \{ pe^{it} + qe^{-it} \mid p, q \in \mathbb{C} \}
+\bbox[5px, #dbeafe]{\mathrm{Sol} \coloneqq \{ \varphi \mid \ddot{\varphi} + \varphi = 0 \} = \{ pe^{it} + qe^{-it} \mid p, q \in \mathbb{C} \}}
 $$
 
 部分積分で捨てた **境界項** を $\gamma$ にまとめ、外微分して $\omega$ を作る：
@@ -159,7 +171,7 @@ $$
 $\varphi = pe^{it} + qe^{-it}$ を代入して計算（略）すると、
 
 $$
-\omega_\mathrm{Sol} \coloneqq -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q})
+\bbox[5px, #dbeafe]{\omega_\mathrm{Sol} \coloneqq -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q})}
 $$
 
 ← $\mathrm{Sol}$ 上の **シンプレクティック形式** 🎉
@@ -173,7 +185,7 @@ $$
 まず $\mathrm{Sol}$ の **正エネルギー部分** を取る：
 
 $$
-H_+ \coloneqq \{ pe^{it} \mid p \in \mathbb{C} \} \subset \mathrm{Sol}
+\bbox[5px, #dbeafe]{H_+ \coloneqq \{ pe^{it} \mid p \in \mathbb{C} \} \subset \mathrm{Sol}}
 $$
 
 シンプレクティック形式 $\omega_\mathrm{Sol}$ から $H_+$ 上の **内積** が誘導される：
@@ -182,7 +194,7 @@ $$
 (p_1 e^{it}, p_2 e^{it}) \coloneqq \tfrac{i}{2}\omega_\mathrm{Sol}(p_1 e^{it}, \overline{p_2 e^{it}}) = p_1\bar{p_2}
 $$
 
-特に $(e^{it}, e^{it}) = 1$
+特に $\bbox[5px, #dbeafe]{(e^{it}, e^{it}) = 1}$
 
 ---
 
@@ -191,13 +203,15 @@ $$
 対称テンソル積で **フォック空間** を作ると、 **多項式環** として実現される：
 
 $$
-\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n H_+ = \mathbb{C}[e^{it}] = \mathrm{span}_{\mathbb{C}}\{ e^{ikt} \mid k \in \mathbb{Z}_{\ge 0} \}
+\bbox[5px, #dbeafe]{\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n H_+ = \mathbb{C}[e^{it}] = \mathrm{span}_{\mathbb{C}}\{ e^{ikt} \mid k \in \mathbb{Z}_{\ge 0} \}}
 $$
 
 内積は「全組ペアリング」：
 
 $$
-(e^{ikt}, e^{ilt}) \coloneqq \begin{cases} k! & (k = l) \\ 0 & (k \ne l) \end{cases}
+(e^{ikt}, e^{ilt}) \coloneqq \begin{cases} k! & (k = l) \\
+  0 & (k \ne l)
+\end{cases}
 $$
 
 ヒルベルト空間 $\mathcal{H} \coloneqq \widehat{\mathcal{D}}$（完備化）
@@ -209,14 +223,14 @@ $$
 残るは **場の演算子** $\Phi: \mathbb{R} \to \mathrm{End}(\mathcal{D})$。次のように定義する：
 
 $$
-\Phi(s) \coloneqq e^{is}\varepsilon + e^{-is}\iota
+\bbox[5px, #dbeafe]{\Phi(s) \coloneqq e^{is}\varepsilon + e^{-is}\iota}
 $$
 
 **生成演算子** $\varepsilon$ と **消滅演算子** $\iota$ は
 
 $$
-\varepsilon\, e^{ikt} \coloneqq e^{i(k+1)t} \quad ({\color{#16a34a}\textbf{次数}\pmb{\uparrow}}), \qquad
-\iota\, e^{ikt} \coloneqq k\, e^{i(k-1)t} \quad ({\color{#dc2626}\textbf{次数}\pmb{\downarrow}})
+\bbox[5px, #dbeafe]{\varepsilon\, e^{ikt} \coloneqq e^{i(k+1)t} \quad ({\color{#16a34a}\textbf{次数}\pmb{\uparrow}}), \qquad
+\iota\, e^{ikt} \coloneqq k\, e^{i(k-1)t} \quad ({\color{#dc2626}\textbf{次数}\pmb{\downarrow}})}
 $$
 
 $\varepsilon, \iota$ は内積に関して互いに共役 ⇒ $\Phi(s)$ は **自己共役**
@@ -228,13 +242,13 @@ $\varepsilon, \iota$ は内積に関して互いに共役 ⇒ $\Phi(s)$ は **�
 $1 + 0$ 次元で空間が無いので、これは量子力学。**ハミルトニアン** $H \coloneqq \varepsilon\iota$ とすると
 
 $$
-H\, e^{ikt} = k\, e^{ikt}
+\bbox[5px, #dbeafe]{H\, e^{ikt} = k\, e^{ikt}}
 $$
 
 固有値として **エネルギー** を取り出す。さらに計算すると
 
 $$
-\Phi(s) = e^{isH}\Phi(0)\, e^{-isH}
+\bbox[5px, #dbeafe]{\Phi(s) = e^{isH}\Phi(0)\, e^{-isH}}
 $$
 
 ← $\Phi(0)$ の **時間発展**
@@ -246,13 +260,13 @@ $$
 ## まとめ
 
 $$
-\boxed{\text{作用 }S}
-  \xrightarrow{\,\delta S = 0\,}
-\boxed{\text{運動方程式}}
-  \xrightarrow{\,\gamma,\ \omega\,}
-\boxed{(\mathrm{Sol},\ \omega_\mathrm{Sol})}
-  \xrightarrow{\,H_+,\ \mathbb{C}[e^{it}]\,}
-\boxed{\mathcal{H},\ \Phi(s)}
+\bbox[5px, #dbeafe]{\text{作用 }S}
+\xrightarrow{\,\delta S = 0\,}
+\bbox[5px, #dbeafe]{\text{運動方程式}}
+\xrightarrow{\,\gamma,\ \omega\,}
+\bbox[5px, #dbeafe]{(\mathrm{Sol},\ \omega_\mathrm{Sol})}
+\xrightarrow{\,H_+,\ \mathbb{C}[e^{it}]\,}
+\bbox[5px, #dbeafe]{\mathcal{H},\ \Phi(s)}
 $$
 
 <br>
