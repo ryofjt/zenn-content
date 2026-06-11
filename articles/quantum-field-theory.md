@@ -73,7 +73,7 @@ $\delta S_{\varphi_0} = 0 \Leftrightarrow \ddot{\varphi_0}(t) = -k\varphi_0(t)$ 
 場全体を $\mathbb{C}$ 値に変更して $\mathcal{F} \coloneqq \{ \varphi(t): \mathbb{R} \to \mathbb{C} \}$ とする。ラグランジアン $L: \mathcal{F} \times \mathbb{R} \to \mathbb{R}$ を
 
 $$
-L(\varphi, t) \coloneqq |\dot{\varphi}(t)|^2 - m^2|\varphi(t)|^2 = \dot{\varphi}(t)\bar{\dot{\varphi}}(t) - m^2\varphi(t)\bar{\varphi}(t)
+L(\varphi, t) \coloneqq \frac{1}{2}|\dot{\varphi}(t)|^2 - \frac{m^2}{2}|\varphi(t)|^2 = \frac{1}{2}(\dot{\varphi}(t)\bar{\dot{\varphi}}(t) - m^2\varphi(t)\bar{\varphi}(t))
 $$
 
 で定義する。物理的には $m$ は粒子の質量に対応する。運動方程式の計算を、今回は無限次元多様体を全面に出して行なってみる。$\varphi \in \mathcal{F}$ に対して、$\varphi$ からの変化の方向 $T_\varphi\mathcal{F}$ は $T_\varphi\mathcal{F} \coloneqq \{ \xi: \mathbb{R} \to \mathbb{C} \}$ と思える。一般に、関数 $F: \mathcal{F} \to \mathbb{C}$ に対して、$\delta F \in \Omega^1(\mathcal{F})$ を
@@ -87,9 +87,9 @@ $$
 $$
 \begin{aligned}
   \delta S &= \int \delta L \, dt \\
-  &= \int (\dot{\varphi}\delta(\bar{\dot{\varphi}}) + \bar{\dot{\varphi}}\delta(\dot{\varphi}) - m^2\varphi\delta\bar{\varphi} - m^2\bar{\varphi}\delta\varphi) \, dt \\
-  &= \int (\dot{\varphi}\frac{d}{dt}(\delta\bar{\varphi}) + \bar{\dot{\varphi}}\frac{d}{dt}(\delta\varphi) - m^2\varphi\delta\bar{\varphi} - m^2\bar{\varphi}\delta\varphi) \, dt \\
-  &= -\int [(\ddot{\varphi} + m^2\varphi)\delta\bar{\varphi} + \overline{(\ddot{\varphi} + m^2\varphi)}\delta\varphi] \, dt
+  &= \frac{1}{2} \int (\dot{\varphi}\delta(\bar{\dot{\varphi}}) + \bar{\dot{\varphi}}\delta(\dot{\varphi}) - m^2\varphi\delta\bar{\varphi} - m^2\bar{\varphi}\delta\varphi) \, dt \\
+  &= \frac{1}{2} \int (\dot{\varphi}\frac{d}{dt}(\delta\bar{\varphi}) + \bar{\dot{\varphi}}\frac{d}{dt}(\delta\varphi) - m^2\varphi\delta\bar{\varphi} - m^2\bar{\varphi}\delta\varphi) \, dt \\
+  &= -\frac{1}{2} \int [(\ddot{\varphi} + m^2\varphi)\delta\bar{\varphi} + \overline{(\ddot{\varphi} + m^2\varphi)}\delta\varphi] \, dt
 \end{aligned}
 $$
 
@@ -117,33 +117,33 @@ $$
 
 $$
 \begin{aligned}
-  \delta L \wedge dt &= [\dot{\varphi}\frac{d}{dt}(\delta\bar{\varphi}) + \bar{\dot{\varphi}}\frac{d}{dt}(\delta\varphi) - \varphi\delta\bar{\varphi} - \bar{\varphi}\delta\varphi] \wedge dt \\
-  &= -(\ddot{\varphi} + \varphi)\delta\bar{\varphi} \wedge dt - \overline{(\ddot{\varphi} + \varphi)}\delta\varphi \wedge dt - d_t(\dot{\varphi}\delta\bar{\varphi} + \bar{\dot{\varphi}}\delta\varphi)
+  \delta L \wedge dt &= \frac{1}{2} [\dot{\varphi}\frac{d}{dt}(\delta\bar{\varphi}) + \bar{\dot{\varphi}}\frac{d}{dt}(\delta\varphi) - \varphi\delta\bar{\varphi} - \bar{\varphi}\delta\varphi] \wedge dt \\
+  &= -\frac{1}{2} (\ddot{\varphi} + \varphi)\delta\bar{\varphi} \wedge dt - \frac{1}{2} \overline{(\ddot{\varphi} + \varphi)}\delta\varphi \wedge dt - \frac{1}{2} d_t(\dot{\varphi}\delta\bar{\varphi} + \bar{\dot{\varphi}}\delta\varphi)
 \end{aligned}
 $$
 
 最右辺の第 2 項から $d_t$ を外したものを
 
 $$
-\gamma \coloneqq -\dot{\varphi}\delta\bar{\varphi} - \bar{\dot{\varphi}}\delta\varphi \in \Omega^{1, 0}(\mathcal{F} \times \mathbb{R})
+\gamma \coloneqq -\frac{1}{2} (\dot{\varphi}\delta\bar{\varphi} + \bar{\dot{\varphi}}\delta\varphi) \in \Omega^{1, 0}(\mathcal{F} \times \mathbb{R})
 $$
 
 とおく。$\gamma$ をさらに $\mathrm{Sol}$ 方向に微分すると
 
 $$
-\omega \coloneqq \delta\gamma = -\delta{\dot{\varphi}} \wedge \delta\bar{\varphi} - \delta{\bar{\dot{\varphi}}} \wedge \delta\varphi \in \Omega^{2, 0}(\mathcal{F} \times \mathbb{R})
+\omega \coloneqq \delta\gamma = -\frac{1}{2} (\delta{\dot{\varphi}} \wedge \delta\bar{\varphi} + \delta{\bar{\dot{\varphi}}} \wedge \delta\varphi) \in \Omega^{2, 0}(\mathcal{F} \times \mathbb{R})
 $$
 
 $\omega$ は幾何的には曲率を計算していると解釈できるが、ここでは立ち入らない。$\omega$ を $\mathrm{Sol} \times \mathbb{R}$ 上に制限する。$\varphi = pe^{it} + qe^{-it}$ を代入して
 
 $$
 \begin{aligned}
-  \omega|_{\mathrm{Sol} \times \mathbb{R}} &= -i(e^{it}dp - e^{-it}dq) \wedge (e^{-it}d\bar{p} + e^{it}d\bar{q}) + i(e^{-it}d\bar{p} - e^{it}d\bar{q}) \wedge (e^{it}dp + e^{-it}dq) \\
-  &= -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q})
+  \omega|_{\mathrm{Sol} \times \mathbb{R}} &= -\frac{i}{2}(e^{it}dp - e^{-it}dq) \wedge (e^{-it}d\bar{p} + e^{it}d\bar{q}) + \frac{i}{2}(e^{-it}d\bar{p} - e^{it}d\bar{q}) \wedge (e^{it}dp + e^{-it}dq) \\
+  &= -i(dp \wedge d\bar{p} - dq \wedge d\bar{q})
 \end{aligned}
 $$
 
-これは点に依らないので、$\omega_\mathrm{Sol} \coloneqq -2i(dp \wedge d\bar{p} - dq \wedge d\bar{q}): \mathrm{Sol} \times \mathrm{Sol} \to \mathbb{C}$ ができた
+これは点に依らないので、$\omega_\mathrm{Sol} \coloneqq -i(dp \wedge d\bar{p} - dq \wedge d\bar{q}): \mathrm{Sol} \times \mathrm{Sol} \to \mathbb{R}$ ができた
 
 # 場の理論から場の量子論へ
 
@@ -152,7 +152,11 @@ $$
 解空間のうち、正エネルギー部分を取り $H_+ \coloneqq \{ pe^{it} \mid p \in \mathbb{C} \} \subset \mathrm{Sol}$ とする。$\omega_\mathrm{Sol}$ から $H_+$ 上の内積が誘導される
 
 $$
-(p_1 e^{it}, p_2 e^{it}) \coloneqq \frac{i}{2}\omega_\mathrm{Sol}(p_1 e^{it}, \overline{p_2 e^{it}}) = p_1\bar{p_2}
+\begin{aligned}
+  (p_1 e^{it}, p_2 e^{it}) &\coloneqq \frac{1}{2}\omega_\mathrm{Sol}(ip_1 e^{it}, p_2 e^{it}) + \frac{i}{2}\omega_\mathrm{Sol}(p_1 e^{it}, p_2 e^{it}) \\
+  &= \mathrm{Re}(p_1\bar{p_2}) + i\mathrm{Im}(p_1\bar{p_2}) \\
+  &= p_1\bar{p_2}
+\end{aligned}
 $$
 
 特に $(e^{it}, e^{it}) = 1$ は後の計算でも使う
