@@ -733,7 +733,90 @@ $$
 
 ${}$(3) $\mathcal{D}$ は $\varphi(f_1) \cdots \varphi(f_n)\Omega$ で生成される
 
-$\{ k_f \mid f \in \mathcal{S}(\mathcal{R}) \} = D_+$ から従う
+$\{ k_f \mid f \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = \{ s(p)f \mid f \in \mathcal{S}(\mathcal{O}_0^+, S^+ \otimes \mathbb{C}) \} = D_+$ を示す。$f \in \mathcal{S}(\mathcal{O}_0^+, S^+ \otimes \mathbb{C}) = \mathcal{S}(V, S^+ \otimes \mathbb{C}) / \{ f|_{\mathcal{O}_0^+} \equiv 0 \}$ は $s(p)f(p) = 0 \ (p \in \mathcal{O}_0^+)$ かつ $f(0) = 0$ とする。1 の分割使えば
+
+(a) $f \in C^\infty_c(V, S^+ \otimes \mathbb{C})$ の場合
+(b) $f$ が $p = 0$ の近傍で消える場合
+
+の 2 つを考えれば良い。まず、(b) の場合を考える。再び 1 の分割を使って代表元を取り替えれば、$f$ は $\{ |p_0| < \varepsilon \}$ で消えるとして良い
+
+$$
+g(p) \coloneqq \frac{1}{2p_0}s(e_0)f(p) \in \mathcal{S}(V, S^+ \otimes \mathbb{C})
+$$
+
+とすれば、$s(p)g(p) = \frac{1}{2p_0}s(p)s(e_0)f(p) = \frac{1}{2p_0}(2p_0 - s(e_0)s(p))f(p) = f(p)$。あとは、(a) の場合を考えれば良い。Cutoff を考えれば、$g \in C^\infty(V, S^+ \otimes \mathbb{C})$ で
+
+$$
+f(p) = s(p)g(p) \quad (p \in \mathcal{O}_0^+)
+$$
+
+を満たすものを見つければ良い
+
+$$
+T\mathcal{O}_0^+ = \{ (p, v) \in TV|_{\mathcal{O}_0^+} \mid \langle d(p^2), v \rangle = 0 \} = \{ (p, v) \in \mathcal{O}_0^+ \times V \mid pv = 0 \}
+$$
+
+$$
+\{ \omega \in \Gamma(\mathcal{O}_0^+, T^*V) \mid \langle \omega, T\mathcal{O}_0^+ \rangle = 0 \} = \{ hd(p^2) \mid h \in C^\infty(\mathcal{O}_0^+) \}
+$$
+
+$F(p) \coloneqq s(p)f(p) \ (p \in V)$ とすると、$F$ は $\mathcal{O}_0^+$ 上消える。$dF$ は $T\mathcal{O}_0^+$ 上消えるから、$h \in C^\infty(\mathcal{O}_0^+, S^+ \otimes \mathbb{C})$ が存在して、$dF = hd(p^2)$
+
+$$
+s(v)f(p) + s(p)\partial_v f(p) = 2h(p)pv \quad ((p, v) \in \mathcal{O}_0^+ \times V)
+$$
+
+$s(p)$ をかけると
+
+$$
+2f(p)pv = 2s(p)h(p)pv \quad ((p, v) \in \mathcal{O}_0^+ \times V)
+$$
+
+よって、$f(p) = s(p)h(p) \ (p \in \mathcal{O}_0^+)$ がわかる
+
+$$
+\begin{aligned}
+  2f(p) &= 2s(p)h(p) \\
+  &= 2 \sum_j s(e^j)h(p)pe_j \\
+  &= \sum_j s(e^j)s(e_j)f(p) + \sum_j s(e^j)s(p)\partial_j f(p) \\
+  &= d \cdot f(p) + \sum_j s(e^j)s(p)\partial_j f(p)
+\end{aligned}
+$$
+
+よって、$\sum_j s(e^j)s(p)\partial_j f(p) = (2 - d)f(p) \ (p \in \mathcal{O}_0^+)$。$p \in \mathcal{O}_0^+$ に対して
+
+$$
+\begin{aligned}
+  f(p) &= \int_0^1 \frac{d}{dt}f(tp) \, dt \\
+  &= \sum_j p_j \int_0^1 \partial_j f(tp) \, dt \\
+  &= \frac{1}{2} \sum_j [s(p), s(e^j)] \int_0^1 \partial_j f(tp) \, dt \\
+  &= \frac{1}{2} s(p) \sum_j s(e^j) \int_0^1 \partial_j f(tp) \, dt + \frac{1}{2} \sum_j s(e^j)s(p) \int_0^1 \partial_j f(tp) \, dt \\
+  &= s(p)g_0(p) + \frac{2 - d}{2} \int_0^1 \frac{1}{t}f(tp) \, dt
+\end{aligned}
+$$
+
+ただし、$g_0(p) \coloneqq \frac{1}{2} \sum_j s(e^j) \int_0^1 \partial_j f(tp) \, dt \in C^\infty(V, S^+ \otimes \mathbb{C})$。$p \in \mathcal{O}_0^+$ に対して
+
+$$
+\begin{aligned}
+  f(up) &= us(p)g_0(up) + \frac{2 - d}{2} \int_0^1 \frac{1}{t}f(tup) \, dt \\
+  &= us(p)g_0(up) + \frac{2 - d}{2} \int_0^u \frac{1}{t}f(tp) \, dt
+\end{aligned}
+$$
+
+$X(u) \coloneqq \int_0^u \frac{1}{t}f(tp) \, dt$ とすれば、$uX'(u) = us(p)g_0(up) + \frac{2 - d}{2}X(u)$。$Y(u) \coloneqq u^{\frac{d - 2}{2}}X(u)$ とすれば
+
+$$
+Y'(u) = \left(uX'(u) + \frac{d - 2}{2}X(u)\right)u^{\frac{d - 4}{2}} = u^{\frac{d - 2}{2}}s(p)g_0(up)
+$$
+
+$Y(t) = s(p) \int_0^t u^{\frac{d - 2}{2}}g_0(up) \, du$, $X(t) = s(p) t^{\frac{2 - d}{2}} \int_0^t u^{\frac{d - 2}{2}}g_0(up) \, du$ であり
+
+$$
+f(p) = X'(1) = \frac{2 - d}{2} s(p) \int_0^1 u^{\frac{d - 2}{2}}g_0(up) \, du + s(p)g_0(p)
+$$
+
+よって、$g(p) \coloneqq \frac{2 - d}{2} \int_0^1 u^{\frac{d - 2}{2}}g_0(up) \, du + g_0(p) \in C^\infty(V, S^+ \otimes \mathbb{C})$ とすれば良い
 
 (1) $U|_V$ の同時スペクトル $\sigma(U) \subset V^*$ は
 
@@ -799,18 +882,35 @@ $$
 $$
 \begin{aligned}
   [\varphi(f), \varphi(g)] &= [\iota_{(\cdot, k_f)}, \varepsilon_{k_g}] + [\varepsilon_{k_f}, \iota_{(\cdot, k_g)}] \\
-  &= (k_g, k_f) - (k_f, k_g) \\
-  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
-  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ipS(x - y)(x - y)} - e^{ipS(x - y)(x - y)}] \, d\mu(p)dxdy \\
-  &= \frac{1}{8\pi} \int_{p', x, y} \frac{1}{E(p')}f(x)g(y)[e^{ip'S(x - y)(x - y)} - e^{-ip'S(x - y)(x - y)}] \, dp'dxdy \\
-  &= 0
+  &= (k_g, k_f) + (k_f, k_g) \\
+  &= \frac{i}{8\pi} \int_{p \in \mathcal{O}_0^+, x, y} (s(p)f(x), s(p)g(y))_{\mathcal{A}}[e^{-ip(x - y)} + e^{ip(x - y)}] \, d\mu(p)dxdy
 \end{aligned}
 $$
 
-ただし、可測な $S: V_\mathrm{space} \to SO_0(V)$ は
+$p \in \mathcal{O}_0^+$ ならば
 
 $$
-S(z)z = (0, \pm\sqrt{-z^2}, 0, \dots, 0)
+\begin{aligned}
+  (s(p)f(x), s(p)g(y))_{\mathcal{A}} &= \frac{1}{p_0}(s(p)f(x), s(e_0)s(p)g(y)) \\
+  &= \frac{1}{p_0}(s(p)f(x), (2p_0 - s(p)s(e_0))g(y)) \\
+  &= 2(s(p)f(x), g(y))
+\end{aligned}
 $$
 
-なるようにとる
+$$
+\begin{aligned}
+  &\int_{p \in \mathcal{O}_0^+, x, y} (s(p)f(x), g(y))[e^{-ip(x - y)} + e^{ip(x - y)}] \, d\mu(p)dxdy \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} \sum_j p_j(s(e_j)f(x), g(y))[e^{-ip(x - y)} + e^{ip(x - y)}] \, d\mu(p)dxdy \\
+  &\quad = -\int_{p \in \mathcal{O}_0^+, x, y} \sum_j (s(e^j)f(x), g(y))\partial_{x_j}[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} (Df(x), g(y))[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} F(z)[e^{-ipz} - e^{ipz}] \, d\mu(p)dz \quad (F \coloneqq (x - y)_*(Df(x), g(y))) \\
+  &\quad = 0
+\end{aligned}
+$$
+
+$D$ は Dirac 作用素であり、最後は、$\mathrm{supp}(\Delta_+(x, 0) - \Delta_+(-x, 0)) = \mathrm{supp}(E_+(x, 0) - E_+(-x, 0)) \subset V_\mathrm{space}$ を使った
+
+
+# Bochner-Minlos の定理
+
+# Brown 運動の構成
