@@ -505,7 +505,7 @@ $$
 で定義する。$D^2 = \square$ を示す
 
 $$
-D^2 \psi = D(\sum_i s(e_i) \frac{\partial \psi}{\partial x_i}) = \sum_{i, j} s(e_i)s(e_j) \frac{\partial^2 \psi}{\partial x_i \partial x_j} = \square \psi
+D^2 \psi = D(\sum_i s(e^i) \frac{\partial \psi}{\partial x_i}) = \sum_{i, j} s(e^i)s(e^j) \frac{\partial^2 \psi}{\partial x_i \partial x_j} = \square \psi
 $$
 
 $\psi \in \mathrm{Map}(V, \mathbb{R}^{0|1} \otimes S^+)$ 上の Lagrangian

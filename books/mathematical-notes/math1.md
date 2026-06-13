@@ -436,6 +436,47 @@ $$
 
 # 振動積分
 
+$a(x, y): \mathbb{R}^n \times \mathbb{R}^m \to \mathbb{C}$ が $a(x, y) \in \mathcal{A}^{s, t}$ とは
+
+$$
+|\partial^\alpha a(x, y)| \le C_\alpha (1 + |x|)^s(1 + |y|)^t \quad (\alpha \in \mathbb{Z}_{\ge 0}^2)
+$$
+
+振動積分を
+
+$$
+\int_\mathrm{Os} e^{ixy} a(x, y) \, dxdy \coloneqq \lim_{\varepsilon \to +0} \int \varphi_\varepsilon(x, y) e^{ixy} a(x, y) \, dxdy
+$$
+
+で定義する。ただし、$\varphi \in \mathcal{S}(\mathbb{R}^{n + m})$ は $\varphi(0) = 1$ を満たすとし、$\varphi_\varepsilon(z) \coloneqq \varphi(\varepsilon z)$ とおく。振動積分は $\varphi$ の取り方に依らない
+
+$L \coloneqq \frac{1}{1 + |x|^2 + |y|^2}(1 - \sum_i \partial_{x_i}^2 - \sum_j \partial_{y_j}^2)$ とすれば
+
+$$
+\begin{aligned}
+  \int \varphi_\varepsilon(x, y) e^{ixy} a(x, y) \, dxdy &= \int L^N(e^{ixy}) \varphi_\varepsilon(x, y) a(x, y) \, dxdy \\
+  &= \int e^{ixy} (L^*)^N(\varphi_\varepsilon(x, y) a(x, y)) \, dxdy \\
+  &\xrightarrow{\varepsilon \to +0} \int e^{ixy} (L^*)^N(a(x, y)) \, dxdy
+\end{aligned}
+$$
+
+$L^* = (1 - \sum_i \partial_{x_i}^2 - \sum_j \partial_{y_j}^2)\frac{1}{1 + |x|^2 + |y|^2}$ に注意
+
+# Fourier 変換と振動積分
+
+$u \in \mathcal{S}(\mathbb{R}^n)$ とすると
+
+$$
+\begin{aligned}
+  \int e^{iy\xi} \, d\xi \int e^{-ix\xi} u(x) \, dx &= \int_{\mathcal{Os}} e^{-ix\xi} \underbrace{u(x) e^{iy\xi}}_{\mathcal{A}^{-\infty, 0}} \, dx d\xi \\
+  &= \lim_{\varepsilon \to +0} \int \varphi_\varepsilon(\xi) e^{-ix\xi} u(x) e^{iy\xi} \, dx d\xi \\
+  &= \lim_{\varepsilon \to +0} \varepsilon^{-n} \int u(x) \, dx \int \varphi(\xi) e^{\frac{i}{\varepsilon}(y - x)\xi} \, d\xi \\
+  &= \lim_{\varepsilon \to +0} \int u(y - \varepsilon z) \, dz \int \varphi(\xi) e^{iz\xi} \, d\xi \\
+  &= u(y) \int \varphi(\xi) e^{iz\xi} \, d\xi dz \\
+\end{aligned}
+$$
+
+ただし、$\varphi \in \mathcal{S}(\mathbb{R}^n)$ は $\varphi(0) = 1$ を満たすとする。$C \coloneqq \int \varphi(\xi) e^{iz\xi} \, d\xi dz = \int_\mathrm{Os} e^{iz\xi} \, d\xi dz$ は $\varphi$ に依らない。$\varphi(\xi) = e^{-|\xi|^2}$ などで計算すれば、$C = (2\pi)^n$ がわかる
 
 # Wightman の公理を満たすモデル
 
@@ -504,7 +545,7 @@ $$
 
 ${}$(3) $\mathcal{D}$ は $\varphi(f_1) \cdots \varphi(f_n)\Omega$ で生成される
 
-$\{ k_f \mid f \in \mathcal{S}(\mathcal{R}) \} = D_+$ から従う
+$\{ k_f \mid f \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = D_+$ から従う
 
 (1) $U|_V$ の同時スペクトル $\sigma(U) \subset V^*$ は
 
@@ -572,19 +613,19 @@ $$
   [\varphi(f), \varphi(g)] &= [\iota_{(\cdot, k_f)}, \varepsilon_{k_g}] + [\varepsilon_{k_f}, \iota_{(\cdot, k_g)}] \\
   &= (k_g, k_f) - (k_f, k_g) \\
   &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
-  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, x, y} f(x)g(y)[e^{-ipS(x - y)(x - y)} - e^{ipS(x - y)(x - y)}] \, d\mu(p)dxdy \\
-  &= \frac{1}{8\pi} \int_{p', x, y} \frac{1}{E(p')}f(x)g(y)[e^{ip'S(x - y)(x - y)} - e^{-ip'S(x - y)(x - y)}] \, dp'dxdy \\
-  &= 0
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_m^+, z} F(z)[e^{-ipz} - e^{ipz}] \, d\mu(p)dz \quad (F \coloneqq (x - y)_*(f(x)g(y)))
 \end{aligned}
 $$
 
-ただし、可測な $S: V_\mathrm{space} \to SO_0(V)$ は
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math3#%E5%89%8D%E9%80%B2%E5%9F%BA%E6%9C%AC%E8%A7%A3%E3%81%AE-%E3%81%AB%E3%82%88%E3%82%8B%E8%A1%A8%E7%A4%BA
+
+$\Delta_+(x, m^2) \coloneqq (2\pi)^{-d/2} \int_{\mathcal{O}_m^+} e^{-ipx} \, d\mu(p)$ を使えば、$\Delta_+(x, m^2) - \Delta_+(-x, m^2)$ が $V_\mathrm{space}$ 上で消えることを示せば良い。$E_+(x, m^2) = i(2\pi)^{-d/2 + 1} \theta(x_0) (\Delta_+(x, m^2) - \Delta_+(-x, m^2))$ だから
 
 $$
-S(z)z = (0, \pm\sqrt{-z^2}, 0, \dots, 0)
+i(2\pi)^{-d/2 + 1} (\Delta_+(x, m^2) - \Delta_+(-x, m^2)) = E_+(x, m^2) - E_+(-x, m^2)
 $$
 
-なるようにとる
+よって、$\mathrm{supp} E_+(x, m^2) \subset \overline{V}_+$ から従う
 
 # 平行移動不変な超関数
 
