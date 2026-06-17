@@ -665,6 +665,130 @@ $$
 \end{aligned}
 $$
 
+# 直積空間上の $\delta(f)$
+
+$(X, \sigma_X), (Y, \sigma_Y)$: density 付きの多様体
+
+$f: X \times Y \to \mathbb{R}$ は $f(x, y) = 0$ ならば $(d_Y f)_{(x, y)} \ne 0$ とする
+
+$M \coloneqq \{ f = 0 \} \subset X \times Y$ は閉部分多様体。$M$ 上の density $\sigma_M$ で
+
+$$
+\sigma_M \cdot |df| = (\sigma_X \boxtimes \sigma_Y)|_M
+$$
+
+を満たすものが一意的に存在する。$x \in X$ に対して、$Y_x \coloneqq \{ x \} \times Y \subset X \times Y$ とすると、$M_x = \{ f|_{Y_x} = 0 \} \subset Y_x$ も閉部分多様体で、$M_x$ 上の density $\sigma_{M_x}$ で
+
+$$
+\sigma_{M_x} \cdot |d(f|_{Y_x})| = \sigma_Y
+$$
+
+を満たすものが一意的に存在する。$\sigma_M|_{Y_x} = \sigma_{M_x}$ が成り立つ。$\varphi \in C^\infty_c(M)$ に対して
+
+$$
+\int_M \varphi \sigma_M = \int_X \sigma_X \int_{y \in M_x} \varphi \sigma_{M_x}
+$$
+
+$f(x, y) = 0$ ならば $(d_X f)_{(x, y)} \ne 0$ も成り立てば
+
+$$
+\int_M \varphi \sigma_M = \int_X \sigma_X \int_{y \in M_x} \varphi \sigma_{M_x} = \int_Y \sigma_Y \int_{x \in M_y} \varphi \sigma_{M_y}
+$$
+
+# $\frac{1}{|x|}$ の Fourier 変換
+
+$n \ge 2$ とする
+
+$$
+\mathcal{F}\left(\frac{1}{|x|}\right)(\xi) = \frac{2^{\frac{n}{2} - 1}}{\sqrt{\pi}}\Gamma\left(\frac{n - 1}{2}\right)\frac{1}{|\xi|^{n - 1}}
+$$
+
+$\int_0^\infty u^{-\frac{1}{2}}e^{-u} \, du = \Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$ を変数変換すると
+
+$$
+\frac{1}{|x|} = \frac{1}{\sqrt{\pi}} \int_0^\infty t^{-\frac{1}{2}}e^{-t|x|^2} \, dt
+$$
+
+$$
+\begin{aligned}
+  \mathcal{F}\left(\frac{1}{|x|}\right)(\xi) &= (2\pi)^{-\frac{n}{2}}\frac{1}{\sqrt{\pi}} \int_0^\infty t^{-\frac{1}{2}} \, dt \int e^{-t|x|^2}e^{-ix\xi} \, dx \\
+  &= 2^{-\frac{n}{2}}\frac{1}{\sqrt{\pi}} \int_0^\infty t^{-\frac{n + 1}{2}}e^{-\frac{|\xi|^2}{4t}} \, dt \\
+  &= \frac{2^{\frac{n}{2} - 1}}{\sqrt{\pi}}\frac{1}{|\xi|^{n - 1}} \int_0^\infty s^{\frac{n - 3}{2}}e^{-s} \, ds \\
+  &= \frac{2^{\frac{n}{2} - 1}}{\sqrt{\pi}}\Gamma\left(\frac{n - 1}{2}\right)\frac{1}{|\xi|^{n - 1}}
+\end{aligned}
+$$
+
+# Radon 変換
+
+$S^n$ 上の標準的な測度を $\sigma_{S^n}$ とする
+
+$n \ge 2$
+$X \coloneqq \mathbb{R}^n$
+$Y \coloneqq S^{n - 1} \times \mathbb{R}$
+
+$f: X \times Y \to \mathbb{R}$ を
+
+$$
+f(x, (n, s)) \coloneqq x \cdot n - s
+$$
+
+で定義する。$\varphi \in C^\infty_c(X)$, $\psi \in C^\infty_c(Y)$ とすると
+
+$$
+\begin{aligned}
+  \int_M (\varphi \otimes \psi) \sigma_M &= \int_{S^{n - 1} \times \mathbb{R}} \psi(n, s) \, d\sigma_{S^{n - 1}}(n) ds \int_{n \cdot x = s} \varphi(x) \, dx \\
+  &= \int_{\mathbb{R}^n} \varphi(x) \, dx \int_{S^{n - 1}} \psi(n, n \cdot x) \, d\sigma_{S^{n - 1}}(n)
+\end{aligned}
+$$
+
+ただし、$M \coloneqq \{ f = 0 \} \subset X \times Y$
+
+$$
+\begin{aligned}
+  (R\varphi)(n, s) &\coloneqq \int_{n \cdot x = s} \varphi(x) \, dx \\
+  (R^*\psi)(x) &\coloneqq \int_{S^{n - 1}} \psi(n, n \cdot x) \, d\sigma_{S^{n - 1}}(n)
+\end{aligned}
+$$
+
+と定義する。$\langle R\varphi, \psi \rangle_Y = \langle \varphi, R^*\psi \rangle_X$ が成り立つ。$R^*R\varphi$ を計算する
+
+$$
+\begin{aligned}
+  (R^*R\varphi)(x) &= \int_{S^{n - 1}} (R\varphi)(n, n \cdot x) \, d\sigma_{S^{n - 1}}(n) \\
+  &= \int_{S^{n - 1}} d\sigma_{S^{n - 1}}(n) \int_{n \cdot y = n \cdot x} \varphi(y) \, dy \\
+  &= \int_{S^{n - 1}} d\sigma_{S^{n - 1}}(n) \int_{n \cdot z = 0} \varphi(x - z) \, dz
+\end{aligned}
+$$
+
+$f_0: (\mathbb{R}^n \setminus \{0\}) \times S^{n - 1} \to \mathbb{R}$ を
+
+$$
+f_0(z, n) \coloneqq n \cdot z
+$$
+
+で定義すると
+
+$$
+\begin{aligned}
+  \int_{S^{n - 1}} d\sigma_{S^{n - 1}}(n) \int_{n \cdot z = 0} \varphi(x - z) \, dz &= \int_{(n, z) \in M_0} \varphi(x - z) \sigma_{M_0} \\
+  &= \int_{z \in \mathbb{R}^n \setminus \{0\}} dz \int_{n \in S^{n - 1}, n \cdot z = 0} \frac{1}{|z|}\varphi(x - z) \, d\sigma_{S^{n - 2}}(n) \\
+  &= \sigma(S^{n - 2}) \int_{z \in \mathbb{R}^n \setminus \{0\}} \frac{1}{|z|}\varphi(x - z) \, dz \\
+  &= \sigma(S^{n - 2}) \left(\frac{1}{|z|} * \varphi\right)(x)
+\end{aligned}
+$$
+
+ただし、$M_0 \coloneqq \{ f_0 = 0 \} \subset (\mathbb{R}^n \setminus \{0\}) \times S^{n - 1}$
+
+$$
+\begin{aligned}
+  (-\Delta)^{\frac{n - 1}{2}}R^*R\varphi &= \mathcal{F}^{-1}(|\xi|^{n - 1}\mathcal{F}(R^*R\varphi)) \\
+  &= (2\pi)^{\frac{n}{2}} \sigma(S^{n-2}) \mathcal{F}^{-1}\left(|\xi|^{n - 1}\mathcal{F}\left(\frac{1}{|x|}\right)\mathcal{F}\varphi\right) \\
+  &= (2\pi)^{\frac{n}{2}} \frac{2^{\frac{n}{2} - 1}}{\sqrt{\pi}} \Gamma\left(\frac{n - 1}{2}\right) \sigma(S^{n-2}) \varphi \\
+  &= 2^{n - 1} \pi^{\frac{n - 1}{2}} \Gamma\left(\frac{n - 1}{2}\right) \sigma(S^{n-2}) \varphi \\
+  &= 2^n \pi^{n - 1} \varphi
+\end{aligned}
+$$
+
 # Spinor Wightman QFT
 
 https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math1#wightman-%E3%81%AE%E5%85%AC%E7%90%86%E3%82%92%E6%BA%80%E3%81%9F%E3%81%99%E3%83%A2%E3%83%87%E3%83%AB
@@ -883,7 +1007,7 @@ $$
 \begin{aligned}
   [\varphi(f), \varphi(g)] &= [\iota_{(\cdot, k_f)}, \varepsilon_{k_g}] + [\varepsilon_{k_f}, \iota_{(\cdot, k_g)}] \\
   &= (k_g, k_f) + (k_f, k_g) \\
-  &= \frac{i}{8\pi} \int_{p \in \mathcal{O}_0^+, x, y} (s(p)f(x), s(p)g(y))_{\mathcal{A}}[e^{-ip(x - y)} + e^{ip(x - y)}] \, d\mu(p)dxdy
+  &= \frac{i}{8\pi} \int_{p \in \mathcal{O}_0^+, x, y} (s(p)f(x), s(p)g(y))_{\mathcal{A}}(e^{-ip(x - y)} + e^{ip(x - y)}) \, d\mu(p)dxdy
 \end{aligned}
 $$
 
@@ -899,11 +1023,11 @@ $$
 
 $$
 \begin{aligned}
-  &\int_{p \in \mathcal{O}_0^+, x, y} (s(p)f(x), g(y))[e^{-ip(x - y)} + e^{ip(x - y)}] \, d\mu(p)dxdy \\
-  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} \sum_j p_j(s(e_j)f(x), g(y))[e^{-ip(x - y)} + e^{ip(x - y)}] \, d\mu(p)dxdy \\
-  &\quad = -\int_{p \in \mathcal{O}_0^+, x, y} \sum_j (s(e^j)f(x), g(y))\partial_{x_j}[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
-  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} (Df(x), g(y))[e^{-ip(x - y)} - e^{ip(x - y)}] \, d\mu(p)dxdy \\
-  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} F(z)[e^{-ipz} - e^{ipz}] \, d\mu(p)dz \quad (F \coloneqq (x - y)_*(Df(x), g(y))) \\
+  &\int_{p \in \mathcal{O}_0^+, x, y} (s(p)f(x), g(y))(e^{-ip(x - y)} + e^{ip(x - y)}) \, d\mu(p)dxdy \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} \sum_j p_j(s(e_j)f(x), g(y))(e^{-ip(x - y)} + e^{ip(x - y)}) \, d\mu(p)dxdy \\
+  &\quad = -\int_{p \in \mathcal{O}_0^+, x, y} \sum_j (s(e^j)f(x), g(y))\partial_{x_j}(e^{-ip(x - y)} - e^{ip(x - y)}) \, d\mu(p)dxdy \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, x, y} (Df(x), g(y))(e^{-ip(x - y)} - e^{ip(x - y)}) \, d\mu(p)dxdy \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, z} F(z)(e^{-ipz} - e^{ipz}) \, d\mu(p)dz \quad (F \coloneqq (x - y)_*(Df(x), g(y))) \\
   &\quad = 0
 \end{aligned}
 $$
