@@ -1034,7 +1034,160 @@ $$
 
 $D$ は Dirac 作用素であり、最後は、$\mathrm{supp}(\Delta_+(x, 0) - \Delta_+(-x, 0)) = \mathrm{supp}(E_+(x, 0) - E_+(-x, 0)) \subset V_\mathrm{space}$ を使った
 
+[最後の部分の別証明]
+
+$F(z) \in C^\infty_c(V_\mathrm{space})$ ならば $\int_{p \in \mathcal{O}_0^+, z} F(z)(e^{-ipz} - e^{ipz}) \, d\mu(p)dz = 0$ を別の方法で示す
+
+$\omega_0(n) \in \mathcal{S}(\mathcal{O}_1^+)$ で $\omega_0(n) > 0$ を満たすものを固定する。$z \in V_\mathrm{space}$ に対して、$M_z \coloneqq \{ n \in \mathcal{O}_1^+ \mid nz = 0 \} \subset \mathcal{O}_1^+$ は閉部分多様体
+
+$$
+s(z) \coloneqq \int_{n \in M_z} \omega_0(n) \sigma_{M_z} \in C^\infty(V_\mathrm{space})
+$$
+
+とする。$\omega(n, z) \coloneqq \frac{\omega_0(n)}{s(z)} \in C^\infty(\mathrm{O}_1^+ \times V_\mathrm{space})$ とおくと
+
+$$
+\int_{n \in M_z} \omega(n, z) \sigma_{M_z} = 1 \quad (z \in V_\mathrm{space})
+$$
+
+$F(z) = \int_{n \in M_z} F(z)\omega(n, z) \sigma_{M_z}$ だから
+
+$$
+\begin{aligned}
+  &\int_{p \in \mathcal{O}_0^+, z} F(z)(e^{-ipz} - e^{ipz}) \, d\mu(p)dz \\
+  &\quad = \int_{p \in \mathcal{O}_0^+, (n, z) \in M} \sqrt{-z^2}F(z)\omega(n, z)(e^{-ipz} - e^{ipz}) \sigma_M \, d\mu(p) \\
+  &\quad = \int_{\mathcal{O}_1^+} d\mu(n) \int_{p \in \mathcal{O}_0^+} \int_{z \in V_\mathrm{space}, nz = 0} \sqrt{-z^2}F(z)\omega(n, z)(e^{-ipz} - e^{ipz}) \sigma_{M_n} \\
+  &\quad = \int_{\mathcal{O}_1^+} d\mu(n) \int_{p \in \mathcal{O}_0^+} \int_{z'} |z'|F(S(n)z')\omega(n, S(n)z')(e^{-ipz'} - e^{ipz'}) \, dz' \\
+  &\quad = 0
+\end{aligned}
+$$
+
+ただし、$M \coloneqq \{ nz = 0 \} \subset \mathcal{O}_1^+ \times V_\mathrm{space}$ であり、可測な $S(n): \mathcal{O}_1^+ \to SO_0(V)$ は $S(n)n = e_0$ なるように取る
 
 # Bochner-Minlos の定理
 
+$E$: nuclear space
+
+連続な $F: E \to \mathbb{C}$ が
+
+(1) $F(0) = 1$
+(2) $\sum_{j = 1}^N \sum_{k = 1}^N z_j\bar{z}_k F(\xi_j - \xi_k) \ge 0 \quad (z_1, \dots, z_N \in \mathbb{C}, \xi_1, \dots, \xi_N \in E)$
+
+を満たせば、$E'$ 上の正則 Borel 確率測度 $\mu$ が一意的に存在して
+
+$$
+F(\xi) = (\mathcal{F}\mu)(\xi) \coloneqq \int_{E'} e^{i\langle \omega, \xi \rangle} \, d\mu(\omega)
+$$
+
+証明はしないが、$\mu$ を $E'$ 上の正則 Borel 確率測度とすると、$\mathcal{F}\mu: E \to \mathbb{C}$ は連続かつ $(\mathcal{F}\mu)(0) = 1$ で
+
+$$
+\begin{aligned}
+  \sum_{j = 1}^N \sum_{k = 1}^N z_j\bar{z}_k (\mathcal{F}\mu)(\xi_j - \xi_k) &= \int_{E'} \sum_{j = 1}^N \sum_{k = 1}^N z_j e^{i\langle \omega, \xi_j \rangle} \overline{z_k e^{i\langle \omega, \xi_k \rangle}} \, d\mu(\omega) \\
+  &= \int_{E'} \left|\sum_{j = 1}^N z_j e^{i\langle \omega, \xi_j \rangle}\right|^2 \, d\mu(\omega) \\
+  &\ge 0
+\end{aligned}
+$$
+
 # Brown 運動の構成
+
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math3#brown-%E9%81%8B%E5%8B%95
+
+$F: \mathcal{S}(\mathbb{R}) \to \mathbb{R}$ を
+
+$$
+F(\xi) \coloneqq e^{-\frac{1}{2}\|\xi\|_{L^2}^2}
+$$
+
+で定義すると
+
+$$
+\begin{aligned}
+  \sum_{j = 1}^N \sum_{k = 1}^N z_j\bar{z}_k e^{-\frac{1}{2}\|\xi_j - \xi_k\|^2} &= \sum_{j = 1}^N \sum_{k = 1}^N z_j\bar{z}_k e^{-\frac{1}{2}\|\xi_j\|^2} e^{-\frac{1}{2}\|\xi_k\|^2} e^{\langle \xi_j, \xi_k \rangle} \\
+  &= \sum_{j = 1}^N \sum_{k = 1}^N w_j\bar{w}_k e^{\langle \xi_j, \xi_k \rangle} \\
+  &= \sum_{p = 0}^\infty \frac{1}{p!} \sum_{j = 1}^N \sum_{k = 1}^N w_j\bar{w}_k \langle \xi_j, \xi_k \rangle^p
+\end{aligned}
+$$
+
+$$
+\sum_{j = 1}^N \sum_{k = 1}^N w_j\bar{w}_k \langle \xi_j, \xi_k \rangle^p = \sum_{j = 1}^N \sum_{k = 1}^N w_j\bar{w}_k \langle \xi_j^{\otimes p}, \xi_k^{\otimes p} \rangle = \left\|\sum_{j = 1}^N w_j \xi_j^{\otimes p}\right\|^2 \ge 0
+$$
+
+よって、対応する $\mathcal{S}'(\mathbb{R})$ 上の正則 Borel 確率測度 $\mu$ が取れる。$\xi \in \mathcal{S}(\mathbb{R})$ は確率空間 $(\mathcal{S}'(\mathbb{R}), \mu)$ 上の確率変数 $X_\xi$ とみなせる
+
+$$
+(\mathcal{F}X_\xi)(t) = \int e^{it\langle \xi, \omega \rangle} \, d\mu(\omega) = e^{-\frac{1}{2}\|\xi\|^2 t^2}
+$$
+
+だから、$X_\xi$ は $N_{0, \|\xi\|^2}$ に従う。$L^2(\mathbb{R}) \supset \mathcal{S}(\mathbb{R}) \ni \xi \mapsto X_\xi \in L^2(\mathcal{S}'(\mathbb{R}), \mu)$ は等長だから、$L^2(\mathbb{R}) \ni \xi \mapsto X_\xi \in L^2(\mathcal{S}'(\mathbb{R}), \mu)$ に拡張する
+
+$$
+B_t \coloneqq X_{1_{[0, t)}} \in L^2(\mathcal{S}'(\mathbb{R}), \mu) \quad (t \ge 0)
+$$
+
+と定義すると
+
+(1) $B_0 \equiv 0$
+(3) $0 \le s < t$ に対して、$B_t - B_s$ は $N(0, t - s)$ に従う
+
+は明らか
+
+(2) $0 \le t_0 < \dots < t_n$ に対して、$B_{t_1} - B_{t_0}, \dots, B_{t_n} - B_{t_{n - 1}}$ は独立
+
+$$
+\begin{aligned}
+  E\left[e^{i\sum_{j = 1}^n s_j(B_{t_j} - B_{t_{j - 1}})}\right] &= \int e^{i\langle \omega, \sum_{j = 1}^n s_j 1_{[t_{j - 1}, t_j)} \rangle} \, d\mu(\omega) \\
+  &= e^{-\frac{1}{2} \sum_{j = 1}^n s_j^2(t_j - t_{j - 1})} \\
+  &= \prod_{j = 1}^n e^{-\frac{1}{2} s_j^2(t_j - t_{j - 1})} \\
+  &= \prod_{j = 1}^n \int e^{i\langle \omega, s_j 1_{[t_{j - 1}, t_j)} \rangle} \, d\mu(\omega) \\
+  &= \prod_{j = 1}^n E\left[e^{i s_j(B_{t_j} - B_{t_{j - 1}})}\right]
+\end{aligned}
+$$
+
+Kolmogorov の連続変形定理から連続性も満たすように変形できる
+
+# 自由可換ゲージ理論
+
+https://zenn.dev/link/comments/9d71c6e6abbc28
+
+https://zenn.dev/link/comments/d24f97806b9829
+
+ここからは一旦
+
+$V$: 符号 $(1, d - 1)$ の Minkowski 空間
+$P \coloneqq V \times \mathbb{R}$: 自明な $\mathbb{R}$ 主束
+$\mathcal{F} \coloneqq \{ P \text{ 上の接続} \} / \sim = \{ d\theta + \alpha \mid \alpha \in \Omega^1(V) \} / \{ \text{完全形式} \}$
+
+$$
+L \coloneqq -\frac{1}{2} F \wedge *F = -\frac{1}{2}(F, F)|dx|
+$$
+
+ただし、$F \coloneqq d\alpha \in \Omega^2(V)$
+
+$$
+\delta L = -\delta F \wedge *F = -\delta d\alpha \wedge *d\alpha = d(\delta \alpha \wedge *d\alpha) - (\delta \alpha \wedge d*d\alpha)
+$$
+
+運動方程式は $d*d\alpha = 0$
+
+$*(dx_j \wedge dx_k) = \varepsilon dx_0 \wedge \cdots \check{dx_j} \cdots \check{dx_k} \cdots \wedge dx_{d - 1} (j < k)$
+
+$$
+\varepsilon = \begin{cases}
+  (-1)^k &\quad (j = 0) \\
+  (-1)^{j + k + 1} &\quad (j \ge 1)
+\end{cases}
+$$
+
+$$
+\begin{aligned}
+  &d*d (\sum_j f_j dx_j) \\
+  &\quad = d*( \sum_{j, k} \partial_k f_j dx_k \wedge dx_j ) \\
+  &\quad = d*( \sum_{j < k} (\partial_j f_k - \partial_k f_j) dx_j \wedge dx_k ) \\
+  &\quad = d(\sum_{k \ge 1} (-1)^k (\partial_0 f_k - \partial_k f_0) dx_1 \wedge \cdots \check{dx_k} \cdots \wedge dx_{d - 1} \\
+  &\qquad -\sum_{1 \le j < k} (-1)^{j + k} (\partial_j f_k - \partial_k f_j) dx_0 \wedge \cdots \check{dx_j} \cdots \check{dx_k} \cdots \wedge dx_{d - 1} ) \\
+\end{aligned}
+$$
+
+$\gamma = - \delta \alpha \wedge *d\alpha$
+$\omega = \delta\gamma = \delta \alpha \wedge *d \delta\alpha$
