@@ -179,3 +179,81 @@ $$
   &= \frac{1}{\pi} \int_{p \in \mathcal{O}_0^+} \mathrm{Im} (f_1, \bar{f_2})_\mathcal{N} \, d\mu(p)
 \end{aligned}
 $$
+
+# Wightman QFT of free abelian gauge theory
+
+$V$: $d$ 次元の Minkowski 空間
+$G \coloneqq \mathrm{Spin}_0(V)$
+$P \coloneqq G \ltimes V$
+
+$\rho: G \curvearrowright \wedge^2 V^*$
+$\mathcal{R} \coloneqq P \times_G \rho$
+
+$V \times V^* \to V$ は $P$ 同変ベクトル束だから、$P \curvearrowright H = \{ f \in L^2(\mathcal{O}_0, \mathcal{N} \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}$ が誘導される
+
+$$
+\begin{aligned}
+  (\Lambda, a)h &= (2\pi)^{-d/2} \int \Lambda\tilde{h}(\Lambda^{-1}(x - a))e^{ipx} \, dx \quad (\tilde{h}(x) \coloneqq \int h(p)e^{-ipx} \, dp) \\
+  &= e^{ipa}\Lambda h(\Lambda^{-1}p)
+\end{aligned}
+$$
+
+$I: H \to H$ を
+
+$$
+Ih(p) \coloneqq \begin{cases}
+  ih(p) &\quad (p \in \mathcal{O}_0^+) \\
+  -ih(p) &\quad (p \in \mathcal{O}_0^-)
+\end{cases}
+$$
+
+で定義すれば、$H_\pm = L^2(\mathcal{O}_0^\pm, \mathcal{N} \otimes \mathbb{C})$。$H_+$ 上の Hermite 形式
+
+$$
+(h_1, h_2) \coloneqq \frac{i}{2} [h_1(p), \overline{h_2(-p)}] = \frac{1}{4\pi} \int_{p \in \mathcal{O}_0^+} (h_1(p), \overline{h_2(p)})_\mathcal{N} \, d\mu_0(p)
+$$
+
+は正定値。$I$ は $P$ 同変だから、$P \curvearrowright H_+$, $U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus_{n = 0}^\infty} S^n H_+$ が誘導される。$D_+ \coloneqq \{ f \in \mathcal{S}(\mathcal{O}_0^+, V \otimes \mathbb{C}) \mid pf(p) = 0, f(0) = 0 \} / \{ pc(p) \mid c \in \mathcal{S}(\mathcal{O}_0^+, \mathbb{C}) \} \subset H_+$, $\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n D_+$ とし、$\Omega \coloneqq 1 \in \mathcal{D}$
+
+$\varphi: \mathcal{S}(\mathcal{R}) \to \mathrm{End}(D)$ を
+
+$$
+\varphi(\omega) \coloneqq \varepsilon_{k_\omega} + \iota_{(\cdot, k_\omega)}
+$$
+
+で定義する。ただし、$k_\omega \coloneqq \iota(-p)\mathcal{F}\omega(-p)|_{\mathcal{O}_0^+} \in D_+$
+
+(1) $U|_V$ の同時スペクトル $\sigma(U) \subset V^*$ は
+
+$$
+\langle \sigma(U), \overline{V}_+ \rangle \ge 0
+$$
+
+$\sigma(U) = \overline{V}_+$ から従う
+
+${}$(2) $\varphi(\omega)$ は super symmetric operator
+
+明らか
+
+(4) $\omega, \sigma \in \mathcal{S}(\mathcal{R})$ が $\mathrm{supp} \omega - \mathrm{supp} \sigma \subset V_\mathrm{space}$ ならば
+
+$$
+[\varphi(\omega), \varphi(\sigma)] = 0
+$$
+
+$$
+\begin{aligned}
+  [\varphi(\omega), \varphi(\sigma)] &= (k_\sigma, k_\omega) - (k_\omega, k_\sigma) \\
+  &= \frac{1}{4\pi} \int_{p \in \mathcal{O}_0^+, x, y} (\iota(p)\omega(x), \iota(p)\sigma(y))_\mathcal{N} (e^{-ip(x - y)} - e^{ip(x - y)}) \, d\mu(p) dx dy \\
+  &= \sum_{j, k} \int_{p \in \mathcal{O}_0^+, z} F_{jk}(z) p_j p_k (e^{-ipz} - e^{ipz}) \, d\mu(p) dz \\
+  &= \sum_{j, k} \int_{p \in \mathcal{O}_0^+, z} \varepsilon_{jk} F_{jk}(z) \partial_{z_j}\partial_{z_k} (e^{-ipz} - e^{ipz}) \, d\mu(p) dz \\
+  &= \sum_{j, k} \int_{p \in \mathcal{O}_0^+, z} \varepsilon_{jk} (\partial_{z_j}\partial_{z_k}F_{jk})(z) (e^{-ipz} - e^{ipz}) \, d\mu(p) dz \\
+  &= 0
+\end{aligned}
+$$
+
+ただし、$F_{jk}(z)$ は $\mathrm{supp} \subset V_\mathrm{space}$ な急減少関数
+
+${}$(3) $\mathcal{D}$ は $\varphi(\omega_1) \cdots \varphi(\omega_n)\Omega$ で生成される
+
+$\{ k_\omega \mid \omega \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = D_+$ から従う
