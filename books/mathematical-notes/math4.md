@@ -1044,7 +1044,7 @@ $$
 s(z) \coloneqq \int_{n \in M_z} \omega_0(n) \sigma_{M_z} \in C^\infty(V_\mathrm{space})
 $$
 
-とする。$\omega(n, z) \coloneqq \frac{\omega_0(n)}{s(z)} \in C^\infty(\mathrm{O}_1^+ \times V_\mathrm{space})$ とおくと
+とする。$\omega(n, z) \coloneqq \frac{\omega_0(n)}{s(z)} \in C^\infty(\mathcal{O}_1^+ \times V_\mathrm{space})$ とおくと
 
 $$
 \int_{n \in M_z} \omega(n, z) \sigma_{M_z} = 1 \quad (z \in V_\mathrm{space})
@@ -1146,48 +1146,249 @@ $$
 
 Kolmogorov の連続変形定理から連続性も満たすように変形できる
 
+# Hodge star operator
+
+https://zenn.dev/link/comments/06dccd75df0bb0
+
+$M$: 向き付けられた符号 $(p, q)$ の擬 Riemann 多様体
+$n \coloneqq \mathrm{dim} M = p + q$
+
+$*: \Omega^k(M) \to \Omega^{n - k}(M)$ は以下を満たすように定義される
+
+$$
+\alpha \wedge *\beta = \langle \alpha, \beta \rangle \, dx
+$$
+
+$\Omega^k(M)$ 上で $*^2 = (-1)^{k(n - k) + q}$
+
+$\Omega^k(M)$ 上で $d^* = (-1)^{(k - 1)(n - k) + q + 1}*d*$ を示す。$\alpha \in \Omega^{k - 1}_c(M), \beta \in \Omega^k_c(M)$ とすると
+
+$$
+\begin{aligned}
+  \int \langle \alpha, d^*\beta \rangle \, dx &= \int \langle d\alpha, \beta \rangle \, dx \\
+  &= \int d\alpha \wedge *\beta \\
+  &= (-1)^k \int \alpha \wedge d*\beta \\
+  &= (-1)^k \int \langle \alpha, *^{-1}d*\beta \rangle \, dx \\
+  &= (-1)^{(k - 1)(n - k) + q + 1} \int \langle \alpha, *d*\beta \rangle \, dx
+\end{aligned}
+$$
+
+$\Delta_H \coloneqq -(dd^* + d^*d) = (-1)^{(k - 1)(n - k) + q} (d*d* + (-1)^n *d*d)$
+
+https://zenn.dev/link/comments/6d8f1376d24ad1
+
+$\Delta = \mathrm{Tr}(\nabla^{T^*M \otimes \wedge^k T^*M}\nabla) = -\nabla^*\nabla$
+
+$e_j$ を $TM$ の local frame とし、$e^j$ を $T^*M$ の dual local frame とすると
+
+$$
+\begin{aligned}
+  \Delta &= \sum_j \mathrm{Tr}(\nabla(e^j \otimes \nabla_{e_j})) \\
+  &= \sum_{j, k} \mathrm{Tr}(e^k \otimes (e^j \otimes \nabla_{e_k}\nabla_{e_j} + \nabla_{e_k}e^j \otimes \nabla_{e_j})) \\
+  &= \sum_{j, k} g(e^j, e^k) \nabla_{e_j}\nabla_{e_k} + \sum_{j, k, l} g(e^k, e^l) \langle \nabla_{e_k}e^j, e_l \rangle \nabla_{e_j} \\
+  &= \sum_{j, k} g(e^j, e^k) \nabla_{e_j}\nabla_{e_k} - \sum_{j, k, l} g(e^k, e^l) \langle e^j, \nabla_{e_k}e_l \rangle \nabla_{e_j} \\
+  &= \sum_{j, k} g(e^j, e^k) (\nabla_{e_j}\nabla_{e_k} - \nabla_{\nabla_{e_l}e_k}) \\
+\end{aligned}
+$$
+
+$d = \varepsilon \circ \nabla$, $d^* = -\iota \circ \nabla$ だから
+
+$$
+\begin{aligned}
+  d &= \sum_j \varepsilon_{e^j} \nabla_{e_j} \\
+  d^* &= -\sum_j \iota_{e^j} \nabla_{e_j}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \Delta_H &= -(dd^* + d^*d) \\
+  &= \sum_{j, k} \varepsilon_{e^j} (\iota_{e^k} \nabla_{e_j}\nabla_{e_k} + \iota_{\nabla_{e_j}e^k} \nabla_{e_k}) + \sum_{j, k} \iota_{e^j} (\varepsilon_{e^k} \nabla_{e_j}\nabla_{e_k} + \varepsilon_{\nabla_{e_j}e^k} \nabla_{e_k}) \\
+  &= \sum_{j, k} (\varepsilon_{e^j}\iota_{e^k} + \iota_{e^j}\varepsilon_{e^k}) \nabla_{e_j}\nabla_{e_k} + \sum_{j, k} \varepsilon_{e^j} \iota_{\nabla_{e_j}e^k} \nabla_{e_k} + \sum_{j, k} \iota_{e^j} \varepsilon_{\nabla_{e_j}e^k} \nabla_{e_k} \\
+  &= \sum_{j, k} (\varepsilon_{e^j}\iota_{e^k} + \iota_{e^j}\varepsilon_{e^k}) \nabla_{e_j}\nabla_{e_k} + \sum_{j, k, l} \varepsilon_{e^j} \iota_{e^l} \langle \nabla_{e_j}e^k, e_l \rangle \nabla_{e_k} + \sum_{j, k, l} \iota_{e^j} \varepsilon_{e^l} \langle \nabla_{e_j}e^k, e_l \rangle \nabla_{e_k} \\
+  &= \sum_{j, k} (\varepsilon_{e^j}\iota_{e^k} + \iota_{e^j}\varepsilon_{e^k}) \nabla_{e_j}\nabla_{e_k} - \sum_{j, k, l} \varepsilon_{e^j} \iota_{e^l} \langle e^k, \nabla_{e_j}e_l \rangle \nabla_{e_k} - \sum_{j, k, l} \iota_{e^j} \varepsilon_{e^l} \langle e^k, \nabla_{e_j}e_l \rangle \nabla_{e_k} \\
+  &= \sum_{j, k} (\varepsilon_{e^j}\iota_{e^k} + \iota_{e^j}\varepsilon_{e^k}) \nabla_{e_j}\nabla_{e_k} - \sum_{j, l} \varepsilon_{e^j} \iota_{e^l} \nabla_{\nabla_{e_j}e_l} - \sum_{j, l} \iota_{e^j} \varepsilon_{e^l} \nabla_{\nabla_{e_j}e_l} \\
+  &= \sum_{j, k} (\varepsilon_{e^j}\iota_{e^k} + \iota_{e^j}\varepsilon_{e^k}) (\nabla_{e_j}\nabla_{e_k} - \nabla_{\nabla_{e_j}e_k}) \\
+  &= \sum_{j, k} (\varepsilon_{e^j}\iota_{e^k} + \iota_{e^k}\varepsilon_{e^j}) (\nabla_{e_j}\nabla_{e_k} - \nabla_{\nabla_{e_j}e_k}) + \sum_{j, k} \iota_{e^j} \varepsilon_{e^k} ([\nabla_{e_j}, \nabla_{e_k}] - \nabla_{\nabla_{e_j}e_k - \nabla_{e_k}e_j}) \\
+  &= \sum_{j, k} g(e^j, e^k) (\nabla_{e_j}\nabla_{e_k} - \nabla_{\nabla_{e_j}e_k}) + \sum_{j, k} \iota_{e^j}\varepsilon_{e^k} ([\nabla_{e_j}, \nabla_{e_k}] - \nabla_{[e_j, e_k]}) \\
+  &= \Delta + \sum_{j, k} \iota_{e^j}\varepsilon_{e^k} R(e_j, e_k)
+\end{aligned}
+$$
+
 # 自由可換ゲージ理論
 
 https://zenn.dev/link/comments/9d71c6e6abbc28
 
 https://zenn.dev/link/comments/d24f97806b9829
 
-ここからは一旦
-
 $V$: 符号 $(1, d - 1)$ の Minkowski 空間
 $P \coloneqq V \times \mathbb{R}$: 自明な $\mathbb{R}$ 主束
-$\mathcal{F} \coloneqq \{ P \text{ 上の接続} \} / \sim = \{ d\theta + \alpha \mid \alpha \in \Omega^1(V) \} / \{ \text{完全形式} \}$
+$\mathcal{F} \coloneqq \{ P \text{ 上の接続の同型類} \} = \{ d\theta + \alpha \mid \alpha \in \Omega^1(V) \} / \{ \text{完全形式} \}$
 
 $$
-L \coloneqq -\frac{1}{2} F \wedge *F = -\frac{1}{2}(F, F)|dx|
+L \coloneqq -\frac{1}{2} F \wedge *F = -\frac{1}{2} (F, F) |dx|
 $$
 
 ただし、$F \coloneqq d\alpha \in \Omega^2(V)$
 
 $$
-\delta L = -\delta F \wedge *F = -\delta d\alpha \wedge *d\alpha = d(\delta \alpha \wedge *d\alpha) - (\delta \alpha \wedge d*d\alpha)
+\delta L = -\delta F \wedge *F = -\delta d\alpha \wedge *d\alpha = d(\delta\alpha \wedge *d\alpha) - (\delta\alpha \wedge d*d\alpha)
 $$
 
-運動方程式は $d*d\alpha = 0$
-
-$*(dx_j \wedge dx_k) = \varepsilon dx_0 \wedge \cdots \check{dx_j} \cdots \check{dx_k} \cdots \wedge dx_{d - 1} (j < k)$
+運動方程式は $d*d\alpha = 0 \Leftrightarrow d^*d\alpha = 0 \Leftrightarrow (dd^* + \Delta)\alpha = 0$
 
 $$
-\varepsilon = \begin{cases}
-  (-1)^k &\quad (j = 0) \\
-  (-1)^{j + k + 1} &\quad (j \ge 1)
-\end{cases}
+\begin{aligned}
+  \gamma &= -\delta\alpha \wedge *d\alpha \\
+  \omega &= \delta\gamma = -\delta\alpha \wedge \delta *d\alpha
+\end{aligned}
+$$
+
+$\alpha = \sum_j \alpha_j e^j$ とすると
+
+$$
+dd^*\alpha = -\sum_j (e^j, e^j) d(\partial_j\alpha_j) = -\sum_{j, k} (e^j, e^j) \partial_k\partial_j\alpha_j e^k
 $$
 
 $$
 \begin{aligned}
-  &d*d (\sum_j f_j dx_j) \\
-  &\quad = d*( \sum_{j, k} \partial_k f_j dx_k \wedge dx_j ) \\
-  &\quad = d*( \sum_{j < k} (\partial_j f_k - \partial_k f_j) dx_j \wedge dx_k ) \\
-  &\quad = d(\sum_{k \ge 1} (-1)^k (\partial_0 f_k - \partial_k f_0) dx_1 \wedge \cdots \check{dx_k} \cdots \wedge dx_{d - 1} \\
-  &\qquad -\sum_{1 \le j < k} (-1)^{j + k} (\partial_j f_k - \partial_k f_j) dx_0 \wedge \cdots \check{dx_j} \cdots \check{dx_k} \cdots \wedge dx_{d - 1} ) \\
+  \mathcal{F}(dd^*\alpha) &= \sum_{j, k} (e^j, e^j) p_k p_j \mathcal{F}\alpha_j e^k \quad (p = \sum_j p_j e^j) \\
+  &= (\mathcal{F}\alpha, p)p
 \end{aligned}
 $$
 
-$\gamma = - \delta \alpha \wedge *d\alpha$
-$\omega = \delta\gamma = \delta \alpha \wedge *d \delta\alpha$
+線束 $\theta$ を $\theta \coloneqq \{ (p, \mathbb{R}p) \mid p \in V \setminus \{0\} \} \subset (V \setminus \{0\}) \times V$ で定義する。反転付きの Fourier 変換 $F \coloneqq (\mathcal{F}\alpha)(-p)$ を使うと、$p = 0$ などは無視して形式的に
+
+$$
+\begin{aligned}
+  &\{ \alpha \in \mathcal{S}'(V, V^*) \mid d*d\alpha = 0 \} / \{ \text{完全形式} \} \\
+  &\quad \simeq \{ F \in \mathcal{S}'(V, V \otimes \mathbb{C}) \mid (F(p), p)p - p^2F(p) = 0, F(-p) = \overline{F(p)} \} \\
+  &\qquad\qquad / \{ F \in \mathcal{S}'(V, \theta \otimes \mathbb{C}) \mid F(-p) = \overline{F(p)} \} \\
+  &\quad \simeq \{ f \in \mathcal{S}'(\mathcal{O}_0, (\theta^\perp / \theta) \otimes \mathbb{C}) \mid f(-p) = \overline{f(p)} \}
+\end{aligned}
+$$
+
+$\mathcal{O}_0$ 上の実ベクトル束 $\mathcal{N}$ を $\mathcal{N} \coloneqq \theta^\perp / \theta$ で定義する。$\mathrm{rk}\mathcal{N} = d - 2$ であり、$V$ から $\mathcal{N}$ に誘導される計量は負定値。正定値内積 $\langle -, - \rangle_{\mathcal{N}}$ を
+
+$$
+\langle \xi, \eta \rangle_{\mathcal{N}_p} \coloneqq -\xi\eta \quad (\xi, \eta \in \mathcal{N}_p = p^\perp / \mathbb{R}p)
+$$
+
+で定義する
+
+$$
+H \coloneqq \{ f \in L^2(\mathcal{O}_0, \mathcal{N} \otimes \mathbb{C}) \mid f(-p) = \overline{f(-p)} \}
+$$
+
+# $H$ での $[−, −]$ の記述
+
+https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math1#%E3%81%A7%E3%81%AE-%E3%81%AE%E8%A8%98%E8%BF%B0
+
+$\alpha, \beta \in \Omega^1(V)$ に対して
+
+$$
+dt \wedge \alpha \wedge *d\beta = (dt \wedge \alpha, d\beta) dt \wedge dx'
+$$
+
+ただし、$x = (t, x')$ とした。$\alpha = \alpha_0 dt + \alpha'$, $\beta = \beta_0 dt + \beta'$ とすると
+
+$$
+\begin{aligned}
+  (\alpha \wedge *d\beta)|_{t = 0} &= (dt \wedge \alpha, d\beta)|_{t = 0} dx' \\
+  &= (\alpha, \iota_{\partial_t}d\beta)|_{t = 0} dx' \\
+  &= (\alpha, \partial_t\beta - d\iota_{\partial_t}\beta)|_{t = 0} dx' \\
+  &= (\alpha, \partial_t\beta - d\beta_0)|_{t = 0} dx' \\
+  &= -(\alpha', \partial_t\beta' - d_{x'}\beta_0)'|_{t = 0} dx'
+\end{aligned}
+$$
+
+ただし、$(-, -)'$ は通常の正定値内積
+
+$f_1, f_2 \in H$ とする
+
+$$
+\begin{aligned}
+  F_j(\xi) &= \int_{p \in \mathcal{O}_0} f_j(p)\xi(p) \, d\mu_0(p) \\
+  \alpha_j(u) &= (2\pi)^{-d/2} \int_{x, p \in \mathcal{O}_0} f_j(p)u(x)e^{-ipx} \, dx d\mu_0(p)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  [\alpha_1, \alpha_2] &= \int_{t = 0} (\alpha_1 \wedge *d\alpha_2 - \alpha_2 \wedge *d\alpha_1) \\
+  &= -\int [(\alpha'_1|_{t = 0}, \partial_t\alpha'_2|_{t = 0})' - (\alpha'_2|_{t = 0}, \partial_t\alpha'_1|_{t = 0})'] \, dx' \\
+  &\quad +\int [(\alpha'_1|_{t = 0}, d_{x'}\alpha_{2, 0}|_{t = 0})' - (\alpha'_2|_{t = 0}, d_{x'}\alpha_{1, 0}|_{t = 0})'] \, dx'
+\end{aligned}
+$$
+
+を計算したい
+
+$p = (p_0, p')$ とすると
+
+$$
+\begin{aligned}
+  \alpha'_j|_{t = 0}(v) &= \alpha_j(\delta \otimes v) = (2\pi)^{-d/2} \int_{x', p \in \mathcal{O}_0} f'_j(p)v(x')e^{ip'x'} \, dx' d\mu_0(p) \\
+  \partial_t\alpha'_j|_{t = 0}(v) &= -(2\pi)^{-d/2}i \int_{x', p \in \mathcal{O}_0} p_0 f'_j(p)v(x')e^{ip'x'} \, dx' d\mu_0(p) \\
+  d_{x'}\alpha_{j, 0}|_{t = 0}(v) &= (2\pi)^{-d/2}i \int_{x', p \in \mathcal{O}_0} p' f_{j, 0}(p)v(x')e^{ip'x'} \, dx' d\mu_0(p)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \widehat{\alpha'_j|_{t = 0}}(\eta) &= (2\pi)^{-1/2} \int_{p \in \mathcal{O}_0} f'_j(p)\eta(p') \, d\mu_0(p) \\
+  \widehat{\partial_t\alpha'_j|_{t = 0}}(\eta) &= -(2\pi)^{-1/2}i \int_{p \in \mathcal{O}_0} p_0 f'_j(p)\eta(p') \, d\mu_0(p) \\
+  \widehat{d_{x'}\alpha_{j, 0}|_{t = 0}}(\eta) &= (2\pi)^{-1/2}i \int_{p \in \mathcal{O}_0} p' f_{j, 0}(p)\eta(p') \, d\mu_0(p)
+\end{aligned}
+$$
+
+$\mathcal{O}_0^\pm \simeq \{ p' \in \mathbb{R}^{d - 1} \setminus \{0\} \}$ によって $d\mu_0(p) = \frac{dp'}{2|p'|}$ だから
+
+$$
+\begin{aligned}
+  \widehat{\alpha'_j|_{t = 0}} &= (2\pi)^{-1/2} \frac{1}{2|p'|} [f'_j(|p'|, p') + f'_j(-|p'|, p')] \in L^2(|p'|dp', \mathbb{C}^{d - 1}) \\
+  \widehat{\partial_t\alpha'_j|_{t = 0}} &= -(2\pi)^{-1/2} \frac{i}{2} [f'_j(|p'|, p') - f'_j(-|p'|, p')] \in L^2\left(\frac{dp'}{|p'|}, \mathbb{C}^{d - 1}\right) \\
+  \widehat{d_{x'}\alpha_{j, 0}|_{t = 0}} &= (2\pi)^{-1/2} \frac{ip'}{2|p'|} [f_{j, 0}(|p'|, p') - f_{j, 0}(-|p'|, p')] \in L^2\left(\frac{dp'}{|p'|}, \mathbb{C}^{d - 1}\right)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  &\int_{x'} (\alpha'_1|_{t = 0}, \partial_t\alpha'_2|_{t = 0})' \, dx' \\
+  &\quad = \int_{p'} (\widehat{\alpha'_1|_{t = 0}}(p'), \widehat{\partial_t\alpha'_2|_{t = 0}}(-p'))' \, dp' \\
+  &\quad = -\frac{i}{8\pi} \int_{p'} \frac{1}{|p'|} (f'_1(|p'|, p') + f'_1(-|p'|, p'), f'_2(|p'|, -p') - f'_2(-|p'|, -p'))' \, dp' \\
+  &\quad = -\frac{i}{8\pi} \int_{p'} \frac{1}{|p'|} [(f'_1(|p'|, p'), f'_2(|p'|, -p'))' - (f'_1(|p'|, p'), f'_2(-|p'|, -p'))' \\
+  &\qquad + (f'_1(-|p'|, p'), f'_2(|p'|, -p'))' - (f'_1(-|p'|, p'), f'_2(-|p'|, -p'))'] \, dp'
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  &\int [(\alpha'_1|_{t = 0}, \partial_t\alpha'_2|_{t = 0})' - (\alpha'_2|_{t = 0}, \partial_t\alpha'_1|_{t = 0})'] \, dx' \\
+  &\quad = -\frac{i}{4\pi} \int_{p'} \frac{1}{|p'|} [-(f'_1(|p'|, p'), f'_2(-|p'|, -p'))' + (f'_1(-|p'|, p'), f'_2(|p'|, -p'))'] \, dp' \\
+  &\quad = -\frac{i}{2\pi} \int_{p \in \mathcal{\mathcal{O}_0^+}} [-(f'_1(p), f'_2(-p))' + (f'_1(-p), f'_2(p))'] \, d\mu(p)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  &\int_{x'} (\alpha'_1|_{t = 0}, d_{x'}\alpha_{2, 0}|_{t = 0})' \, dx' \\
+  &\quad = \int_{p'} (\widehat{\alpha'_1|_{t = 0}}(p'), \widehat{d_{x'}\alpha_{2, 0}|_{t = 0}}(-p'))' \, dp' \\
+  &\quad = -\frac{i}{8\pi} \int_{p'} \frac{1}{|p'|^2} (f'_1(|p'|, p') + f'_1(-|p'|, p'), p')' (f_{2, 0}(|p'|, -p') - f_{2, 0}(-|p'|, -p')) \, dp' \\
+  &\quad = -\frac{i}{8\pi} \int_{p'} \frac{1}{|p'|} (f_{1, 0}(|p'|, p') + f_{1, 0}(-|p'|, p'))(f_{2, 0}(|p'|, -p') - f_{2, 0}(-|p'|, -p')) \, dp'
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  &\int [(\alpha'_1|_{t = 0}, d_{x'}\alpha_{2, 0}|_{t = 0})' - (\alpha'_2|_{t = 0}, d_{x'}\alpha_{1, 0}|_{t = 0})'] \, dx' \\
+  &\quad = -\frac{i}{2\pi} \int_{p \in \mathcal{\mathcal{O}_0^+}} [-f_{1, 0}(p)f_{2, 0}(-p) + f_{1, 0}(-p)f_{2, 0}(p)] \, d\mu(p)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  [\alpha_1, \alpha_2] &= -\frac{i}{2\pi} \int_{p \in \mathcal{\mathcal{O}_0^+}} [-(f_1(p), f_2(-p)) + (f_1(-p), f_2(p))] \, d\mu(p) \\
+  &= \frac{1}{\pi} \int_{p \in \mathcal{O}_0^+} -\mathrm{Im} (f_1, \bar{f_2}) \, d\mu(p) \\
+  &= \frac{1}{\pi} \int_{p \in \mathcal{O}_0^+} \mathrm{Im} (f_1, \bar{f_2})_\mathcal{N} \, d\mu(p)
+\end{aligned}
+$$
