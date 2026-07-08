@@ -256,4 +256,80 @@ $$
 
 ${}$(3) $\mathcal{D}$ は $\varphi(\omega_1) \cdots \varphi(\omega_n)\Omega$ で生成される
 
-$\{ k_\omega \mid \omega \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = D_+$ から従う
+$\{ k_\omega \mid \omega \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = D_+$ から従う。証明はおサボり
+
+# 一般の free Wightman QFT
+
+https://zenn.dev/link/comments/eec29d6e814a2a
+
+$m \ge 0$
+$V$: 次元 $d$ の Minkowski 空間
+$G \coloneqq \mathrm{Spin}_0(V)$
+
+$p_0 \in \mathcal{O}_m^+$ を固定する。$m > 0$ ならば
+
+$$
+G_{p_0} = \mathrm{Spin}(p_0^\perp)
+$$
+
+$m = 0$ ならば
+
+$$
+1 \to p_0^\perp / \mathbb{R}p_0 \xrightarrow{j} G_{p_0} \to \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \to 1
+$$
+
+$j$ は $\frac{1}{2} v p_0 \in \mathfrak{spin}(V) \subset C^+(V) \ (v \in p_0^\perp)$ を用いて
+
+$$
+j(v) \coloneqq e^{\frac{1}{2} v p_0} = 1 + \frac{1}{2} v p_0
+$$
+
+と定義する。この完全列は右分裂を持つから、$G_{p_0} \simeq \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \ltimes (p_0^\perp / \mathbb{R}p_0)$
+
+$G_{p_0}$ の半単純部分 $G'$ は
+
+$$
+G' \coloneqq \begin{cases}
+  G_{p_0} \simeq \mathrm{Spin}(p_0^\perp) &\quad (m > 0) \\
+  G_{p_0} / (p_0^\perp / \mathbb{R}p_0) \simeq \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) &\quad (m = 0)
+\end{cases}
+$$
+
+であり、コンパクト
+
+実 super 表現 $G \curvearrowright \rho$, $G' \curvearrowright \alpha$ と $0$ でない $G_{p_0}$ 準同型
+
+$$
+i: \rho|_{G_{p_0}} \to \alpha
+$$
+
+を固定する
+
+[Free scalar]
+$\rho \coloneqq \mathbb{R}$, $\alpha \coloneqq \mathbb{R}$, $i \coloneqq \mathrm{id}_{\mathbb{R}}$
+
+[Free spin, $m = 0$]
+$\rho \coloneqq \Pi S^-$, $\alpha \coloneqq \mathrm{Ker}(s(p_0)) \subset \Pi S^+$, $i \coloneqq s(p_0)$
+
+[Free guage, $m = 0$]
+$\rho \coloneqq \wedge^2 V$, $\alpha \coloneqq p_0^\perp / \mathbb{R}p_0$, $i \coloneqq \iota(p_0)$
+
+[Free spin, $m > 0$]
+$\rho \coloneqq \Pi S$, $\alpha \coloneqq \mathrm{Ker}(s(p_0) - m) \subset \Pi S$, $i \coloneqq s(p_0) + m$
+
+[Free guage, $m > 0$]
+$\rho \coloneqq \wedge^2 V$, $\alpha \coloneqq p_0^\perp$, $i \coloneqq \iota(p_0)$
+
+一旦保留
+
+# Truncated Wightman function
+
+一旦スキップ
+
+# Gaussian measure
+
+一旦スキップ
+
+# Normal ordering
+
+一旦スキップ
