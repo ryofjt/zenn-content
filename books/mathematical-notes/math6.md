@@ -1,0 +1,1016 @@
+---
+title: "math6"
+---
+
+# 組成列
+
+$R$: 可換とは限らない単位的環
+
+加群は特に断らない限り、左加群を考える
+
+長さ有限の $R$ 加群の組成因子たちは組成列に依らない
+
+全ての単純 $R$ 加群には左 $R$ 加群 ${}_RR$ からの全射がある
+
+$M$: $R$ 加群
+$M$ は長さ有限 $\Leftrightarrow$ $M$ は Noether 的 かつ Artin 的
+
+# 半単純加群
+
+$M$: $R$ 加群
+$\mathrm{rad}(M)$ を $M$ の極大部分加群の共通部分とする
+$\mathrm{soc}(M)$ を $M$ の単純部分加群の和とする
+$\mathrm{top}(M) \coloneqq M / \mathrm{rad}(M)$
+
+$R$ 加群 $M$ が半単純とは、以下の同値な条件を満たすこと
+(1) $M = \mathrm{soc}(M)$
+(2) 単純加群の直和
+(3) 全ての部分加群が直和因子
+
+(3) $\Rightarrow$ (1) のみ示す。まず、任意の部分加群が (3) の性質を持つことがわかる。$M = \mathrm{soc}(M) \oplus M'$ と分解できる。$M' \ne 0$ と仮定する。$0 \ne x \in M'$ を固定する。$\mathrm{ann}x \subsetneq R$ だから、極大な左イデアル $\mathrm{ann}x \subset m \subset R$ が存在する。$N \coloneqq m / \mathrm{ann}x \subset R / \mathrm{ann}x \simeq Rx \subset M'$ とすると、$Rx / N \simeq R / m$ は単純加群だから矛盾する
+
+半単純加群の subquotient も半単純
+
+# Jacobson 根基
+
+以下は全て一致し、Jacobson 根基と呼ばれる。$J(R)$ で表す
+(1) 極大左イデアルの共通部分
+(1') 極大右イデアルの共通部分
+(2) $\{ x \in R \mid 1 + Rx \subset R^\times \}$
+(2') $\{ x \in R \mid 1 + xR \subset R^\times \}$
+(3) $\{ x \in R \mid 1 + RxR \subset R^\times \}$
+
+(1) $\subset$ (3)
+$J \subset R$ を極大左イデアルの共通部分とする
+
+$$
+J = \{ x \in R \mid \text{全ての単純左加群 } M \text{ に対して } xM = 0 \}
+$$
+
+$J$ は両側イデアルなことがわかる。$x \in J$ とすると、$1 + x \in R^\times$ なことを示す。$R(1 + x) = R$ だから、ある $y \in R$ が存在して $y(1 + x) = 1$。$y = 1 - yx$ も左逆元を持つから、ある $z \in R$ が存在して $zy = 1$
+
+$$
+z = zy(1 + x) = 1 + x
+$$
+
+だから、$y$ は $1 + x$ の逆元
+
+(3) $\subset$ (2) は明らか
+
+(2) $\subset$ (1)
+$x \in R$ は $1 + Rx \subset R^\times$ とする。$m \subset R$ を極大左イデアルとする。$x \not\in m$ とすると、$1 \in m + Rx$ だが矛盾する
+
+[中山の補題]
+$M$: 有限 $R$ 加群
+$J(R)M = M$ ならば $M = 0$
+
+$x_1, \dots, x_n \in M$ を極小な生成系とする。$n \ge 1$ と仮定する。$x_1 = \sum_{i = 1}^n r_ix_i \ (r_i \in J(R))$ と表せる
+
+$$
+(1 - r_1)x_1 = \sum_{i = 2}^n r_ix_i
+$$
+
+だが、$1 - r_1 \in R^\times$ だから極小性に矛盾する
+
+$R$ が左 Artin 環ならば、$J(R)$ は冪零
+
+$$
+J(R) \supset J(R)^2 \supset \cdots
+$$
+
+は停留するから、ある $n \ge 1$ が存在して、$I \coloneqq J(R)^n$ とすると $I^2 = I$。$I \ne 0$ と仮定する。左イデアル $K \subset R$ で $IK \ne 0$ となるもののうち極小なものを $K_0 \subset R$ とする。$x \in K_0$ が存在して、$Ix \ne 0$。$Ix = K_0$。よって、$y \in I$ が存在して $yx = x$。$y \in J(R)$ に矛盾する
+
+# 半単純環
+
+$R$ が半単純とは、${}_RR$ が半単純なことをいう
+
+$R$ が半単純なことと左 Artin 環かつ $J(R) = 0$ は同値
+
+$\Rightarrow$
+$1 \in R$ だから、${}_RR$ は単純左加群の有限直和。よって、${}_RR$ は長さ有限かつ $J(R) = 0$
+
+$\Leftarrow$
+有限個の極大左イデアルの共通部分たちの中で極小なもの $M_1 \cap \cdots \cap M_n$ をとる。$J(R) = 0$ だから、$M_1 \cap \cdots \cap M_n = 0$。${}_RR \to \bigoplus_{i = 1}^n R / M_i$ は単射
+
+$R$: 左 Artin 環
+$M$: $R$ 加群
+
+$$
+\mathrm{rad}(M) = J(R)M
+$$
+
+$\supset$
+$N \subset M$ を極大部分加群とする。$J(R)(M / N) = 0$ だから $J(R)M \subset N$
+
+$\subset$
+$M / J(R)M$ は $R / J(R)$ 加群として半単純。よって、$R$ 加群としても $M / J(R)M$ は半単純
+
+# 局所環
+
+$R$ に対して以下は同値
+(1) 唯一の極大左イデアルを持つ
+(1') 唯一の極大右イデアルを持つ
+(2) 可逆でない元全体は両側イデアルをなす
+このとき、それらは一致し、$R$ は局所環と呼ばれる
+
+(1) $\Rightarrow$ (2)
+$m \subset R$ を唯一の極大左イデアルとする。$m = J(R)$ は両側イデアル。$x \in m$ は可逆でない。$x \not\in m$ とする。$Rx = R$ だから、ある $y \in R$ が存在して $yx = 1$。$y \not\in m$ だから、ある $z \in R$ が存在して $zy = 1$
+
+$$
+z = zyx = x
+$$
+
+${}$(2) $\Rightarrow$ (1)
+極大左イデアルは可逆でない元からなることから明らか
+
+# Artin–Wedderburn theorem
+
+$R$ が半単純環 $\Leftrightarrow$ $k_1, \dots, k_n \ge 1$ と斜体 $D_1, \dots, D_n$ が存在して、$R \simeq \prod_{i = 1}^n M_{k_i}(D_i)$
+
+$\Rightarrow$ のみ示す。$R = \bigoplus_{i = 1}^n S_i^{\oplus k_i}$ と分解する
+
+$$
+R^\mathrm{op} \simeq \mathrm{End}_R({}_RR) \simeq \prod_{i = 1}^n M_{k_i}(\mathrm{End}_R(S_i))
+$$
+
+# Akizuki–Hopkins–Levitzki theorem
+
+左 Artin 環 $R$ は左 Noether 環
+
+$J(R)$ は冪零だから
+
+$$
+R = J(R)^0 \supset J(R)^1 \supset J(R)^2 \supset \cdots \supset J(R)^n = 0
+$$
+
+$M_i \coloneqq J(R)^i / J(R)^{i + 1} \ (i \ge 0)$ とする。$M_i$ は $R$ 加群として Artin 的だから、$\bar{R} \coloneqq R / J(R)$ 加群としても Artin 的。$\bar{R}$ は半単純環だから、$\bar{R}$ 加群 $M_i$ は半単純。よって、$\bar{R}$ 加群 $M_i$ は有限個の単純 $\bar{R}$ 加群の直和。よって、$\bar{R}$ 加群 $M_i$ は長さ有限だから、$R$ 加群としても長さ有限
+
+# 直既約加群
+
+$0$ でない $R$ 加群 $M$ が直既約とは、$0$ でない $R$ 加群の直和に分解できないことをいう。既約ならば直既約
+
+[Fitting の補題]
+$M$: 長さ $n$ の $R$ 加群
+$g \in \mathrm{End}_R(M)$
+
+$$
+M = \mathrm{Im}(g^n) \oplus \mathrm{Ker}(g^n)
+$$
+
+$M = g^0(M) \supset g^1(M) \supset g^2(M) \supset \cdots$ を考えると、$g^n(M) = g^{n + 1}(M) = \cdots$。$x \in M$ とする。$y \in M$ が存在して、$g^n(x) = g^{2n}(y)$
+
+$$
+x = g^n(y) + (x - g^n(y)) \in \mathrm{Im}(g^n) + \mathrm{Ker}(g^n)
+$$
+
+$$
+0 = \mathrm{Ker}(g^0) \subset \mathrm{Ker}(g^1) \subset \mathrm{Ker}(g^2) \subset \cdots
+$$
+
+を考えると、$\mathrm{Ker}(g^n) = \mathrm{Ker}(g^{n + 1}) = \cdots$。$g^n(z) \in \mathrm{Im}(g^n) \cap \mathrm{Ker}(g^n)$ とする。$g^{2n}(z) = 0$ だから、$g^n(z) = 0$
+
+$M$: 長さ有限かつ直既約な $R$ 加群
+$\mathrm{End}_R(M)$ は局所環で、極大イデアルは冪零
+
+まず、Fitting の補題から、$\mathrm{End}_R(M)$ の元は可逆か冪零。$\mathrm{End}_R(M)$ の可逆でない元全体が両側イデアルをなすことを示せば、$\mathrm{End}_R(M)$ が局所環なことがわかる。$g \in \mathrm{End}_R(M)$ は可逆でないとし、$f \in \mathrm{End}_R(M)$ とする。$g$ は単射でないから $fg$ も単射でない。$g$ は全射でないから $gf$ も全射でない。また、$g_1, g_1 \in \mathrm{End}_R(M)$ は可逆でないとする。$g_1 + g_2$ が可逆だと仮定し、逆元を $u \in \mathrm{End}_R(M)$ とする。$ug_1$ は可逆でないから冪零。よって、$ug_2 = 1_M - ug_1$ は可逆となって矛盾する。最後に $\mathrm{End}_R(M)$ の極大イデアル $m$ が冪零なことを示す。$M = m^0M \supset m^1M \supset m^2M \supset \cdots$ は停留するから、ある $n \ge 0$ が存在して、$N \coloneqq m^nM$ とすると、$mN = N$。$N \ne 0$ と仮定する。部分加群 $K \subset M$ で $mK \ne 0$ となるもののうち極小なものを $K_0 \subset M$ とする。$x \in K_0$ が存在して $mx \ne 0$。$mx = K_0$。よって、$g \in m$ が存在して $g(x) = x$。$1_M - g$ は可逆だから、$x = 0$ となって矛盾する
+
+$M$: $R$ 加群
+$\mathrm{End}_R(M)$ が局所環ならば、$M$ は直既約
+
+$M \ne 0$ は明らか。$0$ でない $R$ 加群 $A, B$ が存在して $M \simeq A \oplus B$ だと仮定する。$\mathrm{pr}_A, \mathrm{pr}_B \in \mathrm{End}_R(M)$ は可逆でないが、$\mathrm{pr}_A + \mathrm{pr}_B = 1_M$ は可逆になって矛盾する
+
+# Krull–Schmidt の定理
+
+[Krull–Schmidt–Azumaya の定理]
+$M$: $R$ 加群
+
+$$
+M = N_1 \oplus \cdots \oplus N_n = L_1 \oplus \cdots \oplus L_l
+$$
+
+を有限直和への 2 通りの分解とする。$\mathrm{End}_R(N_i), \mathrm{End}_R(L_j)$ が局所環とすると、$n = l$ かつ $\sigma \in \mathfrak{S}_n$ が存在して
+
+$$
+M = N_1 \oplus \cdots \oplus N_i \oplus L_{\sigma(i + 1)} \oplus \cdots \oplus L_{\sigma(n)}
+$$
+
+単なる同型ではなく $M$ での内部直和として等号で成り立つことに注意する
+
+$n$ に関する帰納法で示す。$n = 0$ の場合は明らか。$n \ge 1$ とする。$\mu_{ij}: L_j \to N_i$, $\nu_{ji}: N_i \to L_j$ とする。$\mu_{nj}\nu_{jn} \in \mathrm{End}_R(N_n)$ は
+
+$$
+\sum_{j = 1}^l \mu_{nj}\nu_{jn} = 1_{N_n}
+$$
+
+を満たすから、ある $1 \le \sigma_n \le l$ が存在して $\mu_{n\sigma_n}\nu_{\sigma_nn}$ は可逆。$0 \to \mathrm{Ker}\mu_{n\sigma_n} \to L_{\sigma_n} \xrightarrow{\mu_{n\sigma_n}} N_n$ は右分裂するから $\mu_{n\sigma_n}$ は同型
+
+$$
+0 \to N_1 \oplus \cdots \oplus N_{n - 1} \to M \to N_n \to 0
+$$
+
+は $N_n \xrightarrow{\mu_{n\sigma_n}^{-1}} L_{\sigma_n} \to M$ によって右分裂するから
+
+$$
+M = N_1 \oplus \cdots \oplus N_{n - 1} \oplus L_{\sigma_n}
+$$
+
+$L' \coloneqq L_1 \oplus \cdots \oplus \check{L}_{\sigma_n} \oplus \cdots \oplus L_l$ とする
+
+$$
+L' = \pi_{L'}(N_1) \oplus \cdots \oplus \pi_{L'}(N_{n - 1})
+$$
+
+だから、帰納法の仮定から $n = l$ かつ $\sigma: \{ 1, \dots, n - 1 \} \xrightarrow{\sim} \{ 1, \dots, \check{\sigma}_n, \dots, l \}$ が存在して
+
+$$
+L' = \pi_{L'}(N_1) \oplus \cdots \oplus \pi_{L'}(N_i) \oplus L_{\sigma(i + 1)} \oplus \cdots \oplus L_{\sigma(n - 1)}
+$$
+
+よって
+
+$$
+M = N_1 \oplus \cdots \oplus N_i \oplus L_{\sigma(i + 1)} \oplus \cdots \oplus L_{\sigma(n - 1)} \oplus L_{\sigma_n}
+$$
+
+[Krull–Schmidt の定理]
+$M$: 長さ有限の $R$ 加群
+
+$$
+M = N_1 \oplus \cdots \oplus N_n = L_1 \oplus \cdots \oplus L_l
+$$
+
+を直既約加群の有限直和への 2 通りの分解とすると、$n = l$ であり、$\sigma \in \mathfrak{S}_n$ が存在して $M_i \simeq N_{\sigma(i)}$
+
+# 冪等元
+
+${}_RR$ の直和因子で直既約なものを principal indecomposable module (PIM) という
+
+$e \in R$ が冪等元とは、$e^2 = e$ が成り立つことをいう。冪等元 $e \in R$ が原始的とは、$e \ne 0$ かつ $0$ でない冪等元 $e_1, e_2 \in R$ で $e_1e_2 = e_2e_1 = 0$ なものを用いて $e = e_1 + e_2$ と表せないことをいう
+
+$R$ の直和因子 $\Leftrightarrow$ 冪等元 $e \in R$ で $Re$ と表せる
+PIM $\Leftrightarrow$ 原始的冪等元 $e \in R$ で $Re$ と表せる
+
+$e \in R$ が原始的冪等元ならば、$Re$ が直既約なことのみ示す。$0$ でない左イデアル $I, J \subset R$ が存在して、$Re = I \oplus J$ だと仮定する。$e = e_1 + e_2$ と分解できる。$\cdot e = 1_{Re}$ だから、$e_1e = e_1$。よって、$e_1^2 = e_1$ かつ $e_1e_2 = 0$。同様にして、$e_2^2 = e_2$ かつ $e_2e_1 = 0$。$1_{Re} = \cdot e = \cdot e_1 + \cdot e_2$ だから $I = Re_1$, $J = Re_2$ であり、$e_1, e_2$ が $0$ でないこともわかる。よって、$e$ が原始的なことに矛盾する
+
+冪等元 $e, f \in R$ は $Re = Rf$ を満たすとする。ある $u \in R^\times$ が存在して、$e = ufu^{-1}$
+
+まず、$\cdot f = 1_{Rf}$ だから $ef = e$。同様にして、$fe = f$。$(e - f)^2 = 0$ だから、$1 + e - f$ は可逆
+
+$$
+(1 + e - f)f(1 + e - f)^{-1} = (1 + e - f)f(1 - e + f) = e
+$$
+
+$R$: 左 Artin 環
+
+$$
+1 = e_1 + \cdots + e_n = f_1 + \cdots + f_m
+$$
+
+を $1$ の互いに直交する原始的冪等元の和への 2 通りの分解とする。$n = m$ かつ $\sigma \in \mathfrak{S}_n$ と $u \in R^\times$ が存在して、$e_i = uf_{\sigma(i)}u^{-1}$
+
+まず、$n = m$ かつ $Re_i = Rf_i$ が成り立てば、$e_i = f_i$ を示す。$\cdot e_j$ は $Re_i$ に $\delta_{ij}$ 倍で作用するから
+
+$$
+f_ie_j = \begin{cases}
+  f_i &\quad (i = j) \\
+  0 &\quad (i \ne j)
+\end{cases}
+$$
+
+よって、$e_i = \sum_j f_j e_i = f_i$。次に、一般の場合を示す
+
+$$
+{}_RR = Re_1 \oplus \cdots \oplus Re_n = Rf_1 \oplus \cdots \oplus Rf_m
+$$
+
+だから、Krull–Schmidt の定理から、$n = m$ かつ $\sigma \in \mathfrak{S}_n$ が存在して、$Re_i \simeq Rf_{\sigma(i)}$。よって、${}_RR = \bigoplus_i Re_i \simeq \bigoplus Rf_{\sigma(i)} = {}_RR$ ができるが、ある $u \in R^\times$ を右からかけることに対応する。よって、$Re_i = Rf_{\sigma(i)}u^{-1} = Ruf_{\sigma(i)}u^{-1}$
+
+$I \subset R$: 冪零な両側イデアル
+$\bar{e} \in R / I$ を冪等元とする。$\bar{e}$ の持ち上げ $e \in R$ で冪等なものが存在する
+
+$\bar{e}$ の持ち上げ $x \in R$ を固定する。$x - x^2 \in I$ だから、ある $n \ge 1$ が存在して
+
+$$
+x^n(1 - x)^n = 0
+$$
+
+二項定理から、ある $f, g \in \mathbb{Z}[x] \subset R$ が存在して
+
+$$
+fx^n + g(1 - x)^n = 1
+$$
+
+$fx^n$ が求める冪等元であることを示す。$(fx^n)^2 = fx^n(fx^n + g(1 - x)^n) = fx^n$ であり
+
+$$
+fx^n - x = fx^n(1 - x) - gx(1 - x)^n \in I
+$$
+
+# Corner $eRe$
+
+$R$: 環
+$e \in R$: 冪等元
+$eRe$ は $e$ を単位元とする環だが
+
+$$
+J(eRe) = eJ(R)e
+$$
+
+$\supset$
+$x \in eJ(R)e$ とする。任意の $r \in eRe$ に対して、$e + rx \in eRe$ が可逆なことを示せば良い。$u \in R$ が存在して $u(1 + rx) = (1 + rx)u = 1$
+
+$$
+\begin{aligned}
+  eue(e + rx) &= eu(1 + rx)e = e \\
+  (e + rx)eue &= e(1 + rx)ue = e
+\end{aligned}
+$$
+
+$\subset$
+$x \in J(eRe)$ とする。$x = exe$ だから、$x \in J(R)$ を示せば良い。任意の $r \in R$ に対して、ある $u \in eRe$ が存在して $u(e + erex) = (e + erex)u = e$。形式的には
+
+$$
+\begin{aligned}
+  (1 + rx)^{-1} &= 1 + \sum_{i = 1}^\infty (-1)^i (rx)^i e \\
+  &= 1 + \sum_{i = 1}^\infty (-1)^i (rx)^i (u + erxu) \\
+  &= 1 + \sum_{i = 1}^\infty (-1)^i ((rx)^i u + (rx)^{i + 1}u) \\
+  &= 1 - rxu
+\end{aligned}
+$$
+
+だが、実際に
+
+$$
+\begin{aligned}
+  (1 + rx)(1 - rxu) &= 1 + rx - rxu - rxrxu = 1 + rx(e - eu - erexu) = 1 \\
+  (1 - rxu)(1 + rx) &= 1 + rx - rxu - rxurx = 1 + rx(e - ue - uerex) = 1
+\end{aligned}
+$$
+
+$e \in R$: 冪等元
+$R$ 加群 $M$ に対して、アーベル群として $\mathrm{Hom}_R(Re, M) \simeq eM$
+
+$e \in R$: 冪等元
+$\mathrm{End}(Re) \simeq (eRe)^\mathrm{op}$。一般に、両側イデアル $I \subset R$ に対して、$\mathrm{End}_R(Re / Ie) \simeq (eRe / eIe)^\mathrm{op}$
+
+$e \in R$: 冪等元
+$R$ が左 Artin 環ならば $eRe$ も左 Artin 環
+
+$I_1 \supset I_2 \supset \cdots$ を $eRe$ の左イデアルの降鎖列とする。$RI_1 \supset RI_2 \supset \cdots$ は $R$ の左イデアルの降鎖列だから、$RI_N = RI_{N + 1} = \cdots$。$I_n = eRI_n$ から従う
+
+# PIM
+
+$R$: 左 Artin 環
+$e \in R$ が原始的冪等元ならば、$\bar{e} \in R / J(R)$ も原始的冪等元
+
+まず、$\bar{e} \ne 0$ を示す。$e \in J(R)$ と仮定すると、ある $u \in R$ が存在して $u(1 - e) = 1$。よって、$e = u(1 - e)e = 0$ となって矛盾する。$0$ でない冪等元 $\bar{p}, \bar{q} \in R / J(R)$ で $\bar{p}\bar{q} = \bar{q}\bar{p} = 0$ なものが存在して、$\bar{e} = \bar{p} + \bar{q}$ だと仮定する。$\bar{p} = (\bar{p} + \bar{q})\bar{p}(\bar{p} + \bar{q}) = \bar{e}\bar{p}\bar{e} \in \overline{eRe}$。$\overline{eRe} = eRe / (eRe \cap J(R)) = eRe / eJ(R)e$。$\bar{p} \in \overline{eRe}$ の持ち上げ $p \in eRe$ で冪等なものが存在する。$q \coloneqq e - p \in eRe$ も冪等で $\bar{q} \in \overline{eRe}$ の持ち上げ。$pq = qp = 0$ だから、$e \in R$ が原始的なことに矛盾する
+
+[別証明]
+$\bar{e} \ne 0$ の証明は同様。$\mathrm{End}(Re)^\mathrm{op} \simeq eRe$ は局所環だから、$\overline{eRe} \simeq eRe / eJ(R)e = eRe / J(eRe)$ は斜体。$0$ でない冪等元 $\bar{p}, \bar{q} \in R / J(R)$ で $\bar{p}\bar{q} = \bar{q}\bar{p} = 0$ なものが存在して、$\bar{e} = \bar{p} + \bar{q}$ だと仮定する。$\bar{p}, \bar{q} \in \overline{eRe}$ だが、$\overline{eRe}$ の $0$ でない冪等元は $\bar{e}$ しかないので矛盾する
+
+$R$: 左 Artin 環
+PIM $P$ は唯一の極大部分加群を持つ。特に、$\mathrm{top}(P)$ は単純
+
+$P / \mathrm{rad}(P) = P / J(R)P$ が単純なことを示せば良い。原始的冪等元 $e \in R$ を用いて $P = Re$ と表せば、$P / J(R)P = Re / J(R)e$。$Re \twoheadrightarrow (R / J(R))\bar{e}$ を考えれば
+
+$$
+(R / J(R))\bar{e} \simeq Re / (Re \cap J(R)) = Re / J(R)e
+$$
+
+$\bar{e} \in R / J(R)$ が原始的なことから従う
+
+$R$: 左 Artin 環
+$P, Q$: PIM
+
+$$
+P \simeq Q \Leftrightarrow \mathrm{top}(P) \simeq \mathrm{top}(Q)
+$$
+
+$\Leftarrow$ を示せば良い。$P$ は射影的だから、$f: P \to Q$ が存在して
+
+$$
+\begin{array}{ccc}
+  Q &\twoheadrightarrow& Q / J(R)Q \\
+  \uparrow{\scriptsize{f}} && \uparrow{\scriptsize{\simeq}} \\
+  P &\twoheadrightarrow& P / J(R)P
+\end{array}
+$$
+
+合成 $P \xrightarrow{f} Q \twoheadrightarrow Q / J(R)Q$ は全射だから、$Q = J(R)Q + \mathrm{Im}f$。よって、$Q / \mathrm{Im}f = J(R)(Q / \mathrm{Im}f)$。$Q$ は冪等元で生成されるから、中山の補題から $Q / \mathrm{Im}f = 0$。よって、$f$ は全射。$Q$ は射影的だから、$0 \to \mathrm{Ker}f \to P \xrightarrow{f} Q \to 0$ は分裂する。$P$ は直既約だから、$f$ は同型
+
+$R$: 左 Artin 環
+PIM の同型類と単純加群の同型類は 1 対 1 に対応する
+
+単純加群 $S$ はある PIM $P$ で $S \simeq \mathrm{top}(P)$ と表せることを示せば良い。全射 ${}_RR \to S$ がある。PIM $P_1, \dots, P_n$ を用いて ${}_RR = P_1 \oplus \cdots \oplus P_n$ と分解する。ある $i$ が存在して $P_i \to {}_RR \to S$ は全射
+
+$R$: 左 Artin 環
+$e \in R$: 原始的冪等元
+$M$: 有限 $R$ 加群 ($\Leftrightarrow$ 長さ有限な $R$ 加群)
+
+$$
+[M : \mathrm{top}(Re)] = \ell_{\mathrm{Hom}(Re)} \mathrm{Hom}_R(Re, M) = \ell_{eRe} eM
+$$
+
+$\mathrm{Hom}(Re)^\mathrm{op} = eRe$ は局所環だから、単純 $eRe$ 加群は $eRe / eJ(R)e \simeq \mathrm{End}_R(\mathrm{top}(Re))^\mathrm{op}$ しかないことに注意
+
+まず、$M$ が単純な場合を示す。$M \not\simeq \mathrm{top}(Re)$ とすると、全て $0$ になる。また
+
+$$
+\ell_{eRe} e\mathrm{top}(Re) = \ell_{eRe} e(Re / Je) = \ell_{eRe} (eRe / eJe) = 1
+$$
+
+次に、一般の $M$ の場合を示す。$0 = M_0 \subset M_1 \subset \cdots \subset M_n = M$ を組成列とする。$0 = eM_0 \subset eM_1 \subset \cdots \subset eM_n = eM$。$Re$ は射影的だから、$\mathrm{Hom}_R(Re, -) = e \cdot -$ は完全関手であり、$eM_i / eM_{i - 1} = e(M_i / M_{i - 1})$。よって
+
+$$
+\begin{aligned}
+  \ell_{eRe} eM &= \sum_{i = 1}^n \ell_{eRe}(eM_i / eM_{i - 1}) \\
+  &= \sum_{i = 1}^n \ell_{eRe}(e(M_i / M_{i - 1})) \\
+  &= \sum_{i = 1}^n [M_i / M_{i - 1} : \mathrm{top}(Re)] \\
+  &= [M : \mathrm{top}(Re)]
+\end{aligned}
+$$
+
+# Burnside’s theorem on matrix algebras
+
+$R$: 環
+$M$: 単純 $R$ 加群
+$D \coloneqq \mathrm{End}_R(M)$ は斜体だが、$M$ は左 $D$ 加群になる。$\mathrm{dim}_D M < \infty$ とすると、環準同型
+
+$$
+R \to \mathrm{End}_D(M)
+$$
+
+は全射
+
+$x_1, \dots, x_n \in M$ を左 $D$ 加群としての基底とする。$x \coloneqq (x_1, \dots, x_n) \in M^n$ とすると、$Rx = M^n$ を示せば良い。$M^n$ は半単純だから、$M^n = Rx \oplus P$ と分解できる。$\mathrm{pr}_P = (\varphi_{ij}) \in M_n(\mathrm{End}_R(M)) = M_n(D)$ を行列表示とする。$\mathrm{pr}_P(x) = 0$ だから
+
+$$
+\sum_j \varphi_{ij}x_j = 0 \quad (1 \le \forall i \le n)
+$$
+
+$x_j$ たちは基底だったから、$\varphi_{ij} = 0$。よって、$\mathrm{pr}_P = 0$ だから $P = 0$
+
+同じ証明で以下が言える
+
+[Jacobson density theorem]
+$R$: 環
+$M$: 単純 $R$ 加群
+$D \coloneqq \mathrm{End}_R(M)$ は斜体だが、$M$ は左 $D$ 加群になる。$x_1, \dots, x_n \in M$ が $D$ 上線型独立なら、$R$ 加群 $M^n$ は $(x_1, \dots, x_n) \in M^n$ で生成される
+
+# 体上の代数
+
+$R$: 体 $K$ 上の代数
+
+$R$ 加群 $M$ に対して、以下は同値
+(1) 任意の体拡大 $L / K$ に対して、$R \otimes_K L$ 加群 $M \otimes_K L$ は単純
+(2) $M$ が単純かつ $\mathrm{End}_R(M) = K$
+このとき、$M$ は絶対既約という。さらに、$\mathrm{dim}_K M < \infty$ のとき、以下も同値
+(3) $R \otimes_K \bar{K}$ 加群 $M \otimes_K \bar{K}$ は単純
+
+(1) $\Rightarrow$ (2)
+$M$ が単純なことは明らか。$\mathrm{End}_R(M)$ は $K$ 上の斜体。$M$ は $R \otimes_K \mathrm{End}_R(M)$ 加群だから、任意の中間可換体 $K \subset L \subset \mathrm{End}_R(M)$ に対して、$M$ は $R \otimes_K L$ 加群。$R \otimes_K L$ 加群の準同型 $\mu: M \otimes_K L \ni m \otimes l \mapsto l(m) \in M$ は全射だから同型。$K = L$ を示す。$l \in L \setminus K$ が存在すると仮定する。$0 \ne m \in M$ を固定すれば、$m \otimes l - l(m) \otimes 1 \ne 0$ が $\mathrm{Ker}\mu$ に入ってしまう。$L$ は任意だから、$\mathrm{End}_R(M) = K$
+
+(2) $\Rightarrow$ (1)
+任意の $0 \ne x \in M \otimes_K L$ が $R \otimes_K L$ 加群 $M \otimes_K L$ を生成することを示せば良い。$x = \sum_{i = 1}^n m_i \otimes l_i$ と表示する。$m_i$ たちは $K$ 上一次独立かつ $l_i \ne 0$ として良い。Jacobson density theorem から、任意の $m \in M$ に対して、$r \in R$ が存在して
+
+$$
+(rm_1, rm_2, \dots, rm_n) = (m, 0, \dots, 0)
+$$
+
+$(r \otimes l_1^{-1})x = m \otimes 1$ から従う
+
+(1) $\Rightarrow$ (3) は明らか
+
+$\mathrm{dim}_K M < \infty$ のもとで (3) $\Rightarrow$ (2)
+$\bar{K}$ は $K$ 上自由だから、$M$ は単純なことがわかる
+
+$$
+\mathrm{End}_R(M) \otimes_K \bar{K} \to \mathrm{End}_{R \otimes_K \bar{K}}(M \otimes_K \bar{K})
+$$
+
+は同型なことを示す。まず、単射を示す。$\mathrm{End}_R(M) \otimes_K \bar{K}$ の元は $\sum_i d_i \otimes x_i$ と表せる。$x_i$ たちは $K$ 上一次独立として良い。$M \otimes_K \bar{K}$ への作用が $0$ だとすると
+
+$$
+\sum_i d_i(m) \otimes x_i = 0 \quad (\forall m \in M)
+$$
+
+よって、$d_i = 0$。次に全射を示す。$f \in \mathrm{End}_{R \otimes_K \bar{K}}(M \otimes_K \bar{K})$ とする。$f \in \mathrm{End}_{\bar{K}}(M \otimes_K \bar{K})$ だが、$\mathrm{dim}_K M < \infty$ だから $\mathrm{End}_{\bar{K}}(M \otimes_K \bar{K}) \simeq \mathrm{End}_K(M) \otimes_K \bar{K}$ であり、$f = \sum_i f_i \otimes x_i$ と表示できる。$x_i$ たちは $K$ 上一次独立として良い。$rf = fr$ だから $\sum_i rf_i \otimes x_i = \sum_i f_ir \otimes x_i$ であり、$f_i \in \mathrm{End}_R(M)$。$\sum_i f_i \otimes x_i \in \mathrm{End}_R(M) \otimes_K \bar{K}$ を考えれば良い。$\mathrm{End}_{R \otimes_K \bar{K}}(M \otimes_K \bar{K})$ は $\bar{K}$ 上の斜体で $\bar{K}$ 上有限次元だから、$\bar{K}$ と一致する。よって
+
+$$
+\mathrm{dim}_K \mathrm{End}_R(M) = \mathrm{dim}_{\bar{K}}(\mathrm{End}_R(M) \otimes_K \bar{K}) = 1
+$$
+
+全ての単純 $R$ 加群が絶対既約なとき、$R$ は split という
+
+$R$ が split semisimple $\Leftrightarrow$ $k_1, \dots, k_n \ge 1$ が存在して $R \simeq \prod_{i = 1}^n M_{k_i}(K)$
+
+# 体上の分裂半単純代数
+
+$R$: $K$ 上の分裂半単純代数
+
+$\mathrm{Irr}(R)$ で単純 $R$ 加群の同型類全体を表す。Artin–Wedderburn theorem から
+
+$$
+\mathrm{dim}_K R = \sum_{S \in \mathrm{Irr}(R)} (\mathrm{dim}_K S)^2
+$$
+
+$$
+\Phi: R \to \prod_{S \in \mathrm{Irr}(R)} \mathrm{End}_K(S)
+$$
+
+$\mathrm{Ker}\Phi = J(R) = 0$。両辺の $K$ 上の次元が一致するから、$\Phi$ は同型
+
+
+# Coxeter 群
+
+https://zenn.dev/link/comments/79591909c0e1a5
+
+$W$: 群
+$S \subset W$ は位数 2 の元から成り、$W$ を生成するとする。以下の (1) 〜 (4) は同値
+
+(1) $2 \le m_{s, t} \le \infty \ (s, t \in S, s \ne t)$ があって、$W$ は生成元 $s \in S$ と関係式
+
+$$
+\begin{aligned}
+  &s^2 = 1 \\
+  &(st)^{m_{s, t}} = 1 \quad (m_{s, t} < \infty)
+\end{aligned}
+$$
+
+で定義される
+
+(2) 対称双線形形式付きの実線形空間 $V$, $R \subset \{ v \in V \mid (v, v) > 0 \}$, $\alpha_s \in R \ (s \in S)$, 忠実な表現 $W \curvearrowright V$ があって、以下の (a) 〜 (e) を満たす
+
+(a) $WR \subset R$
+(b) $s \in S$ は $V$ に $\alpha_s$ による鏡映で作用する
+(c) $\alpha_s$ たちは $V$ の基底をなす
+(d) $R^+ \coloneqq R \cap (\sum_{s \in S} \mathbb{R}_{\ge 0}\alpha_s)$, $R^- \coloneqq -R^+$ とすると、$R = R^+ \sqcup R^-$
+(e) $R^+ \cap \mathbb{R}\alpha_s = \{ \alpha_s \}$
+
+(3) Strong Exchange Condition
+$\ell(vsv^{-1}w) \le \ell(w)$ ならば、最短とは限らない表示 $w = s_1 \cdots s_n$ に対して
+
+$$
+vsv^{-1}w = \text{1 つ除いたもの}
+$$
+
+${}$(4) Exchange Condition
+$\ell(sw) \le \ell(w)$ ならば、最短表示 $w = s_1 \cdots s_n$ に対して
+
+$$
+sw = \text{1 つ除いたもの}
+$$
+
+${}$(2) $\Rightarrow$ (3) のみもう一度示す
+
+$s$ の $V$ への作用は $\alpha_s$ による鏡映だから、$\alpha_s$ 成分しか変えない。よって
+
+$$
+R^+ \setminus \{ \alpha_s \} \xrightarrow[s]{\sim} R^+ \setminus \{ \alpha_s \}
+$$
+
+$vsv^{-1}$ は $V$ に $v\alpha_s$ による鏡映で作用する。$v\alpha_s$ と $w^{-1}v\alpha_s$ の正負が逆の場合と同じ場合を考える。正負が逆の場合、最短とは限らない表示 $w = s_1 \cdots s_n$ に対して、ある $1 \le i \le n$ が存在して、$s_{i - 1} \cdots s_1 v\alpha_s$ と $s_i \cdots s_1 v\alpha_s$ の正負は逆。よって、$s_{i - 1} \cdots s_1 v\alpha_s = \pm\alpha_{s_i}$。対応する鏡映を考えると、$W \curvearrowright V$ は忠実だから
+
+$$
+s_{i - 1} \cdots s_1 vsv^{-1} s_1 \cdots s_{i - 1} = s_i
+$$
+
+$$
+vsv^{-1}w = s_1 \cdots s_{i - 1} \check{s}_i s_{i + 1} \cdots s_n
+$$
+
+特に、$\ell(vsv^{-1}w) < \ell(w)$。次に、正負が同じ場合を考える。$(vsv^{-1}w)^{-1}v\alpha_s = w^{-1}vs\alpha_s = -w^{-1}v\alpha_s$ だから、$vsv^{-1}w$ の表示を考えれば、$\ell(w) < \ell(vsv^{-1}w)$。よって、$\ell(vsv^{-1}w) \ne \ell(w)$ であり
+
+$$
+\begin{aligned}
+  \ell(vsv^{-1}w) < \ell(w) &\Leftrightarrow v\alpha_s \text{ と } w^{-1}v\alpha_s \text{ の正負が逆} \\
+  \ell(vsv^{-1}w) > \ell(w) &\Leftrightarrow v\alpha_s \text{ と } w^{-1}v\alpha_s \text{ の正負が同じ}
+\end{aligned}
+$$
+
+特に、$\ell(sw) = \ell(w) \pm 1$ であり
+
+$$
+\begin{aligned}
+  \ell(sw) = \ell(w) - 1 &\Leftrightarrow \alpha_s \text{ と } w^{-1}\alpha_s \text{ の正負が逆} \\
+  &\Leftrightarrow w \text{ は } s \text{ で始まる最短表示を持つ} \\
+  \ell(sw) = \ell(w) + 1 &\Leftrightarrow \alpha_s \text{ と } w^{-1}\alpha_s \text{ の正負が同じ} \\
+  &\Leftrightarrow w \text{ は } s \text{ で始まる最短表示を持たない} \\
+\end{aligned}
+$$
+
+$w = s_1 \cdots s_n$ を最短表示とすると
+
+$$
+\{ \alpha \in R^+ \mid w^{-1}\alpha \in R^- \} = \{ \alpha_{s_1}, s_1 \alpha_{s_2}, \dots, s_1 \cdots s_{n - 1} \alpha_{s_n} \}
+$$
+
+右辺は相異なり、特に
+
+$$
+\ell(w) = \#\{ \alpha \in R^+ \mid w^{-1}\alpha \in R^- \}
+$$
+
+# Weyl 群は Coxeter 群
+
+$(E, R)$: ルート系
+$W \subset O(E)$: Weyl 群
+$R^+ \subset R$: 正ルートたちを固定
+$S \subset R^+$: 単純ルートたち
+
+$W \curvearrowright E$ は Coxeter 群の (2) の条件を満たす
+
+# $\mathfrak{S}_n$
+
+$$
+\begin{aligned}
+  E &\coloneqq \{ x \in \mathbb{R}^n \mid x_1 + \cdots + x_n = 0 \} \\
+  R &\coloneqq \{ e_i - e_j \mid i \ne j \} \subset E
+\end{aligned}
+$$
+
+とすると、$(E, R)$ は $A_{n - 1}$ と呼ばれるルート系になる。$A_{n - 1}$ の Weyl 群は $\mathfrak{S}_n$ であり、$\mathfrak{S}_n \curvearrowright E$ は置換表現から誘導される表現と一致する。$e_i - e_j$ による鏡映は互換 $(i \ j)$ に対応する。$R^+ = \{ e_i - e_j \mid i < j \}$ とすると
+
+$$
+S = \{ e_i - e_{i + 1} \mid 1 \le i \le n - 1 \}
+$$
+
+$\mathfrak{S}_n$ は $s_1, \dots, s_{n - 1}$ と関係式
+
+$$
+\begin{aligned}
+  &s_i^2 = 1 \\
+  &(s_i s_j)^2 = 1 \Leftrightarrow s_i s_j = s_j s_i \quad (j - i \ge 2) \\
+  &(s_i s_{i + 1})^3 = 1 \Leftrightarrow s_i s_{i + 1} s_i = s_{i + 1} s_i s_{i + 1}
+\end{aligned}
+$$
+
+で定義されることもわかる
+
+# 諸々の性質
+
+[Deletion Condition]
+$w = s_1 \cdots s_n$ を最短とは限らない表示とする。いくつかを取り除いて最短表示にできる
+
+$1 \le k \le n$ に対して、$\ell(s_k \cdots s_n) = \ell(s_{k + 1} \cdots s_n) \pm 1$。$w = s_1 \cdots s_n$ が最短でないとすると、ある $1 \le k \le n - 1$ が存在して、$\ell(s_k \cdots s_n) = \ell(s_{k + 1} \cdots s_n) - 1$。$s_k \cdots s_n = s_{k + 1} \cdots \check{s}_l \cdots s_n$ と表せる
+
+$Y \subset S$: 部分集合
+$W_Y \subset W$: $Y$ が生成する部分群
+
+$W_Y$ は $V_Y \coloneqq \mathrm{span}_\mathbb{R} Y \subset V$, $R_Y \coloneqq R \cap V_Y$ とすれば Coxeter 群の (2) の条件を満たす。Deletion Condition から、$v \in W_Y$ に対して
+
+$$
+\ell_Y(v) = \ell(v)
+$$
+
+$\mathfrak{B}^+$ を生成元 $s \in S$ と関係式
+
+$$
+\overbrace{sts \cdots}^{m_{s, t}} = \overbrace{tst \cdots}^{m_{s, t}} \quad (m_{s, t} < \infty)
+$$
+
+で定義されるモノイドとする。$\mathfrak{B}^+ \to W$ がある
+
+[松本の定理]
+$s_1 \cdots s_n = t_1 \cdots t_n \in W$ を 2 つの最短表示とすると、$\mathfrak{B}^+$ 内で $s_1 \cdots s_n = t_1 \cdots t_n$
+
+$n$ に関する帰納法を使う。$n = 0$ なら明らか。$n \ge 1$ とする。$s_1 = t_1$ の場合は明らか。$s_1 \ne t_1$ とする。$W_2 \coloneqq \langle s_1, t_1 \rangle \subset W$ とする。$w \coloneqq s_1 \cdots s_n = t_1 \cdots t_n$ とおく。$W_2 w$ の元で長さが最小のものを $w' \in W$ とする。Deletion Condition から
+
+$$
+\ell(vw') = \ell(v) + \ell(w') \quad (v \in W_2)
+$$
+
+特に、$w'$ は一意的。$v_0 \in W_2$ が存在して、$w = v_0 w'$
+
+$$
+\begin{aligned}
+  \ell(s_1 v_0) &= \ell(s_1 v_0 w') - \ell(w') \\
+  &= \ell(w) - \ell(w') - 1 \\
+  &= \ell(v_0) - 1
+\end{aligned}
+$$
+
+同様にして、$\ell(t_1 v_0) = \ell(v_0) - 1$。よって、$m \coloneqq m_{s_1, t_1} < \infty$ かつ $v_0 = \overbrace{s_1 t_1 s_1 \cdots}^m = \overbrace{t_1 s_1 t_1 \cdots}^m$。$w' = u_1 \cdots u_k$ を最短表示とすれば、$W$ 内で
+
+$$
+\begin{aligned}
+  s_2 \cdots s_n &= \overbrace{t_1 s_1 t_1 \cdots}^{m - 1} u_1 \cdots u_k \\
+  t_2 \cdots t_n &= \overbrace{s_1 t_1 s_1 \cdots}^{m - 1} u_1 \cdots u_k
+\end{aligned}
+$$
+
+であり、全て最短表示。帰納法の仮定から、$\mathfrak{B}^+$ 内で
+
+$$
+\begin{aligned}
+  s_1 \cdots s_n &= \overbrace{s_1 t_1 s_1 \cdots}^m u_1 \cdots u_k \\
+  &= \overbrace{t_1 s_1 t_1 \cdots}^m u_1 \cdots u_k \\
+  &= t_1 \cdots t_n
+\end{aligned}
+$$
+
+# Hecke 代数
+
+$(W, S)$: Coxeter 群
+$R$: 単位的可換環
+$q \in R$
+
+$\mathscr{H}_{R, q}$ を $T_s \ (s \in S)$ と関係式
+
+$$
+\begin{aligned}
+  &(T_s - q)(T_s + 1) = 0 \\
+  &\overbrace{T_s T_t T_s \cdots}^{m_{s, t}} = \overbrace{T_t T_s T_t \cdots}^{m_{s, t}} \quad (m_{s, t} < \infty)
+\end{aligned}
+$$
+
+で定義される $R$ 代数とする。$w \in W$ とする。最短表示 $w = s_1 \cdots s_n$ を用いて
+
+$$
+T_w \coloneqq T_{s_1} \cdots T_{s_n} \in \mathscr{H}_{R, q}
+$$
+
+と定義する。$T_w$ は最短表示 $w = s_1 \cdots s_n$ に依らない
+
+$$
+T_s T_w = \begin{cases}
+  T_{sw} &\quad (\ell(sw) = \ell(w) + 1) \\
+  qT_{sw} + (q - 1)T_w &\quad (\ell(sw) = \ell(w) - 1)
+\end{cases}
+$$
+
+2 つ目を示す。$T_w = T_s T_{sw}$ だから
+
+$$
+T_s T_w = T_s^2 T_{sw} = ((q - 1)T_s + q)T_{sw} = qT_{sw} + (q - 1)T_w
+$$
+
+# Bruhat 順序
+
+$v, w \in W$ に対して、$v \le w$ とは以下の同値な条件を満たすことをいう
+
+(1) ある $w$ の最短表示が存在して、$v$ はある部分表示に一致する
+(2) 任意の $w$ の最短表示に対して、$v$ はある部分表示に一致する
+
+(1) $\Rightarrow$ (2) は松本の定理から従う。(2) から $\le$ は $W$ 上の半順序を定めることがわかる
+
+[Lifting Property]
+$v \le w$ かつ $\ell(sv) = \ell(v) + 1$ かつ $\ell(sw) = \ell(w) - 1$ とすると、$v \le sw$ かつ $sv \le w$
+
+$sw = s_1 \cdots s_n$ を最短表示とする。最短表示 $w = s s_1 \cdots s_n$ のある部分表示は $v$ の最短表示になる。$\ell(sv) = \ell(v) + 1$ だから、$s$ は除去される必要がある
+
+# Hecke 代数の構造
+
+$\mathscr{H}_{R, q}$ は $R$ 加群として $\{ T_w \mid w \in W \}$ で生成される。これが自由生成なことを示す
+
+$\{ e_w \mid w \in W \}$ で生成される自由 $R$ 加群を $E$ とする。$\theta_s: E \to E$ を
+
+$$
+\theta_s(e_w) \coloneqq \begin{cases}
+  e_{sw} &\quad (\ell(sw) = \ell(w) + 1) \\
+  qe_{sw} + (q - 1)e_w &\quad (\ell(sw) = \ell(w) - 1)
+\end{cases}
+$$
+
+で定義する。$\{ \theta_s \} \subset \mathrm{End}_R(E)$ が生成する $R$ 代数を $\mathcal{E}$ とする。$\mathscr{H}_{R, q} \simeq \mathcal{E}$ を示す。まず
+
+$$
+\begin{aligned}
+  \theta_s^2 e_w &= \begin{cases}
+    \theta_s e_{sw} &\quad (\ell(sw) = \ell(w) + 1) \\
+    \theta_s (qe_{sw} + (q - 1)e_w) &\quad (\ell(sw) = \ell(w) - 1)
+  \end{cases} \\
+  &= \begin{cases}
+    qe_w + (q - 1)e_{sw} \\
+    qe_w + (q - 1)qe_{sw} + (q - 1)^2 e_w
+  \end{cases} \\
+  &= (q - 1)\theta_s + q
+\end{aligned}
+$$
+
+$\vartheta_s: E \to E$ を
+
+$$
+\vartheta_s(e_w) \coloneqq \begin{cases}
+  e_{ws} &\quad (\ell(ws) = \ell(w) + 1) \\
+  qe_{ws} + (q - 1)e_w &\quad (\ell(ws) = \ell(w) - 1)
+\end{cases}
+$$
+
+で定義する。$\theta_s$ と $\vartheta_t$ は可換なことを示す。以下の (1) 〜 (6) の場合を考えれば良い
+
+(1) $\ell(swt) = \ell(w) + 2$
+
+$$
+\theta_s \vartheta_t e_w = e_{swt} = \vartheta_t \theta_s e_w
+$$
+
+${}$(2) $\ell(swt) = \ell(w) - 2$
+
+$$
+\theta_s \vartheta_t e_w = q^2 e_{swt} + (q - 1)q(e_{sw} + e_{wt}) + (q - 1)^2 e_w = \vartheta_t \theta_s e_w
+$$
+
+${}$(3) $\ell(swt) = \ell(w)$, $\ell(sw) = \ell(w) - 1$, $\ell(wt) = \ell(w) + 1$
+
+$$
+\theta_s \vartheta_t e_w = qe_{swt} + (q - 1)e_{wt} = \vartheta_t \theta_s e_w
+$$
+
+${}$(4) $\ell(swt) = \ell(w)$, $\ell(sw) = \ell(w) + 1$, $\ell(wt) = \ell(w) - 1$
+
+$$
+\theta_s \vartheta_t e_w = qe_{swt} + (q - 1)e_{sw} = \vartheta_t \theta_s e_w
+$$
+
+${}$(5) $\ell(swt) = \ell(w)$, $\ell(sw) = \ell(w) - 1$, $\ell(wt) = \ell(w) - 1$
+
+$sw = wt$ を示す。$\ell(s(swt)) = \ell(swt) - 1$ だから、$sw = s_1 \cdots s_n$ を最短表示とすると
+
+$$
+wt = s_1 \cdots s_n t \text{ から 1 つ取り除いたもの}
+$$
+
+$t$ 以外を取り除くと、矛盾する
+
+$$
+\theta_s \vartheta_t e_w = qe_{swt} + (q - 1)qe_{sw} + (q - 1)^2 e_w = \vartheta_t \theta_s e_w
+$$
+
+${}$(6) $\ell(swt) = \ell(w)$, $\ell(sw) = \ell(w) + 1$, $\ell(wt) = \ell(w) + 1$
+
+$sw = wt$ を示す。$\ell(s(wt)) = \ell(wt) - 1$ だから、$w = s_1 \cdots s_n$ を最短表示とすると
+
+$$
+swt = s_1 \cdots s_n t \text{ から 1 つ取り除いたもの}
+$$
+
+$t$ 以外を取り除くと矛盾する
+
+$$
+\theta_s \vartheta_t e_w = qe_{swt} + (q - 1)e_{wt} = \vartheta_t \theta_s e_w
+$$
+
+$\theta_s$ の組紐関係式を示す。$w = s_1 \cdots s_n$ を最短表現とすると
+
+$$
+\begin{aligned}
+  \overbrace{\theta_s \theta_t \theta_s \cdots}^{m_{s, t}} e_w &= \overbrace{\theta_s \theta_t \theta_s \cdots}^{m_{s, t}} \vartheta_{s_n} \cdots \vartheta_{s_1} e_1 \\
+  &= \vartheta_{s_n} \cdots \vartheta_{s_1} \overbrace{\theta_s \theta_t \theta_s \cdots}^{m_{s, t}} e_1 \\
+  &= \vartheta_{s_n} \cdots \vartheta_{s_1} e_{w_0} \\
+  &= \overbrace{\theta_t \theta_s \theta_t \cdots}^{m_{s, t}} e_w
+\end{aligned}
+$$
+
+ただし、$w_0 \coloneqq \overbrace{sts \cdots}^{m_{s, t}} = \overbrace{tst \cdots}^{m_{s, t}}$
+
+よって、$\mathscr{H}_{R, q} \twoheadrightarrow \mathcal{E}$ が $T_s \mapsto \theta_s$ で定義される。$\theta_w$ も同様に定義できるが、$\theta_w e_1 = e_w$ だから、$\mathcal{E}$ は $R$ 加群として $\theta_w$ で自由生成される。よって、$\mathscr{H}_{R, q}$ も $T_w$ で自由生成され、$\mathscr{H}_{R, q} \simeq \mathcal{E}$
+
+$(-, -): \mathscr{H}_{R, q} \times \mathscr{H}_{R, q} \to R$ を
+
+$$
+(h_1, h_2) \coloneqq h_1 h_2 \text{ の } T_1 \text{ の係数}
+$$
+
+で定義する。$(h_1 h_2, h_3) = (h_1, h_2 h_3)$。$v, w \in W$ に対して
+
+$$
+(T_v, T_w) = \begin{cases}
+  q^{l(v)} &\quad (vw = 1) \\
+  0 &\quad (vw \ne 1)
+\end{cases}
+$$
+
+が成り立つ。特に、$(-, -)$ は対称
+
+$$
+T_v T_w = q^{\frac{1}{2}(\ell(v) + \ell(w) - \ell(vw))} T_{vw} + \sum_{z > vw} a_z T_z
+$$
+
+を示せば良い。Deletion Condition から $\frac{1}{2}(\ell(v) + \ell(w) - \ell(vw)) \in \mathbb{Z}_{\ge 0}$ に注意。$\ell(w)$ に関する帰納法を使う。$\ell(w) = 0$ の場合は明らか。$\ell(w) > 0$ とし、$w = s_1 \cdots s_n$ を最短表示とする。$\ell(vs_1) = \ell(v) + 1$ の場合は
+
+$$
+T_v T_w = T_{vs_1} T_{s_2 \cdots s_n}
+$$
+
+から明らか。$\ell(vs_1) = \ell(v) - 1$ の場合は
+
+$$
+T_v T_w = qT_{vs_1} T_{s_2 \cdots s_n} + (q - 1)T_v T_{s_2 \cdots s_n}
+$$
+
+帰納法の仮定から
+
+$$
+\begin{aligned}
+  T_{vs_1} T_{s_2 \cdots s_n} &= q^{\frac{1}{2}(\ell(v) + \ell(w) - \ell(vw)) - 1} T_{vw} + \sum_{z > vw} a_z T_z \\
+  T_v T_{s_2 \cdots s_n} &= q^{\frac{1}{2}(\ell(v) + \ell(w) - \ell(vs_1w) - 1)} T_{vs_1w} + \sum_{z' > vs_1w} a_{z'} T_{z'}
+\end{aligned}
+$$
+
+$vw < vs_1w$ を示せば良い。$vw = (vs_1)s_2 \cdots s_n$, $vs_1w = vs_2 \cdots s_n$ から明らか
+
+# Cellular 代数
+
+$R$: 単位的可換環
+
+$R$ 代数 $A$ の cellular 基底とは、半順序集合 $\Lambda$ と有限集合 $\mathcal{T}(\lambda) \ (\lambda \in \Lambda)$ と $c^\lambda_{\mathfrak{s}\mathfrak{t}} \in A \ (\lambda \in \Lambda, \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda))$ で以下の (1) 〜 (3) を満たすもの
+
+(1) $\mathcal{C} \coloneqq \{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \lambda \in \Lambda, \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda) \}$ は $R$ 加群 $A$ の自由基底
+(2) $*: A \ni c^\lambda_{\mathfrak{s}\mathfrak{t}} \mapsto c^\lambda_{\mathfrak{t}\mathfrak{s}} \in A$ は $R$ 代数の antiautomorphism
+(3) 任意の $\lambda \in \Lambda$, $\mathfrak{t} \in \mathcal{T}(\lambda)$, $a \in A$ に対して、$r^a_{\mathfrak{u}\mathfrak{t}} \ (\mathfrak{u} \in \mathcal{T}(\lambda))$ が存在して
+
+$$
+c^\lambda_{\mathfrak{s}\mathfrak{t}}a \equiv \sum_{\mathfrak{u} \in \mathcal{T}(\lambda)} r^a_{\mathfrak{u}\mathfrak{t}} c^\lambda_{\mathfrak{s}\mathfrak{u}} \mod \check{A}^\lambda \quad (\forall\mathfrak{s} \in \mathcal{T}(\lambda))
+$$
+
+ただし、$\check{A}^\lambda$ は $\{ c^\mu_{\mathfrak{u}\mathfrak{v}} \mid \mu > \lambda, \mathfrak{u}, \mathfrak{v} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群
+
+$A = R[x]$ は、$\Lambda \coloneqq \mathbb{Z}_{\ge 0}$, $\mathcal{T}(n) \coloneqq \{ n \}$, $c^n_{nn} \coloneqq x^n$ とすると cellular 代数
+
+$$
+c^n_{nn}a \equiv a_0 c^n_{nn} \mod \check{A}^n
+$$
+
+ただし、$a_0 \in R$ は $a$ の定数項
+
+$A = M_n(R)$ は $\Lambda \coloneqq \{ n \}$, $\mathcal{T}(n) \coloneqq \{ 1, \dots, n \}$, $c^n_{ij} \coloneqq E_{ij}$ とすると cellular 代数
+
+$$
+c^n_{ij}a = \sum_k a_{jk}c^n_{ik}
+$$
+
+$A, B$ を cellular 代数とすると、$A \oplus B$, $A \otimes_R B$ も cellular 代数
+
+(3) の $*$ を取れば
+
+(3') 任意の $\lambda \in \Lambda$, $\mathfrak{s} \in \mathcal{T}(\lambda)$, $a \in A$ に対して、$r^{a^*}_{\mathfrak{u}\mathfrak{s}} \ (\mathfrak{u} \in \mathcal{T}(\lambda))$ が存在して
+
+$$
+ac^\lambda_{\mathfrak{s}\mathfrak{t}} \equiv \sum_{\mathfrak{u} \in \mathcal{T}(\lambda)} r^{a^*}_{\mathfrak{u}\mathfrak{s}} c^\lambda_{\mathfrak{u}\mathfrak{t}} \mod \check{A}^\lambda \quad (\forall\mathfrak{t} \in \mathcal{T}(\lambda))
+$$
+
+$A^\lambda$ を $\{ c^\mu_{\mathfrak{u}\mathfrak{v}} \mid \mu \ge \lambda, \mathfrak{u}, \mathfrak{v} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群とすると、$A^\lambda \subset A$ は両側イデアル。$\check{A}^\lambda = \sum_{\mu > \lambda} A^\mu \subset A$ も両側イデアル。また、$c^\lambda_{\mathfrak{s}\mathfrak{t}}c^\lambda_{\mathfrak{u}\mathfrak{v}} \equiv \sum_{\mathfrak{w}} r^{\mathfrak{u}\mathfrak{v}}_{\mathfrak{w}\mathfrak{t}}c^\lambda_{\mathfrak{s}\mathfrak{w}} \equiv \sum_{\mathfrak{x}} \tilde{r}^{\mathfrak{s}\mathfrak{t}}_{\mathfrak{u}\mathfrak{x}}c^\lambda_{\mathfrak{x}\mathfrak{v}} \mod \check{A}^\lambda$ だから、$r_{\mathfrak{t}\mathfrak{u}} \in R$ が存在して
+
+$$
+c^\lambda_{\mathfrak{s}\mathfrak{t}}c^\lambda_{\mathfrak{u}\mathfrak{v}} \equiv r_{\mathfrak{t}\mathfrak{u}}c^\lambda_{\mathfrak{s}\mathfrak{v}} \mod \check{A}^\lambda \quad (\forall\mathfrak{s}, \mathfrak{v} \in \mathcal{T}(\lambda))
+$$
+
+$r_{\mathfrak{t}\mathfrak{u}} = r_{\mathfrak{u}\mathfrak{t}}$ もわかる
+
+# $C^\lambda$
+
+$C^\lambda_\mathfrak{s} \subset A^\lambda / \check{A}^\lambda$ を $\{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{t} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群とする。$C^\lambda_\mathfrak{s}$ は部分右 $A$ 加群。$C^\lambda_\mathfrak{s} \ (s \in \mathcal{T}(\lambda))$ たちは同型だから、$C^\lambda$ と表す。$C^\lambda$ は $\{ c^\lambda_\mathfrak{t} \mid \mathfrak{t} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群に
+
+$$
+c^\lambda_\mathfrak{t}a \coloneqq r^a_{\mathfrak{u}\mathfrak{t}}c^\lambda_\mathfrak{u}
+$$
+
+で右 $A$ 加群の構造を入れたもの。$\mathrm{Hom}_R(C^\lambda, R)$ は左 $A$ 加群になるが
+
+$$
+ac'^{\lambda}_\mathfrak{t} = r^a_{\mathfrak{t}\mathfrak{u}}c'^{\lambda}_\mathfrak{u}
+$$
+
+$C^{*\lambda}_\mathfrak{t} \subset A^\lambda / \check{A}^\lambda$ を $\{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{s} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群とする。$C^{*\lambda}_\mathfrak{t}$ は部分左 $A$ 加群。$C^{*\lambda}_\mathfrak{t} \ (t \in \mathcal{T}(\lambda))$ たちは同型だから、$C^{*\lambda}$ と表す。$C^{*\lambda}$ は $\{ c^\lambda_\mathfrak{s} \mid \mathfrak{s} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群に
+
+$$
+ac^\lambda_\mathfrak{s} \coloneqq r^{a^*}_{\mathfrak{u}\mathfrak{s}}c^{*\lambda}_\mathfrak{u}
+$$
+
+で左 $A$ 加群の構造を入れたもの。$C^{*\lambda}$ は $C^\lambda$ を $*$ で捻った左 $A$ 加群に一致する
+
+$(A, A)$-両側加群として
+
+$$
+A^\lambda / \check{A}^\lambda \simeq C^{*\lambda} \otimes_R C^\lambda
+$$
+
+$\langle -, - \rangle: C^\lambda \times C^\lambda \to R$ を
+
+$$
+c^\lambda_{\mathfrak{s}\mathfrak{t}}c^\lambda_{\mathfrak{u}\mathfrak{v}} \equiv \langle c^\lambda_\mathfrak{t}, c^\lambda_\mathfrak{u} \rangle c^\lambda_{\mathfrak{s}\mathfrak{v}}
+$$
+
+で定義する。$\langle c^\lambda_\mathfrak{s}, c^\lambda_\mathfrak{t} \rangle = r_{\mathfrak{s}\mathfrak{t}}$
+
+${}$(1) $\langle x, y \rangle = \langle y, x \rangle$
+$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{t}\mathfrak{s}}$ から従う
+(2) $\langle xa, y \rangle = \langle x, ya^* \rangle$
+
+$$
+\begin{aligned}
+  \langle c^\lambda_\mathfrak{t}a, c^\lambda_\mathfrak{u} \rangle c^\lambda_{\mathfrak{s}\mathfrak{v}} &\equiv \sum_{\mathfrak{w}} r^a_{\mathfrak{w}\mathfrak{t}} \langle c^\lambda_\mathfrak{w}, c^\lambda_\mathfrak{u} \rangle c^\lambda_{\mathfrak{s}\mathfrak{v}} \\
+  &\equiv \sum_{\mathfrak{w}} r^a_{\mathfrak{w}\mathfrak{t}} c^\lambda_{\mathfrak{s}\mathfrak{w}}c^\lambda_{\mathfrak{t}\mathfrak{v}} \\
+  &\equiv c^\lambda_{\mathfrak{s}\mathfrak{t}}ac^\lambda_{\mathfrak{u}\mathfrak{v}} \\
+  &\equiv c^\lambda_{\mathfrak{s}\mathfrak{t}} \sum_{\mathfrak{w}} r^{a^*}_{\mathfrak{w}\mathfrak{u}} c^\lambda_{\mathfrak{w}\mathfrak{v}} \\
+  &\equiv \sum_{\mathfrak{w}} r^{a^*}_{\mathfrak{w}\mathfrak{u}} \langle c^\lambda_\mathfrak{t}, c^\lambda_\mathfrak{w} \rangle c^\lambda_{\mathfrak{s}\mathfrak{v}} \\
+  &\equiv \langle c^\lambda_\mathfrak{t}, c^\lambda_\mathfrak{u}a^* \rangle c^\lambda_{\mathfrak{s}\mathfrak{v}}
+\end{aligned}
+$$
+
+${}$(3) $xc^\lambda_{\mathfrak{s}\mathfrak{t}} = \langle x, c^\lambda_\mathfrak{s} \rangle c^\lambda_\mathfrak{t}$
+
+$$
+c^\lambda_\mathfrak{u}c^\lambda_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{u}\mathfrak{s}}c^\lambda_\mathfrak{t} = \langle c^\lambda_\mathfrak{u}, c^\lambda_\mathfrak{s} \rangle c^\lambda_\mathfrak{t}
+$$
