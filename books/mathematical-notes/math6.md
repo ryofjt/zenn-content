@@ -710,11 +710,7 @@ $$
 
 $S \in \mathrm{Irr}(R)$ に対応する主直既約 $R$ 加群を $P_S$ で表す。$S \in \mathrm{Irr}(B_a)$ ならば $d_S, d_{P_S} \in Z(B_a)$ なことがわかる
 
-$$
-R = \bigoplus_{a = 1}^n B_a
-$$
-
-をブロック分解とすると、$(B_a, B_b) = 0 \ (a \ne b)$ であり、$B_a$ 上 $(-, -)$ は非退化
+$(B_a, B_b) = 0 \ (a \ne b)$ であり、$B_a$ 上 $(-, -)$ は非退化
 
 # 直交関係式
 
@@ -780,6 +776,46 @@ $K$ が標数 $0$ なら、$\chi_{S_a} \ne 0$ だから、$d_{S_a} \ne 0$ であ
 
 $$
 b_a = \frac{\mathrm{dim}_K S_a}{(\chi_{S_a}, \chi_{S_a})} d_{S_a}
+$$
+
+# Cartan 行列
+
+$R$: 左 Artin 環
+
+$S, T \in \mathrm{Irr}(R)$ に対して
+
+$$
+c_{ST} \coloneqq [P_S : T]
+$$
+
+$(c_{ST})_{ST}$ を Cartan 行列という
+
+$P_S = Re_S, P_T = Re_T$ を原始的冪等元による表示とすると
+
+$$
+c_{ST} = \ell_{e_TRe_T} e_TRe_S
+$$
+
+$R$: 体 $K$ 上の有限次元代数
+
+$$
+c_{ST} = \frac{\mathrm{dim}_K e_TRe_S}{\mathrm{dim}_K \mathrm{End}_R(T)}
+$$
+
+$R$: 体 $K$ 上の対称代数
+
+$$
+\mathrm{dim}_K e_TRe_S = \mathrm{dim}_K e_SRe_T
+$$
+
+特に、$R$ が $K$ 上の分裂対称代数ならば、$c_{ST} = c_{TS}$
+
+$(-, -): e_TRe_S \times e_SRe_T \to K$ が非退化なことを示せば良い。$x \in e_TRe_S$ は $(x, e_SRe_T) = 0$ だとする。$0 = (x, e_SRe_T) = (e_Txe_S, R) = (x, R)$ だから、$x = 0$。同様にして、$y \in e_SRe_T$ が $(e_TRe_S, y) = 0$ を満たせば $y = 0$ なこともわかる
+
+$R$: 体 $K$ 上の対称代数
+
+$$
+\sum_T c_{ST}(\chi_T, \chi_U) = (\chi_{P_S}, \chi_U)
 $$
 
 
