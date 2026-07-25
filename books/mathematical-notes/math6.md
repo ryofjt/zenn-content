@@ -243,14 +243,9 @@ $$
 
 # 冪等元
 
-${}_RR$ の直和因子で直既約なものを principal indecomposable module (PIM) という
-
-$e \in R$ が冪等元とは、$e^2 = e$ が成り立つことをいう。冪等元 $e \in R$ が原始的とは、$e \ne 0$ かつ $0$ でない冪等元 $e_1, e_2 \in R$ で $e_1e_2 = e_2e_1 = 0$ なものを用いて $e = e_1 + e_2$ と表せないことをいう
+$e \in R$ が冪等元とは、$e^2 = e$ が成り立つことをいう
 
 $R$ の直和因子 $\Leftrightarrow$ 冪等元 $e \in R$ で $Re$ と表せる
-PIM $\Leftrightarrow$ 原始的冪等元 $e \in R$ で $Re$ と表せる
-
-$e \in R$ が原始的冪等元ならば、$Re$ が直既約なことのみ示す。$0$ でない左イデアル $I, J \subset R$ が存在して、$Re = I \oplus J$ だと仮定する。$e = e_1 + e_2$ と分解できる。$\cdot e = 1_{Re}$ だから、$e_1e = e_1$。よって、$e_1^2 = e_1$ かつ $e_1e_2 = 0$。同様にして、$e_2^2 = e_2$ かつ $e_2e_1 = 0$。$1_{Re} = \cdot e = \cdot e_1 + \cdot e_2$ だから $I = Re_1$, $J = Re_2$ であり、$e_1, e_2$ が $0$ でないこともわかる。よって、$e$ が原始的なことに矛盾する
 
 冪等元 $e, f \in R$ は $Re = Rf$ を満たすとする。ある $u \in R^\times$ が存在して、$e = ufu^{-1}$
 
@@ -260,15 +255,38 @@ $$
 (1 + e - f)f(1 + e - f)^{-1} = (1 + e - f)f(1 - e + f) = e
 $$
 
-$R$: 左 Artin 環
+$e \in R$: 冪等元
+$Re$ の有限直和分解を与えることと、冪等元による分解 $e = e_1 + \cdots + e_n$ で $e_ie_j = 0 \ (i \ne j)$ を満たすものを与えることは同値
+
+$\Rightarrow$
+$Re = P_1 \oplus \cdots \oplus P_n$ とする。$e = e_1 + \cdots + e_n$ と分解できる。$\cdot e$ は $Re$ に恒等的に作用するから、$e_i = e_ie = \sum_j e_ie_j$。よって、$e_i^2 = e_i$ かつ $e_ie_j = 0 \ (i \ne j)$
+
+$\Leftarrow$
+$e_ie = e_i$ だから $Re_i \subset Re$。また、$Re = \sum_i Re_i$ は容易。あとは、$x_i \in Re_i$ が $\sum_i x_i = 0$ を満たせば、$x_i = 0$ を示せば良い。$0 = \sum_j x_je_i = x_i$ から従う
+
+${}_RR$ の直和因子で直既約なものを principal indecomposable module (PIM) という
+
+冪等元 $e \in R$ が原始的とは、$e \ne 0$ かつ $0$ でない冪等元 $e_1, e_2 \in R$ で $e_1e_2 = e_2e_1 = 0$ なものを用いて $e = e_1 + e_2$ と表せないことをいう
+
+PIM $\Leftrightarrow$ 原始的冪等元 $e \in R$ で $Re$ と表せる
+
+$e \in R$: 冪等元
+$eRe$ は $e$ を単位元とする環で
 
 $$
-1 = e_1 + \cdots + e_n = f_1 + \cdots + f_m
+\mathrm{End}(Re) \simeq (eRe)^\mathrm{op}
 $$
 
-を $1$ の互いに直交する原始的冪等元の和への 2 通りの分解とする。$n = m$ かつ $\sigma \in \mathfrak{S}_n$ と $u \in R^\times$ が存在して、$e_i = uf_{\sigma(i)}u^{-1}$
+$e \in R$: 冪等元
+$Re$ は長さ有限とする
 
-まず、$n = m$ かつ $Re_i = Rf_i$ が成り立てば、$e_i = f_i$ を示す。$\cdot e_j$ は $Re_i$ に $\delta_{ij}$ 倍で作用するから
+$$
+e = e_1 + \cdots + e_n = f_1 + \cdots + f_m
+$$
+
+を $e$ の互いに直交する原始的冪等元の和への 2 通りの分解とする。$n = m$ かつ $\sigma \in \mathfrak{S}_n$ と $u \in (eRe)^\times$ が存在して、$e_i = uf_{\sigma(i)}u^{-1}$
+
+$e_i = ee_ie \in eRe$ であり、$f_j \in eRe$ も同様。まず、$n = m$ かつ $Re_i = Rf_i$ が成り立てば、$e_i = f_i$ を示す。$\cdot e_j$ は $Re_i$ に $\delta_{ij}$ 倍で作用するから
 
 $$
 f_ie_j = \begin{cases}
@@ -277,13 +295,13 @@ f_ie_j = \begin{cases}
 \end{cases}
 $$
 
-よって、$e_i = \sum_j f_j e_i = f_i$。次に、一般の場合を示す
+よって、$e_i = ee_i = \sum_j f_j e_i = f_i$。次に、一般の場合を示す
 
 $$
-{}_RR = Re_1 \oplus \cdots \oplus Re_n = Rf_1 \oplus \cdots \oplus Rf_m
+Re = Re_1 \oplus \cdots \oplus Re_n = Rf_1 \oplus \cdots \oplus Rf_m
 $$
 
-だから、Krull–Schmidt の定理から、$n = m$ かつ $\sigma \in \mathfrak{S}_n$ が存在して、$Re_i \simeq Rf_{\sigma(i)}$。よって、${}_RR = \bigoplus_i Re_i \simeq \bigoplus Rf_{\sigma(i)} = {}_RR$ ができるが、ある $u \in R^\times$ を右からかけることに対応する。よって、$Re_i = Rf_{\sigma(i)}u^{-1} = Ruf_{\sigma(i)}u^{-1}$
+だから、Krull–Schmidt の定理から、$n = m$ かつ $\sigma \in \mathfrak{S}_n$ が存在して、$Re_i \simeq Rf_{\sigma(i)}$。よって、$Re = \bigoplus_i Re_i \simeq \bigoplus Rf_{\sigma(i)} = Re$ ができるが、ある $u \in (eRe)^\times$ を右からかけることに対応する。よって、$Re_i = Rf_{\sigma(i)}u^{-1} = Ruf_{\sigma(i)}u^{-1}$
 
 $I \subset R$: 冪零な両側イデアル
 $\bar{e} \in R / I$ を冪等元とする。$\bar{e}$ の持ち上げ $e \in R$ で冪等なものが存在する
@@ -308,9 +326,7 @@ $$
 
 # Corner $eRe$
 
-$R$: 環
 $e \in R$: 冪等元
-$eRe$ は $e$ を単位元とする環だが
 
 $$
 J(eRe) = eJ(R)e
@@ -351,7 +367,11 @@ $e \in R$: 冪等元
 $R$ 加群 $M$ に対して、アーベル群として $\mathrm{Hom}_R(Re, M) \simeq eM$
 
 $e \in R$: 冪等元
-$\mathrm{End}(Re) \simeq (eRe)^\mathrm{op}$。一般に、両側イデアル $I \subset R$ に対して、$\mathrm{End}_R(Re / Ie) \simeq (eRe / eIe)^\mathrm{op}$
+$I \subset R$: 両側イデアル
+
+$$
+\mathrm{End}_R(Re / Ie) \simeq (eRe / eIe)^\mathrm{op}
+$$
 
 $e \in R$: 冪等元
 $R$ が左 Artin 環ならば $eRe$ も左 Artin 環
@@ -430,6 +450,14 @@ $$
 \end{aligned}
 $$
 
+$R$: 体 $K$ 上の有限次元代数
+$e \in R$: 原始的冪等元
+$M$: $K$ 上有限次元な $R$ 加群
+
+$$
+[M : \mathrm{top}(Re)] = \frac{\mathrm{dim}_K eM}{\mathrm{dim}_K \mathrm{End}_R(\mathrm{top}(Re))}
+$$
+
 # Burnside’s theorem on matrix algebras
 
 $R$: 環
@@ -504,6 +532,86 @@ $$
 
 $R$ が split semisimple $\Leftrightarrow$ $k_1, \dots, k_n \ge 1$ が存在して $R \simeq \prod_{i = 1}^n M_{k_i}(K)$
 
+体 $K$ 上の分裂左 Artin 代数 $R$ は $K$ 上有限次元
+
+$\bar{R} \coloneqq R / J(R)$ は $K$ 上の分裂半単純代数だから有限次元。$J \supset J^2 \supset \cdots \supset J^N = 0$ を考える。$J^i / J^{i + 1}$ は $R$ 加群として Artin 的だから、$\bar{R}$ 加群としても Artin 的。よって、$J^i / J^{i + 1}$ は有限個の単純 $\bar{R}$ 加群の直和。よって、$J^i / J^{i + 1}$ は $K$ 上有限次元
+
+# ブロック
+
+右 $R$ 加群たちと左 $R^\mathrm{op}$ 加群たちは圏同型だった。$(R, S)$-両側加群たちと左 $R \otimes_\mathbb{Z} S^\mathrm{op}$ 加群たちも圏同型
+
+中心 $Z(R)$ の冪等元を $R$ の中心冪等元という
+
+${}_RR_R$ の直和因子 $\Leftrightarrow$ 中心冪等元 $b \in R$ で $Rb$ と表せる
+
+中心冪等元 $b, c \in R$ に対して、$Rb = Rc$ $\Leftrightarrow$ $b = c$
+
+$b \in R$: 中心冪等元
+両側 $R$ 加群 $Rb$ の有限直和分解を与えることと、中心冪等元による分解 $b = b_1 + \cdots + b_n$ で $b_ib_j = 0 \ (i \ne j)$ を満たすものを与えることは同値
+
+${}_RR_R$ の直和因子で両側 $R$ 加群として直既約なものをブロックという
+
+中心冪等元 $b \in R$ が原始的とは、$b \ne 0$ かつ $0$ でない中心冪等元 $p, q \in R$ で $pq = 0$ なものを用いて $b = p + q$ と表せないことをいう
+
+ブロック $\Leftrightarrow$ 原始的中心冪等元 $b \in R$ で $Rb$ と表せる
+
+$b \in R$: 中心冪等元
+両側 $R$ 加群 $Rb$ は長さ有限とする
+$b = b_1 + \cdots + b_n = c_1 + \cdots + c_m$ を互いに直交する原始的中心冪等元による 2 通りの分解とすると、$n = m$ かつ $\sigma \in \mathfrak{S}_n$ が存在して、$b_a = c_{\sigma(a)}$
+
+$b \in R$: 中心冪等元
+両側 $R$ 加群 $Rb$ は長さ有限とする
+$Rb = B_1 \oplus \dots \oplus B_n = C_1 \oplus \dots \oplus C_m$ をブロックによる 2 通りの分解とすると、$n = m$ かつ $\sigma \in \mathfrak{S}_n$ が存在して、$B_a = C_{\sigma(a)}$
+
+$R$ が左 Artin 環ならば、両側 $R$ 加群 ${}_RR_R$ は長さ有限
+
+$R$: 左 Artin 環
+$R = B_1 \oplus \dots \oplus B_n$ をブロック分解とすると
+
+$$
+\mathrm{Hom}_{R\text{-Mod}}(B_a, B_b) \simeq \begin{cases}
+  B_a^\mathrm{op} &\quad (a = b) \\
+  0 &\quad (a \ne b)
+\end{cases}
+$$
+
+$$
+\mathrm{Hom}_{\text{Mod-}R}(B_a, B_b) \simeq \begin{cases}
+  B_a &\quad (a = b) \\
+  0 &\quad (a \ne b)
+\end{cases}
+$$
+
+1 つ目のみ示す。$1 = b_1 + \cdots + b_n$ を対応する原始的中心冪等元による分解とする。アーベル群として、$\mathrm{Hom}_{R\text{-Mod}}(B_a, B_b) = \mathrm{Hom}_{R\text{-Mod}}(Rb_a, Rb_b) = b_aRb_b$ なことから従う
+
+さらに、左 $R$ 加群として $B_a = \bigoplus_{i = 1}^{k_a} P_{ai}$ と直既約分解すると、$\mathrm{top}(P_{ai})$ が $B_b$ の組成因子 $\Leftrightarrow$ $a = b$
+
+$b_a = \sum_{i = 1}^{k_a} e_{ai}$ を対応する原始的冪等元による分解とする。$b_b$ は $Rb_a$ に $\delta_{ab}$ 倍で作用するから
+
+$$
+e_{ai}B_b = e_{ai}Rb_b = \begin{cases}
+  e_{ai}R &\quad (a = b) \\
+  0 &\quad (a \ne b)
+\end{cases}
+$$
+
+$\mathrm{top}(P_{ai}) \ (1 \le i \le k_a)$ たちの同型類を $\mathrm{Irr}(B_a)$ で表す。$\mathrm{Irr}(B_a)$ は以下の (1) 〜 (3) と自然に対応する
+
+(1) $P_{ai} \ (1 \le i \le k_a)$ たちの同型類
+(2) 単純 $B_a$ 加群たちの同型類
+(3) 主直既約 $B_a$ 加群たちの同型類
+
+$$
+\mathrm{Irr}(R) = \bigsqcup_a \mathrm{Irr}(B_a)
+$$
+
+$R$: 体 $K$ 上の分裂半単純代数
+$1 = b_1 + \cdots + b_n$ を原始的中心冪等元による分解とすると、$b_a$ たちは $Z(R)$ の $K$ 上の基底であり
+
+$$
+\mathrm{dim}_K Z(R) = \#\mathrm{Irr}(R)
+$$
+
 # 体上の分裂半単純代数
 
 $R$: $K$ 上の分裂半単純代数
@@ -519,6 +627,160 @@ $$
 $$
 
 $\mathrm{Ker}\Phi = J(R) = 0$。両辺の $K$ 上の次元が一致するから、$\Phi$ は同型
+
+# 指標
+
+$R$: 体 $K$ 上の代数
+$K$ 上有限次元な $R$ 加群 $M$ に対して、指標 $\chi_M: R \to K$ を $R \to \mathrm{End}_K(M) \xrightarrow{\mathrm{Tr}} K$ で定義する。$\chi_M(xy) = \chi_M(yx)$, $\chi_M(1) = \mathrm{dim}_K M$。また、$K$ 上有限次元な $R$ 加群の完全列
+
+$$
+0 \to N \to M \to L \to 0
+$$
+
+に対して、$\chi_M = \chi_N + \chi_L$
+
+$R$: 体 $K$ 上の分裂代数
+$S$: 単純 $R$ 加群
+$x \in Z(R)$ とすると、$x \cdot \in \mathrm{End}_R(S) = K$ であり、$x \cdot$ は $S$ に定数倍で作用する。よって、$\omega_S: Z(R) \to K$ ができる。$\omega_S$ は $K$ 上の代数の準同型であり、$S$ が $K$ 上有限次元なら
+
+$$
+\chi_S(x) = (\mathrm{dim}_K S) \omega_S(x) \quad (x \in Z(R))
+$$
+
+# 対称代数
+
+体 $K$ 上の有限次元代数 $R$ で結合的な非退化対称双線形形式 $(-, -): R \times R \to K$ が与えられたものを対称代数という。ただし、結合的とは $(ab, c) = (a, bc)$ が成り立つことをいう
+
+$K$ 上の分裂半単純代数 $R$ は対称代数の構造を持つ
+
+$R \simeq \prod_{i = 1}^n M_{k_i}(K)$ だから、$((A_i), (B_i)) = \sum_i \mathrm{Tr}(A_i B_i)$ を考えれば良い
+
+$R$: 体 $K$ 上の対称代数
+
+$K$ 上有限次元な $R$ 加群 $M$ に対して、$d_M \in R$ を
+
+$$
+(d_M, x) = \chi_M(x) \quad (x \in R)
+$$
+
+で定義する
+
+$$
+(yd_M, x) = \chi_M(xy) = \chi_M(yx) = (d_My, x)
+$$
+
+だから、$d_M \in Z(R)$ であり、$d_M$ は $\chi_M$ に対応する中心元と呼ばれる。$a_l \in R$ を $R$ の $K$ 上の基底とし、$(-, -)$ に関する双対基底を $b_l \in R$ とすると
+
+$$
+(d_M, x) = (d_M, \sum_l (x, b_l)a_l) = \sum_l (x, b_l)\chi_M(a_l)
+$$
+
+だから、$d_M = \sum_l \chi_M(a_l)b_l$。また、$K$ 上有限次元な $R$ 加群の完全列
+
+$$
+0 \to N \to M \to L \to 0
+$$
+
+に対して、$d_M = d_N + d_L$
+
+$e \in R$: 冪等元
+
+$$
+d_{Re} = \sum_l a_l e b_l
+$$
+
+$x \in R$ とする。$f_x(y) \coloneqq xye \ (y \in R)$ は $Re$ 上左からの $x$ 倍かつ $R(1 - e)$ 上 $0$ だから
+
+$$
+\chi_{Re}(x) = \mathrm{Tr}(f_x) = \sum_l (f_x(a_l), b_l) = \sum_l (xa_le, b_l)
+$$
+
+特に、$d_R = \sum_l a_l b_l$ であり、$d_R$ は Casimir 元と呼ばれる
+
+$e \in R$: 中心冪等元
+$R$ 加群 $M$ を $Re$ の subquotient とすると、$d_M \in Z(Re)$
+
+$e \cdot$ は $Re$ に恒等的に作用するから $M$ にも恒等的に作用する
+
+$$
+(d_M, x) = \chi_M(x) = \chi_M(ex) = (d_Me, x)
+$$
+
+だから、$d_M = d_Me \in Re$
+
+$S \in \mathrm{Irr}(R)$ に対応する主直既約 $R$ 加群を $P_S$ で表す。$S \in \mathrm{Irr}(B_a)$ ならば $d_S, d_{P_S} \in Z(B_a)$ なことがわかる
+
+$$
+R = \bigoplus_{a = 1}^n B_a
+$$
+
+をブロック分解とすると、$(B_a, B_b) = 0 \ (a \ne b)$ であり、$B_a$ 上 $(-, -)$ は非退化
+
+# 直交関係式
+
+$R$: 体 $K$ 上の対称代数
+
+$K$ 上有限次元な $R$ 加群 $M, N$ に対して
+
+$$
+(\chi_M, \chi_N) = \chi_M(d_N) = (d_M, d_N) = \sum_l \chi_M(a_l)\chi_N(b_l) \in K
+$$
+
+が定まる
+
+[Brauer の直交関係式]
+$S, T \in \mathrm{Irr}(R)$ とすると
+
+$$
+(\chi_S, \chi_{P_T}) = 0 \quad (S \ne T)
+$$
+
+であり、$P_S = Re_S$ と原始的冪等元で表示すれば
+
+$$
+(\chi_S, \chi_{P_S}) = \chi_S(d_R e_S) = \mathrm{Tr}(e_SS \xrightarrow{d_R \cdot} e_SS)
+$$
+
+$P_T = Re_T$ を原始的冪等元による表示とすると
+
+$$
+\begin{aligned}
+  (\chi_S, \chi_{P_T}) &= \chi_S(d_{P_T}) \\
+  &= \chi_S(\sum_l a_l e_T b_l) \\
+  &= \chi_S(\sum_l b_l a_l e_T) \\
+  &= \chi_S(d_R e_T)
+\end{aligned}
+$$
+
+$S \ne T$ ならば $e_TS \simeq \mathrm{Hom}_R(P_T, S) = 0$ だから $\chi_S(d_R e_T) = 0$。最後の等号は、$K$ 線形空間としての分解 $S = e_SS \oplus (1 - e_S)S$ を $d_R \cdot$ が保つことから従う
+
+# 分裂対称代数
+
+$R$: 体 $K$ 上の分裂対称代数
+
+$$
+(\chi_S, \chi_{P_S}) = (\mathrm{dim}_K e_SS) \omega_S(d_R) = \omega_S(d_R)
+$$
+
+最後は、$K$ 線型空間として $e_SS = \mathrm{Hom}_R(P_S, S) \simeq \mathrm{End}_R(S, S) = K$ から従う
+
+$R$: 体 $K$ 上の分裂半単純対称代数
+
+$$
+R = \bigoplus_a B_a
+$$
+
+をブロック分解とし、$B_a$ に対応する原始的中心冪等元を $b_a \in R$ とする。$\#\mathrm{Irr}(B_a) = 1$ だから、$B_a$ に対応する単純 $R$ 加群を $S_a$ で表す。$b_a$ を $\chi_{S_a}$ で計算したい。$Z(B_a) = Kb_a$ だから、ある $f \in K$ が存在して、$d_{S_a} = fb_a$。$\chi_{S_a}(d_{S_a}) = \chi_{S_a}(fb_a) = f \mathrm{dim}_K S_a$。よって
+
+$$
+(\chi_{S_a}, \chi_{S_a}) b_a = (\mathrm{dim}_K S_a) d_{S_a}
+$$
+
+$K$ が標数 $0$ なら、$\chi_{S_a} \ne 0$ だから、$d_{S_a} \ne 0$ であり、$f \ne 0$。よって、$(\chi_{S_a}, \chi_{S_a}) \ne 0$ もわかり
+
+$$
+b_a = \frac{\mathrm{dim}_K S_a}{(\chi_{S_a}, \chi_{S_a})} d_{S_a}
+$$
 
 
 # Coxeter 群
