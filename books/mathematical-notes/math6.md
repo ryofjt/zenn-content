@@ -1265,7 +1265,7 @@ $vw < vs_1w$ を示せば良い。$vw = (vs_1)s_2 \cdots s_n$, $vs_1w = vs_2 \cd
 
 $R$: 単位的可換環
 
-$R$ 代数 $A$ の cellular 基底とは、半順序集合 $\Lambda$ と有限集合 $\mathcal{T}(\lambda) \ (\lambda \in \Lambda)$ と $c^\lambda_{\mathfrak{s}\mathfrak{t}} \in A \ (\lambda \in \Lambda, \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda))$ で以下の (1) 〜 (3) を満たすもの
+$R$ 代数 $A$ の cellular 基底とは、半順序集合 $\Lambda$ と空でない有限集合 $\mathcal{T}(\lambda) \ (\lambda \in \Lambda)$ と $c^\lambda_{\mathfrak{s}\mathfrak{t}} \in A \ (\lambda \in \Lambda, \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda))$ で以下の (1) 〜 (3) を満たすもの
 
 (1) $\mathcal{C} \coloneqq \{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \lambda \in \Lambda, \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda) \}$ は $R$ 加群 $A$ の自由基底
 (2) $*: A \ni c^\lambda_{\mathfrak{s}\mathfrak{t}} \mapsto c^\lambda_{\mathfrak{t}\mathfrak{s}} \in A$ は $R$ 代数の antiautomorphism
@@ -1336,6 +1336,10 @@ $(A, A)$-両側加群として
 $$
 A^\lambda / \check{A}^\lambda \simeq C^{*\lambda} \otimes_R C^\lambda
 $$
+
+$\lambda \not\ge \mu$ ならば $C^\lambda A^\mu = 0$
+
+$\mathfrak{s} \in \mathcal{T}(\lambda)$ を固定する。$C^\lambda \simeq C^\lambda_\mathfrak{s}$。$y \in A^\mu$ とする。$\mathfrak{t} \in \mathcal{T}(\lambda)$ に対して、$c_{\mathfrak{s}\mathfrak{t}}y \in A^\lambda \cap A^\mu \subset \check{A}^\lambda$
 
 $\langle -, - \rangle: C^\lambda \times C^\lambda \to R$ を
 
