@@ -763,19 +763,19 @@ $$
 $R$: 体 $K$ 上の分裂半単純対称代数
 
 $$
-R = \bigoplus_a B_a
+R = \bigoplus_{S \in \mathrm{Irr}(R)} B_S
 $$
 
-をブロック分解とし、$B_a$ に対応する原始的中心冪等元を $b_a \in R$ とする。$\#\mathrm{Irr}(B_a) = 1$ だから、$B_a$ に対応する単純 $R$ 加群を $S_a$ で表す。$b_a$ を $\chi_{S_a}$ で計算したい。$Z(B_a) = Kb_a$ だから、ある $f \in K$ が存在して、$d_{S_a} = fb_a$。$\chi_{S_a}(d_{S_a}) = \chi_{S_a}(fb_a) = f \mathrm{dim}_K S_a$。よって
+をブロック分解とする。$B_S$ に対応する原始的中心冪等元を $b_S \in R$ とする。$b_S$ を $\chi_S$ で計算したい。$Z(B_a) = Kb_S$ だから、ある $f \in K$ が存在して、$d_S = fb_S$。$\chi_S(d_S) = \chi_S(fb_S) = f \mathrm{dim}_K S$。よって
 
 $$
-(\chi_{S_a}, \chi_{S_a}) b_a = (\mathrm{dim}_K S_a) d_{S_a}
+(\chi_S, \chi_S) b_S = (\mathrm{dim}_K S) d_S
 $$
 
-$K$ が標数 $0$ なら、$\chi_{S_a} \ne 0$ だから、$d_{S_a} \ne 0$ であり、$f \ne 0$。よって、$(\chi_{S_a}, \chi_{S_a}) \ne 0$ もわかり
+$K$ が標数 $0$ なら、$\chi_S \ne 0$ だから、$d_S \ne 0$ であり、$f \ne 0$。よって、$(\chi_S, \chi_S) \ne 0$ もわかり
 
 $$
-b_a = \frac{\mathrm{dim}_K S_a}{(\chi_{S_a}, \chi_{S_a})} d_{S_a}
+b_S = \frac{\mathrm{dim}_K S}{(\chi_S, \chi_S)} d_S
 $$
 
 # Cartan 行列
@@ -818,6 +818,59 @@ $$
 \sum_T c_{ST}(\chi_T, \chi_U) = (\chi_{P_S}, \chi_U)
 $$
 
+# 群環 $K[G]$
+
+$K$: 体
+$G$: 有限群
+群環 $K[G]$ の元は $x = \sum_g x_g g$ と表す
+
+$$
+(x, y) \coloneqq (xy)_e = \sum_{g \in G} x_g y_{g^{-1}} \quad (x, y \in K[G])
+$$
+
+によって $K[G]$ は対称代数になる。$a_g \coloneqq g, b_g \coloneqq g^{-1} \ (g \in G)$ は $(-, -)$ に関して互いに双対な $K$ 上の $K[G]$ の基底。$d_R = |G|$
+
+以降は、$|G| \in K$ が可逆とする
+
+$K[G]$ は半単純
+$N \subset M$ を $K[G]$ 加群たちとする。$K$ 線形写像 $p_0: M \to M$ で $p_0^2 = p_0$ かつ $p_0(M) = N$ なものを固定する
+
+$$
+p(m) \coloneqq \frac{1}{|G|} \sum_{g \in G} gp_0(g^{-1}m) \quad (m \in M)
+$$
+
+とすると、$p$ は $K[G]$ 加群の準同型で $p^2 = p$ かつ $p(M) = N$。よって、$N \subset M$ は直和因子であり、$K[G]$ は半単純
+
+以降は、さらに $K$ は代数閉体だとする。$K[G]$ は分裂半単純対称代数。$Z(K[G])$ は
+
+$$
+\sum_{g \in C} g \quad (C \subset G \text{ は共役類})
+$$
+
+を基底に持つから、$\mathrm{dim}_K Z(K[G]) = \#\mathrm{Irr}(K[G])$ は共役類の個数と一致する
+
+$$
+|G| = \sum_{S \in \mathrm{Irr}(K[G])} (\mathrm{dim}_K S)^2
+$$
+
+であり、$K$ 上の代数として
+
+$$
+K[G] \xrightarrow{\sim} \prod_{S \in \mathrm{Irr}(K[G])} \mathrm{End}_K(S)
+$$
+
+$S, T \in \mathrm{Irr}(K[G])$
+
+$$
+(\chi_S, \chi_T) = \begin{cases}
+  |G| &\quad (S = T) \\
+  0 &\quad (S \ne T)
+\end{cases}
+$$
+
+$$
+b_S = \frac{\mathrm{dim}_K S}{|G|} d_S = \frac{\mathrm{dim}_K S}{|G|} \sum_{g \in G} \chi_S(g)g^{-1}
+$$
 
 # Coxeter 群
 
