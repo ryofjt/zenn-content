@@ -1314,19 +1314,19 @@ $r_{\mathfrak{t}\mathfrak{u}} = r_{\mathfrak{u}\mathfrak{t}}$ もわかる
 $C^\lambda_\mathfrak{s} \subset A^\lambda / \check{A}^\lambda$ を $\{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{t} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群とする。$C^\lambda_\mathfrak{s}$ は部分右 $A$ 加群。$C^\lambda_\mathfrak{s} \ (s \in \mathcal{T}(\lambda))$ たちは同型だから、$C^\lambda$ と表す。$C^\lambda$ は $\{ c^\lambda_\mathfrak{t} \mid \mathfrak{t} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群に
 
 $$
-c^\lambda_\mathfrak{t}a \coloneqq r^a_{\mathfrak{u}\mathfrak{t}}c^\lambda_\mathfrak{u}
+c^\lambda_\mathfrak{t}a \coloneqq \sum_\mathfrak{u} r^a_{\mathfrak{u}\mathfrak{t}}c^\lambda_\mathfrak{u}
 $$
 
 で右 $A$ 加群の構造を入れたもの。$\mathrm{Hom}_R(C^\lambda, R)$ は左 $A$ 加群になるが
 
 $$
-ac'^{\lambda}_\mathfrak{t} = r^a_{\mathfrak{t}\mathfrak{u}}c'^{\lambda}_\mathfrak{u}
+ac'^{\lambda}_\mathfrak{t} = \sum_\mathfrak{u} r^a_{\mathfrak{t}\mathfrak{u}}c'^{\lambda}_\mathfrak{u}
 $$
 
 $C^{*\lambda}_\mathfrak{t} \subset A^\lambda / \check{A}^\lambda$ を $\{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{s} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群とする。$C^{*\lambda}_\mathfrak{t}$ は部分左 $A$ 加群。$C^{*\lambda}_\mathfrak{t} \ (t \in \mathcal{T}(\lambda))$ たちは同型だから、$C^{*\lambda}$ と表す。$C^{*\lambda}$ は $\{ c^\lambda_\mathfrak{s} \mid \mathfrak{s} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群に
 
 $$
-ac^\lambda_\mathfrak{s} \coloneqq r^{a^*}_{\mathfrak{u}\mathfrak{s}}c^{*\lambda}_\mathfrak{u}
+ac^\lambda_\mathfrak{s} \coloneqq \sum_\mathfrak{u} r^{a^*}_{\mathfrak{u}\mathfrak{s}}c^{*\lambda}_\mathfrak{u}
 $$
 
 で左 $A$ 加群の構造を入れたもの。$C^{*\lambda}$ は $C^\lambda$ を $*$ で捻った左 $A$ 加群に一致する
@@ -1369,3 +1369,173 @@ ${}$(3) $xc^\lambda_{\mathfrak{s}\mathfrak{t}} = \langle x, c^\lambda_\mathfrak{
 $$
 c^\lambda_\mathfrak{u}c^\lambda_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{u}\mathfrak{s}}c^\lambda_\mathfrak{t} = \langle c^\lambda_\mathfrak{u}, c^\lambda_\mathfrak{s} \rangle c^\lambda_\mathfrak{t}
 $$
+
+$\mathfrak{t} \in \mathcal{T}(\lambda)$ に対して、$R$ 準同型 $*_\mathfrak{t}: C^\lambda \ni c^\lambda_\mathfrak{s} \mapsto c^\lambda_{\mathfrak{s}\mathfrak{t}} \in A^\lambda$ は以下を満たす
+
+$$
+\begin{aligned}
+  (xa)_\mathfrak{t} &= a^*x_\mathfrak{t} \mod \check{A}^\lambda &\quad (x \in C^\lambda, a \in A) \\
+  xy_\mathfrak{t} &= \langle x, y \rangle c^\lambda_\mathfrak{t} &\quad (x, y \in C^\lambda)
+\end{aligned}
+$$
+
+以降、$R$ は体 $K$ とする
+
+$\lambda \in \Lambda$ が regular とは、$C^\lambda$ 上のペアリングが $0$ でないことをいう。$\Lambda_0 \subset \Lambda$ を regular な元たちとする
+
+$\lambda \in \Lambda_0$ ならば $C^\lambda$ は唯一の極大部分加群を持ち
+
+$$
+\mathrm{rad}(C^\lambda) = \{ x \in C^\lambda \mid \langle x, C^\lambda \rangle = 0 \}
+$$
+
+$Q \coloneqq \{ x \in C^\lambda \mid \langle x, C^\lambda \rangle = 0 \} \subsetneq C^\lambda$。$x \not\in Q$ とすると、$xA = C^\lambda$ が成り立つことを示せば良い。ある $y \in C^\lambda$ が存在して $\langle x, y \rangle = 1$ だが
+
+$$
+xy_\mathfrak{t} = \langle x, y \rangle c^\lambda_{\mathfrak{t}} = c^\lambda_{\mathfrak{t}} \quad (\mathfrak{t} \in \mathcal{T}(\lambda))
+$$
+
+$\lambda \in \Lambda_0$ に対して、$D^\lambda \coloneqq \mathrm{top}(C^\lambda)$ と定義する
+
+$\mu \in \Lambda_0$
+(1) $\lambda \not\ge \mu$ ならば、$[C^\lambda : D^\mu] = 0$
+(2) $[C^\mu : D^\mu] = 1$
+(3) $\mathrm{End}_A(D_\mu) = K$ であり、$D_\mu$ は絶対既約
+
+(1)
+任意の部分加群 $M \subset C^\lambda$ に対して、$f: C^\mu \to C^\lambda / M$ は $0$ なことを示せば良い。$x, y \in C^\mu$ で $\langle x, y \rangle = 1$ なものを固定する。$C^\lambda A^\mu = 0$ だから
+
+$$
+f(c^\mu_\mathfrak{t}) = f(xy_\mathfrak{t}) = f(x)y_\mathfrak{t} = 0 \quad (\mathfrak{t} \in \mathcal{T}(\mu))
+$$
+
+(2)
+任意の部分加群 $M \subset \mathrm{rad}(C^\mu)$ に対して、$f: C^\mu \to \mathrm{rad}(C^\mu) / M$ は $0$ なことを示せば良い。$x, y \in C^\mu$ で $\langle x, y \rangle = 1$ なものを固定する。$f(x) = \bar{a} \ (a \in \mathrm{rad}(C^\mu))$ とすると
+
+$$
+f(c^\mu_\mathfrak{t}) = f(xy_\mathfrak{t}) = \overline{ay_\mathfrak{t}} = \langle a, y \rangle \bar{c}^\mu_\mathfrak{t} = 0 \quad (\mathfrak{t} \in \mathcal{T}(\mu))
+$$
+
+(3)
+任意の $f: C^\mu \to D^\mu$ が標準的な射影 $C^\mu \to D^\mu$ のスカラー倍なことを示せば良い。$x, y \in C^\mu$ で $\langle x, y \rangle = 1$ なものを固定する。$f(x) = \bar{a} \ (a \in C^\mu)$ とすると
+
+$$
+f(c^\mu_\mathfrak{t}) = f(xy_\mathfrak{t}) = \overline{ay_\mathfrak{t}} = \langle a, y \rangle \bar{c}^\mu_\mathfrak{t} \quad (\mathfrak{t} \in \mathcal{T}(\mu))
+$$
+
+$\lambda, \mu \in \Lambda_0$ ならば、直前の (1) から
+$D^\lambda \simeq D^\mu$ $\Leftrightarrow$ $\lambda = \mu$
+
+# Alexandrov 位相
+
+$\Lambda$: 半順序集合
+
+$\Gamma \subset \Lambda$ が上方集合 (upper set) とは、$\Gamma \ni \lambda \le \mu$ ならば $\mu \in \Gamma$ が成り立つことをいう。$\Gamma \subset \Lambda$ が下方集合 (lower set) とは、$\Gamma \ni \lambda \ge \mu$ ならば $\mu \in \Gamma$ が成り立つことをいう
+
+$\Lambda$ 上に上方集合たちを開集合系とする位相を考える。この位相では、任意個の開集合の共通部分も開集合になる。閉集合たちは下方集合たちに一致する
+
+部分集合 $\Gamma_1 \subset \Gamma_2 \subset \Lambda$ に対して、以下は同値
+(1) $\Gamma_1, \Gamma_2$ は上方集合
+(2) $\Gamma_1$ は上方集合で、$\Gamma_2 \setminus \Gamma_1 \subset \Lambda \setminus \Gamma_1$ は上方集合
+(3) $\Gamma_2$ は上方集合で、$\Gamma_2 \setminus \Gamma_1 \subset \Gamma_2$ は下方集合
+
+$X \subset \Lambda$ が凸集合とは、$\Gamma \ni \lambda \le \mu \le \nu \in \Gamma$ ならば $\mu \in \Gamma$ が成り立つことをいう。凸集合たちは局所閉集合たちと一致する
+
+# Cellular 代数の単純加群
+
+$R$: 可換環
+
+$\Gamma \subset \Lambda$: 上方集合
+$A(\Gamma) \subset A$ を $\{ c^\lambda_{\mathfrak{s}\mathfrak{t}} \mid \lambda \in \Gamma, \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda) \}$ が張る自由 $R$ 加群とする。$A(\Gamma)$ は両側イデアル
+
+$X \subset \Lambda$: 凸集合
+$X$ は 2 つの上方集合 $\Gamma_1 \subset \Gamma_2 \subset \Lambda$ で $X = \Gamma_2 \setminus \Gamma_1$ と表せる。両側 $A$ 加群 $A(\Gamma_2) / A(\Gamma_1)$ は $\Gamma_1, \Gamma_2$ の取り方に依らない。特に、2 つの上方集合 $\Gamma_1 \subset \Gamma_2 \subset \Lambda$ が $\Gamma_2 \setminus \Gamma_1 = \{ \mu \}$ を満たせば
+
+$$
+A(\Gamma_2) / A(\Gamma_1) \simeq A^\mu / \check{A}^\mu \simeq C^{*\mu} \otimes_R C^\mu
+$$
+
+以降、$R$ は 体 $K$ とする
+
+$\lambda \in \Lambda$ を極小元とすると、$\lambda \in \Lambda_0$ かつ $C^\lambda = D^\lambda$
+
+$x \in C^\lambda$ が $\langle x, C^\lambda \rangle = 0$ を満たせば、$x = 0$ なことを示せば良い。$x c^\lambda_{\mathfrak{s}\mathfrak{t}} = \langle x, c^\lambda_\mathfrak{s} \rangle c^\lambda_\mathfrak{t} = 0$ だから、$x A^\lambda = 0$。また、$\mu \ne \lambda$ ならば、$\lambda \not\ge \mu$ だから、$x A^\mu = 0$。よって、$x A = 0$ であり、$x = 0$
+
+以降、さらに $\#\Lambda < \infty$ とする
+
+$A$ の単純加群の同型類は $\{ D^\lambda \mid \lambda \in \Lambda_0 \}$
+
+$\mathcal{S} \coloneqq \{ D^\lambda \mid \lambda \in \Lambda_0 \}$ とする。$A$ の組成因子が $\mathcal{S}$ に含まれることを示せば良い。$\Lambda$ から極小元を取り除いていけば、$A$ の両側イデアルによるフィルトレーションで、部分商たちが $\{ C^{*\lambda} \otimes_K C^\lambda \mid \lambda \in \Lambda \}$ に一致するものが作れる。右 $A$ 加群として
+
+$$
+C^{*\lambda} \otimes_K C^\lambda = (C^\lambda)^{\#\mathcal{T}(\lambda)}
+$$
+
+よって、右 $A$ 加群 $C^\lambda$ の組成因子が $\mathcal{S}$ に含まれることを示せば良い。$C^\mu \ (\mu < \lambda)$ の組成因子が $\mathcal{S}$ に含まれるならば、$C^\lambda$ の組成因子も $\mathcal{S}$ に含まれることを示せば良い。$Q \coloneqq \{ x \in C^\lambda \mid \langle x, C^\lambda \rangle = 0 \}$ の組成因子が $\mathcal{S}$ に含まれることを示せば良い。$\lambda \in \Lambda_0$ ならば $Q = \mathrm{rad}(C^\lambda)$ であり、$\lambda \not\in \Lambda_0$ ならば $Q = C^\lambda$ なことに注意。$\Gamma \coloneqq \{ \mu \in \Lambda \mid \mu \not< \lambda \} \subset \Lambda$ は上方集合。$\mu \in \Gamma$ ならば $\mu = \lambda$ または $\lambda \not\ge \mu$ だから $QA(\Gamma) = 0$。よって、$Q$ の組成因子は右 $A$ 加群 $A / A(\Gamma)$ の組成因子であり、右 $A$ 加群 $A / A(\Gamma)$ の組成因子が $\mathcal{S}$ に含まれることを示せば良い。上方集合の列 $\Gamma = \Gamma_0 \subset \Gamma_1 \subset \cdots \subset \Gamma_n = \Lambda$ で $\Gamma_i \setminus \Gamma_{i - 1} = \{ \mu_i \} \ (\mu_i < \lambda)$ なものがある。両側イデアルのフィルトレーション
+
+$$
+A(\Gamma) = A(\Gamma_0) \subset A(\Gamma_1) \subset \cdots \subset A(\Gamma_n) = A
+$$
+
+ができる。右 $A$ 加群として $A(\Gamma_i) / A(\Gamma_{i - 1}) \simeq (C^{\mu_i})^{\#\mathcal{T}(\mu_i)}$ から従う
+
+$A$ は分裂代数なことがわかる
+
+$d_{\lambda\mu} \coloneqq [C^\lambda : D^\mu] \ (\lambda \in \Lambda, \mu \in \Lambda_0)$
+
+(1) $\lambda \in \Lambda_0$ ならば、$d_{\lambda\lambda} = 1$
+(2) $\lambda \in \Lambda, \mu \in \Lambda_0$ が $\lambda \not\ge \mu$ ならば、$d_{\lambda\mu} = 0$
+
+$\lambda \in \Lambda_0$ に対して、$D^\lambda$ に対応する PIM を $P^\lambda$ とする
+
+右 $A$ 加群 $M$ に対して、$M^\circledast$ を左 $A$ 加群 $\mathrm{Hom}_K(M, K)$ を $*$ で捻った右 $A$ 加群とする
+
+$\lambda \in \Lambda_0$ に対して
+
+$$
+(D^\lambda)^\circledast \simeq D^\lambda
+$$
+
+$D^\lambda$ 上のペアリングが非退化なことから従う
+
+$\lambda \in \Lambda, \mu \in \Lambda_0$ ならば
+
+$$
+d_{\lambda\mu} = \mathrm{dim}_K \mathrm{Hom}_A(P^\mu, C^\lambda) = \mathrm{dim}_K P^\mu \otimes_A C^{*\lambda}
+$$
+
+一般に、次が成り立つ
+
+$A$: 体 $K$ 上の有限次元代数で、antiautomorphism $*: A \to A$ を持つ
+$P$: 有限射影右 $A$ 加群
+$C$: 有限右 $A$ 加群
+$C^*$: $C$ を $*$ で捻った左 $A$ 加群
+すべての単純右 $A$ 加群 $S$ に対して、$S^\circledast \simeq S$ とすると
+
+$$
+\mathrm{dim}_K \mathrm{Hom}_A(P, C) = \mathrm{dim}_K P \otimes_A C^*
+$$
+
+まず、$\mathrm{Hom}_K(P \otimes_A C^*, K) = \mathrm{Hom}_A(P, \mathrm{Hom}_K(C^*, K))$ だから
+
+$$
+\mathrm{dim}_K \mathrm{Hom}_A(P, C) = \mathrm{dim}_K \mathrm{Hom}_A(P, C^\circledast)
+$$
+
+を示せば良い
+
+$$
+\begin{array}{ccccc}
+  \mathrm{Mod}_\mathrm{fg}\text{-}A &\xrightarrow{\mathrm{Hom}_A(P, -)}& K\text{-}\mathrm{Mod}_\mathrm{fg} && \\
+  \downarrow && \downarrow &\searrow{\scriptsize{\mathrm{dim}}}& \\
+  K(\mathrm{Mod}_\mathrm{fg}\text{-}A) &\xrightarrow{\mathrm{Hom}_A(P, -)}& K(K\text{-}\mathrm{Mod}_\mathrm{fg}) &\simeq& \mathbb{Z}
+\end{array}
+$$
+
+だから、$K(\mathrm{Mod}_\mathrm{fg}\text{-}A)$ 内で $[C^\circledast] = [C]$ を示せば良い。$K(\mathrm{Mod}_\mathrm{fg}\text{-}A)$ は単純右 $A$ 加群の同型類たちが生成する自由アーベル群だから、仮定から、完全関手 ${}^\circledast$ が定める ${}^\circledast: K(\mathrm{Mod}_\mathrm{fg}\text{-}A) \to K(\mathrm{Mod}_\mathrm{fg}\text{-}A)$ は恒等写像
+
+$$
+c_{\lambda\mu} \coloneqq [P^\lambda : D^\mu] = \sum_{\nu} d_{\nu\lambda}d_{\nu\mu} \quad (\lambda, \mu \in \Lambda_0)
+$$
+
+特に、$c_{\lambda\mu} = c_{\mu\lambda}$
