@@ -1481,9 +1481,11 @@ $$
 
 $A$ は分裂代数なことがわかる
 
-$d_{\lambda\mu} \coloneqq [C^\lambda : D^\mu] \ (\lambda \in \Lambda, \mu \in \Lambda_0)$
+$$
+d_{\lambda\mu} \coloneqq [C^\lambda : D^\mu] \quad (\lambda \in \Lambda, \mu \in \Lambda_0)
+$$
 
-(1) $\lambda \in \Lambda_0$ ならば、$d_{\lambda\lambda} = 1$
+${}$(1) $\lambda \in \Lambda_0$ ならば、$d_{\lambda\lambda} = 1$
 (2) $\lambda \in \Lambda, \mu \in \Lambda_0$ が $\lambda \not\ge \mu$ ならば、$d_{\lambda\mu} = 0$
 
 $\lambda \in \Lambda_0$ に対して、$D^\lambda$ に対応する PIM を $P^\lambda$ とする
@@ -1538,4 +1540,45 @@ $$
 c_{\lambda\mu} \coloneqq [P^\lambda : D^\mu] = \sum_{\nu} d_{\nu\lambda}d_{\nu\mu} \quad (\lambda, \mu \in \Lambda_0)
 $$
 
-特に、$c_{\lambda\mu} = c_{\mu\lambda}$
+特に、$c_{\lambda\mu} = c_{\mu\lambda} \ (\lambda, \mu \in \Lambda_0)$
+
+$\lambda, \mu \in \Lambda_0$ とする。$\Lambda$ から極小元を取り除いていけば、$A$ の両側イデアルによるフィルトレーションで、部分商たちが $\{ C^{*\nu} \otimes_K C^\nu \mid \nu \in \Lambda \}$ に一致するものが作れる。$P^\lambda \otimes_A -$ は完全だから、$P^\lambda$ のフィルトレーションで、部分商たちが $\{ P^\lambda \otimes_A C^{*\nu} \otimes_K C^\nu \mid \nu \in \Lambda \}$ に一致するものが作れる
+
+$$
+\begin{aligned}
+  c_{\lambda\mu} &= [P^\lambda : D^\mu] \\
+  &= \sum_{\nu \in \Lambda} [P^\lambda \otimes_A C^{*\nu} \otimes_K C^\nu : D^\mu] \\
+  &= \sum_{\nu \in \Lambda} c_{\nu\lambda} [C^\nu : D^\mu] \\
+  &= \sum_{\nu \in \Lambda} d_{\nu\lambda}d_{\nu\mu}
+\end{aligned}
+$$
+
+以下は同値
+(1) $A$ は半単純
+(2) $\Lambda_0 = \Lambda$ かつ $C^\lambda = D^\lambda \ (\lambda \in \Lambda)$
+(3) すべての $\lambda \in \Lambda$ に対して、$C^\lambda$ 上のペアリングは非退化
+(4) $\Lambda_0 = \Lambda$ かつ $d_{\lambda\mu} = \delta_{\lambda\mu} \ (\lambda, \mu \in \Lambda)$
+
+(2) $\Leftrightarrow$ (3)
+容易
+
+(2) $\Leftrightarrow$ (4)
+容易
+
+(1) $\Rightarrow$ (4)
+$c_{\lambda\lambda} = 1 \ (\lambda \in \Lambda_0)$。$\lambda \in \Lambda_0$ ならば
+
+$$
+1 = \sum_{\nu \in \Lambda} d_{\nu\lambda}^2 = 1 + \sum_{\lambda \ne \nu \in \Lambda} d_{\nu\lambda}^2
+$$
+
+だから、$d_{\nu\lambda} = 0 \ (\lambda \in \Lambda_0, \lambda \ne \nu \in \Lambda)$。よって、$C^\lambda = D^\lambda \ (\lambda \in \Lambda_0)$。$A$ は $K$ 上の分裂半単純代数だから
+
+$$
+\mathrm{dim}_K A = \sum_{\lambda \in \Lambda_0} (\mathrm{dim}_K D^\lambda)^2 = \sum_{\lambda \in \Lambda_0} (\mathrm{dim}_K C^\lambda)^2 = \sum_{\lambda \in \Lambda_0} |\mathcal{T}(\lambda)|^2
+$$
+
+Cellular 代数の定義から $\mathrm{dim}_K A = \sum_{\lambda \in \Lambda} |\mathcal{T}(\lambda)|^2$ だから、$\Lambda = \Lambda_0$
+
+(4) $\Rightarrow$ (1)
+$c_{\lambda\mu} = \delta_{\lambda\mu}$ だから、$P^\lambda = D^\lambda$。よって、$A_A$ は単純右 $A$ 加群の直和
