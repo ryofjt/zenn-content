@@ -806,6 +806,14 @@ $S \sim_c T$ $\Leftrightarrow$ $S, T$ が同じブロックに属する
 $\Rightarrow$
 $c_{UV} > 0$ とすると、$\mathrm{Hom}_R(P_V, P_U) \ne 0$ だから、$U, V$ は同じブロックに属する
 
+$\Leftarrow$
+$B \subset R$ をブロックとし、$S \in \mathrm{Irr}(B)$ とする。$X \coloneqq \{ T \in \mathrm{Irr}(B) \mid T \sim_c S \}, Y \coloneqq \{ U \in \mathrm{Irr}(B) \mid U \not\sim_c S \}$ とおく。$Y \ne \emptyset$ と仮定する。$P_X \coloneqq \bigoplus_{T \in X} P_T$, $P_Y \coloneqq \bigoplus_{U \in Y} P_U$ とすると、左 $R$ 加群として $B = P_X \oplus P_Y$。$P_X, P_Y$ が右 $R$ 作用で閉じていることを示せば、$B$ がブロックなことに矛盾する。$\mathrm{Hom}_R(P_X, P_Y) = \bigoplus_{T \in X, U \in Y} \mathrm{Hom}_R(P_T, P_U) = 0$。$x \in R$ に対して
+
+$$
+P_X \to B \xrightarrow{\cdot x} B \to P_Y
+$$
+
+は $0$ だから、$P_XR \subset P_X$。同様にして、$P_YR \subset P_Y$
 
 $R$: 体 $K$ 上の有限次元代数
 
@@ -1604,3 +1612,33 @@ $$
 
 有限右 $A$ 加群 $M$ がブロック $B_i$ に属するとは、$M$ の全ての組成因子が $\mathrm{Irr}(B_i)$ に入ることをいう
 
+$\lambda \in \Lambda$ に対して、$C^\lambda$ はあるブロックに属する
+
+$D^\mu, D^\nu \ (\mu, \nu \in \Lambda_0)$ は $C^\lambda$ の組成因子だとする。$d_{\lambda\mu}, d_{\lambda\nu} > 0$ だから
+
+$$
+c_{\mu\nu} = \sum_{\xi \in \Lambda} d_{\xi\mu}d_{\xi\nu} > 0
+$$
+
+よって、$D^\mu$, $D^\nu$ は同じブロックに属する
+
+$\lambda, \mu \in \Lambda$ に対して
+$\lambda \sim_\mathrm{cell} \mu$ $\Leftrightarrow$ $C^\lambda$, $C^\mu$ が同じブロックに属する
+
+$\Rightarrow$
+$C^\xi, C^\eta \ (\xi, \eta \in \Lambda)$ は共通の組成因子 $D$ を持つとする。$C^\xi, C^\eta$ は $D$ と同じブロックに属する
+
+$\Leftarrow$
+$C^\lambda$ の組成因子 $D^\alpha$ と $C^\mu$ の組成因子 $D^\beta$ を固定する。$D^\alpha, D^\beta$ は同じブロックに属するから、$\beta \sim_c \alpha$。よって、$\Lambda_0$ の元の列 $\alpha = \alpha_0, \alpha_1, \dots, \alpha_n = \beta$ があって、全ての $0 \le i \le n - 1$ に対して、$c_{\alpha_i\alpha_{i + 1}} > 0$。各 $0 \le i \le n - 1$ に対して
+
+$$
+\begin{aligned}
+  c_{\alpha_i\alpha_{i + 1}} = \sum_{\nu \in \Lambda} d_{\nu\alpha_i}d_{\nu\alpha_{i + 1}}
+\end{aligned}
+$$
+
+だから、ある $\nu_i \in \Lambda$ が存在して、$d_{\nu_i\alpha_i}, d_{\nu_i\alpha_{i + 1}} > 0$。$C^{\nu_i}$ は $D^{\alpha_i}, D^{\alpha_{i + 1}}$ を組成因子にもつから
+
+$$
+\lambda \sim_\mathrm{cell} \nu_0 \sim_\mathrm{cell} \nu_1 \sim_\mathrm{cell} \cdots \sim_\mathrm{cell} \nu_{n - 1} \sim_\mathrm{cell} \mu
+$$
