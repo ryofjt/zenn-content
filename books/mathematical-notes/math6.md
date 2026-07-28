@@ -1500,6 +1500,10 @@ $$
 
 $A$ は分裂代数なことがわかる
 
+# $d_{\lambda\mu}$
+
+$R$ は体 $K$ とし、$\#\Lambda < \infty$ とする
+
 $$
 d_{\lambda\mu} \coloneqq [C^\lambda : D^\mu] \quad (\lambda \in \Lambda, \mu \in \Lambda_0)
 $$
