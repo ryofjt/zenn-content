@@ -274,7 +274,7 @@ $e \in R$: 冪等元
 $eRe$ は $e$ を単位元とする環で
 
 $$
-\mathrm{End}(Re) \simeq (eRe)^\mathrm{op}
+\mathrm{End}_R(Re) \simeq (eRe)^\mathrm{op}
 $$
 
 $e \in R$: 冪等元
@@ -386,7 +386,7 @@ $e \in R$ が原始的冪等元ならば、$\bar{e} \in R / J(R)$ も原始的�
 まず、$\bar{e} \ne 0$ を示す。$e \in J(R)$ と仮定すると、ある $u \in R$ が存在して $u(1 - e) = 1$。よって、$e = u(1 - e)e = 0$ となって矛盾する。$0$ でない冪等元 $\bar{p}, \bar{q} \in R / J(R)$ で $\bar{p}\bar{q} = \bar{q}\bar{p} = 0$ なものが存在して、$\bar{e} = \bar{p} + \bar{q}$ だと仮定する。$\bar{p} = (\bar{p} + \bar{q})\bar{p}(\bar{p} + \bar{q}) = \bar{e}\bar{p}\bar{e} \in \overline{eRe}$。$\overline{eRe} = eRe / (eRe \cap J(R)) = eRe / eJ(R)e$。$\bar{p} \in \overline{eRe}$ の持ち上げ $p \in eRe$ で冪等なものが存在する。$q \coloneqq e - p \in eRe$ も冪等で $\bar{q} \in \overline{eRe}$ の持ち上げ。$pq = qp = 0$ だから、$e \in R$ が原始的なことに矛盾する
 
 [別証明]
-$\bar{e} \ne 0$ の証明は同様。$\mathrm{End}(Re)^\mathrm{op} \simeq eRe$ は局所環だから、$\overline{eRe} \simeq eRe / eJ(R)e = eRe / J(eRe)$ は斜体。$0$ でない冪等元 $\bar{p}, \bar{q} \in R / J(R)$ で $\bar{p}\bar{q} = \bar{q}\bar{p} = 0$ なものが存在して、$\bar{e} = \bar{p} + \bar{q}$ だと仮定する。$\bar{p}, \bar{q} \in \overline{eRe}$ だが、$\overline{eRe}$ の $0$ でない冪等元は $\bar{e}$ しかないので矛盾する
+$\bar{e} \ne 0$ の証明は同様。$\mathrm{End}_R(Re)^\mathrm{op} \simeq eRe$ は局所環だから、$\overline{eRe} \simeq eRe / eJ(R)e = eRe / J(eRe)$ は斜体。$0$ でない冪等元 $\bar{p}, \bar{q} \in R / J(R)$ で $\bar{p}\bar{q} = \bar{q}\bar{p} = 0$ なものが存在して、$\bar{e} = \bar{p} + \bar{q}$ だと仮定する。$\bar{p}, \bar{q} \in \overline{eRe}$ だが、$\overline{eRe}$ の $0$ でない冪等元は $\bar{e}$ しかないので矛盾する
 
 $R$: 左 Artin 環
 PIM $P$ は唯一の極大部分加群を持つ。特に、$\mathrm{top}(P)$ は単純
@@ -428,10 +428,10 @@ $e \in R$: 原始的冪等元
 $M$: 有限 $R$ 加群 ($\Leftrightarrow$ 長さ有限な $R$ 加群)
 
 $$
-[M : \mathrm{top}(Re)] = \ell_{\mathrm{Hom}(Re)} \mathrm{Hom}_R(Re, M) = \ell_{eRe} eM
+[M : \mathrm{top}(Re)] = \ell_{\mathrm{End}_R(Re)} \mathrm{Hom}_R(Re, M) = \ell_{eRe} eM
 $$
 
-$\mathrm{Hom}(Re)^\mathrm{op} = eRe$ は局所環だから、単純 $eRe$ 加群は $eRe / eJ(R)e \simeq \mathrm{End}_R(\mathrm{top}(Re))^\mathrm{op}$ しかないことに注意
+$\mathrm{End}_R(Re)^\mathrm{op} = eRe$ は局所環だから、単純 $eRe$ 加群は $eRe / eJ(R)e \simeq \mathrm{End}_R(\mathrm{top}(Re))^\mathrm{op}$ しかないことに注意。特に、$[M : \mathrm{top}(Re)] > 0 \Leftrightarrow \mathrm{Hom}_R(Re, M) \ne 0 \Leftrightarrow eM \ne 0$
 
 まず、$M$ が単純な場合を示す。$M \not\simeq \mathrm{top}(Re)$ とすると、全て $0$ になる。また
 
@@ -793,8 +793,19 @@ $(c_{ST})_{ST}$ を Cartan 行列という
 $P_S = Re_S, P_T = Re_T$ を原始的冪等元による表示とすると
 
 $$
-c_{ST} = \ell_{e_TRe_T} e_TRe_S
+c_{ST} = \ell_{\mathrm{End}_R(P_T)} \mathrm{Hom}_R(P_T, P_S) = \ell_{e_TRe_T} e_TRe_S
 $$
+
+特に、$c_{ST} > 0 \Leftrightarrow \mathrm{Hom}(P_T, P_S) \ne 0 \Leftrightarrow e_TRe_S \ne 0$
+
+$\mathrm{Irr}(R)$ 上の関係 $S \sim_c T$ を $\mathrm{Irr}(R)$ の元の列 $S = S_0, S_1, \dots, S_n = T$ が存在して、全ての $0 \le i \le n - 1$ に対して、$c_{S_iS_{i + 1}} > 0$ または $c_{S_{i + 1}S_i} > 0$ が成り立つことと定義する
+
+$S, T \in \mathrm{Irr}(R)$ に対して
+$S \sim_c T$ $\Leftrightarrow$ $S, T$ が同じブロックに属する
+
+$\Rightarrow$
+$c_{UV} > 0$ とすると、$\mathrm{Hom}_R(P_V, P_U) \ne 0$ だから、$U, V$ は同じブロックに属する
+
 
 $R$: 体 $K$ 上の有限次元代数
 
@@ -1582,3 +1593,14 @@ Cellular 代数の定義から $\mathrm{dim}_K A = \sum_{\lambda \in \Lambda} |\
 
 (4) $\Rightarrow$ (1)
 $c_{\lambda\mu} = \delta_{\lambda\mu}$ だから、$P^\lambda = D^\lambda$。よって、$A_A$ は単純右 $A$ 加群の直和
+
+$\Lambda$ 上の関係 $\lambda \sim_\mathrm{cell} \mu$ を、$\Lambda$ の元 $\lambda = \lambda_0, \lambda_1, \cdots, \lambda_k = \mu$ が存在して $C^{\lambda_i}$ と $C^{\lambda_{i + 1}}$ が共通の組成因子を持つことと定義する
+
+$A = B_1 \oplus \cdots \oplus B_c$ をブロック分解とする
+
+$$
+\mathrm{Irr}(A) = \mathrm{Irr}(B_1) \sqcup \cdots \sqcup \mathrm{Irr}(B_c)
+$$
+
+有限右 $A$ 加群 $M$ がブロック $B_i$ に属するとは、$M$ の全ての組成因子が $\mathrm{Irr}(B_i)$ に入ることをいう
+
