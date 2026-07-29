@@ -1742,7 +1742,7 @@ $$
 
 と定義すると $\mathfrak{S}_n$ は群であり、$\{ 1, \dots, n \}$ に右から作用する。$\sigma\tau = \tau \circ \sigma$ だが、一般に群 $G$ に対して $G \simeq G^\mathrm{op}$ だから問題ない
 
-$S \coloneqq \{ (i, i + 1) \mid 1 \le i \le n - 1 \} \subset \mathfrak{S}_n$
+$S \coloneqq \{ s_i \coloneqq (i, i + 1) \mid 1 \le i \le n - 1 \} \subset \mathfrak{S}_n$
 
 $\mathbb{Z}_{\ge 0}^{\oplus \mathbb{Z}_{\ge 1}}$ の元を composition という。Composition $\mu = (\mu_1, \mu_2, \dots)$ に対して、$|\mu| \coloneqq \sum_i \mu_i$ と定義する。$n = |\mu|$ のとき、$\mu$ は $n$ の composition といい、$\mu \vDash n$ と表す
 
@@ -1829,5 +1829,21 @@ $$
 $d: \mathrm{RStd}(\mu) \xrightarrow{\sim} D_\mu$ を $\mathfrak{t}^\mu d(\mathfrak{t}) = \mathfrak{t}$ で定義する
 
 $\mu$: composition
-$M^\mu \subset \mathscr{H}$ は $\{ m_\mu T_{d(\mathfrak{t})} \mid \mathfrak{t} \in \mathrm{RStd}(\mu) \} \subset \mathscr{H}$ で張られる自由 $R$ 加群。$s \in S$ に対して
+$M^\mu \subset \mathscr{H}$ は $\{ m_\mu T_{d(\mathfrak{t})} \mid \mathfrak{t} \in \mathrm{RStd}(\mu) \} \subset \mathscr{H}$ で張られる自由 $R$ 加群。$s_i \in S$ に対して
+
+$$
+m_\mu T_{d(\mathfrak{t})} T_{s_i} = \begin{cases}
+  q m_\mu T_{d(\mathfrak{t})} &\quad (\mathfrak{t}s_i \not\in \mathrm{RStd}(\mu)) \\
+  m_\mu T_{d(\mathfrak{t}s_i)} &\quad (\mathfrak{t}s_i \in \mathrm{RStd}(\mu), \ell(d(\mathfrak{t}s_i)) > \ell(d(\mathfrak{t}))) \\
+  q m_\mu T_{d(\mathfrak{t}s_i)} + (q - 1) m_\mu T_{d(\mathfrak{t})} &\quad (\mathfrak{t}s_i \in \mathrm{RStd}(\mu), \ell(d(\mathfrak{t}s_i)) < \ell(d(\mathfrak{t})))
+\end{cases}
+$$
+
+後半のみ示す。$\mathfrak{t}s_i \not\in \mathrm{RStd}(\mu)$ $\Leftrightarrow$ $i, i + 1$ が $\mathfrak{t}$ の同じ行にある $\Leftrightarrow$ ある $s_j \in S \cap \mathfrak{S}_\mu$ が存在して、$(j)d(\mathfrak{t}) = i, (j + 1)d(\mathfrak{t}) = i + 1$。このとき、$s_jd(\mathfrak{t}) = d(\mathfrak{t})s_i$ だから
+
+$$
+m_\mu T_{d(\mathfrak{t})} T_{s_i} = m_\mu T_{d(\mathfrak{t})s_i} = m_\mu T_{s_jd(\mathfrak{t})s_i} = m_\mu T_{s_j} T_{d(\mathfrak{t})s_i} = q m_\mu T_{d(\mathfrak{t})s_i}
+$$
+
+また、$\mathfrak{t}s_i \in \mathrm{RStd}(\mu)$ とすると、$d(\mathfrak{t}s_i) = d(\mathfrak{t})s_i$
 
