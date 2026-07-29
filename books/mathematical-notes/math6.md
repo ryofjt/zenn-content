@@ -981,6 +981,24 @@ $$
 \ell(w) = \#\{ \alpha \in R^+ \mid w^{-1}\alpha \in R^- \}
 $$
 
+$T \coloneqq \{ vsv^{-1} \mid s \in S, v \in W \}$
+
+$T_L(w) \coloneqq \{ t \in T \mid \ell(tw) < \ell(w) \}$
+
+$w = s_1 \cdots s_n$ を最短表示とすると
+
+$$
+T_L(w) = \{ s_1 \cdots s_i \cdots s_1 \mid 1 \le i \le n \}
+$$
+
+右辺は相異なり、特に
+
+$$
+\ell(w) = \#T_L(w)
+$$
+
+$\supset$ は容易。$\subset$ は SEC から従う。また、$i \ne j$ が存在して $s_1 \cdots s_i \cdots s_1 = s_1 \cdots s_j \cdots s_1$ と仮定すると、$x = s_1 \cdots \check{s}_i \cdots \check{s}_j \cdots s_n$ となって矛盾する
+
 # Weyl 群は Coxeter 群
 
 $(E, R)$: ルート系
@@ -1077,6 +1095,53 @@ $$
   &= \overbrace{t_1 s_1 t_1 \cdots}^m u_1 \cdots u_k \\
   &= t_1 \cdots t_n
 \end{aligned}
+$$
+
+$w = s_1 \cdots s_n$ を最短とは限らない表示とする。$t_i \coloneqq s_1 \cdots s_i \cdots s_1 \ (1 \le i \le n)$ とすると、$T_L(w)$ は $t_1, \dots, t_n$ の中で奇数回登場するものたちからなる。集合の対称差 $\oplus$ を使えば
+
+$$
+T_L(w) = \{ t_1 \} \oplus \cdots \oplus \{ t_n \}
+$$
+
+$n$ に関する帰納法で示す。$n = \ell(w)$ の場合は示した。$n > \ell(w)$ とする。Deletion Condition から、ある $i, j$ が存在して
+
+$$
+w = s_1 \cdots \check{s}_i \cdots \check{s}_j \cdots s_n
+$$
+
+$s_{i + 1} \cdots s_j = s_i \cdots s_{j - 1}$ がわかる。表示 $w = s_1 \cdots \check{s}_i \cdots \check{s}_j \cdots s_n$ から $t'_k \ (k \not\in \{ i, j \})$ が定まるが
+
+$$
+\bigoplus_k \{ t_k \} = (\bigoplus_{k \le i - 1} \{ t'_k \}) \oplus (\bigoplus_{i \le k \le j} \{ t_k \}) \oplus (\bigoplus_{k \ge j + 1} \{ t'_k \})
+$$
+
+真ん中の項を計算する。$x \coloneqq s_1 \cdots s_i$ とすると、帰納法の仮定から
+
+$$
+\begin{aligned}
+  \bigoplus_{i \le k \le j} \{ t_k \} &= \{ t_i \} \oplus x T_L(s_{i + 1} \cdots s_j) x^{-1} \\
+  &= \{ t_i \} \oplus x T_L(s_i \cdots s_{j - 1}) x^{-1} \\
+  &= \{ t_i \} \oplus \{ t_i \} \oplus \bigoplus_{i + 1 \le k \le j - 1} \{ t'_k \} \\
+  &= \bigoplus_{i + 1 \le k \le j - 1} \{ t'_k \}
+\end{aligned}
+$$
+
+よって、再び帰納法の仮定から
+
+$$
+\bigoplus_k \{ t_k \} = \bigoplus_{k \not\in \{ i, j \}} \{ t'_k \} = T_L(w)
+$$
+
+$x, y \in W$ に対して
+
+$$
+T_L(xy) = T_L(x) \oplus xT_L(y)x^{-1}
+$$
+
+$x = s_1 \cdots s_n$, $y = s_{n + 1} \cdots s_{n + m}$ を最短とは限らない表示とすると
+
+$$
+T_L(xy) = \bigoplus_{1 \le i \le n + m} \{ s_1 \cdots s_i \cdots s_1 \} = T_L(x) \oplus xT_L(y)x^{-1}
 $$
 
 # Hecke 代数
@@ -1278,7 +1343,20 @@ $$
 \end{aligned}
 $$
 
-$vw < vs_1w$ を示せば良い。$vw = (vs_1)s_2 \cdots s_n$, $vs_1w = vs_2 \cdots s_n$ から明らか
+$vw < vs_1w$ を示せば良いが、以下から従う
+
+$\ell(xs) > \ell(x)$, $\ell(sy) > \ell(y)$ ならば、$xsy > xy$
+
+$x = s_1 \cdots s_n$, $y = s'_1 \cdots s'_m$ を最短表示とする。$t \coloneqq xsx^{-1}$ とすると、$txy = xsy$。$txy > xy$ を示せば良い。SEC から、$\ell(txy) > \ell(xy)$ を示せば良い。$\ell(txy) < \ell(xy)$ と仮定すると、SEC から $t$ は以下のいずれかに一致する
+
+$$
+\begin{aligned}
+  &s_1 \cdots s_i \cdots s_1 &\quad (1 \le i \le n) \\
+  &x s'_1 \cdots s'_j \cdots s'_1 x^{-1} &\quad (1 \le j \le m)
+\end{aligned}
+$$
+
+しかし、いずれの場合も最短表示したことに矛盾する
 
 # Cellular 代数
 
@@ -1646,3 +1724,110 @@ $$
 $$
 \lambda \sim_\mathrm{cell} \nu_0 \sim_\mathrm{cell} \nu_1 \sim_\mathrm{cell} \cdots \sim_\mathrm{cell} \nu_{n - 1} \sim_\mathrm{cell} \mu
 $$
+
+# Hecke 代数の表現論
+
+$n \ge 1$
+
+$R$: 可換環
+$q \in R$
+
+$\mathscr{H} \coloneqq \mathscr{H}(\mathfrak{S}_n)_{R, q}$
+
+$\sigma \in \mathfrak{S}_n \coloneqq \mathrm{Aut}(\{ 1, \dots, n \})$ の作用を $i \mapsto (i)\sigma$ と書く。$\sigma, \tau \in \mathfrak{S}_n$ に対して
+
+$$
+(i)(\sigma\tau) \coloneqq ((i)\sigma)\tau
+$$
+
+と定義すると $\mathfrak{S}_n$ は群であり、$\{ 1, \dots, n \}$ に右から作用する。$\sigma\tau = \tau \circ \sigma$ だが、一般に群 $G$ に対して $G \simeq G^\mathrm{op}$ だから問題ない
+
+$S \coloneqq \{ (i, i + 1) \mid 1 \le i \le n - 1 \} \subset \mathfrak{S}_n$
+
+$\mathbb{Z}_{\ge 0}^{\oplus \mathbb{Z}_{\ge 1}}$ の元を composition という。Composition $\mu = (\mu_1, \mu_2, \dots)$ に対して、$|\mu| \coloneqq \sum_i \mu_i$ と定義する。$n = |\mu|$ のとき、$\mu$ は $n$ の composition といい、$\mu \vDash n$ と表す
+
+Composition $\mu$ に対して、$[\mu] \coloneqq \{ (i, j) \in \mathbb{Z}_{\ge 1}^2 \mid j \le \mu_i \}$ を $\mu$ の図形という。$(2, 3)$ の図形は
+
+$$
+\begin{array}{l}
+  \boxed{\phantom{1}} \boxed{\phantom{1}} \\
+  \boxed{\phantom{1}} \boxed{\phantom{1}} \boxed{\phantom{1}}
+\end{array}
+$$
+
+Compostion $\mu$ に対して、$\mu$-tableau とは、全単射 $\mathfrak{t}: [\mu] \xrightarrow{\sim} \{ 1, 2, \dots, |\mu| \}$ のこと。$\mathrm{Shape}(\mathfrak{t}) \coloneqq \mu$ と表す。以下は $(2, 3)$-tableau
+
+$$
+\begin{array}{l}
+  \boxed{4} \boxed{2} \\
+  \boxed{1} \boxed{5} \boxed{3}
+\end{array}
+$$
+
+$\mu$-tableau 全体を $\mathrm{Tab}(\mu)$ で表す
+
+$\mu$-tableau が row standard とは、行ごとに要素が左から右に増加することをいう。以下は row standard $(2, 3)$-tableau
+
+$$
+\begin{array}{l}
+  \boxed{4} \boxed{5} \\
+  \boxed{1} \boxed{2} \boxed{3}
+\end{array}
+$$
+
+Row standard $\mu$-tableau 全体を $\mathrm{RStd}(\mu)$ で表す
+
+Composition $\mu$ に対して、$\mathfrak{t}^\mu$ を、上の行から順に左から右へ $1, 2, \dots, |\mu|$ を配置した row standard $\mu$-tableau とする。$\mathfrak{t}^{(2, 3)}$ は
+
+$$
+\begin{array}{l}
+  \boxed{1} \boxed{2} \\
+  \boxed{3} \boxed{4} \boxed{5}
+\end{array}
+$$
+
+Composition $\mu$ に対して、$\mathrm{Tab}(\mu)$ には右から $\mathfrak{S}_n$ が作用する
+
+$\mu$: composition
+$\mathfrak{S}_\mu \coloneqq \mathfrak{S}_{\mu_1} \times \mathfrak{S}_{\mu_2} \times \cdots \subset \mathfrak{S}_n$ と定義する。$\mathfrak{S}_\mu$ は $S \cap \mathfrak{S}_\mu$ で生成され、$\mathscr{H}(\mathfrak{S}_\mu) = \mathscr{H}(\mathfrak{S}_{\mu_1}) \times \mathscr{H}(\mathfrak{S}_{\mu_2}) \times \cdots \subset \mathscr{H}$
+
+$m_\mu \coloneqq \sum_{w \in \mathfrak{S}_\mu} T_w \in \mathscr{H}(\mathfrak{S}_\mu)$ と定義する。$M_\mu \coloneqq m_\mu \mathscr{H} \subset \mathscr{H}$ は右イデアル
+
+$$
+m_\mu T_w = q^{\ell(w)} m_\mu \quad (w \in \mathfrak{S}_\mu)
+$$
+
+特に、右 $\mathfrak{S}_\mu$ 加群として $m_\mu \mathscr{\mathfrak{S}_\mu} \simeq 1_\mathscr{H(\mathfrak{S}_\mu)}$
+
+$s \in S \cap \mathfrak{S}_\mu$ に対して
+
+$$
+\begin{aligned}
+  m_\mu T_s &= \sum_{w \in \mathfrak{S}_\mu, \ell(ws) > \ell(w)} T_w Ts + \sum_{w \in \mathfrak{S}_\mu, \ell(ws) < \ell(w)} T_w Ts \\
+  &= \sum_{w \in \mathfrak{S}_\mu, \ell(ws) > \ell(w)} T_{ws} + \sum_{w \in \mathfrak{S}_\mu, \ell(ws) < \ell(w)} qT_{ws} + (q - 1)T_w \\
+  &= \sum_{w \in \mathfrak{S}_\mu, \ell(ws) < \ell(w)} T_w + \sum_{w \in \mathfrak{S}_\mu, \ell(ws) > \ell(w)} qT_w + \sum_{w \in \mathfrak{S}_\mu, \ell(ws) < \ell(w)} (q - 1)T_w \\
+  &= qm_\mu
+\end{aligned}
+$$
+
+$M_\mu = m_\mu \mathscr{H}(\mathfrak{S}_\mu) \otimes_{\mathscr{H}(\mathfrak{S}_\mu)} \mathscr{H} = 1_\mathscr{H(\mathfrak{S}_\mu)} \otimes_{\mathscr{H}(\mathfrak{S}_\mu)} \mathscr{H}$
+
+$\mathfrak{S}_\mu \backslash \mathfrak{S}_n$ の完全代表系は各軌道の中で長さが最小のものをとることで構成できた。それは
+
+$$
+D_\mu \coloneqq \{ d \in \mathfrak{S}_n \mid \mathfrak{t}^\mu d \in \mathrm{RSts}(\mu) \}
+$$
+
+これは、長さが転倒数と一致することから従う。また、定義から
+
+$$
+\ell(wd) = \ell(w) + \ell(d) \quad (w \in \mathfrak{S}_\mu, d \in D_\mu)
+$$
+
+であり、$T_{wd} = T_wT_d \ (w \in \mathfrak{S}_\mu, d \in D_\mu)$
+
+$d: \mathrm{RStd}(\mu) \xrightarrow{\sim} D_\mu$ を $\mathfrak{t}^\mu d(\mathfrak{t}) = \mathfrak{t}$ で定義する
+
+$\mu$: composition
+$M^\mu \subset \mathscr{H}$ は $\{ m_\mu T_{d(\mathfrak{t})} \mid \mathfrak{t} \in \mathrm{RStd}(\mu) \} \subset \mathscr{H}$ で張られる自由 $R$ 加群。$s \in S$ に対して
+
