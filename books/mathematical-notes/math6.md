@@ -99,6 +99,8 @@ $$
 \mathrm{rad}(M) = J(R)M
 $$
 
+特に、$\mathrm{top}(M) = M / J(R)M$
+
 $\supset$
 $N \subset M$ を極大部分加群とする。$J(R)(M / N) = 0$ だから $J(R)M \subset N$
 
@@ -1194,6 +1196,11 @@ $v \le w$ かつ $\ell(sv) = \ell(v) + 1$ かつ $\ell(sw) = \ell(w) - 1$ とす
 
 $sw = s_1 \cdots s_n$ を最短表示とする。最短表示 $w = s s_1 \cdots s_n$ のある部分表示は $v$ の最短表示になる。$\ell(sv) = \ell(v) + 1$ だから、$s$ は除去される必要がある
 
+$v, w \in W$ に対して、以下は同値
+
+(1) $v \le w$
+(2) $v = v_0, \dots, v_n = w$ が存在して、$v_i v_{i + 1}^{-1} \in T_L(v_{i + 1})$
+
 # Hecke 代数の構造
 
 $\mathscr{H}_{R, q}$ は $R$ 加群として $\{ T_w \mid w \in W \}$ で生成される。これが自由生成なことを示す
@@ -1818,13 +1825,13 @@ $$
 D_\mu \coloneqq \{ d \in \mathfrak{S}_n \mid \mathfrak{t}^\mu d \in \mathrm{RSts}(\mu) \}
 $$
 
-これは、長さが転倒数と一致することから従う。また、定義から
+これは、長さが転倒数と一致することから従う
 
 $$
 \ell(wd) = \ell(w) + \ell(d) \quad (w \in \mathfrak{S}_\mu, d \in D_\mu)
 $$
 
-であり、$T_{wd} = T_wT_d \ (w \in \mathfrak{S}_\mu, d \in D_\mu)$
+だから、$wd \ge d \ (w \in \mathfrak{S}_\mu, d \in D_\mu)$。また、$T_{wd} = T_wT_d \ (w \in \mathfrak{S}_\mu, d \in D_\mu)$
 
 $d: \mathrm{RStd}(\mu) \xrightarrow{\sim} D_\mu$ を $\mathfrak{t}^\mu d(\mathfrak{t}) = \mathfrak{t}$ で定義する
 
@@ -1847,3 +1854,95 @@ $$
 
 また、$\mathfrak{t}s_i \in \mathrm{RStd}(\mu)$ とすると、$d(\mathfrak{t}s_i) = d(\mathfrak{t})s_i$
 
+Composition $\mu, \nu$ に対して、$\mu \trianglerighteq \nu$ とは
+
+$$
+\sum_{j \le i} \mu_j \le \sum_{j \le i} \nu_j \quad (i \ge 0)
+$$
+
+が成り立つことをいう。これは composition たちの半順序を定める
+
+$\mu$: composition
+$\mathfrak{t} \in \mathrm{RStd}(\mu)$ と $0 \le m \le |\mu|$ に対して、$\mathfrak{t} \downarrow m$ とは、$\mathfrak{t}$ から $m$ より大きい要素を除いた row standard tableau のこと。$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$ に対して、$\mathfrak{s} \trianglerighteq \mathfrak{t}$ とは、全ての $0 \le m \le |\mu|$ に対して、$\mathrm{Shape}(\mathfrak{s} \downarrow m) \trianglerighteq \mathrm{Shape}(\mathfrak{t} \downarrow m)$ が成り立つことをいう。これは $\mathrm{RStd}(\mu)$ 上の半順序を定める
+
+$$
+\begin{array}{l}
+  \boxed{1} \boxed{3} \boxed{4} \\
+  \boxed{2} \boxed{5}
+\end{array}
+\triangleright
+\begin{array}{l}
+  \boxed{2} \boxed{3} \boxed{5} \\
+  \boxed{1} \boxed{4}
+\end{array}
+$$
+
+$v, w \in \mathfrak{S}_n$ に対して、$v \trianglerighteq w$ を Bruhat 順序の逆で定義する
+
+[補題]
+$\mu$: composition
+$\mathfrak{t} \in \mathrm{RStd}(\mu)$
+$j, k$ を $\mathfrak{t}$ の異なる行の要素で、$j < k$ なものとする。$\mathfrak{s} \in \mathrm{RStd}(\mu)$ を $\mathfrak{t}(j, k)$ の各行を並べ変えたものとすると、以下は同値
+
+(1) $d(\mathfrak{s}) \triangleright d(\mathfrak{t})$
+(2) $\mathfrak{s} \triangleright \mathfrak{t}$
+(3) $\mathfrak{t}$ 内で $k$ は $j$ よりも上にある
+
+(2) $\Leftrightarrow$ (3) の対偶
+$\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\downarrow j$ を考えれば良い
+
+(3) $\Leftrightarrow$ (2) は少し考えればわかる
+
+(3) $\Rightarrow$ (1)
+$(j)d(\mathfrak{t})^{-1} > (k)d(\mathfrak{t})^{-1}$ だから $(j, k) \in T_R(d(\mathfrak{t}))$。よって、$d(\mathfrak{t})(j, k) \triangleright d(\mathfrak{t})$。$\mathfrak{s}$ は $\mathfrak{S}_\mu d(\mathfrak{t})(j, k)$ の中で $\triangleright$ に関して最大なことから従う
+
+(1) $\Rightarrow$ (3) の対偶
+$\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\mathfrak{s}(j, k)$ の各行を並べ変えたものは $\mathfrak{t}$ だから、(1) $\Rightarrow$ (3) から $d(\mathfrak{t}) \triangleright d(\mathfrak{s})$
+
+[Tableau 判定法]
+$v, w \in \mathfrak{S}_n$ に対して、以下は同値
+
+(1) $v \le w$
+(2) 任意の $1 \le l \le n$ に対して、$v_1, \dots, v_l$ を小さい順に並べ変えたものを $v^{(l)}_1, \dots, v^{(l)}_l$ とし、$w_1, \dots, w_l$ を小さい順に並べ変えたものを $w^{(l)}_1, \dots, w^{(l)}_l$ とすると、$v^{(l)}_i \le w^{(l)}_i \ (1 \le i \le l)$
+
+(1) $\Rightarrow$ (2)
+まず、$j, k \ (j < k)$ が存在して、$v = (j, k)w$ かつ $\ell(v) < \ell(w)$ が成り立つ場合を考える。$w_j > w_k$。$l \le j - 1$ または $l \ge k$ の場合は明らか。$j \le l \le k - 1$ の場合も容易。一般の場合は、$v = v_0, v_1, \dots, v_m = w$ が存在して、$v_i v_{i + 1}^{-1} \in T_L(v_{i + 1})$ が成り立つことから従う
+
+(2) $\Rightarrow$ (1)
+$\ell(w)$ に関する帰納法を使う。$\ell(w) = 0$ の場合は容易。$\ell(w) \ge 1$ とする。$v \ne w$ として良い。$j$ を $v_j \ne w_j$ となる最小の位置とする。$l = j$ の場合を考えれば、$v_j < w_j$。$k > j$ を $v_j \le w_k < w_j$ となる位置のうち $w_k$ が最大のものとする。$\tilde{w} \coloneqq (j, k)w$ とすると、$\ell(\tilde{w}) < \ell(w)$。(2) の意味で $\tilde{w}$ が $v$ 以上なことを示せば良い。$l \le j - 1$ または $l \ge k$ ならば明らか。$j \le l \le k - 1$ とすると
+
+$$
+\begin{aligned}
+  v^{(l)} &= (\dots, v_j, x_1, x_2, \dots, x_p, \dots) \\
+  w^{(l)} &= (\dots, y_1, y_2, \dots, y_p, w_j, \dots) \\
+  \tilde{w}^{(l)} &= (\dots, w_k, y_1, y_2, \dots, y_p, \dots)
+\end{aligned}
+$$
+
+ある $1 \le q \le p$ が存在して、$x_q > y_q$ と仮定すると、$k$ の取り方に矛盾する
+
+$\mu$: composition
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
+
+$$
+\mathfrak{s} \triangleright \mathfrak{t} \Leftrightarrow d(\mathfrak{s}) \triangleright d(\mathfrak{t})
+$$
+
+$\Leftarrow$
+
+$\Rightarrow$
+
+# Murphy 基底
+
+Composition $\lambda$ が分割とは、$\lambda_1 \ge \lambda_2 \ge \cdots$ が成り立つことをいう。$n = |\lambda|$ のとき、$\lambda \vdash n$ と表す
+
+分割 $\lambda$ に対して、$\lambda$-tableau が standard とは、行ごとに要素が左から右に増加し、列ごとに要素が上から下に増加することをいう。以下は standard $\lambda$-tableau
+
+$$
+\begin{array}{l}
+  \boxed{1} \boxed{3} \boxed{4} \\
+  \boxed{2} \boxed{5}
+\end{array}
+$$
+
+Standard $\lambda$-tableau 全体を $\mathrm{Std}(\lambda)$ で表す
