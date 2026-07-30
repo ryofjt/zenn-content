@@ -983,24 +983,6 @@ $$
 \ell(w) = \#\{ \alpha \in R^+ \mid w^{-1}\alpha \in R^- \}
 $$
 
-$T \coloneqq \{ vsv^{-1} \mid s \in S, v \in W \}$
-
-$T_L(w) \coloneqq \{ t \in T \mid \ell(tw) < \ell(w) \}$
-
-$w = s_1 \cdots s_n$ を最短表示とすると
-
-$$
-T_L(w) = \{ s_1 \cdots s_i \cdots s_1 \mid 1 \le i \le n \}
-$$
-
-右辺は相異なり、特に
-
-$$
-\ell(w) = \#T_L(w)
-$$
-
-$\supset$ は容易。$\subset$ は SEC から従う。また、$i \ne j$ が存在して $s_1 \cdots s_i \cdots s_1 = s_1 \cdots s_j \cdots s_1$ と仮定すると、$x = s_1 \cdots \check{s}_i \cdots \check{s}_j \cdots s_n$ となって矛盾する
-
 # Weyl 群は Coxeter 群
 
 $(E, R)$: ルート系
@@ -1037,12 +1019,13 @@ $$
 
 で定義されることもわかる
 
-# 諸々の性質
+# Deletion Condition
 
-[Deletion Condition]
 $w = s_1 \cdots s_n$ を最短とは限らない表示とする。いくつかを取り除いて最短表示にできる
 
 $1 \le k \le n$ に対して、$\ell(s_k \cdots s_n) = \ell(s_{k + 1} \cdots s_n) \pm 1$。$w = s_1 \cdots s_n$ が最短でないとすると、ある $1 \le k \le n - 1$ が存在して、$\ell(s_k \cdots s_n) = \ell(s_{k + 1} \cdots s_n) - 1$。$s_k \cdots s_n = s_{k + 1} \cdots \check{s}_l \cdots s_n$ と表せる
+
+# $W_Y, W^Y$
 
 $Y \subset S$: 部分集合
 $W_Y \subset W$: $Y$ が生成する部分群
@@ -1052,6 +1035,23 @@ $W_Y$ は $V_Y \coloneqq \mathrm{span}_\mathbb{R} Y \subset V$, $R_Y \coloneqq R
 $$
 \ell_Y(v) = \ell(v)
 $$
+
+$\mathcal{O}$ を $W \curvearrowleft W_Y$ の軌道とする。$x$ を $\mathcal{O}$ の中で長さが最小な元とすると、Deletion Condition から
+
+$$
+\ell(xv) = \ell(x) + \ell(v) \quad (v \in W_Y)
+$$
+
+特に、$\mathcal{O}$ に対して $x$ は一意的。これから、$W / W_Y$ の標準的な完全代表系 $W^Y$ が構成できる
+
+$x \in W^Y$ $\Leftrightarrow$ 任意の $y \in Y$ に対して、$\ell(xy) = \ell(x) + 1$
+
+$x \in W^Y$
+$x = s_1 \cdots s_n$ を最短表示とすると、$s_i \cdots s_n \in W^Y$
+
+$n \ge 1$ として、$s_2 \cdots s_n \in W^Y$ を示せば良い。任意の $y \in Y$ に対して、$\ell(s_1xy) > \ell(s_1x)$ が成り立つことを示す。$\ell(s_1xy) = \ell(xy) \pm 1 = \ell(x) + 1 \pm 1$ から従う
+
+# 松本の定理
 
 $\mathfrak{B}^+$ を生成元 $s \in S$ と関係式
 
@@ -1064,7 +1064,7 @@ $$
 [松本の定理]
 $s_1 \cdots s_n = t_1 \cdots t_n \in W$ を 2 つの最短表示とすると、$\mathfrak{B}^+$ 内で $s_1 \cdots s_n = t_1 \cdots t_n$
 
-$n$ に関する帰納法を使う。$n = 0$ なら明らか。$n \ge 1$ とする。$s_1 = t_1$ の場合は明らか。$s_1 \ne t_1$ とする。$W_2 \coloneqq \langle s_1, t_1 \rangle \subset W$ とする。$w \coloneqq s_1 \cdots s_n = t_1 \cdots t_n$ とおく。$W_2 w$ の元で長さが最小のものを $w' \in W$ とする。Deletion Condition から
+$n$ に関する帰納法を使う。$n = 0$ なら明らか。$n \ge 1$ とする。$s_1 = t_1$ の場合は明らか。$s_1 \ne t_1$ とする。$W_2 \coloneqq \langle s_1, t_1 \rangle \subset W$ とする。$w \coloneqq s_1 \cdots s_n = t_1 \cdots t_n$ とおく。$W_2 w$ の元で長さが最小のものを $w' \in W$ とすると
 
 $$
 \ell(vw') = \ell(v) + \ell(w') \quad (v \in W_2)
@@ -1098,6 +1098,26 @@ $$
   &= t_1 \cdots t_n
 \end{aligned}
 $$
+
+# $T_L(w)$
+
+$T \coloneqq \{ vsv^{-1} \mid s \in S, v \in W \}$
+
+$T_L(w) \coloneqq \{ t \in T \mid \ell(tw) < \ell(w) \}$
+
+$w = s_1 \cdots s_n$ を最短表示とすると
+
+$$
+T_L(w) = \{ s_1 \cdots s_i \cdots s_1 \mid 1 \le i \le n \}
+$$
+
+右辺は相異なり、特に
+
+$$
+\ell(w) = \#T_L(w)
+$$
+
+$\supset$ は容易。$\subset$ は SEC から従う。また、$i \ne j$ が存在して $s_1 \cdots s_i \cdots s_1 = s_1 \cdots s_j \cdots s_1$ と仮定すると、$x = s_1 \cdots \check{s}_i \cdots \check{s}_j \cdots s_n$ となって矛盾する
 
 $w = s_1 \cdots s_n$ を最短とは限らない表示とする。$t_i \coloneqq s_1 \cdots s_i \cdots s_1 \ (1 \le i \le n)$ とすると、$T_L(w)$ は $t_1, \dots, t_n$ の中で奇数回登場するものたちからなる。集合の対称差 $\oplus$ を使えば
 
@@ -1200,6 +1220,27 @@ $v, w \in W$ に対して、以下は同値
 
 (1) $v \le w$
 (2) $v = v_0, \dots, v_n = w$ が存在して、$v_i v_{i + 1}^{-1} \in T_L(v_{i + 1})$
+
+$Y \subset S$: 部分集合
+$W \to W^Y$ は Bruhat 順序 $\le$ を保つ
+
+$w_1, w_2 \in W$ は $w_1 \le w_2$ だとする。$w_i = x_i v_i \ (x_i \in W^Y, v_i \in W_Y)$ と分解する。$v_1 \le v_2$ を示せば良い。$x_2 = s_1 \cdots s_n$, $v_2 = y_1 \cdots y_m \ (y_k \in Y)$ を最短表示とする。$w_2 = s_1 \cdots s_n y_1 \cdots y_m$ は最短表示。$w_1 \le w_2$ だから
+
+$$
+w_1 = s_{j_1} \cdots s_{j_a} y_{k_1} \cdots y_{k_b}
+$$
+
+と表示できる。$v_1 \in w_1 W_Y$ だから、Deletion Condition から
+
+$$
+v_1 = s_{j_{p_1}} \cdots s_{j_{p_c}} y_{k_{q_1}} \cdots y_{k_{q_d}} z_1 \cdots z_l \quad (z_1, \dots, z_l \in Y)
+$$
+
+と最短表示できる。$v_1 \in W^Y$ の最短表示の末尾は $Y$ の元ではないから
+
+$$
+v_1 = s_{j_{p_1}} \cdots s_{j_{p_c}}
+$$
 
 # Hecke 代数の構造
 
