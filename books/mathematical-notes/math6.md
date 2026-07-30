@@ -1166,6 +1166,72 @@ $$
 T_L(xy) = \bigoplus_{1 \le i \le n + m} \{ s_1 \cdots s_i \cdots s_1 \} = T_L(x) \oplus xT_L(y)x^{-1}
 $$
 
+# Bruhat 順序
+
+$v, w \in W$ に対して、$v \le w$ とは以下の同値な条件を満たすことをいう
+
+(1) ある $w$ の最短表示が存在して、$v$ はある部分表示に一致する
+(2) 任意の $w$ の最短表示に対して、$v$ はある部分表示に一致する
+
+(1) $\Rightarrow$ (2) は松本の定理から従う。(2) から $\le$ は $W$ 上の半順序を定めることがわかる
+
+[Lifting Property (交差)]
+$v \le w$ かつ $\ell(sv) = \ell(v) + 1$ かつ $\ell(sw) = \ell(w) - 1$ とすると、$v \le sw$ かつ $sv \le w$
+
+$sw = s_1 \cdots s_n$ を最短表示とする。最短表示 $w = s s_1 \cdots s_n$ のある部分表示は $v$ の最短表示になる。$\ell(sv) = \ell(v) + 1$ だから、$s$ は除去される必要がある
+
+[Lifting Property (平行)]
+$v \le w$ かつ $\ell(sv) = \ell(v) + 1$ かつ $\ell(sw) = \ell(w) + 1$ とすると、$v \le w$ $\Leftrightarrow$ $sv \le sw$
+
+$\Rightarrow$ は容易
+
+$\Leftarrow$
+$w = s_1 \cdots s_n$ を最短表示とする。$sv$ は最短表示 $sw = ss_1 \cdots s_n$ の部分表示と一致する。$s$ が残る場合は明らか。$sv = s_{j_1} \cdots s_{j_k}$ とする。SEC から $v = s_{j_1} \cdots \check{s}_{j_l} \cdots s_{j_k}$ と表示できる
+
+$Y \subset S$: 部分集合
+$W \to W^Y$ は Bruhat 順序 $\le$ を保つ
+
+$w_1, w_2 \in W$ は $w_1 \le w_2$ だとする。$w_i = x_i v_i \ (x_i \in W^Y, v_i \in W_Y)$ と分解する。$v_1 \le v_2$ を示せば良い。$x_2 = s_1 \cdots s_n$, $v_2 = y_1 \cdots y_m \ (y_k \in Y)$ を最短表示とする。$w_2 = s_1 \cdots s_n y_1 \cdots y_m$ は最短表示。$w_1 \le w_2$ だから
+
+$$
+w_1 = s_{j_1} \cdots s_{j_a} y_{k_1} \cdots y_{k_b}
+$$
+
+と表示できる。$v_1 \in w_1 W_Y$ だから、Deletion Condition から
+
+$$
+v_1 = s_{j_{p_1}} \cdots s_{j_{p_c}} y_{k_{q_1}} \cdots y_{k_{q_d}} z_1 \cdots z_l \quad (z_1, \dots, z_l \in Y)
+$$
+
+と最短表示できる。$v_1 \in W^Y$ の最短表示の末尾は $Y$ の元ではないから
+
+$$
+v_1 = s_{j_{p_1}} \cdots s_{j_{p_c}}
+$$
+
+$x \in W^Y$ とすると、$x$ は $xW_Y$ の中で Bruhat 順序に関して最小
+
+# Covering relation
+
+$v, w \in W$ に対して、以下の同値な条件を満たす時、$v \prec w$ と表す
+
+(1) $v < w$ かつ $\ell(w) - \ell(v) = 1$
+(2) $vw^{-1} \in T_L(w)$ かつ $\ell(w) - \ell(v) = 1$
+
+$v, w \in W$ は $v \le w$ とする。$w = s_1 \cdots s_n$ を最短表示とする。$1 \le i_1 < i_2 < \cdots < i_p \le n$ が存在して、$x_k \coloneqq s_1 \cdots \check{s}_{k + 1} \cdots \check{s}_p \cdots s_n \ (0 \le k \le p)$ は長さ $n - p + k$ の最短表示で
+
+$$
+v = x_0 \prec x_1 \prec \cdots \prec x_p = w
+$$
+
+$a, b \in W^Y$ は $a \le b$ とする。$a_1, \dots, a_n \in W^Y$ が存在して
+
+$$
+a = a_1 \prec a_2 \prec \cdots \prec a_n = b
+$$
+
+$\ell(b) - \ell(a)$ に関する帰納法を使う。$\ell(a) = \ell(b)$ の場合は明らか。$\ell(a) < \ell(b)$ とする。$b = s_1 \cdots s_m$ を最短表示とする。$1 \le i_1 < i_2 < \cdots < i_p \le n$ が存在して、$x_k \coloneqq s_1 \cdots \check{s}_{i_1} \cdots \check{s}_{i_k} \cdots s_m \ (0 \le k \le p)$ とすると、$a = x_p \prec x_{p - 1} \prec \cdots \prec x_0 = b$。$x_{p - 1} \in W^Y$ を示せば、帰納法の仮定から従う。$x_{p - 1} \not\in W^Y$ と仮定する。$a \le p^{W^Y}(x_{p - 1}) < x_{p - 1}$ だから、$p^{W^Y}(x_{p - 1}) = a$。よって、ある $y \in Y$ が存在して、$x_{p - 1} = ay$。$x_{p - 1} = as_m \cdots s_{i_p} \cdots s_m$ だから、$y = s_m \cdots s_{i_p} \cdots s_m$。しかし、$by = s_1 \cdots \check{s}_{i_p} \cdots s_m < b$ となって、$b \in W^J$ に矛盾する
+
 # Hecke 代数
 
 $(W, S)$: Coxeter 群
@@ -1200,46 +1266,6 @@ $$
 
 $$
 T_s T_w = T_s^2 T_{sw} = ((q - 1)T_s + q)T_{sw} = qT_{sw} + (q - 1)T_w
-$$
-
-# Bruhat 順序
-
-$v, w \in W$ に対して、$v \le w$ とは以下の同値な条件を満たすことをいう
-
-(1) ある $w$ の最短表示が存在して、$v$ はある部分表示に一致する
-(2) 任意の $w$ の最短表示に対して、$v$ はある部分表示に一致する
-
-(1) $\Rightarrow$ (2) は松本の定理から従う。(2) から $\le$ は $W$ 上の半順序を定めることがわかる
-
-[Lifting Property]
-$v \le w$ かつ $\ell(sv) = \ell(v) + 1$ かつ $\ell(sw) = \ell(w) - 1$ とすると、$v \le sw$ かつ $sv \le w$
-
-$sw = s_1 \cdots s_n$ を最短表示とする。最短表示 $w = s s_1 \cdots s_n$ のある部分表示は $v$ の最短表示になる。$\ell(sv) = \ell(v) + 1$ だから、$s$ は除去される必要がある
-
-$v, w \in W$ に対して、以下は同値
-
-(1) $v \le w$
-(2) $v = v_0, \dots, v_n = w$ が存在して、$v_i v_{i + 1}^{-1} \in T_L(v_{i + 1})$
-
-$Y \subset S$: 部分集合
-$W \to W^Y$ は Bruhat 順序 $\le$ を保つ
-
-$w_1, w_2 \in W$ は $w_1 \le w_2$ だとする。$w_i = x_i v_i \ (x_i \in W^Y, v_i \in W_Y)$ と分解する。$v_1 \le v_2$ を示せば良い。$x_2 = s_1 \cdots s_n$, $v_2 = y_1 \cdots y_m \ (y_k \in Y)$ を最短表示とする。$w_2 = s_1 \cdots s_n y_1 \cdots y_m$ は最短表示。$w_1 \le w_2$ だから
-
-$$
-w_1 = s_{j_1} \cdots s_{j_a} y_{k_1} \cdots y_{k_b}
-$$
-
-と表示できる。$v_1 \in w_1 W_Y$ だから、Deletion Condition から
-
-$$
-v_1 = s_{j_{p_1}} \cdots s_{j_{p_c}} y_{k_{q_1}} \cdots y_{k_{q_d}} z_1 \cdots z_l \quad (z_1, \dots, z_l \in Y)
-$$
-
-と最短表示できる。$v_1 \in W^Y$ の最短表示の末尾は $Y$ の元ではないから
-
-$$
-v_1 = s_{j_{p_1}} \cdots s_{j_{p_c}}
 $$
 
 # Hecke 代数の構造
