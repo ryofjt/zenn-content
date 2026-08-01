@@ -369,7 +369,7 @@ $$
 \lambda \sim_\mathrm{cell} \nu_0 \sim_\mathrm{cell} \nu_1 \sim_\mathrm{cell} \cdots \sim_\mathrm{cell} \nu_{n - 1} \sim_\mathrm{cell} \mu
 $$
 
-# Hecke 代数の表現論
+# Row standard tableau
 
 $n \ge 1$
 
@@ -459,18 +459,18 @@ $M_\mu = m_\mu \mathscr{H}(\mathfrak{S}_\mu) \otimes_{\mathscr{H}(\mathfrak{S}_\
 $\mathfrak{S}_\mu \backslash \mathfrak{S}_n$ の完全代表系は各軌道の中で長さが最小のものをとることで構成できた。それは
 
 $$
-D_\mu \coloneqq \{ d \in \mathfrak{S}_n \mid \mathfrak{t}^\mu d \in \mathrm{RSts}(\mu) \}
+\mathscr{D}_\mu \coloneqq \{ d \in \mathfrak{S}_n \mid \mathfrak{t}^\mu d \in \mathrm{RSts}(\mu) \}
 $$
 
 これは、長さが転倒数と一致することから従う
 
 $$
-\ell(wd) = \ell(w) + \ell(d) \quad (w \in \mathfrak{S}_\mu, d \in D_\mu)
+\ell(wd) = \ell(w) + \ell(d) \quad (w \in \mathfrak{S}_\mu, d \in \mathscr{D}_\mu)
 $$
 
-だから、$wd \ge d \ (w \in \mathfrak{S}_\mu, d \in D_\mu)$。また、$T_{wd} = T_wT_d \ (w \in \mathfrak{S}_\mu, d \in D_\mu)$
+だから、$wd \ge d \ (w \in \mathfrak{S}_\mu, d \in \mathscr{D}_\mu)$。また、$T_{wd} = T_wT_d \ (w \in \mathfrak{S}_\mu, d \in \mathscr{D}_\mu)$
 
-$d: \mathrm{RStd}(\mu) \xrightarrow{\sim} D_\mu$ を $\mathfrak{t}^\mu d(\mathfrak{t}) = \mathfrak{t}$ で定義する
+$d: \mathrm{RStd}(\mu) \xrightarrow{\sim} \mathscr{D}_\mu$ を $\mathfrak{t}^\mu d(\mathfrak{t}) = \mathfrak{t}$ で定義する
 
 $\mu$: composition
 $M^\mu \subset \mathscr{H}$ は $\{ m_\mu T_{d(\mathfrak{t})} \mid \mathfrak{t} \in \mathrm{RStd}(\mu) \} \subset \mathscr{H}$ で張られる自由 $R$ 加群。$s_i \in S$ に対して
@@ -519,7 +519,7 @@ $v, w \in \mathfrak{S}_n$ に対して、$v \trianglerighteq w$ を Bruhat 順�
 [補題]
 $\mu$: composition
 $\mathfrak{t} \in \mathrm{RStd}(\mu)$
-$j, k$ を $\mathfrak{t}$ の異なる行の要素で、$j < k$ なものとする。$\mathfrak{s} \in \mathrm{RStd}(\mu)$ を $\mathfrak{t}(j, k)$ の各行を並べ変えたものとすると、以下は同値
+$j, k$ を $\mathfrak{t}$ の異なる行の要素で、$j < k$ なものとする。$\mathfrak{s} \in \mathrm{RStd}(\mu)$ を $\mathfrak{t}(j, k)$ の各行を並べ替えたものとすると、以下は同値
 
 (1) $d(\mathfrak{s}) \triangleright d(\mathfrak{t})$
 (2) $\mathfrak{s} \triangleright \mathfrak{t}$
@@ -534,13 +534,65 @@ $\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\downarrow j
 $(j)d(\mathfrak{t})^{-1} > (k)d(\mathfrak{t})^{-1}$ だから $(j, k) \in T_R(d(\mathfrak{t}))$。よって、$d(\mathfrak{t})(j, k) \triangleright d(\mathfrak{t})$。$\mathfrak{s}$ は $\mathfrak{S}_\mu d(\mathfrak{t})(j, k)$ の中で $\triangleright$ に関して最大なことから従う
 
 (1) $\Rightarrow$ (3) の対偶
-$\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\mathfrak{s}(j, k)$ の各行を並べ変えたものは $\mathfrak{t}$ だから、(1) $\Rightarrow$ (3) から $d(\mathfrak{t}) \triangleright d(\mathfrak{s})$
+$\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\mathfrak{s}(j, k)$ の各行を並べ替えたものは $\mathfrak{t}$ だから、(1) $\Rightarrow$ (3) から $d(\mathfrak{t}) \triangleright d(\mathfrak{s})$
+
+[定理]
+$\mu$: composition
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
+
+$$
+\mathfrak{s} \trianglerighteq \mathfrak{t} \Leftrightarrow d(\mathfrak{s}) \trianglerighteq d(\mathfrak{t})
+$$
+
+$\Leftarrow$
+$\mathfrak{s}_0, \mathfrak{s}_1, \dots, \mathfrak{s}_m \in \mathrm{RStd}(\mu)$ が存在して、$d(\mathfrak{s}) = d(\mathfrak{s}_0) \prec d(\mathfrak{s}_1) \prec \cdots \prec d(\mathfrak{s}_m) = d(\mathfrak{t})$。よって、$d(\mathfrak{s}) \prec d(\mathfrak{t})$ の場合を示せば良い。$j, k \ (j < k)$ が存在して、$d(\mathfrak{t})(j, k) = d(\mathfrak{s})$。$\mathfrak{t}$ において $j, k$ は異なる行にあり、$k$ は $j$ よりも上にある。よって、補題から $\mathfrak{s} \triangleright \mathfrak{t}$
+
+$\Rightarrow$
+$\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は、$\mathfrak{t} = \mathfrak{t}^\mu$ だから $\mathfrak{s} = \mathfrak{t}^\mu$。$\ell(d(\mathfrak{t})) > 0$ とする。$\mathfrak{s} \ne \mathfrak{t}$ として良い。行 $r$ を $\mathfrak{s}$ と $\mathfrak{t}$ の行 $r$ が異なるような最上の行とする。$a$ を $\mathfrak{s}$ の行 $r$ の要素で $\mathfrak{t}$ の行 $r$ の要素でないもののうち最小の要素とする。同様に、$b$ を $\mathfrak{t}$ の行 $r$ の要素で $\mathfrak{s}$ の行 $r$ の要素でないもののうち最小の要素とする。$a$ は $\mathfrak{t}$ の中で行 $r$ より下で出現する。$a > b$ と仮定すると、$\downarrow b$ を考えると矛盾するから、$a < b$。$\mathfrak{t}$ の行 $r$ より下の要素 $c$ で $a \le c < b$ を満たすもののうち、行番号が最小のものを選ぶ。$c$ がある $\mathfrak{t}$ の行を $s$ とする。$\mathfrak{t}' \in \mathrm{RStd}(\mu)$ を $\mathfrak{t}(b, c)$ の各行を並べ替えたものとする。補題から、$\mathfrak{t}' \triangleright \mathfrak{t}$, $d(\mathfrak{t}') \triangleright d(\mathfrak{t})$ が成り立つ。よって、$\mathfrak{s} \trianglerighteq \mathfrak{t}'$ を示せば、帰納法の仮定から従う
+
+$$
+\mathfrak{s} = \begin{array}{l}
+  \boxed{\phantom{1111}} \\
+  \boxed{\mathrlap{x_1 \cdots x_n a - y_1 - \cdots - y_m}\phantom{1111111111111111111111111}} \\
+  \boxed{\phantom{111}} \\
+  \boxed{\phantom{1111111111}} \\
+  \boxed{\phantom{11}}
+\end{array}
+$$
+
+$$
+\mathfrak{t} = \begin{array}{l}
+  \boxed{\phantom{1111}} \\
+  \boxed{\mathrlap{x_1 \cdots x_n y_1 \cdots y_m b}\phantom{1111111111111111111111111}} \\
+  \boxed{\phantom{111}} \\
+  \boxed{\mathrlap{\phantom{1} c z_1 \cdots z_l}\phantom{1111111111}} \\
+  \boxed{\phantom{11}}
+\end{array}
+\quad
+\mathfrak{t}' = \begin{array}{l}
+  \boxed{\phantom{1111}} \\
+  \boxed{\mathrlap{x_1 \cdots x_n y_1 \cdots y_p c y_{p + 1} \cdots y_m}\phantom{1111111111111111111111111}} \\
+  \boxed{\phantom{111}} \\
+  \boxed{\mathrlap{\phantom{1} z_1 \cdots z_l b}\phantom{1111111111}} \\
+  \boxed{\phantom{11}}
+\end{array}
+$$
+
+$\downarrow k$ を考える。$k \le c - 1$ または $k \ge b$ の場合は $\mathrm{Shape}(\mathfrak{t} \downarrow k) = \mathrm{Shape}(\mathfrak{t}' \downarrow k)$ だから明らか。$c \le k \le b - 1$ とする。$\sum_{i \le j} \mathrm{Shape}(- \downarrow k)_i$ を考える。$j \le r - 1$ または $j \ge s$ ならば明らか。$r \le j \le s - 1$ とする。$\sum_{i \le j} \mathrm{Shape}(\mathfrak{s} \downarrow a - 1)_i \ge \sum_{i \le j} \mathrm{Shape}(\mathfrak{t}' \downarrow a - 1)_i$ と以下を組み合わせれば良い
+
+$$
+\begin{aligned}
+  &\mathrm{Shape}(\mathfrak{s} \downarrow k)_i - \mathrm{Shape}(\mathfrak{s} \downarrow a - 1)_i = \mathrm{Shape}(\mathfrak{t}' \downarrow k)_i - \mathrm{Shape}(\mathfrak{t}' \downarrow a - 1)_i \quad (i \le r - 1) \\
+  &\mathrm{Shape}(\mathfrak{s} \downarrow k)_r - \mathrm{Shape}(\mathfrak{s} \downarrow a - 1)_r \ge \mathrm{Shape}(\mathfrak{t}' \downarrow k)_r - \mathrm{Shape}(\mathfrak{t}' \downarrow a - 1)_r \\
+  &\mathrm{Shape}(\mathfrak{s} \downarrow k)_i - \mathrm{Shape}(\mathfrak{s} \downarrow a - 1)_i \ge 0 = \mathrm{Shape}(\mathfrak{t}' \downarrow k)_i - \mathrm{Shape}(\mathfrak{t}' \downarrow a - 1)_i \quad (r + 1 \le i \le j)
+\end{aligned}
+$$
 
 [Tableau 判定法]
 $v, w \in \mathfrak{S}_n$ に対して、以下は同値
 
 (1) $v \le w$
-(2) 任意の $1 \le l \le n$ に対して、$v_1, \dots, v_l$ を小さい順に並べ変えたものを $v^{(l)}_1, \dots, v^{(l)}_l$ とし、$w_1, \dots, w_l$ を小さい順に並べ変えたものを $w^{(l)}_1, \dots, w^{(l)}_l$ とすると、$v^{(l)}_i \le w^{(l)}_i \ (1 \le i \le l)$
+(2) 任意の $1 \le l \le n$ に対して、$v_1, \dots, v_l$ を小さい順に並べ替えたものを $v^{(l)}_1, \dots, v^{(l)}_l$ とし、$w_1, \dots, w_l$ を小さい順に並べ替えたものを $w^{(l)}_1, \dots, w^{(l)}_l$ とすると、$v^{(l)}_i \le w^{(l)}_i \ (1 \le i \le l)$
 
 (1) $\Rightarrow$ (2)
 まず、$j, k \ (j < k)$ が存在して、$v = (j, k)w$ かつ $\ell(v) < \ell(w)$ が成り立つ場合を考える。$w_j > w_k$。$l \le j - 1$ または $l \ge k$ の場合は明らか。$j \le l \le k - 1$ の場合も容易。一般の場合は、$v = v_0, v_1, \dots, v_m = w$ が存在して、$v_i v_{i + 1}^{-1} \in T_L(v_{i + 1})$ が成り立つことから従う
@@ -558,16 +610,12 @@ $$
 
 ある $1 \le q \le p$ が存在して、$x_q > y_q$ と仮定すると、$k$ の取り方に矛盾する
 
-$\mu$: composition
-$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
+前述の定理は、Tableau 判定法を以下のように言い換えると容易にわかる
 
-$$
-\mathfrak{s} \triangleright \mathfrak{t} \Leftrightarrow d(\mathfrak{s}) \triangleright d(\mathfrak{t})
-$$
+$v, w \in \mathfrak{S}_n$ に対して、以下は同値
 
-$\Leftarrow$
-
-$\Rightarrow$
+(1) $v \le w$
+(2) 任意の $1 \le k \le n$ に対して、$v$ の値が $k$ 以下になる位置を小さい順に $i^{(k)}_1, \dots, i^{(k)}_k$ とし、$w$ の値が $k$ 以下になる位置を小さい順に $j^{(k)}_1, \dots, j^{(k)}_k$ とすると、$i^{(k)}_p \le j^{(k)}_p \ (1 \le p \le k)$ が成り立つ
 
 # Murphy 基底
 
@@ -583,3 +631,48 @@ $$
 $$
 
 Standard $\lambda$-tableau 全体を $\mathrm{Std}(\lambda)$ で表す
+
+Antiautomorphism $*: \mathscr{H} \to \mathscr{H}$ を $T_s^* \coloneqq T_s \ (s \in S)$ で定める。$*^2 = 1$ かつ $T_w^* = T_{w^{-1}} \ (w \in \mathfrak{S}_n)$
+
+$\mu$: composition
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
+
+$$
+m_{\mathfrak{s}\mathfrak{t}} \coloneqq T_{d(\mathfrak{t})}^* m_\mu T_{d(\mathfrak{s})} \in \mathscr{H}
+$$
+
+$\{ m_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu) \}$ が生成する $R$ 加群は $\mathscr{H}e_\mu\mathscr{H}$ と一致する。また、$m_\mu^* = m_\mu$ だから、$m_{\mathfrak{s}\mathfrak{t}}^* = m_{\mathfrak{t}\mathfrak{s}}$
+
+以降は、$q \in R^\times$ とする。$T_s^{-1} = q^{-1}(T_s - q + 1)$
+
+$\mu$: composition
+$\lambda$: $\mu$ を並べ替えた分割
+
+$$
+\mathscr{H}e_\mu\mathscr{H} = \mathscr{H}e_\lambda\mathscr{H}
+$$
+
+$d \in \mathfrak{S}_n$ を以下のように定める。$\mu_i = 0 \ (i > k)$ として、$\tau \in \mathfrak{S}_k$ を $\lambda_i = \mu_{(i)\tau}$ が成り立つようにとる。$1 \le j \le n$ に対して、$\mathfrak{t}^\lambda$ での $j$ の位置を $(p, q)$ として、$(j)d$ を $\mathfrak{t}^\mu$ の位置 $((p)\tau, q)$ の要素と定義する。$d\mathfrak{S}_\mu d^{-1} = \mathfrak{S}_\lambda$ かつ $\mathfrak{t}^\lambda d, \mathfrak{t}^\mu d^{-1}$ は row standard。$d \in \mathscr{D}_\lambda, d^{-1} \in \mathscr{D}_\mu$ であり
+
+$$
+m_\lambda T_d = \sum_{w \in \mathfrak{S}_\lambda} T_wT_d = \sum_{x \in \mathfrak{S}_\lambda d} T_x = \sum_{x \in d\mathfrak{S}_\mu} T_x = \sum_{w \in \mathfrak{S}_\mu} T_dT_w = T_d m_\mu
+$$
+
+$\lambda$: 分割
+$(i, j), (i + 1, j) \in [\lambda]$ となる位置 $(i, j)$ に対して、位置 $(i, j)$ に対応する Garnir $\lambda$-tableau $g_{ij} \in \mathrm{RStd}(\lambda)$ を $\mathfrak{t}^\lambda$ と位置 $(i, j)$ から位置 $(i + 1, j)$ までの $\lambda_i + 1$ 個の要素以外は同じで、位置 $(i, j)$ から位置 $(i + 1, j)$ までは行 $i + 1$ から行 $i$ の順に左から右へ小さい順に並べ替えたものと定義する。$\lambda = (3, 3, 1)$ に対して、$\mathfrak{g}_{12}$ は
+
+$$
+\mathfrak{g}_{12} = \begin{array}{l}
+  \boxed{1} \boxed{4} \boxed{5} \\
+  \boxed{2} \boxed{3} \boxed{6} \\
+  \boxed{7} \\
+\end{array}
+$$
+
+$\lambda$: 分割
+$\mathfrak{t} \in \mathrm{RStd}(\lambda)$
+$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ ならば、Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$\ell(d(\mathfrak{t})) = \ell(d(\mathfrak{g})) + \ell(d(\mathfrak{g})^{-1}d(\mathfrak{t}))$ が成り立つ
+
+$\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は明らか。$\ell(d(\mathfrak{t})) > 0$ とする。まず、ある $s \in S$ が存在して、$\mathfrak{t}s \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}s \triangleright \mathfrak{t}$ が成り立つ場合を考える。帰納法の仮定から、Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t}s) = d(\mathfrak{g})^{-1}d(\mathfrak{t})s$ とおくと、$\ell(d(\mathfrak{t}s)) = \ell(d(\mathfrak{g})) + \ell(w)$。$d(\mathfrak{g}) = s_1 \cdots s_p$, $w = t_1 \cdots t_q$ を最短表示とすると、$d(\mathfrak{t})s = d(\mathfrak{t}s) = s_1 \cdots s_p t_1 \cdots t_q$ は最短表示。よって、$d(\mathfrak{t}) = s_1 \cdots s_p t_1 \cdots t_q s$ は最短表示であり、$d(\mathfrak{g})^{-1}d(\mathfrak{t}) = t_1 \cdots t_q s$ も最短表示となる。次に、$s \in S$ が $\mathfrak{t}s \in \mathrm{RStd}(\lambda)$ を満たすならば、$\mathfrak{t}s \in \mathrm{Std}(\lambda)$ または $\mathfrak{t}s \not\triangleright \mathfrak{t}$ が成り立つ場合を考える。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。$(i, j), (i + 1, j) \in [\lambda]$ を満たす位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i + 1, j}$。$1 \le a \le n - 1$ で ($a = \mathfrak{t}_{i + 1, j}$ かつ $a + 1 = \mathfrak{t}_{ij}$) でないものに対して、$a + 1$ は $a$ のある行以下にあることを示す。$a + 1$ が $a$ よりも上の行にあると仮定すると、$\mathfrak{t}(a, a + 1) \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}(a, a + 1) \triangleright \mathfrak{t}$ となって矛盾する。よって、$\mathfrak{t}_{ij} = \mathfrak{t}_{i + 1, j} + 1$ かつ $a \ne \mathfrak{t}_{i + 1, j}$ ならば $a + 1$ は $a$ のある行以下にある。上の行から順に左から右に決定していけば、$\mathfrak{t}$ は Garnir tableau になることがわかる
+
+分割たちの辞書順による全順序を $\ge_\mathrm{lex}$ で表す。$\lambda \trianglerighteq \mu$ ならば $\lambda \ge_\mathrm{lex} \mu$

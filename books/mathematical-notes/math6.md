@@ -1224,10 +1224,10 @@ $$
 v = x_0 \prec x_1 \prec \cdots \prec x_p = w
 $$
 
-$a, b \in W^Y$ は $a \le b$ とする。$a_1, \dots, a_n \in W^Y$ が存在して
+$a, b \in W^Y$ は $a \le b$ とする。$a_0, \dots, a_n \in W^Y$ が存在して
 
 $$
-a = a_1 \prec a_2 \prec \cdots \prec a_n = b
+a = a_0 \prec a_1 \prec \cdots \prec a_n = b
 $$
 
 $\ell(b) - \ell(a)$ に関する帰納法を使う。$\ell(a) = \ell(b)$ の場合は明らか。$\ell(a) < \ell(b)$ とする。$b = s_1 \cdots s_m$ を最短表示とする。$1 \le i_1 < i_2 < \cdots < i_p \le n$ が存在して、$x_k \coloneqq s_1 \cdots \check{s}_{i_1} \cdots \check{s}_{i_k} \cdots s_m \ (0 \le k \le p)$ とすると、$a = x_p \prec x_{p - 1} \prec \cdots \prec x_0 = b$。$x_{p - 1} \in W^Y$ を示せば、帰納法の仮定から従う。$x_{p - 1} \not\in W^Y$ と仮定する。$a \le p^{W^Y}(x_{p - 1}) < x_{p - 1}$ だから、$p^{W^Y}(x_{p - 1}) = a$。よって、ある $y \in Y$ が存在して、$x_{p - 1} = ay$。$x_{p - 1} = as_m \cdots s_{i_p} \cdots s_m$ だから、$y = s_m \cdots s_{i_p} \cdots s_m$。しかし、$by = s_1 \cdots \check{s}_{i_p} \cdots s_m < b$ となって、$b \in W^J$ に矛盾する
