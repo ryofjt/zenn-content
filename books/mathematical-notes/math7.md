@@ -638,7 +638,7 @@ $\mu$: composition
 $\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
 
 $$
-m_{\mathfrak{s}\mathfrak{t}} \coloneqq T_{d(\mathfrak{t})}^* m_\mu T_{d(\mathfrak{s})} \in \mathscr{H}
+m_{\mathfrak{s}\mathfrak{t}} \coloneqq T_{d(\mathfrak{s})}^* m_\mu T_{d(\mathfrak{t})} \in \mathscr{H}
 $$
 
 $\{ m_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu) \}$ が生成する $R$ 加群は $\mathscr{H}e_\mu\mathscr{H}$ と一致する。また、$m_\mu^* = m_\mu$ だから、$m_{\mathfrak{s}\mathfrak{t}}^* = m_{\mathfrak{t}\mathfrak{s}}$
@@ -673,6 +673,90 @@ $\lambda$: 分割
 $\mathfrak{t} \in \mathrm{RStd}(\lambda)$
 $\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ ならば、Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$\ell(d(\mathfrak{t})) = \ell(d(\mathfrak{g})) + \ell(d(\mathfrak{g})^{-1}d(\mathfrak{t}))$ が成り立つ
 
-$\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は明らか。$\ell(d(\mathfrak{t})) > 0$ とする。まず、ある $s \in S$ が存在して、$\mathfrak{t}s \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}s \triangleright \mathfrak{t}$ が成り立つ場合を考える。帰納法の仮定から、Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t}s) = d(\mathfrak{g})^{-1}d(\mathfrak{t})s$ とおくと、$\ell(d(\mathfrak{t}s)) = \ell(d(\mathfrak{g})) + \ell(w)$。$d(\mathfrak{g}) = s_1 \cdots s_p$, $w = t_1 \cdots t_q$ を最短表示とすると、$d(\mathfrak{t})s = d(\mathfrak{t}s) = s_1 \cdots s_p t_1 \cdots t_q$ は最短表示。よって、$d(\mathfrak{t}) = s_1 \cdots s_p t_1 \cdots t_q s$ は最短表示であり、$d(\mathfrak{g})^{-1}d(\mathfrak{t}) = t_1 \cdots t_q s$ も最短表示となる。次に、$s \in S$ が $\mathfrak{t}s \in \mathrm{RStd}(\lambda)$ を満たすならば、$\mathfrak{t}s \in \mathrm{Std}(\lambda)$ または $\mathfrak{t}s \not\triangleright \mathfrak{t}$ が成り立つ場合を考える。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。$(i, j), (i + 1, j) \in [\lambda]$ を満たす位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i + 1, j}$。$1 \le a \le n - 1$ で ($a = \mathfrak{t}_{i + 1, j}$ かつ $a + 1 = \mathfrak{t}_{ij}$) でないものに対して、$a + 1$ は $a$ のある行以下にあることを示す。$a + 1$ が $a$ よりも上の行にあると仮定すると、$\mathfrak{t}(a, a + 1) \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}(a, a + 1) \triangleright \mathfrak{t}$ となって矛盾する。よって、$\mathfrak{t}_{ij} = \mathfrak{t}_{i + 1, j} + 1$ かつ $a \ne \mathfrak{t}_{i + 1, j}$ ならば $a + 1$ は $a$ のある行以下にある。上の行から順に左から右に決定していけば、$\mathfrak{t}$ は Garnir tableau になることがわかる
+$\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は明らか。$\ell(d(\mathfrak{t})) > 0$ とする。まず、ある $s \in S$ が存在して、$\mathfrak{t}s \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}s \triangleright \mathfrak{t}$ が成り立つ場合を考える。帰納法の仮定から、Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t}s) = d(\mathfrak{g})^{-1}d(\mathfrak{t})s$ とおくと、$\ell(d(\mathfrak{t}s)) = \ell(d(\mathfrak{g})) + \ell(w)$。$d(\mathfrak{g}) = s_1 \cdots s_p$, $w = t_1 \cdots t_q$ を最短表示とすると、$d(\mathfrak{t})s = d(\mathfrak{t}s) = s_1 \cdots s_p t_1 \cdots t_q$ は最短表示。よって、$d(\mathfrak{t}) = s_1 \cdots s_p t_1 \cdots t_q s$ は最短表示であり、$d(\mathfrak{g})^{-1}d(\mathfrak{t}) = t_1 \cdots t_q s$ も最短表示となる。次に、$s \in S$ が $\mathfrak{t}s \in \mathrm{RStd}(\lambda)$ を満たすならば、$\mathfrak{t}s \in \mathrm{Std}(\lambda)$ または $\mathfrak{t}s \not\triangleright \mathfrak{t}$ が成り立つ場合を考える。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。$(i, j), (i + 1, j) \in [\lambda]$ を満たす位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i + 1, j}$。$1 \le a \le n - 1$ で ($a = \mathfrak{t}_{i + 1, j}$ かつ $a + 1 = \mathfrak{t}_{ij}$) でないものに対して、$a + 1$ は $a$ のある行以下にあることを示す。$a + 1$ が $a$ よりも上の行にあると仮定すると、$\mathfrak{t}(a, a + 1) \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}(a, a + 1) \triangleright \mathfrak{t}$ となって矛盾する。よって、$\mathfrak{t}_{ij} = \mathfrak{t}_{i + 1, j} + 1$ かつ $a \ne \mathfrak{t}_{i + 1, j}$ ならば $a + 1$ は $a$ のある行以下にある。上の行から順に左から右に決定していけば、$\mathfrak{t}$ は位置 $(i, j)$ に対応する Garnir $\lambda$-tableau になることがわかる
 
 分割たちの辞書順による全順序を $\ge_\mathrm{lex}$ で表す。$\lambda \trianglerighteq \mu$ ならば $\lambda \ge_\mathrm{lex} \mu$
+
+$(W, S)$: Coxeter 群
+$X, Y \subset S$: 部分集合
+
+$$
+(W_X W_Y) \cap W^Y = W_X \cap W^Y
+$$
+
+$\subset$ を示す。$a \in W_X$ とする。$a = vc \ (v \in W^{X \cap Y}, c \in W_{X \cap Y})$ と分解する。$v = ac^{-1} \in W_X$。$v \in W^Y$ を示せば良い。$v \in W_X$ だから、$v$ は $X$ の元による最短表示を持つ。よって、$D_R(v) \coloneqq \{ s \in S \mid \ell(vs) < \ell(v) \}$ とすると、$D_R(v) \subset X$。$v$ の定義から、$D_R(v) \cap X \cap Y = \emptyset$ だから $D_R(v) \cap Y = \emptyset$。よって、$v \in W^Y$
+
+少しそれるが、以下も成り立つ
+
+$(W, S)$: Coxeter 群
+$X, Y \subset S$: 部分集合
+
+$$
+W_{X \cap Y} = W_X \cap W_Y
+$$
+
+$x \in W_X \cap W_Y$ ならば $x \in W_{X \cap Y}$ を示せば良い。$\ell(x)$ に関する帰納法を使う。$\ell(x) = 0$ の場合は明らか。$\ell(x) > 0$ とする。$x$ は $X$ の元による最短表示も $Y$ の元による最短表示も持つから、$D_L(x) \subset X \cap Y$。よって、$x = s_1 \cdots s_n$ を最短表示とすると、$s_1 \in X \cap Y$。帰納法の仮定から、$s_2 \cdots s_n \in W_{X \cap Y}$
+
+$\lambda$: $n$ の分割
+$\mathfrak{g}$: Garnir $\lambda$-tableau
+$n$ の分割 $\mu$ で $\mu >_\mathrm{lex} \lambda$ なものが存在して
+
+$$
+m_{\mathfrak{t}^\lambda\mathfrak{g}} \in \mathscr{H}e_\mu\mathscr{H} - \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} m_{\mathfrak{t}^\lambda\tau}
+$$
+
+任意の $n$ の composition $\xi$ に対して、$X \coloneqq \mathfrak{S}_\lambda\mathfrak{S}_\xi \subset \mathfrak{S}_n$ とすると
+
+$$
+\sum_{w \in X \cap \mathscr{D}_\lambda} e_\lambda T_w = \sum_{x \in X} T_x = \sum_{v \in X^{-1} \cap \mathscr{D}_\xi} T_v^* e_\xi
+$$
+
+一般論から、$X \cap \mathscr{D}_\lambda = \mathfrak{S}_\xi \cap \mathscr{D}_\lambda$, $X^{-1} \cap \mathscr{D}_\xi = \mathfrak{S}_\lambda \cap \mathscr{D}_\xi$。$\mathfrak{g}$ は位置 $(i, j)$ に対応する Garnir $\lambda$-tableau だとする。Composition $\nu$ を
+
+$$
+\nu \coloneqq (\lambda_1, \dots, \lambda_{i - 1}, j - 1, \lambda_i + 1, \lambda_{i + 1} - j, \lambda_{i + 2}, \dots)
+$$
+
+で定義する。$\{ \mathfrak{t}^\lambda w \mid w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu \}$ は $\mathfrak{t}^\lambda$ と位置 $(i, j)$ から位置 $(i + 1, j)$ 以外は同じで、$\mathfrak{t}^\lambda$ の位置 $(i, j)$ から位置 $(i + 1, j)$ の $\lambda_i + 1$ 個の要素を $a, a + 1, \dots, a + \lambda_i$ とおくと、$\lambda_i - j + 1$ 個の要素 $a \le p_1 < \cdots < p_{\lambda_i - j + 1} \le a + \lambda_i$ を選んで行 $i$ に入れ、残りの $j$ 個の要素を行 $i + 1$ に入れることでできる row standard tableau たちと一致する。このような row standard tableau で standard にならないのは $\mathfrak{g}$ のみだから
+
+$$
+\{ \mathfrak{t}^\lambda w \mid w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu \} \subset \{ \mathfrak{g} \} \sqcup \{ \tau \in \mathrm{Std}(\lambda) \mid \tau \triangleright \mathfrak{g} \}
+$$
+
+が成り立つが、一致することがわかる。$\nu$ を並べ替えた分割を $\mu$ とすると、$\mu >_\mathrm{lex} \lambda$ であり
+
+$$
+\begin{aligned}
+  m_{\mathfrak{t}^\lambda\mathfrak{g}} + \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} m_{\mathfrak{t}^\lambda\tau} &= \sum_{w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu} m_{\mathfrak{t}^\lambda, \mathfrak{t}^\lambda w} \\
+  &= \sum_{w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu} e_\lambda T_w \\
+  &= \sum_{v \in \mathfrak{S}_\lambda \cap \mathscr{D}_\nu} T_v^* e_\nu \in \mathscr{H}e_\nu\mathscr{H} = \mathscr{H}e_\mu\mathscr{H}
+\end{aligned}
+$$
+
+$\lambda$: $n$ の分割
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda)$
+
+$$
+m_{\mathfrak{s}\mathfrak{t}} \in \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \trianglerighteq \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}
+$$
+
+$\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は明らか。$\ell(d(\mathfrak{t})) > 0$ とする。$\mathfrak{t}$ は standard でないとして良い。Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t})$ とおくと $\ell(d(\mathfrak{t})) = \ell(d(\mathfrak{g})) + \ell(w)$。$n$ の分割 $\mu$ で $\mu >_\mathrm{lex} \lambda$ なものが存在して
+
+$$
+\begin{aligned}
+  m_{\mathfrak{s}\mathfrak{t}} &= T_{d(\mathfrak{s})}^* e_\lambda T_{d(\mathfrak{t})} \\
+  &= T_{d(\mathfrak{s})}^* e_\lambda T_{d(\mathfrak{g})}T_w \\
+  &\in T_{d(\mathfrak{s})}^* (\mathscr{H}e_\mu\mathscr{H} - \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} e_\lambda T_{d(\tau)}) T_w \\
+  &\subset \mathscr{H}e_\mu\mathscr{H} + T_{d(\mathfrak{s})}^* \sum_{\tau \in \mathrm{Std}(\lambda), v \trianglerighteq w, \tau \triangleright \mathfrak{g}, \tau v \in \mathrm{RStd}(\lambda)} R e_\lambda T_{d(\tau v)} \\
+  &\subset \mathscr{H}e_\mu\mathscr{H} + T_{d(\mathfrak{s})}^* \sum_{\mathfrak{w} \in \mathrm{RStd}(\lambda), \mathfrak{w} \triangleright \mathfrak{t}} R e_\lambda T_{d(\mathfrak{w})} \\
+  &= \mathscr{H}e_\mu\mathscr{H} + \sum_{\mathfrak{w} \in \mathrm{RStd}(\lambda), \mathfrak{w} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{w}}
+\end{aligned}
+$$
+
+あとは帰納法の仮定から従う
+
+$\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
+
+[生成すること]
+$\{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ が生成する $R$ 加群を $\mathcal{M}$ とする。$\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{t}^{(1^n)}\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{RStd}((1^n)) \}$ で生成される。よって、任意の $n$ の分割 $\lambda$ に対して、$m_{\mathfrak{s}\mathfrak{t}} \in \mathcal{M} \ (\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda))$ が成り立つことを示せば良い。分割の辞書順に関する帰納法を使う。辞書順最大の $\lambda = (n)$ の場合は明らか。$\lambda \ne (n)$ とする。直前の補題と帰納法の仮定から、$\mathfrak{t}$ は standard として良い。$m_{\mathfrak{s}\mathfrak{t}} = m_{\mathfrak{t}\mathfrak{s}}^*$ だから、再び直前の補題と帰納法の仮定から従う
+
