@@ -720,10 +720,10 @@ $$
 で定義する。$\{ \mathfrak{t}^\lambda w \mid w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu \}$ は $\mathfrak{t}^\lambda$ と位置 $(i, j)$ から位置 $(i + 1, j)$ 以外は同じで、$\mathfrak{t}^\lambda$ の位置 $(i, j)$ から位置 $(i + 1, j)$ の $\lambda_i + 1$ 個の要素を $a, a + 1, \dots, a + \lambda_i$ とおくと、$\lambda_i - j + 1$ 個の要素 $a \le p_1 < \cdots < p_{\lambda_i - j + 1} \le a + \lambda_i$ を選んで行 $i$ に入れ、残りの $j$ 個の要素を行 $i + 1$ に入れることでできる row standard tableau たちと一致する。このような row standard tableau で standard にならないのは $\mathfrak{g}$ のみだから
 
 $$
-\{ \mathfrak{t}^\lambda w \mid w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu \} \subset \{ \mathfrak{g} \} \sqcup \{ \tau \in \mathrm{Std}(\lambda) \mid \tau \triangleright \mathfrak{g} \}
+\{ \mathfrak{t}^\lambda w \mid w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu \} \subset \{ \mathfrak{g} \} \sqcup \{ \tau \in \mathrm{Std}(\lambda) \mid \tau \triangleright \mathfrak{g} \} \subset \{ \mathfrak{g} \} \sqcup \{ \tau \in \mathrm{RStd}(\lambda) \mid \tau \triangleright \mathfrak{g} \}
 $$
 
-が成り立つが、一致することがわかる。$\nu$ を並べ替えた分割を $\mu$ とすると、$\mu >_\mathrm{lex} \lambda$ であり
+が成り立つが、すべて一致することがわかる。$\nu$ を並べ替えた分割を $\mu$ とすると、$\mu >_\mathrm{lex} \lambda$ であり
 
 $$
 \begin{aligned}
