@@ -621,7 +621,7 @@ $v, w \in \mathfrak{S}_n$ に対して、以下は同値
 
 Composition $\lambda$ が分割とは、$\lambda_1 \ge \lambda_2 \ge \cdots$ が成り立つことをいう。$n = |\lambda|$ のとき、$\lambda \vdash n$ と表す
 
-分割 $\lambda$ に対して、$\lambda$-tableau が standard とは、行ごとに要素が左から右に増加し、列ごとに要素が上から下に増加することをいう。以下は standard $\lambda$-tableau
+分割 $\lambda$ に対して、$\lambda$-tableau が standard とは、行ごとに要素が左から右に増加し、列ごとに要素が上から下に増加することをいう。以下は standard $(3, 2)$-tableau
 
 $$
 \begin{array}{l}
@@ -659,7 +659,7 @@ m_\lambda T_d = \sum_{w \in \mathfrak{S}_\lambda} T_wT_d = \sum_{x \in \mathfrak
 $$
 
 $\lambda$: 分割
-$(i, j), (i + 1, j) \in [\lambda]$ となる位置 $(i, j)$ に対して、位置 $(i, j)$ に対応する Garnir $\lambda$-tableau $g_{ij} \in \mathrm{RStd}(\lambda)$ を $\mathfrak{t}^\lambda$ と位置 $(i, j)$ から位置 $(i + 1, j)$ までの $\lambda_i + 1$ 個の要素以外は同じで、位置 $(i, j)$ から位置 $(i + 1, j)$ までは行 $i + 1$ から行 $i$ の順に左から右へ小さい順に並べ替えたものと定義する。$\lambda = (3, 3, 1)$ に対して、$\mathfrak{g}_{12}$ は
+$(i, j), (i + 1, j) \in [\lambda]$ となる位置 $(i, j)$ に対して、位置 $(i, j)$ に対応する Garnir $\lambda$-tableau $\mathfrak{g}_{ij} \in \mathrm{RStd}(\lambda)$ を $\mathfrak{t}^\lambda$ と位置 $(i, j)$ から位置 $(i + 1, j)$ までの $\lambda_i + 1$ 個の要素以外は同じで、位置 $(i, j)$ から位置 $(i + 1, j)$ までは行 $i + 1$ から行 $i$ の順に左から右へ小さい順に並べ替えたものと定義する。$\lambda = (3, 3, 1)$ に対して、$\mathfrak{g}_{12}$ は
 
 $$
 \mathfrak{g}_{12} = \begin{array}{l}
@@ -755,8 +755,6 @@ $$
 
 あとは帰納法の仮定から従う
 
-$\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
+$\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で生成される
 
-[生成すること]
-$\{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ が生成する $R$ 加群を $\mathcal{M}$ とする。$\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{t}^{(1^n)}\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{RStd}((1^n)) \}$ で生成される。よって、任意の $n$ の分割 $\lambda$ に対して、$m_{\mathfrak{s}\mathfrak{t}} \in \mathcal{M} \ (\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda))$ が成り立つことを示せば良い。分割の辞書順に関する帰納法を使う。辞書順最大の $\lambda = (n)$ の場合は明らか。$\lambda \ne (n)$ とする。直前の補題と帰納法の仮定から、$\mathfrak{t}$ は standard として良い。$m_{\mathfrak{s}\mathfrak{t}} = m_{\mathfrak{t}\mathfrak{s}}^*$ だから、再び直前の補題と帰納法の仮定から従う
-
+$\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{t}^{(1^n)}\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{RStd}((1^n)) \}$ で生成される。よって、任意の $n$ の分割 $\lambda$ に対して、$m_{\mathfrak{s}\mathfrak{t}} \in \mathrm{Span}_R \mathcal{M} \ (\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda))$ が成り立つことを示せば良い。分割の辞書順に関する帰納法を使う。辞書順最大の $\lambda = (n)$ の場合は明らか。$\lambda \ne (n)$ とする。直前の補題と帰納法の仮定から、$\mathfrak{t}$ は standard として良い。$m_{\mathfrak{s}\mathfrak{t}} = m_{\mathfrak{t}\mathfrak{s}}^*$ だから、再び直前の補題と帰納法の仮定から従う
