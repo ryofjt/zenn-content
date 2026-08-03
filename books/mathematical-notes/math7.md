@@ -617,7 +617,7 @@ $v, w \in \mathfrak{S}_n$ に対して、以下は同値
 (1) $v \le w$
 (2) 任意の $1 \le k \le n$ に対して、$v$ の値が $k$ 以下になる位置を小さい順に $i^{(k)}_1, \dots, i^{(k)}_k$ とし、$w$ の値が $k$ 以下になる位置を小さい順に $j^{(k)}_1, \dots, j^{(k)}_k$ とすると、$i^{(k)}_p \le j^{(k)}_p \ (1 \le p \le k)$ が成り立つ
 
-# Murphy 基底
+# Murphy 基底 (生成すること)
 
 Composition $\lambda$ が分割とは、$\lambda_1 \ge \lambda_2 \ge \cdots$ が成り立つことをいう。$n = |\lambda|$ のとき、$\lambda \vdash n$ と表す
 
@@ -758,3 +758,164 @@ $$
 $\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で生成される
 
 $\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{t}^{(1^n)}\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{RStd}((1^n)) \}$ で生成される。よって、任意の $n$ の分割 $\lambda$ に対して、$m_{\mathfrak{s}\mathfrak{t}} \in \mathrm{Span}_R \mathcal{M} \ (\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda))$ が成り立つことを示せば良い。分割の辞書順に関する帰納法を使う。辞書順最大の $\lambda = (n)$ の場合は明らか。$\lambda \ne (n)$ とする。直前の補題と帰納法の仮定から、$\mathfrak{t}$ は standard として良い。$m_{\mathfrak{s}\mathfrak{t}} = m_{\mathfrak{t}\mathfrak{s}}^*$ だから、再び直前の補題と帰納法の仮定から従う
+
+$\lambda$: $n$ の分割
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+$i, i + 1$ は $\mathfrak{t}$ の同じ列にあるとすると、任意の $\mathfrak{s} \in \mathrm{Std}(\lambda)$ に対して
+
+$$
+m_{\mathfrak{s}\mathfrak{t}}T_{s_i} \in -m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}
+$$
+
+$\mathfrak{t}s_i \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ だから、ある Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t})s_i$ とおくと、$\ell(d(\mathfrak{t})s_i) = \ell(d(\mathfrak{g})) + \ell(w)$。$\mathfrak{g}$ は位置 $(j, k)$ に対応する Garnir $\lambda$-tableau だとする。$a \coloneqq \mathfrak{g}_{j + 1, k}$ とし、$s \coloneqq (a, a + 1)$ とする。$\tau \coloneqq \mathfrak{g}s \in \mathrm{Std}(\lambda)$ とすると
+
+$$
+\{ \mathfrak{w} \in \mathrm{Std}(\lambda) \mid \mathfrak{w} \trianglerighteq \tau \} = \{ \mathfrak{w} \in \mathrm{RStd}(\lambda) \mid \mathfrak{w} \triangleright \mathfrak{g} \}
+$$
+
+$d(\mathfrak{t}) = d(\mathfrak{g})ws_i = d(\tau)sws_i$。$\mathfrak{g}$ の位置 $(j, k)$ と位置 $(j + 1, k)$ での捻れが $\mathfrak{t}$ では解消しているから、$\ell(d(\mathfrak{t})) < \ell(d(\mathfrak{g})) + \ell(ws_i)$
+
+$$
+\begin{array}{ccccc}
+  sws_i &\prec& sw && \\
+  && \curlyvee && \\
+  && w &\prec& ws_i
+\end{array}
+$$
+
+だから、交差型の Lifting Property から $sws_i = w$。$\mathscr{R} \coloneqq \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}$ とすると
+
+$$
+\begin{aligned}
+  m_{\mathfrak{s}\mathfrak{t}}T_{s_i} &= m_{\mathfrak{s}, \mathfrak{t}s_i} \\
+  &= m_{\mathfrak{s}\mathfrak{g}}T_w \\
+  &\in -\sum_{\mathfrak{w} \in \mathrm{Std}(\lambda), \mathfrak{w} \triangleright \mathfrak{g}} m_{\mathfrak{s}\mathfrak{w}}T_w + \mathscr{R} \\
+  &= -m_{\mathfrak{s}\tau}T_w - \sum_{\mathfrak{w} \in \mathrm{Std}(\lambda), \mathfrak{w} \triangleright \tau} m_{\mathfrak{s}\mathfrak{w}}T_w + \mathscr{R} \\
+  &\subset -m_{\mathfrak{s}\mathfrak{t}} - \sum_{\mathfrak{w} \in \mathrm{Std}(\lambda), v \trianglerighteq w, \mathfrak{w} \triangleright \tau, \mathfrak{w}v \in \mathrm{RStd}(\lambda)} R m_{\mathfrak{s}, \mathfrak{w}v} + \mathscr{R} \\
+  &\subset -m_{\mathfrak{s}\mathfrak{t}} - \sum_{\mathfrak{v} \in \mathrm{RStd}(\lambda), \mathfrak{v} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \mathscr{R} \\
+  &\subset -m_{\mathfrak{s}\mathfrak{t}} - \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \mathscr{R}
+\end{aligned}
+$$
+
+# Jucys-Murphy elements
+
+$q \in R^\times$
+
+$1 \le k \le n$ に対して
+
+$$
+L_k \coloneqq \sum_{j = 1}^{k - 1} q^{j - k}T_{(j, k)} \in \mathscr{H}
+$$
+
+と定義する。$L_1 = 0$ に注意。以下が成り立つ
+
+(1)
+
+$$
+\begin{aligned}
+  T_{s_i}L_{i + 1} &= (q - 1)L_{i + 1} + 1 + L_iT_{s_i} \\
+  T_{s_i}L_i &= L_{i + 1}T_{s_i} - 1 - (q - 1)L_{i + 1}
+\end{aligned}
+$$
+
+${}$(2) $k \not\in \{ i, i + 1 \}$ ならば $[T_{s_i}, L_k] = 0$
+(3) $[L_k, L_l] = 0$
+(4) $[T_{s_i}, L_iL_{i + 1}] = 0$, $[T_{s_i}, L_i + L_{i + 1}] = 0$
+
+(1)
+$L_k^* = L_k$ だから、前半のみ示す
+
+$$
+\begin{aligned}
+  T_{s_i}L_{i + 1} &= T_{s_i} \sum_{j = 1}^i q^{j - i - 1}T_{(j, i + 1)} \\
+  &= \sum_{j = 1}^i q^{j - i}T_{s_i(j, i + 1)} + (q - 1)L_{i + 1} \\
+  &= \sum_{j = 1}^{i - 1} q^{j - i}T_{s_i(j, i + 1)} + 1 + (q - 1)L_{i + 1} \\
+  &= \sum_{j = 1}^{i - 1} q^{j - i}T_{(j, i)s_i} + 1 + (q - 1)L_{i + 1} \\
+  &= L_i T_{s_i} + 1 + (q - 1)L_{i + 1}
+\end{aligned}
+$$
+
+(2)
+$i \ge k + 1$ の場合は明らか。$i \le k - 2$ とする。$k \ge 3$ だが
+
+$$
+\begin{aligned}
+  T_{s_i}L_k &= T_{s_i} \sum_{j = 1}^{k - 1} q^{j - k}T_{(j, k)} \\
+  &= \sum_{1 \le j \le k - 1, j \not\in \{ i, i + 1 \}} q^{j - k}T_{(j, k)}T_{s_i} + q^{i - k}T_{s_i}T_{(i, k)} + q^{i - k + 1}T_{s_i}T_{(i + 1, k)} \\
+  &= \sum_{1 \le j \le k - 1, j \not\in \{ i, i + 1 \}} q^{j - k}T_{(j, k)}T_{s_i} + q^{i - k + 1}T_{s_i(i, k)} + q^{i - k}(q - 1)T_{(i, k)} + q^{i - k + 1}T_{s_i(i + 1, k)} \\
+  &= \sum_{1 \le j \le k - 1, j \not\in \{ i, i + 1 \}} q^{j - k}T_{(j, k)}T_{s_i} + q^{i - k + 1}T_{(i + 1, k)s_i} + q^{i - k}(q - 1)T_{(i, k)} + q^{i - k + 1}T_{(i, k)s_i} \\
+  &= \sum_{1 \le j \le k - 1, j \not\in \{ i, i + 1 \}} q^{j - k}T_{(j, k)}T_{s_i} + q^{i - k + 1}T_{(i + 1, k)}T_{s_i} + q^{i - k}T_{(i, k)}T_{s_i} \\
+  &= L_k T_{s_i}
+\end{aligned}
+$$
+
+(3)
+(1) の $T_{s_i}$ 倍を考えれば
+
+$$
+qL_{i + 1} = T_{s_i} + T_{s_i}L_iT_{s_i}
+$$
+
+$k < l$ として良い。$l$ に関する帰納法で示す。$l = 2$ の場合は明らか。$l \ge 3$ とする。$k \le l - 2$ の場合は、(2) と帰納法の仮定から
+
+$$
+q[L_k, L_l] = [L_k, T_{s_{l - 1}}] + [L_k, T_{s_{l - 1}}L_{l - 1}T_{s_{l - 1}}] = 0
+$$
+
+最後に、$k = l - 1$ の場合を示す。$T \coloneqq T_{s_k}$ とおくと、$qL_{k + 1} = T + TL_kT$ だから
+
+$$
+q^3L_kL_{k + 1} = q^2L_kT + q^2L_kTL_kT
+$$
+
+さらに $S \coloneqq T_{s_{k - 1}}$ とおくと、$qL_k = S + SL_{k - 1}S$ だから
+
+$$
+\begin{aligned}
+  q^3L_kL_{k + 1} &= qST + STST \\
+  &\quad + qSL_{k - 1}ST + STSL_{k - 1}ST + SL_{k - 1}STST \\
+  &\quad + SL_{k - 1}STSL_{k - 1}ST
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  qST + STST &= qST + S^2TS \\
+  &= qST + qTS + (q - 1)STS \\
+  &= qTS + (q + (q - 1)T)ST \\
+  &= qTS + T^2ST \\
+  &= qTS + TSTS
+\end{aligned}
+$$
+
+${}$(2) から $[T, L_{k - 1}] = 0$ であり、帰納法の仮定から $[L_{k - 1}, L_k] = [L_{k - 1}, S + SL_{k - 1}S] = 0$ だから
+
+$$
+\begin{aligned}
+  q^3L_kL_{k + 1} &= qTS + TSTS \\
+  &\quad + qSL_{k - 1}TS + TSL_{k - 1}STS + SL_{k - 1}TSTS \\
+  &\quad + STL_{k - 1}SL_{k - 1}STS \\
+  &= qTS + TSTS \\
+  &\quad + qSL_{k - 1}TS + TSL_{k - 1}STS \\
+  &\quad + ST(L_{k - 1}SL_{k - 1}S + L_{k - 1}S)TS \\
+  &= qTS + TSTS \\
+  &\quad + qSL_{k - 1}TS + TSL_{k - 1}STS \\
+  &\quad + ST(SL_{k - 1}SL_{k - 1} + SL_{k - 1})TS \\
+  &= qTS + TSTS \\
+  &\quad + qSTL_{k - 1}S + TSL_{k - 1}STS + STSTL_{k - 1}S \\
+  &\quad + TSL_{k - 1}STSL_{k - 1}S \\
+  &= qTS + TSTS \\
+  &\quad + qTSL_{k - 1}S + TSL_{k - 1}STS + TSTSL_{k - 1}S \\
+  &\quad + TSL_{k - 1}STSL_{k - 1}S \\
+  &= (q^3L_kL_{k + 1})^* \\
+  &= q^3L_{k + 1}L_k
+\end{aligned}
+$$
+
+(4)
+2 つ目は (1) からわかる。1 つ目は
+
+$$
+T_{s_i}L_iL_{i + 1} = L_{i + 1}T_{s_i}L_{i + 1} - L_{i + 1} - (q - 1)L_{i + 1}^2 = L_{i + 1}L_iT_{s_i} = L_iL_{i + 1}T_{s_i}
+$$
+
