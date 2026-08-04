@@ -617,7 +617,7 @@ $v, w \in \mathfrak{S}_n$ に対して、以下は同値
 (1) $v \le w$
 (2) 任意の $1 \le k \le n$ に対して、$v$ の値が $k$ 以下になる位置を小さい順に $i^{(k)}_1, \dots, i^{(k)}_k$ とし、$w$ の値が $k$ 以下になる位置を小さい順に $j^{(k)}_1, \dots, j^{(k)}_k$ とすると、$i^{(k)}_p \le j^{(k)}_p \ (1 \le p \le k)$ が成り立つ
 
-# Murphy 基底 (生成すること)
+# Standard tableau
 
 Composition $\lambda$ が分割とは、$\lambda_1 \ge \lambda_2 \ge \cdots$ が成り立つことをいう。$n = |\lambda|$ のとき、$\lambda \vdash n$ と表す
 
@@ -632,31 +632,7 @@ $$
 
 Standard $\lambda$-tableau 全体を $\mathrm{Std}(\lambda)$ で表す
 
-Antiautomorphism $*: \mathscr{H} \to \mathscr{H}$ を $T_s^* \coloneqq T_s \ (s \in S)$ で定める。$*^2 = 1$ かつ $T_w^* = T_{w^{-1}} \ (w \in \mathfrak{S}_n)$
-
-$\mu$: composition
-$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
-
-$$
-m_{\mathfrak{s}\mathfrak{t}} \coloneqq T_{d(\mathfrak{s})}^* m_\mu T_{d(\mathfrak{t})} \in \mathscr{H}
-$$
-
-$\{ m_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu) \}$ が生成する $R$ 加群は $\mathscr{H}e_\mu\mathscr{H}$ と一致する。また、$m_\mu^* = m_\mu$ だから、$m_{\mathfrak{s}\mathfrak{t}}^* = m_{\mathfrak{t}\mathfrak{s}}$
-
-以降は、$q \in R^\times$ とする。$T_s^{-1} = q^{-1}(T_s - q + 1)$
-
-$\mu$: composition
-$\lambda$: $\mu$ を並べ替えた分割
-
-$$
-\mathscr{H}e_\mu\mathscr{H} = \mathscr{H}e_\lambda\mathscr{H}
-$$
-
-$d \in \mathfrak{S}_n$ を以下のように定める。$\mu_i = 0 \ (i > k)$ として、$\tau \in \mathfrak{S}_k$ を $\lambda_i = \mu_{(i)\tau}$ が成り立つようにとる。$1 \le j \le n$ に対して、$\mathfrak{t}^\lambda$ での $j$ の位置を $(p, q)$ として、$(j)d$ を $\mathfrak{t}^\mu$ の位置 $((p)\tau, q)$ の要素と定義する。$d\mathfrak{S}_\mu d^{-1} = \mathfrak{S}_\lambda$ かつ $\mathfrak{t}^\lambda d, \mathfrak{t}^\mu d^{-1}$ は row standard。$d \in \mathscr{D}_\lambda, d^{-1} \in \mathscr{D}_\mu$ であり
-
-$$
-m_\lambda T_d = \sum_{w \in \mathfrak{S}_\lambda} T_wT_d = \sum_{x \in \mathfrak{S}_\lambda d} T_x = \sum_{x \in d\mathfrak{S}_\mu} T_x = \sum_{w \in \mathfrak{S}_\mu} T_dT_w = T_d m_\mu
-$$
+# Garnir tableau
 
 $\lambda$: 分割
 $(i, j), (i + 1, j) \in [\lambda]$ となる位置 $(i, j)$ に対して、位置 $(i, j)$ に対応する Garnir $\lambda$-tableau $\mathfrak{g}_{ij} \in \mathrm{RStd}(\lambda)$ を $\mathfrak{t}^\lambda$ と位置 $(i, j)$ から位置 $(i + 1, j)$ までの $\lambda_i + 1$ 個の要素以外は同じで、位置 $(i, j)$ から位置 $(i + 1, j)$ までは行 $i + 1$ から行 $i$ の順に左から右へ小さい順に並べ替えたものと定義する。$\lambda = (3, 3, 1)$ に対して、$\mathfrak{g}_{12}$ は
@@ -675,7 +651,33 @@ $\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ ならば、Garnir $\lambda$-tablea
 
 $\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は明らか。$\ell(d(\mathfrak{t})) > 0$ とする。まず、ある $s \in S$ が存在して、$\mathfrak{t}s \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}s \triangleright \mathfrak{t}$ が成り立つ場合を考える。帰納法の仮定から、Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t}s) = d(\mathfrak{g})^{-1}d(\mathfrak{t})s$ とおくと、$\ell(d(\mathfrak{t}s)) = \ell(d(\mathfrak{g})) + \ell(w)$。$d(\mathfrak{g}) = s_1 \cdots s_p$, $w = t_1 \cdots t_q$ を最短表示とすると、$d(\mathfrak{t})s = d(\mathfrak{t}s) = s_1 \cdots s_p t_1 \cdots t_q$ は最短表示。よって、$d(\mathfrak{t}) = s_1 \cdots s_p t_1 \cdots t_q s$ は最短表示であり、$d(\mathfrak{g})^{-1}d(\mathfrak{t}) = t_1 \cdots t_q s$ も最短表示となる。次に、$s \in S$ が $\mathfrak{t}s \in \mathrm{RStd}(\lambda)$ を満たすならば、$\mathfrak{t}s \in \mathrm{Std}(\lambda)$ または $\mathfrak{t}s \not\triangleright \mathfrak{t}$ が成り立つ場合を考える。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。$(i, j), (i + 1, j) \in [\lambda]$ を満たす位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i + 1, j}$。$1 \le a \le n - 1$ で ($a = \mathfrak{t}_{i + 1, j}$ かつ $a + 1 = \mathfrak{t}_{ij}$) でないものに対して、$a + 1$ は $a$ のある行以下にあることを示す。$a + 1$ が $a$ よりも上の行にあると仮定すると、$\mathfrak{t}(a, a + 1) \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ かつ $\mathfrak{t}(a, a + 1) \triangleright \mathfrak{t}$ となって矛盾する。よって、$\mathfrak{t}_{ij} = \mathfrak{t}_{i + 1, j} + 1$ かつ $a \ne \mathfrak{t}_{i + 1, j}$ ならば $a + 1$ は $a$ のある行以下にある。上の行から順に左から右に決定していけば、$\mathfrak{t}$ は位置 $(i, j)$ に対応する Garnir $\lambda$-tableau になることがわかる
 
-分割たちの辞書順による全順序を $\ge_\mathrm{lex}$ で表す。$\lambda \trianglerighteq \mu$ ならば $\lambda \ge_\mathrm{lex} \mu$
+# $m_{\mathfrak{s}\mathfrak{t}}$
+
+Antiautomorphism $*: \mathscr{H} \to \mathscr{H}$ を $T_s^* \coloneqq T_s \ (s \in S)$ で定める。$*^2 = 1$ かつ $T_w^* = T_{w^{-1}} \ (w \in \mathfrak{S}_n)$
+
+$\mu$: composition
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu)$
+
+$$
+m_{\mathfrak{s}\mathfrak{t}} \coloneqq T_{d(\mathfrak{s})}^* m_\mu T_{d(\mathfrak{t})} \in \mathscr{H}
+$$
+
+$\{ m_{\mathfrak{s}\mathfrak{t}} \mid \mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\mu) \}$ が生成する $R$ 加群は $\mathscr{H}m_\mu\mathscr{H}$ と一致する。また、$m_\mu^* = m_\mu$ だから、$m_{\mathfrak{s}\mathfrak{t}}^* = m_{\mathfrak{t}\mathfrak{s}}$
+
+以降は、$q \in R^\times$ とする。$T_s^{-1} = q^{-1}(T_s - q + 1)$
+
+$\mu$: composition
+$\lambda$: $\mu$ を並べ替えた分割
+
+$$
+\mathscr{H}m_\mu\mathscr{H} = \mathscr{H}m_\lambda\mathscr{H}
+$$
+
+$d \in \mathfrak{S}_n$ を以下のように定める。$\mu_i = 0 \ (i > k)$ として、$\tau \in \mathfrak{S}_k$ を $\lambda_i = \mu_{(i)\tau}$ が成り立つようにとる。$1 \le j \le n$ に対して、$\mathfrak{t}^\lambda$ での $j$ の位置を $(p, q)$ として、$(j)d$ を $\mathfrak{t}^\mu$ の位置 $((p)\tau, q)$ の要素と定義する。$d\mathfrak{S}_\mu d^{-1} = \mathfrak{S}_\lambda$ かつ $\mathfrak{t}^\lambda d, \mathfrak{t}^\mu d^{-1}$ は row standard。$d \in \mathscr{D}_\lambda, d^{-1} \in \mathscr{D}_\mu$ であり
+
+$$
+m_\lambda T_d = \sum_{w \in \mathfrak{S}_\lambda} T_wT_d = \sum_{x \in \mathfrak{S}_\lambda d} T_x = \sum_{x \in d\mathfrak{S}_\mu} T_x = \sum_{w \in \mathfrak{S}_\mu} T_dT_w = T_d m_\mu
+$$
 
 $(W, S)$: Coxeter 群
 $X, Y \subset S$: 部分集合
@@ -697,18 +699,20 @@ $$
 
 $x \in W_X \cap W_Y$ ならば $x \in W_{X \cap Y}$ を示せば良い。$\ell(x)$ に関する帰納法を使う。$\ell(x) = 0$ の場合は明らか。$\ell(x) > 0$ とする。$x$ は $X$ の元による最短表示も $Y$ の元による最短表示も持つから、$D_L(x) \subset X \cap Y$。よって、$x = s_1 \cdots s_n$ を最短表示とすると、$s_1 \in X \cap Y$。帰納法の仮定から、$s_2 \cdots s_n \in W_{X \cap Y}$
 
+分割たちの辞書順による全順序を $\ge_\mathrm{lex}$ で表す。$\lambda \trianglerighteq \mu$ ならば $\lambda \ge_\mathrm{lex} \mu$
+
 $\lambda$: $n$ の分割
 $\mathfrak{g}$: Garnir $\lambda$-tableau
 $n$ の分割 $\mu$ で $\mu >_\mathrm{lex} \lambda$ なものが存在して
 
 $$
-m_{\mathfrak{t}^\lambda\mathfrak{g}} \in \mathscr{H}e_\mu\mathscr{H} - \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} m_{\mathfrak{t}^\lambda\tau}
+m_{\mathfrak{t}^\lambda\mathfrak{g}} \in \mathscr{H}m_\mu\mathscr{H} - \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} m_{\mathfrak{t}^\lambda\tau}
 $$
 
 任意の $n$ の composition $\xi$ に対して、$X \coloneqq \mathfrak{S}_\lambda\mathfrak{S}_\xi \subset \mathfrak{S}_n$ とすると
 
 $$
-\sum_{w \in X \cap \mathscr{D}_\lambda} e_\lambda T_w = \sum_{x \in X} T_x = \sum_{v \in X^{-1} \cap \mathscr{D}_\xi} T_v^* e_\xi
+\sum_{w \in X \cap \mathscr{D}_\lambda} m_\lambda T_w = \sum_{x \in X} T_x = \sum_{v \in X^{-1} \cap \mathscr{D}_\xi} T_v^* m_\xi
 $$
 
 一般論から、$X \cap \mathscr{D}_\lambda = \mathfrak{S}_\xi \cap \mathscr{D}_\lambda$, $X^{-1} \cap \mathscr{D}_\xi = \mathfrak{S}_\lambda \cap \mathscr{D}_\xi$。$\mathfrak{g}$ は位置 $(i, j)$ に対応する Garnir $\lambda$-tableau だとする。Composition $\nu$ を
@@ -728,8 +732,8 @@ $$
 $$
 \begin{aligned}
   m_{\mathfrak{t}^\lambda\mathfrak{g}} + \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} m_{\mathfrak{t}^\lambda\tau} &= \sum_{w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu} m_{\mathfrak{t}^\lambda, \mathfrak{t}^\lambda w} \\
-  &= \sum_{w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu} e_\lambda T_w \\
-  &= \sum_{v \in \mathfrak{S}_\lambda \cap \mathscr{D}_\nu} T_v^* e_\nu \in \mathscr{H}e_\nu\mathscr{H} = \mathscr{H}e_\mu\mathscr{H}
+  &= \sum_{w \in \mathscr{D}_\lambda \cap \mathfrak{S}_\nu} m_\lambda T_w \\
+  &= \sum_{v \in \mathfrak{S}_\lambda \cap \mathscr{D}_\nu} T_v^* m_\nu \in \mathscr{H}m_\nu\mathscr{H} = \mathscr{H}m_\mu\mathscr{H}
 \end{aligned}
 $$
 
@@ -737,19 +741,19 @@ $\lambda$: $n$ の分割
 $\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda)$
 
 $$
-m_{\mathfrak{s}\mathfrak{t}} \in \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \trianglerighteq \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}
+m_{\mathfrak{s}\mathfrak{t}} \in \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \trianglerighteq \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}m_\mu\mathscr{H}
 $$
 
 $\ell(d(\mathfrak{t}))$ に関する帰納法を使う。$\ell(d(\mathfrak{t})) = 0$ の場合は明らか。$\ell(d(\mathfrak{t})) > 0$ とする。$\mathfrak{t}$ は standard でないとして良い。Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t})$ とおくと $\ell(d(\mathfrak{t})) = \ell(d(\mathfrak{g})) + \ell(w)$。$n$ の分割 $\mu$ で $\mu >_\mathrm{lex} \lambda$ なものが存在して
 
 $$
 \begin{aligned}
-  m_{\mathfrak{s}\mathfrak{t}} &= T_{d(\mathfrak{s})}^* e_\lambda T_{d(\mathfrak{t})} \\
-  &= T_{d(\mathfrak{s})}^* e_\lambda T_{d(\mathfrak{g})}T_w \\
-  &\in T_{d(\mathfrak{s})}^* (\mathscr{H}e_\mu\mathscr{H} - \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} e_\lambda T_{d(\tau)}) T_w \\
-  &\subset \mathscr{H}e_\mu\mathscr{H} + T_{d(\mathfrak{s})}^* \sum_{\tau \in \mathrm{Std}(\lambda), v \trianglerighteq w, \tau \triangleright \mathfrak{g}, \tau v \in \mathrm{RStd}(\lambda)} R e_\lambda T_{d(\tau v)} \\
-  &\subset \mathscr{H}e_\mu\mathscr{H} + T_{d(\mathfrak{s})}^* \sum_{\mathfrak{w} \in \mathrm{RStd}(\lambda), \mathfrak{w} \triangleright \mathfrak{t}} R e_\lambda T_{d(\mathfrak{w})} \\
-  &= \mathscr{H}e_\mu\mathscr{H} + \sum_{\mathfrak{w} \in \mathrm{RStd}(\lambda), \mathfrak{w} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{w}}
+  m_{\mathfrak{s}\mathfrak{t}} &= T_{d(\mathfrak{s})}^* m_\lambda T_{d(\mathfrak{t})} \\
+  &= T_{d(\mathfrak{s})}^* m_\lambda T_{d(\mathfrak{g})}T_w \\
+  &\in T_{d(\mathfrak{s})}^* (\mathscr{H}m_\mu\mathscr{H} - \sum_{\tau \in \mathrm{Std}(\lambda), \tau \triangleright \mathfrak{g}} m_\lambda T_{d(\tau)}) T_w \\
+  &\subset \mathscr{H}m_\mu\mathscr{H} + T_{d(\mathfrak{s})}^* \sum_{\tau \in \mathrm{Std}(\lambda), v \trianglerighteq w, \tau \triangleright \mathfrak{g}, \tau v \in \mathrm{RStd}(\lambda)} R m_\lambda T_{d(\tau v)} \\
+  &\subset \mathscr{H}m_\mu\mathscr{H} + T_{d(\mathfrak{s})}^* \sum_{\mathfrak{w} \in \mathrm{RStd}(\lambda), \mathfrak{w} \triangleright \mathfrak{t}} R m_\lambda T_{d(\mathfrak{w})} \\
+  &= \mathscr{H}m_\mu\mathscr{H} + \sum_{\mathfrak{w} \in \mathrm{RStd}(\lambda), \mathfrak{w} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{w}}
 \end{aligned}
 $$
 
@@ -764,7 +768,7 @@ $\mathfrak{t} \in \mathrm{Std}(\lambda)$
 $i, i + 1$ は $\mathfrak{t}$ の同じ列にあるとすると、任意の $\mathfrak{s} \in \mathrm{Std}(\lambda)$ に対して
 
 $$
-m_{\mathfrak{s}\mathfrak{t}}T_{s_i} \in -m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}
+m_{\mathfrak{s}\mathfrak{t}}T_{s_i} \in -m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}m_\mu\mathscr{H}
 $$
 
 $\mathfrak{t}s_i \in \mathrm{RStd}(\lambda) \setminus \mathrm{Std}(\lambda)$ だから、ある Garnir $\lambda$-tableau $\mathfrak{g}$ が存在して、$w \coloneqq d(\mathfrak{g})^{-1}d(\mathfrak{t})s_i$ とおくと、$\ell(d(\mathfrak{t})s_i) = \ell(d(\mathfrak{g})) + \ell(w)$。$\mathfrak{g}$ は位置 $(j, k)$ に対応する Garnir $\lambda$-tableau だとする。$a \coloneqq \mathfrak{g}_{j + 1, k}$ とし、$s \coloneqq (a, a + 1)$ とする。$\tau \coloneqq \mathfrak{g}s \in \mathrm{Std}(\lambda)$ とすると
@@ -783,7 +787,7 @@ $$
 \end{array}
 $$
 
-だから、交差型の Lifting Property から $sws_i = w$。$\mathscr{R} \coloneqq \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}$ とすると
+だから、交差型の Lifting Property から $sws_i = w$。$\mathscr{R} \coloneqq \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}m_\mu\mathscr{H}$ とすると
 
 $$
 \begin{aligned}
@@ -918,4 +922,193 @@ $$
 $$
 T_{s_i}L_iL_{i + 1} = L_{i + 1}T_{s_i}L_{i + 1} - L_{i + 1} - (q - 1)L_{i + 1}^2 = L_{i + 1}L_iT_{s_i} = L_iL_{i + 1}T_{s_i}
 $$
+
+$$
+R[L_2, \dots, L_n]^{\mathfrak{S}_{n - 1}} \subset Z(\mathscr{H})
+$$
+
+$R[L_2, \dots, L_n]^{\mathfrak{S}_{n - 1}}$ の元が $T_{s_i}$ と可換なことを示せば良い。$i = 1$ の場合は明らか。$i \ge 2$ の場合は以下から従う
+
+$$
+\begin{aligned}
+  R[L_2, \dots, L_n]^{\mathfrak{S}_{n - 1}} &\subset (R[L_2, \dots, \check{L}_i, \check{L}_{i + 1}, \dots, L_n])[L_i, L_{i + 1}]^{\mathfrak{S}_2} \\
+  &\simeq R[L_2, \dots, \check{L}_i, \check{L}_{i + 1}, \dots, L_n, L_i + L_{i + 1}, L_i L_{i + 1}]
+\end{aligned}
+$$
+
+$\lambda$: $n$ の分割
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+Standard $\lambda$-tableau の列 $\mathfrak{t}^\lambda = \mathfrak{t}_0, \dots, \mathfrak{t}_k = \mathfrak{t}$ で $d(\mathfrak{t}_0) \prec \cdots \prec d(\mathfrak{t}_k)$ を満たすものが存在する
+
+$d(\mathfrak{t})$ に関する帰納法を使う。$d(\mathfrak{t}) = 0$ の場合は明らか。$d(\mathfrak{t}) > 0$ とする。ある $i$ が存在して、$\mathfrak{t}$ において $i$ は $i + 1$ よりも下の行にある。$\mathfrak{t} (i, i + 1)$ に帰納法の仮定を使えば良い
+
+同様の証明で以下が言える
+
+$\lambda$: $n$ の分割
+$\mu$: $n$ の composition
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+$0 \le j \le n$ に対して、$\lambda_j \coloneqq \mathrm{Shape}(\mathfrak{t} \downarrow \sum_{i \le j} \mu_i)$ と定義すると、$\lambda_j$ たちは分割になる。各 $j$ に対して、$\mathfrak{t}$ の領域 $[\lambda_j] \setminus [\lambda_{j - 1}]$ にある要素を上の行から順に左から右に並べ替えて得られる standard $\lambda$-tableau を $\mathfrak{t}_0$ とする。standard $\lambda$-tableau の列 $\mathfrak{t} = \mathfrak{t}_0, \dots, \mathfrak{t}_k = \mathfrak{t}$ で $d(\mathfrak{t}_i)^{-1}d(\mathfrak{t}_{i + 1}) \in S \cap \mathfrak{S}_\mu$ かつ $d(\mathfrak{t}_0) \prec \cdots \prec d(\mathfrak{t}_k)$ を満たすものが存在する
+
+$$
+[m]_q \coloneqq \frac{q^m - 1}{q - 1} = \begin{cases}
+  1 + q + \cdots + q^{m - 1} &\quad (m \ge 0) \\
+  -q^m - q^{m + 1} - \cdots - q^{-1} &\quad (m < 0)
+\end{cases}
+$$
+
+$$
+\begin{aligned}
+  [m + n]_q &= [m]_q + q^m[n]_q \\
+  [mn]_q &= [m]_q [n]_{q^m}
+\end{aligned}
+$$
+
+$[m]_q^! \coloneqq [1]_q [2]_q \cdots [m]_q \quad (m \ge 0)$
+
+$I \coloneqq \{ n \in \mathbb{Z} \mid [n]_q = 0 \} \subset \mathbb{Z}$ はイデアルだから、$e \in \mathbb{Z}_{\ge 1} \sqcup \{ \infty \}$ が定義できる。写像
+
+$$
+\{ n \in \mathbb{Z} \mid 0 \le n < e \} \simeq \mathbb{Z} / I \ni \bar{n} \mapsto [n]_q \in R
+$$
+
+は well-defined
+
+$\lambda$: $n$ の分割
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+$1 \le k \le n$ に対して、$\mathfrak{t}$ での $k$ の位置を $(i, j)$ として
+
+$$
+\mathrm{res}_\mathfrak{t}(k) \coloneqq j - i \mod e
+$$
+
+と定義する
+
+$\lambda$: $n$ の分割
+$k \ge 1$ とし、$\mu \coloneqq (\lambda_1, \dots, \lambda_k)$ とする。$|\mu|$ の分割 $\nu$ は $\nu \triangleright \mu$ を満たすとする。$\nu_i = 0 \ (i > k)$ だが、$n$ の分割 $\tilde{\nu}$ を $n$ の composition $(\nu_1, \dots, \nu_k, \lambda_{k + 1}, \lambda_{k + 2}, \dots)$ を並べ替えたものとすると、$\tilde{\nu} \triangleright \lambda$
+
+$\tilde{\nu} \trianglerighteq (\nu_1, \dots, \nu_k, \lambda_{k + 1}, \lambda_{k + 2}, \dots) \triangleright \lambda$ から従う
+
+[定理 (Dipper-James)]
+$\lambda$: $n$ の分割
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)$
+任意の $1 \le k \le n$ に対して
+
+$$
+m_{\mathfrak{s}\mathfrak{t}} L_k \in [\mathrm{res}_\mathfrak{t}(k)]_q m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda), \mathfrak{v} \triangleright \mathfrak{t}} R m_{\mathfrak{s}\mathfrak{v}} + \sum_{\mu \vdash n, \mu \triangleright \lambda} \mathscr{H}m_\mu\mathscr{H}
+$$
+
+まず、$\mathfrak{t} = \mathfrak{t}^\lambda$ で示せば良いことを示す。$d(\mathfrak{t})$ に関する帰納法を使う。$d(\mathfrak{t}) = 0$ の場合は後で示す。$d(\mathfrak{t}) \ge 1$ とする。ある $i$ が存在して、$\mathfrak{t}$ で $i$ は $i + 1$ よりも下の行にある。$\mathfrak{t}' \coloneqq \mathfrak{t} (i, i + 1) \in \mathrm{Std}(\lambda)$ とする。$k \not\in \{ i, i + 1 \}$ ならば
+
+$$
+\begin{aligned}
+  m_{\mathfrak{s}\mathfrak{t}} L_k = m_{\mathfrak{s}\mathfrak{t}'} T_{s_i} L_k = m_{\mathfrak{s}\mathfrak{t}'} L_k T_{s_i} \equiv [\mathrm{res}_{\mathfrak{t}'}(k)]_q m_{\mathfrak{s}\mathfrak{t}'} T_{s_i} = [\mathrm{res}_{\mathfrak{t}}(k)]_q m_{\mathfrak{s}\mathfrak{t}}
+\end{aligned}
+$$
+
+$k = i$ ならば
+
+$$
+\begin{aligned}
+  m_{\mathfrak{s}\mathfrak{t}} L_i &= m_{\mathfrak{s}\mathfrak{t}'} T_{s_i} L_i \\
+  &= m_{\mathfrak{s}\mathfrak{t}'} (L_{i + 1}T_{s_i} - 1 - (q - 1)L_{i + 1}) \\
+  &\equiv [\mathrm{res}_{\mathfrak{t}'}(i + 1)]_q m_{\mathfrak{s}\mathfrak{t}} \\
+  &= [\mathrm{res}_{\mathfrak{t}}(i)]_q m_{\mathfrak{s}\mathfrak{t}}
+\end{aligned}
+$$
+
+$k = i + 1$ ならば
+
+$$
+\begin{aligned}
+  m_{\mathfrak{s}\mathfrak{t}} L_{i + 1} &= m_{\mathfrak{s}\mathfrak{t}'} T_{s_i} L_{i + 1} \\
+  &= m_{\mathfrak{s}\mathfrak{t}'} ((q - 1)L_{i + 1} + 1 + L_iT_{s_i}) \\
+  &\equiv [\mathrm{res}_{\mathfrak{t}'}(i)]_q m_{\mathfrak{s}\mathfrak{t}} \\
+  &= [\mathrm{res}_{\mathfrak{t}}(i + 1)]_q m_{\mathfrak{s}\mathfrak{t}}
+\end{aligned}
+$$
+
+あとは、$\mathfrak{t} = \mathfrak{t}^\lambda$ の場合を示す
+
+$$
+m_\lambda L_k \in [\mathrm{res}_{\mathfrak{t}^\lambda}(k)]_q m_\lambda + \sum_{\mu \vdash n, \mu \triangleright \lambda} \mathscr{H}m_\mu\mathscr{H}
+$$
+
+を示せば良い。$n$ に関する帰納法を使う。$n = 1$ の場合は明らか。$n \ge 2$ とする。さらに $k$ に関する帰納法を使う。$k = 1$ の場合は明らか。$k \ge 2$ とする。まず、$\mathfrak{t}^\lambda$ の中で $k$ は最後の行にはないとする。$k$ のある行を $r$ とし、$\mu \coloneqq (\lambda_1, \dots, \lambda_r)$ とする。$m_\lambda = m_\mu m_{\mathfrak{S}_{(\lambda_{r + 1}, \lambda_{r + 2}, \dots)}}$。$L_k$ は $m_{\mathfrak{S}_{(\lambda_{r + 1}, \lambda_{r + 2}, \dots)}}$ と可換。任意の $|\mu|$ の分割 $\nu$ で $\nu \triangleright \mu$ なものに対して、$n$ の分割 $\tilde{\nu}$ を $n$ の composition $(\nu_1, \dots, \nu_r, \lambda_{r + 1}, \lambda_{r + 2}, \dots)$ を並べ替えたものとすると
+
+$$
+\begin{aligned}
+  \mathscr{H}(\mathfrak{S}_{|\mu|})m_\nu\mathscr{H}(\mathfrak{S}_{|\mu|}) m_{\mathfrak{S}_{(\lambda_{r + 1}, \lambda_{r + 2}, \dots)}} &= \mathscr{H}(\mathfrak{S}_{|\mu|})m_\nu m_{\mathfrak{S}_{(\lambda_{r + 1}, \lambda_{r + 2}, \dots)}}\mathscr{H}(\mathfrak{S}_{|\mu|}) \\
+  &= \mathscr{H}(\mathfrak{S}_{|\mu|})m_{(\nu_1, \dots, \nu_r, \lambda_{r + 1}, \lambda_{r + 2}, \dots)}\mathscr{H}(\mathfrak{S}_{|\mu|}) \\
+  &\subset \mathscr{H}m_{(\nu_1, \dots, \nu_r, \lambda_{r + 1}, \lambda_{r + 2}, \dots)}\mathscr{H} \\
+  &= \mathscr{H}m_{\tilde{\nu}}\mathscr{H}
+\end{aligned}
+$$
+
+が成り立つことに注意すると
+
+$$
+m_\lambda L_k \equiv [\mathrm{res}_{\mathfrak{t}^\mu}(k)]_q m_\lambda = [\mathrm{res}_{\mathfrak{t}^\lambda}(k)]_q m_\lambda
+$$
+
+次に、$k$ が $\mathfrak{t}^\lambda$ の 1 列目にはない場合を考える。$k \ge 2$ であり、$s_{k - 1} \in \mathfrak{S}_\lambda$
+
+$$
+\begin{aligned}
+  m_\lambda L_k &= q^{-1} m_\lambda (T_{s_{k - 1}} + T_{s_{k - 1}}L_{k - 1}T_{s_{k - 1}}) \\
+  &\equiv (1 + q[\mathrm{res}_{\mathfrak{t}^\lambda}(k - 1)]_q) m_\lambda \\
+  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(k - 1) + 1]_q m_\lambda \\
+  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(k)]_q m_\lambda
+\end{aligned}
+$$
+
+あとは、$k$ が $\mathfrak{t}^\lambda$ の最後の行の最初にある場合を考えれば良い。最後の行を $r$ とする。$\lambda_r = 1$ の場合は最後に示す。$\lambda_r \ge 2$ の場合は
+
+$$
+\begin{aligned}
+  e_\lambda L_k &= e_{\mathfrak{S}_{\lambda_r}} e_{(\lambda_1, \dots, \lambda_{r - 1})} L_k \\
+  &= e_{\mathfrak{S}_{\lambda_r}} e_{(\lambda_1, \dots, \lambda_{r - 1}, 1)} L_k \\
+  &\equiv [\mathrm{res}_{\mathfrak{t}^{(\lambda_1, \dots, \lambda_{r - 1}, 1)}}(k)]_q e_{\mathfrak{S}_{\lambda_r}} e_{(\lambda_1, \dots, \lambda_{r - 1}, 1)} \\
+  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(k)]_q e_\lambda
+\end{aligned}
+$$
+
+最後に、$\lambda_r = 1$ の場合を示す。$k = n$ かつ $r \ge 2$。$\lambda = (\lambda_1, \dots, \lambda_{r - 1}, 1)$ に注意。$\mu \coloneqq (\lambda_1, \dots, \lambda_{r - 2}, \lambda_{r - 1} + 1)$ は $n$ の composition だが、$\mu \triangleright \lambda$
+
+$$
+\begin{aligned}
+  0 &\equiv e_\mu \\
+  &= \sum_{w \in \mathfrak{S}_\mu} T_w \\
+  &= e_\lambda \sum_{w \in \mathfrak{S}_\mu \cap \mathscr{D}_\lambda} T_w \\
+  &= e_\lambda (1 + T_{s_{n - 1}} + T_{s_{n - 2}}T_{s_{n - 1}} + \cdots + T_{s_{n - \lambda_{r - 1}}} \cdots T_{s_{n - 1}}) \\
+  &= e_\lambda + e_\lambda (1 + T_{s_{n - 2}} + T_{s_{n - 3}}T_{s_{n - 2}} + \cdots + T_{s_{n - \lambda_{r - 1}}} \cdots T_{s_{n - 2}}) T_{s_{n - 1}} \\
+  &= e_\lambda + [\lambda_{r - 1}]_q e_\lambda T_{s_{n - 1}}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  0 &\equiv e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda T_{s_{n - 1}} L_n \\
+  &= e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda ((q - 1)L_n + 1 + L_{n - 1}T_{s_{n - 1}}) \\
+  &= q^{\lambda_{r - 1}} e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda + [\lambda_{r - 1}]_q e_\lambda L_{n - 1}T_{s_{n - 1}} \\
+  &\equiv q^{\lambda_{r - 1}} e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda + [\lambda_{r - 1}]_q [\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q e_\lambda T_{s_{n - 1}} \\
+  &\equiv q^{\lambda_{r - 1}} e_\lambda L_n + ([\lambda_{r - 1}]_q - [\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q) e_\lambda
+\end{aligned}
+$$
+
+だから
+
+$$
+\begin{aligned}
+  e_\lambda L_n &\equiv q^{-\lambda_{r - 1}} ([\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q - [\lambda_{r - 1}]_q) e_\lambda \\
+  &= q^{-\lambda_{r - 1}} ([\lambda_{r - 1} - r + 1]_q - [\lambda_{r - 1}]_q) e_\lambda \\
+  &= [-r + 1]_q e_\lambda \\
+  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(n)]_q e_\lambda
+\end{aligned}
+$$
+
+# Murphy 基底
+
+$\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
+
+生成されることは既に示した。関係式がないことを示す。特殊化を考えれば、$R = \mathbb{Z}[q, q^{-1}]$ として良い。商体を考えれば、$R = \mathbb{Q}(q)$ として良い。
 
