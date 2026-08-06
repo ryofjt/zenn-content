@@ -307,6 +307,15 @@ $$
 \end{aligned}
 $$
 
+# Young symmetrizer
+
+$R$: 可換環
+
+$\lambda$: $n$ の分割
+$\mathfrak{t} \in \mathrm{Tab}(\lambda)$
+$C_\mathfrak{t} \subset \mathfrak{S}_n$ を、$\mathfrak{t}$ への右からの作用で各列を構成する要素の集合を保つ置換全体とする。同様に、$R_\mathfrak{t} \subset \mathfrak{S}_n$ を、$\mathfrak{t}$ への右からの作用で各行を構成する要素の集合を保つ置換全体とする。$w \in \mathfrak{S}_n$ に対して、$C_{\mathfrak{t}w} = w^{-1}C_\mathfrak{t}w$, $R_{\mathfrak{t}w} = w^{-1}R_\mathfrak{t}w$
+
+
 # Murphy 基底
 
 $\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
