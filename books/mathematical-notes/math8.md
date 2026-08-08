@@ -307,7 +307,7 @@ $$
 \end{aligned}
 $$
 
-# Young symmetrizer
+# 列の反対称化作用素
 
 $R$: 可換環
 
@@ -315,9 +315,164 @@ $\lambda$: $n$ の分割
 $\mathfrak{t} \in \mathrm{Tab}(\lambda)$
 $C_\mathfrak{t} \subset \mathfrak{S}_n$ を、$\mathfrak{t}$ への右からの作用で各列を構成する要素の集合を保つ置換全体とする。同様に、$R_\mathfrak{t} \subset \mathfrak{S}_n$ を、$\mathfrak{t}$ への右からの作用で各行を構成する要素の集合を保つ置換全体とする。$w \in \mathfrak{S}_n$ に対して、$C_{\mathfrak{t}w} = w^{-1}C_\mathfrak{t}w$, $R_{\mathfrak{t}w} = w^{-1}R_\mathfrak{t}w$
 
+$$
+b_\mathfrak{t} \coloneqq \sum_{c \in C_\mathfrak{t}} \mathrm{sgn}(c) 1_c \in R[\mathfrak{S}_n]
+$$
+
+と定義する。以下が成り立つ
+
+(1) $b_{\mathfrak{t}w} = 1_{w^{-1}} b_{\mathfrak{t}} 1_w \quad (w \in \mathfrak{S}_n)$
+(2) $b_{\mathfrak{t}} 1_c = 1_c b_{\mathfrak{t}} = \mathrm{sgn}(c) b_{\mathfrak{t}} \quad (c \in C_\mathfrak{t})$
+
+$\mathfrak{s}, \mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Tab}(\lambda)$
+相異なる $i, j$ が存在して、$\mathfrak{s}$ では同じ列に、$\mathfrak{t}$ では同じ行にあるならば、$\bar{\mathfrak{t}}b_\mathfrak{s} = 0$
+
+$\langle (i, j) \rangle \backslash C_\mathfrak{s}$ の完全代表系 $X$ を固定すると
+
+$$
+b_\mathfrak{s} = \sum_{x \in X} (\mathrm{sgn}(x)1_x + \mathrm{sgn}((i, j)x)1_{(i, j)x}) = \sum_{x \in X} \mathrm{sgn}(x)(1 - 1_{(i, j)})1_x
+$$
+
+$$
+\bar{\mathfrak{t}}b_\mathfrak{s} = \sum_{x \in X} \mathrm{sgn}(x)(\bar{\mathfrak{t}} - \overline{\mathfrak{t}(i, j)})1_x = 0
+$$
+
+# $R[\mathfrak{S}_n]$ の Specht 加群 $S_\lambda$
+
+$\lambda$: $n$ の分割
+$\mathfrak{S}_\lambda \backslash \mathrm{Tab}(\lambda)$ の元を tabloid という。$\mathfrak{S}_\lambda \backslash \mathrm{Tab}(\lambda)$ には右から $\mathfrak{S}_n$ が作用する。集合として
+
+$$
+\mathfrak{S}_\lambda \backslash \mathrm{Tab}(\lambda) \simeq \mathrm{RStd}(\lambda)
+$$
+
+集合 $\mathfrak{S}_\lambda \backslash \mathrm{Tab}(\lambda)$ が自由生成する $R$ 加群を $M_\mathrm{tab}^\lambda$ とする。$M_\mathrm{tab}^\lambda$ は右 $R[\mathfrak{S}_n]$ 加群。右 $R[\mathfrak{S}_n]$ 加群として
+
+$$
+M_\mathrm{tab}^\lambda \simeq M^\lambda
+$$
+
+$\mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して
+
+$$
+v_\mathfrak{t} \coloneqq \bar{\mathfrak{t}}b_\mathfrak{t} = \sum_{c \in C_\mathfrak{t}} \mathrm{sgn}(c)\overline{\mathfrak{t}c} \in M_\mathrm{tab}^\lambda
+$$
+
+と定義する。$C_\mathfrak{t} \ni c \mapsto \overline{\mathfrak{t}c} \in \mathfrak{S}_\lambda \backslash \mathrm{Tab}(\lambda)$ は単射だから、$R \ne 0$ ならば $v_\mathfrak{t} \ne 0$
+
+$w \in \mathfrak{S}_n$ に対して
+
+$$
+v_{\mathfrak{t}w} = v_{\mathfrak{t}}1_w
+$$
+
+$v_{\mathfrak{t}w} = \overline{\mathfrak{t}w}b_{\mathfrak{t}w} = \bar{\mathfrak{t}}b_{\mathfrak{t}}1_w = v_{\mathfrak{t}}1_w$ から従う
+
+[補題]
+$\mathfrak{s}, \mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Tab}(\lambda)$ に対して、以下のいずれかが成り立つ
+
+(1) $\mathrm{Shape}(\mathfrak{s}) \triangleright \mathrm{Shape}(\mathfrak{t})$
+(2) 相異なる $i, j$ が存在して、$\mathfrak{s}$ では同じ列に、$\mathfrak{t}$ では同じ行にある
+(3) $\mathrm{Shape}(\mathfrak{s}) = \mathrm{Shape}(\mathfrak{t})$ かつ $c \in C_\mathfrak{s}$, $r \in R_\mathfrak{t}$ が存在して、$\mathfrak{s}c = \mathfrak{t}r$
+
+(1) でも (2) でもないとする。$\mathfrak{t}$ の 1 行目の要素は、$\mathfrak{s}$ では異なる列にある。よって、ある $c_1 \in C_\mathfrak{s}$ が存在して、$\mathfrak{t}$ の 1 行目の要素は、$\mathfrak{s}c_1$ の 1 行目にあるようにできる。2 行目以降でも同じ操作を繰り返せば、$c \in C_\mathfrak{s}$ が存在して、$\mathfrak{t}$ の各行の要素は、$\mathfrak{s}c$ の同じ行以上にあるようにできる。よって、$\mathrm{Shape}(\mathfrak{t}) \trianglelefteq \mathrm{Shape}(\mathfrak{s}c) = \mathrm{Shape}(\mathfrak{s})$。(1) ではないから、$\mathrm{Shape}(\mathfrak{t}) = \mathrm{Shape}(\mathfrak{s})$ かつ $\mathfrak{t}$ と $\mathfrak{s}c$ の各行を構成する要素の集合は一致する
+
+(2) の場合は $\bar{\mathfrak{t}}b_\mathfrak{s} = 0$ だったが、(3) の場合には $\bar{\mathfrak{t}}b_\mathfrak{s} = \pm v_\mathfrak{s}$ が成り立つことを示す
+
+$$
+\bar{\mathfrak{t}}b_\mathfrak{s} = \overline{\mathfrak{s}c}b_\mathfrak{s} = \bar{\mathfrak{s}}1_c b_\mathfrak{s} = \mathrm{sgn}(c)\bar{\mathfrak{s}}b_\mathfrak{s} = \mathrm{sgn}(c)v_\mathfrak{s}
+$$
+
+$\lambda$: $n$ の分割
+
+$$
+S^\lambda \coloneqq \sum_{\mathfrak{t} \in \mathrm{Tab}(\lambda)} R v_\mathfrak{t} \subset M_\mathrm{tab}^\lambda
+$$
+
+は部分 $R[\mathfrak{S}_n]$ 加群。任意の $\mathfrak{t}_0 \in \mathrm{Tab}(\lambda)$ に対して、$S^\lambda = v_{\mathfrak{t}_0} R[\mathfrak{S}_n]$
+
+$R \ne 0$
+$\lambda, \mu$: $n$ の分割
+
+$$
+S_\lambda \simeq S_\mu \Leftrightarrow \lambda = \mu
+$$
+
+$\Rightarrow$ を示す。$0$ でない $\theta: S_\lambda \to M_\mu$ が存在する。ある $\mathfrak{s} \in \mathrm{Tab}(\lambda)$ が存在して、$0 \ne \theta(v_\mathfrak{s}) = \theta(\bar{\mathfrak{s}})b_\mathfrak{s}$。よって、ある $\mathfrak{t} \in \mathrm{Tab}(\mu)$ が存在して、$\bar{\mathfrak{t}}b_\mathfrak{s} \ne 0$。$\lambda \trianglerighteq \mu$ だから、$\lambda \ge_\mathrm{lex} \mu$。逆も成り立つから、$\lambda = \mu$
+
+$R$ は体 $K$ とし、$|\mathfrak{S}_n| \in K$ は可逆だとする。$\lambda$ を $n$ の分割とすると、$S_\lambda$ は既約
+
+$\mathfrak{t}_0 \in \mathrm{Tab}(\lambda)$ を固定する。$S_\lambda b_{\mathfrak{t}_0} \subset M_\lambda b_{\mathfrak{t}_0} = \sum_{\mathfrak{t} \in \mathrm{Tab}(\lambda)} \bar{\mathfrak{t}} b_{\mathfrak{t}_0} \subset K v_{\mathfrak{t}_0}$ であり、$v_{\mathfrak{t}_0} b_{\mathfrak{t}_0} = \bar{\mathfrak{t}}_0 b_{\mathfrak{t}_0}^2 = |C_{\mathfrak{t}_0}| \bar{\mathfrak{t}}_0 b_{\mathfrak{t}_0} = |C_{\mathfrak{t}_0}| v_{\mathfrak{t}_0}$ だから、$S_\lambda b_{\mathfrak{t}_0} = K v_{\mathfrak{t}_0}$。右 $K[\mathfrak{S}_n]$ 加群として $S_\lambda = U \oplus V$ と直和分解するとする。$K v_{\mathfrak{t}_0} = S_\lambda b_{\mathfrak{t}_0} = U b_{\mathfrak{t}_0} \oplus V b_{\mathfrak{t}_0}$。必要なら $U, V$ を入れ替えれば、$U b_{\mathfrak{t}_0} = K v_{\mathfrak{t}_0}$ が成り立つ。$v_{\mathfrak{t}_0} \in U$ であり、$v_{\mathfrak{t}_0}$ は右 $R[\mathfrak{S}_n]$ 加群 $S^\lambda$ を生成するから、$S = U$。$S_\lambda$ は半単純だから、既約でなければならない
+
+$R$ は体 $K$ とし、$|\mathfrak{S}_n| \in K$ は可逆だとする。既約 $K[\mathfrak{S}_n]$ 加群の同型類の個数は $\mathfrak{S}_n$ の共役類の個数と一致するから、$n$ の分割の個数とも一致する。よって、既約 $K[\mathfrak{S}_n]$ 加群の同型類は $\{ S_\lambda \mid \lambda \vdash n \}$ と一致する。特に
+
+$$
+n! = \sum_{\lambda \vdash n} (\mathrm{dim}_K S_\lambda)^2
+$$
+
+# $S_\lambda$ の自由基底
+
+$R$: 可換環
+
+$n$ の分割 $\lambda$ に対して、$[\lambda]$ の行と列を入れ換えた図形に対応する $n$ の分割を $\lambda'$ で表す。$\mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して、行と列を入れ替えた $\lambda'$-tableau を ${}^t\mathfrak{t}$ で表す。$w \in \mathfrak{S}_n$ に対して、${}^t(\mathfrak{t}w) = {}^t\mathfrak{t}w$ が成り立つ
+
+$\lambda$: $n$ の分割
+$\lambda$-tableau が column standard とは、列ごとに要素が上から下に増加することをいう。Column standard $\lambda$-tableau 全体を $\mathrm{CStd}(\lambda)$ で表す。$\mathrm{CStd}(\lambda) \simeq \mathrm{RStd}(\lambda')$。$\mathfrak{t}_\mathrm{col}^\lambda$ を、左の列から順に上から下へ $1, 2, \dots, |\lambda|$ を配置した column standard $\lambda$-tableau とする。$\mathfrak{t}_\mathrm{col}^\lambda = {}^t(\mathfrak{t}^{\lambda'})$。$d_\mathrm{col}: \mathrm{CStd}(\lambda) \xrightarrow{\sim} \mathfrak{S}_{\lambda'} \backslash \mathfrak{S} \simeq \mathscr{D}_{\lambda'}$ を $\mathfrak{t}_\mathrm{col}^\lambda d_\mathrm{col}(\mathfrak{t}) = \mathfrak{t}$ で定義する。$\mathfrak{t} \in \mathrm{CStd}(\lambda)$ に対して、${}^t\mathfrak{t} = {}^t(\mathfrak{t}_\mathrm{col}^\lambda) d_\mathrm{col}(\mathfrak{t}) = \mathfrak{t}^{\lambda'} d_\mathrm{col}(\mathfrak{t})$ だから、$d_\mathrm{col}(\mathfrak{t}) = d({}^t\mathfrak{t})$
+
+$R$: 可換環
+
+$S_\lambda$ は $R$ 加群として $\{ v_\mathfrak{t} \mid \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
+
+[非自明な関係式がないこと]
+$\mathrm{Tab}(\lambda)$ 上の全順序 $\le_\mathrm{aux}$ を以下のように定義する。相異なる $\mathfrak{s}, \mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して、異なる位置にある数字で最大のものを $k$ としたとき、$k$ が右の列にある方が小さく、同じ列にある場合は、上の行にある方が小さいと定義する。任意の $\mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して
+
+$$
+\mathfrak{t}c \le_\mathrm{aux} \mathfrak{t} \le_\mathrm{aux} \mathfrak{t}r \quad (c \in C_\mathfrak{t}, r \in R_\mathfrak{t})
+$$
+
+が成り立つ。非自明な関係式 $\sum_{\mathfrak{t} \in \mathrm{Std}(\lambda)} r_\mathfrak{t} v_\mathfrak{t} = 0 \ (r_\mathfrak{t} \in R)$ があると仮定する。$r_\mathfrak{t} \ne 0$ となる $\mathfrak{t} \in \mathrm{Std}(\lambda)$ の中で $\le_\mathrm{aux}$ に関して最大なものを $\mathfrak{t}_0$ とする。$\mathfrak{t} \in \mathrm{Std}(\lambda)$ と $c \in C_\mathfrak{t}$ は $r_\mathfrak{t} \ne 0$ かつ $\bar{\mathfrak{t}}_0 = \overline{\mathfrak{t}c}$ を満たすとする。$\mathfrak{t}_0 \le_\mathrm{aux} \mathfrak{t}c \le_\mathrm{aux} \mathfrak{t}$ だから、$\mathfrak{t}_0 = \mathfrak{t}$ かつ $c = e$。よって、$\bar{\mathfrak{t}}_0$ の係数は $r_{\mathfrak{t}_0}$ であり、矛盾する
+
+[生成すること]
+$\mathfrak{t} \in \mathrm{Tab}(\lambda)$ とすると、$c \in C_\mathfrak{t}$ に対して、$v_{\mathfrak{t}c} = \bar{\mathfrak{t}}b_{\mathfrak{t}}1_c = \mathrm{sgn}(c)\bar{\mathfrak{t}}b_{\mathfrak{t}} = \mathrm{sgn}(c)v_\mathfrak{t}$ が成り立つ。よって、$\mathfrak{t} \in \mathrm{CStd}(\lambda)$ に対して、$v_\mathfrak{t} \in \sum_{\mathfrak{t} \in \mathrm{Std}(\lambda)} R v_\mathfrak{t}$ を示せば良い。$d_\mathrm{col}(\mathfrak{t})$ に関する帰納法を使う。$d_\mathrm{col}(\mathfrak{t}) = 0$ の場合は明らか。$d_\mathrm{col}(\mathfrak{t}) > 0$ とする。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。ある位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i, j + 1}$。$A$ を $\mathfrak{t}$ の位置 $(i, j)$ から位置 $(\lambda'_j, j)$ までの要素の集合とし、$B$ を $\mathfrak{t}$ の位置 $(1, j + 1)$ から位置 $(i, j + 1)$ までの要素の集合とする。$(\mathfrak{S}(A) \times \mathfrak{S}(B)) \backslash \mathfrak{S}(A \sqcup B)$ の最短完全代表系を $X$ とする
+
+$$
+v_{\mathfrak{t}} \sum_{x \in X} \mathrm{sgn}(x)1_x = 0
+$$
+
+を示す。$C_{\mathfrak{t}} / (\mathfrak{S}(A) \times \mathfrak{S}(B))$ の完全代表系 $Y$ を固定すると
+
+$$
+\begin{aligned}
+  v_{\mathfrak{t}} \sum_{x \in X} \mathrm{sgn}(x)1_x &= \sum_{y \in Y, v \in \mathfrak{S}(A) \times \mathfrak{S}(B), x \in X} \mathrm{sgn}(yvx)\overline{\mathfrak{t}yvx} \\
+  &= \sum_{y \in Y, w \in \mathfrak{S}(A \sqcup B)} \mathrm{sgn}(yw)\overline{\mathfrak{t}yw}
+\end{aligned}
+$$
+
+任意の $y \in Y$ に対して、$\overline{\mathfrak{t}y} \sum_{w \in \mathfrak{S}(A \sqcup B)} \mathrm{sgn}(w)1_w = 0$ を示せば良い。ある $p \in A$ と $q \in B$ が存在して、$\mathfrak{t}y$ の中で $p, q$ は同じ行にある。$\langle (p, q) \rangle \backslash \mathfrak{S}(A \sqcup B)$ の完全代表系を $Z$ とすると
+
+$$
+\begin{aligned}
+  \overline{\mathfrak{t}y} \sum_{w \in \mathfrak{S}(A \sqcup B)} \mathrm{sgn}(w)1_w &= \overline{\mathfrak{t}y} \sum_{z \in Z} (\mathrm{sgn}(z)1_z + \mathrm{sgn}((p, q)z)1_{(p, q)z}) \\
+  &= \overline{\mathfrak{t}y} \sum_{z \in Z} \mathrm{sgn}(z)(1 - 1_{(p, q)})1_z \\
+  &= 0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  v_{\mathfrak{t}} &= -\sum_{x \in X \setminus \{ e \}} \mathrm{sgn}(x)v_{\mathfrak{t}x} \\
+  &\in \sum_{\tau \in \mathrm{CStd}(\lambda), \tau \triangleright \mathfrak{t}} \pm v_\mathfrak{\tau}
+\end{aligned}
+$$
+
+特に
+
+$$
+n! = \sum_{\lambda \vdash n} |\mathrm{Std}(\lambda)|^2
+$$
 
 # Murphy 基底
 
 $\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
 
-生成されることは既に示した。関係式がないことを示す。特殊化を考えれば、$R = \mathbb{Z}[q, q^{-1}]$ として良い
+生成されることは既に示した。非自明な関係式がないことを示す。特殊化を考えれば、$R = \mathbb{Z}[q, q^{-1}]$ として良い。商体を取れば、$R = \mathbb{Q}(q)$ として良いが、$n! = \sum_{\lambda \vdash n} |\mathrm{Std}(\lambda)|^2$ から従う
