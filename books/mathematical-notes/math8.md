@@ -424,7 +424,7 @@ $R$: 可換環
 $S_\lambda$ は $R$ 加群として $\{ v_\mathfrak{t} \mid \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
 
 [非自明な関係式がないこと]
-$\mathrm{Tab}(\lambda)$ 上の全順序 $\le_\mathrm{aux}$ を以下のように定義する。相異なる $\mathfrak{s}, \mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して、異なる位置にある数字で最大のものを $k$ としたとき、$k$ が右の列にある方が小さく、同じ列にある場合は、上の行にある方が小さいと定義する。任意の $\mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して
+$\mathrm{Tab}(\lambda)$ 上の全順序 $\le_\mathrm{aux}$ を以下のように定義する。相異なる $\mathfrak{s}, \mathfrak{t} \in \mathrm{Tab}(\lambda)$ に対して、異なる位置にある数字で最大のものを $k$ としたとき、$k$ が右の列にある方が小さく、同じ列にある場合は、上の行にある方が小さいと定義する。任意の $\mathfrak{t} \in \mathrm{Std}(\lambda)$ に対して
 
 $$
 \mathfrak{t}c \le_\mathrm{aux} \mathfrak{t} \le_\mathrm{aux} \mathfrak{t}r \quad (c \in C_\mathfrak{t}, r \in R_\mathfrak{t})
@@ -592,3 +592,42 @@ $$
 r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}'\mathfrak{t}} = 0
 $$
 
+$$
+\begin{aligned}
+  \mathscr{H}^\lambda &\coloneqq \mathrm{span}_R \{ m_{\mathfrak{s}\mathfrak{t}} \mid \mu \vdash n, \mu \trianglerighteq \lambda, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu) \} \\
+  \check{\mathscr{H}}^\lambda &\coloneqq \mathrm{span}_R \{ m_{\mathfrak{s}\mathfrak{t}} \mid \mu \vdash n, \mu \triangleright \lambda, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu) \}
+\end{aligned}
+$$
+
+[補題]
+$\mathfrak{s}, \mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda)$ に対して、以下のいずれかが成り立つ
+(1) $\mathrm{Shape}(\mathfrak{s}) \triangleright \mathrm{Shape}(\mathfrak{t})$
+(2) 相異なる $i, j$ が存在して、$\mathfrak{s}$ では同じ列に、$\mathfrak{t}$ では同じ行にある
+(3) $\mathfrak{s} = \mathfrak{t}$
+
+(1) でも (2) でもないとする。$\mathrm{Shape}(\mathfrak{s}) = \mathrm{Shape}(\mathfrak{t}) \eqqcolon \lambda$ かつ $c \in C_\mathfrak{s}$, $r \in R_\mathfrak{t}$ が存在して、$\mathfrak{s}c = \mathfrak{t}r \eqqcolon \mathfrak{u}$。$\mathfrak{s}$ の $j$ 列目の要素の集合を $\mathrm{col}_j(\mathfrak{s})$ とし、$\mathfrak{t}$ の $i$ 行目の要素の集合を $\mathrm{row}_i(\mathfrak{t})$ とする。$(i, j) \in [\lambda]$ に対して、$\mathfrak{u}_{ij} \in \mathrm{row}_i(\mathfrak{t}) \cap \mathrm{col}_j(\mathfrak{s})$。単射 $[\lambda] \ni (i, j) \mapsto \mathfrak{u}_{ij} \in \bigsqcup_{i, j \ge 1} (\mathrm{row}_i(\mathfrak{t}) \cap \mathrm{col}_j(\mathfrak{s})) = \{ 1, \dots, n \}$ ができるが、全単射。よって、$|\mathrm{row}_i(\mathfrak{t}) \cap \mathrm{col}_j(\mathfrak{s})| = 1$。$k \ge 1$ に対して、$\mathfrak{s} \downarrow k = \mathfrak{t} \downarrow k$ が成り立つことを $k$ に関する帰納法で示す。$k = 1$ の場合は明らか。$k > 1$ とする。$k$ が $\mathfrak{s}, \mathfrak{t}$ で異なる位置にあると仮定する。ある $i_1 < i_2$, $j_1 < j_2$ が存在して、以下のいずれかが成り立つ
+(1) $k = \mathfrak{s}_{i_1j_2} = \mathfrak{t}_{i_2j_1}$
+(1) $k = \mathfrak{s}_{i_2j_1} = \mathfrak{t}_{i_1j_2}$
+(1) の場合は $k \in \mathrm{row}_{i_2}(\mathfrak{t}) \cap \mathrm{col}_{j_2}(\mathfrak{s}) \ni \mathfrak{u}_{i_2j_2}$、(2) の場合は $k \in \mathrm{row}_{i_1}(\mathfrak{t}) \cap \mathrm{col}_{j_1}(\mathfrak{s}) \ni \mathfrak{u}_{i_1j_1}$ となり矛盾する
+
+$\Lambda^+$ を $n$ の分割全体と $\trianglerighteq$ からなる半順序集合とする
+
+$\mathscr{H}$ は $(\mathcal{M}, \Lambda^+)$ によって cellular 代数になる
+
+まず、任意の $\lambda \in \Lambda^+$, $\mathfrak{t} \in \mathrm{Std}(\lambda)$, $h \in \mathscr{H}$ に対して、$r^h_{\mathfrak{v}\mathfrak{t}} \ (\mathfrak{v} \in \mathrm{Std}(\lambda))$ が存在して
+
+$$
+m_{\mathfrak{t}^\lambda\mathfrak{t}}h \equiv \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r^h_{\mathfrak{v}\mathfrak{t}}m_{\mathfrak{t}^\lambda\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda
+$$
+
+が成り立つこと示す
+
+$$
+m_{\mathfrak{t}^\lambda\mathfrak{t}}h = \sum_{\mu \in \Lambda^+, \mathfrak{u}, \mathfrak{v} \in \mathrm{Std}(\mu)} r^{h, \mathfrak{t}}_{\mathfrak{u}\mathfrak{v}}m_{\mathfrak{u}\mathfrak{v}} \in M^\lambda
+$$
+
+と展開できる。$r^{h, \mathfrak{t}}_{\mathfrak{u}\mathfrak{v}} \ne 0$ とすると、$\mathrm{Shape}(\mathfrak{u}) \triangleright \lambda$ または $\mathfrak{u} = \mathfrak{t}^\lambda$。$\mathscr{H}^\lambda, \check{\mathscr{H}}^\lambda \subset \mathscr{H}$ が両側イデアルになることがわかるから
+
+$$
+m_{\mathfrak{s}\mathfrak{t}}h \equiv \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r^{h, \mathfrak{t}}_{\mathfrak{t}^\lambda\mathfrak{v}}m_{\mathfrak{s}\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda \quad (\mathfrak{s} \in \mathrm{Std}(\lambda))
+$$
