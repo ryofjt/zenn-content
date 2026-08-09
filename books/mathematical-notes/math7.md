@@ -764,6 +764,12 @@ $\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\
 $\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{t}^{(1^n)}\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{RStd}((1^n)) \}$ で生成される。よって、任意の $n$ の分割 $\lambda$ に対して、$m_{\mathfrak{s}\mathfrak{t}} \in \mathrm{Span}_R \mathcal{M} \ (\mathfrak{s}, \mathfrak{t} \in \mathrm{RStd}(\lambda))$ が成り立つことを示せば良い。分割の辞書順に関する帰納法を使う。辞書順最大の $\lambda = (n)$ の場合は明らか。$\lambda \ne (n)$ とする。直前の補題と帰納法の仮定から、$\mathfrak{t}$ は standard として良い。$m_{\mathfrak{s}\mathfrak{t}} = m_{\mathfrak{t}\mathfrak{s}}^*$ だから、再び直前の補題と帰納法の仮定から従う
 
 $\lambda$: $n$ の分割
+
+$$
+\mathscr{H}e_\lambda\mathscr{H} \subset \mathrm{span}_R \{ m_{\mathfrak{s}\mathfrak{t}} \mid \mu \vdash n, \mu \ge_\mathrm{lex} \lambda, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu) \}
+$$
+
+$\lambda$: $n$ の分割
 $\mathfrak{t} \in \mathrm{Std}(\lambda)$
 $i, i + 1$ は $\mathfrak{t}$ の同じ列にあるとすると、任意の $\mathfrak{s} \in \mathrm{Std}(\lambda)$ に対して
 

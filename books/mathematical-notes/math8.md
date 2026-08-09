@@ -398,7 +398,7 @@ $$
 S_\lambda \simeq S_\mu \Leftrightarrow \lambda = \mu
 $$
 
-$\Rightarrow$ を示す。$0$ でない $\theta: S_\lambda \to M_\mu$ が存在する。ある $\mathfrak{s} \in \mathrm{Tab}(\lambda)$ が存在して、$0 \ne \theta(v_\mathfrak{s}) = \theta(\bar{\mathfrak{s}})b_\mathfrak{s}$。よって、ある $\mathfrak{t} \in \mathrm{Tab}(\mu)$ が存在して、$\bar{\mathfrak{t}}b_\mathfrak{s} \ne 0$。$\lambda \trianglerighteq \mu$ だから、$\lambda \ge_\mathrm{lex} \mu$。逆も成り立つから、$\lambda = \mu$
+$\Rightarrow$ を示す。$0$ でない $\theta: S_\lambda \to M_\mu$ が存在する。ある $\mathfrak{s} \in \mathrm{Tab}(\lambda)$ が存在して、$0 \ne \theta(v_\mathfrak{s}) = \theta(\bar{\mathfrak{s}})b_\mathfrak{s}$。よって、ある $\mathfrak{t} \in \mathrm{Tab}(\mu)$ が存在して、$\bar{\mathfrak{t}}b_\mathfrak{s} \ne 0$。よって、$\lambda \trianglerighteq \mu$。逆も成り立つから、$\lambda = \mu$
 
 $R$ は体 $K$ とし、$|\mathfrak{S}_n| \in K$ は可逆だとする。$\lambda$ を $n$ の分割とすると、$S_\lambda$ は既約
 
@@ -473,6 +473,122 @@ $$
 
 # Murphy 基底
 
+$R$: 可換環
+$M$: 有限 $R$ 加群
+$\varphi: M \to M$ が全射ならば同型
+
+$m_1, \dots, m_n \in M$ を生成元とする。$\varphi$ は全射だから、$a_{ij} \in R$ が存在して
+
+$$
+m_i = \sum_j a_{ij}\varphi(m_j)
+$$
+
+可換環 $R[\varphi] \subset \mathrm{End}_R(M)$ を考えれば
+
+$$
+\sum_j (\delta_{ij} - a_{ij}\varphi)m_j = 0
+$$
+
+$(b_{ij}) \in M_n(R[\varphi])$ が存在して
+
+$$
+\sum_j b_{ij}(\delta_{jk} - a_{jk}\varphi) = \mathrm{det}(\delta_{ij} - a_{ij}\varphi)\delta_{ik}
+$$
+
+だから
+
+$$
+\mathrm{det}(\delta_{ij} - a_{ij}\varphi) = 0
+$$
+
+行列式を展開すれば、$\varphi$ の逆元が得られる
+
+$R$: 整域
+$K \coloneqq \mathrm{Frac}(R)$
+$M$: $R$ 加群
+$\{ x_i \mid i \in I \} \subset M$ は $M$ を生成し、$K$ 線型空間 $K \otimes_R M$ 上一次独立とする。このとき、$M$ は $\{ x_i \mid i \in I \}$ で自由生成される
+
+$\varphi: R^{\oplus I} \to M$ は全射。$S \coloneqq R \setminus \{ 0 \}$ とする。$M \mapsto K \otimes_R M = S^{-1}M$ は完全だから
+
+$$
+0 \to S^{-1}\mathrm{Ker}\varphi \to K^{\oplus I} \to K \otimes_R M \to 0
+$$
+
+仮定から、$S^{-1}\mathrm{Ker}\varphi = 0$。$\mathrm{Ker}\varphi \subset R^{\oplus I}$ だから、$\mathrm{Ker}\varphi = 0$
+
 $\mathscr{H}$ は $R$ 加群として $\mathcal{M} \coloneqq \{ m_{\mathfrak{s}\mathfrak{t}} \mid \lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
 
-生成されることは既に示した。非自明な関係式がないことを示す。特殊化を考えれば、$R = \mathbb{Z}[q, q^{-1}]$ として良い。商体を取れば、$R = \mathbb{Q}(q)$ として良いが、$n! = \sum_{\lambda \vdash n} |\mathrm{Std}(\lambda)|^2$ から従う
+生成されることは既に示した。特殊化を考えれば、$R = \mathbb{Z}[q, q^{-1}]$ として良い。商体を取れば、$R = \mathbb{Q}(q)$ として良いが、$n! = \sum_{\lambda \vdash n} |\mathrm{Std}(\lambda)|^2$ から従う
+
+# Cellular 代数 $\mathscr{H}$
+
+$\mu$: $n$ の composition
+
+$$
+M^\mu = \{ h \in \mathscr{H} \mid T_sh = qh \ (s \in S \cap \mathfrak{S}_\mu) \}
+$$
+
+$\supset$ を示せば良い。$R$ 加群として $\mathscr{H} = \bigoplus_{x \in \mathscr{D}_\mu} \mathscr{H}(\mathfrak{S}_\mu)T_x$。$h = \sum_{x \in \mathfrak{S}_\mu} h_x T_x \in \mathscr{H}$ は $T_sh = qh \ (s \in S \cap \mathfrak{S}_\mu)$ を満たすとする。任意の $x \in \mathscr{D}_\mu$ に対して、$T_sh_x = qh_x \ (s \in S \cap \mathfrak{S}_\mu)$ だから
+
+$$
+\{ h \in \mathscr{H}(\mathfrak{S}_\mu) \mid T_sh = qh \ (s \in S \cap \mathfrak{S}_\mu) \} \subset R e_\mu
+$$
+
+を示せば良い。$w \in \mathfrak{S}_\mu$ と $s \in S \cap \mathfrak{S}_\mu$ は $\ell(sw) < \ell(w)$ を満たすとする。$a, b \in R$ に対して
+
+$$
+T_s(aT_w + bT_{sw}) = (b + (q - 1)a)T_w + qaT_{sw}
+$$
+
+であり、$T_s \cdot$ の作用で $R T_w \oplus R T_{sw}$ が閉じていることから従う
+
+$1 \le i \le n - 1$
+$h = \sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}} m_{\mathfrak{s}\mathfrak{t}}$ が $T_{s_i}h = qh$ を満たすことと以下の (1), (2) を満たすことは同値
+(1) $\mathfrak{s}$ 内で $i, i + 1$ が異なる列かつ異なる行にあるとき、$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}(i, i + 1), \mathfrak{t}}$
+(2) $\mathfrak{s}$ 内で $i, i + 1$ が同じ列にあるとき、$r_{\mathfrak{s}\mathfrak{t}} = 0$
+
+特殊化を考えれば、$R = \mathbb{Z}[q, q^{-1}]$ で示せば良い
+
+まず、$\mathfrak{s}$ 内で $i, i + 1$ が異なる列かつ異なる行にあるとする。$\ell(d(\mathfrak{s})s_i) < \ell(d(\mathfrak{s}))$ とすると、$a, b \in R$ に対して
+
+$$
+\begin{aligned}
+  T_{s_i}(a m_{\mathfrak{s}\mathfrak{t}} + b m_{\mathfrak{s}s_i, \mathfrak{t}}) &= (a m_{\mathfrak{t}\mathfrak{s}}T_{s_i} + b m_{\mathfrak{t}, \mathfrak{s}s_i}T_{s_i})^* \\
+  &= ((b + (q - 1)a)m_{\mathfrak{t}\mathfrak{s}} + qam_{\mathfrak{t}, \mathfrak{s}s_i})^* \\
+  &= (b + (q - 1)a)m_{\mathfrak{s}\mathfrak{t}} + qam_{\mathfrak{s}s_i, \mathfrak{t}}
+\end{aligned}
+$$
+
+これが $q(a m_{\mathfrak{s}\mathfrak{t}} + b m_{\mathfrak{s}s_i, \mathfrak{t}})$ に一致するのは、$a = b$ のときのみ
+
+また、$\mathfrak{s}$ 内で $i, i + 1$ が同じ行にあるとすると、$T_{s_i}m_{\mathfrak{s}\mathfrak{t}} = qm_{\mathfrak{s}\mathfrak{t}}$
+
+組 $(\lambda, \mathfrak{s}, \mathfrak{t}) \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda)$ で $i, i + 1$ が $\mathfrak{s}$ の同じ列にあるもの全体を $\mathcal{C}$ とする。以降、$\lambda$ は組から省略することがある。$h = \sum_{(\mathfrak{s}, \mathfrak{t}) \in \mathcal{C}} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}}$ が $T_{s_i}h \in qh + \sum_{(\mathfrak{s}', \mathfrak{t}') \not\in \mathcal{C}} R m_{\mathfrak{s}'\mathfrak{t}'}$ を満たせば、$r_{\mathfrak{s}\mathfrak{t}} = 0 \ ((\mathfrak{s}, \mathfrak{t}) \in \mathcal{C})$ を示せば良い。$\mathcal{C}$ 上の半順序 $\ge_\mathrm{aux}$ を以下で定める。$(\lambda_1, \mathfrak{s}_1, \mathfrak{t}_1) \ge_\mathrm{aux} (\lambda_2, \mathfrak{s}_2, \mathfrak{t}_2)$ とは、$\lambda_1 >_\mathrm{lex} \lambda_2$ または $\lambda_1 = \lambda_2$ かつ $\mathfrak{s}_1 \trianglerighteq \mathfrak{s}_2$ かつ $\mathfrak{t}_1 \trianglerighteq \mathfrak{t}_2$。ある $(\mathfrak{s}_0, \mathfrak{t}_0) \in \mathcal{C}$ が存在して、$r_{\mathfrak{s}_0\mathfrak{t}_0} \ne 0$ と仮定する。$(\mathfrak{s}_0, \mathfrak{t}_0)$ は $r_{\mathfrak{s}_0\mathfrak{t}_0} \ne 0$ を満たすものの中で $\ge_\mathrm{aux}$ に関して極小として良い。$(\lambda, \mathfrak{s}, \mathfrak{t}) \in \mathcal{C}$ に対して
+
+$$
+T_{s_i}m_{\mathfrak{s}\mathfrak{t}} \in -m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{u} \in \mathrm{Std}(\lambda), \mathfrak{u} \triangleright \mathfrak{s}} R m_{\mathfrak{u}\mathfrak{t}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}
+$$
+
+が成り立つ。よって、$m_{\mathfrak{s}_0\mathfrak{t}_0}$ の係数を比較して、$-r_{\mathfrak{s}_0\mathfrak{t}_0} = qr_{\mathfrak{s}_0\mathfrak{t}_0}$ だが、矛盾する
+
+[再掲]
+$\lambda$: $n$ の分割
+$\mu$: $n$ の composition
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+$0 \le j \le n$ に対して、$\lambda_j \coloneqq \mathrm{Shape}(\mathfrak{t} \downarrow \sum_{i \le j} \mu_i)$ と定義すると、$\lambda_j$ たちは分割になる。各 $j$ に対して、$\mathfrak{t}$ の領域 $[\lambda_j] \setminus [\lambda_{j - 1}]$ にある要素を上の行から順に左から右に並べ替えて得られる standard $\lambda$-tableau を $\mathfrak{t}_0$ とする。standard $\lambda$-tableau の列 $\mathfrak{t} = \mathfrak{t}_0, \dots, \mathfrak{t}_k = \mathfrak{t}$ で $d(\mathfrak{t}_i)^{-1}d(\mathfrak{t}_{i + 1}) \in S \cap \mathfrak{S}_\mu$ かつ $d(\mathfrak{t}_0) \prec \cdots \prec d(\mathfrak{t}_k)$ を満たすものが存在する
+
+$\mu$: $n$ の composition
+$\sum_{\mu \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ と以下の (1), (2) を満たすことは同値
+(1) $d(\mathfrak{s})^{-1}d(\mathfrak{s}') \in \mathfrak{S}_\mu$ ならば、$r_{\mathfrak{s}'\mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
+(2) 相異なる $i, j$ が存在して、$\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の同じ列にあるとき、$r_{\mathfrak{s}\mathfrak{t}} = 0$
+
+今までの結果から、$\sum_{\mu \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ は以下の (1'), (2') を満たすことと同値
+(1') $i, i + 1$ が $\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の異なる列かつ異なる行にあるならば、$r_{\mathfrak{s}(i, i + 1), \mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
+(2') $i, i + 1$ が $\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の同じ列にあるならば、$r_{\mathfrak{s}\mathfrak{t}} = 0$
+
+(1) $\Leftrightarrow$ (1') は直前の補題から明らか。(2) $\Rightarrow$ (2') も明らか。(2') $\Rightarrow$ (2) を示す。$i < j$ として良い。$j$ を取り替えれば、$j$ は $\mathfrak{s}$ の中で $i$ の真下にあるとして良い。$\mathfrak{s}' \coloneqq \mathfrak{s}(i + 1, i + 2, \dots, j)$ とすると、$\mathfrak{s}' \in \mathrm{Std}(\lambda)$ かつ $\mathfrak{s}'$ 内で $i, i + 1$ は同じ列にある。よって、(1) から
+
+$$
+r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}'\mathfrak{t}} = 0
+$$
+
