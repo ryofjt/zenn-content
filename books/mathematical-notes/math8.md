@@ -661,7 +661,7 @@ $K$ は体で、$n! \in K$ は可逆とする。$\mathscr{H}_{K(q)}$ は半単�
 
 $\mathscr{H}_{K(q)}$ は体 $K(q)$ 上の有限次元代数だから、左 Artin 環。$J(\mathscr{H}_{K(q)}) \ne 0$ と仮定する。$\mathrm{ev}_1: \mathscr{H}_{K[q]} \to K[\mathfrak{S}_n]$ は全射。$J(\mathscr{H}_{K(q)})$ は冪零だから、$\mathrm{ev}_1(J(\mathscr{H}_{K(q)}) \cap \mathscr{H}_{K[q]}) \subset K[\mathfrak{S}_n]$ も冪零両側イデアル。$K[\mathfrak{S}_n]$ は半単純だから、$\mathrm{ev}_1(J(\mathscr{H}_{K(q)}) \cap \mathscr{H}_{K[q]}) \ne 0$ を示せば矛盾する。$h \in J(\mathscr{H}_{K(q)}) \setminus \{0\}$ をとる。分母を払えば、$h \in \mathscr{H}_{K[q]}$ として良い。さらに、$(q - 1)^{-k}$ をかければ、$h(1) \ne 0$ にできる
 
-# $S^\lambda$ の構造
+# $[\mathrm{res}_\mathfrak{s}(k)]_q$
 
 $e > n$ とする
 
@@ -674,7 +674,7 @@ $\mathfrak{s} \in \mathrm{Std}(\lambda), \mathfrak{t} \in \mathrm{Std}(\mu)$
 $\Rightarrow$ を示す。$1 \le k \le n$ に対して、$\mathfrak{s} \downarrow k = \mathfrak{t} \downarrow k$ が成り立つことを $k$ に関する帰納法で示す。$k = 1$ の場合は明らか。$k > 1$ とする。$k$ が $\mathfrak{s}, \mathfrak{t}$ で異なる位置にあると仮定する。ある $i_1 < i_2$, $j_1 < j_2$ が存在して、以下のいずれかが成り立つ
 (a) $k = \mathfrak{s}_{i_1j_2} = \mathfrak{t}_{i_2j_1}$
 (b) $k = \mathfrak{s}_{i_2j_1} = \mathfrak{t}_{i_1j_2}$
-(b) の場合も同様だから、(a) の場合を示す。$\bmod e$ で
+(b) の場合も同様だから、(a) の場合を示す。$\bmod \, e$ で
 
 $$
 \begin{aligned}
@@ -687,3 +687,28 @@ $$
 
 (2)
 重複を込めて $\{ [\mathrm{res}_\mathfrak{s}(1)]_q, \dots, [\mathrm{res}_\mathfrak{s}(n)]_q \} = \{ [\mathrm{res}_\mathfrak{t}(1)]_q, \dots, [\mathrm{res}_\mathfrak{t}(n)]_q \}$ だから、重複を込めて $\{ [\mathrm{res}_\mathfrak{s}(i)]_q, [\mathrm{res}_\mathfrak{s}(i + 1)]_q \} = \{ [\mathrm{res}_\mathfrak{t}(i)]_q, [\mathrm{res}_\mathfrak{t}(i + 1)]_q \}$
+
+# 同時対角化
+
+
+# $S^\lambda$ の構造
+
+$R$ は体 $K$ かつ $e > n$ とする
+
+$\lambda \vdash n$
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$ に対して
+
+$$
+F_\mathfrak{t} \coloneqq \prod_{k = 1}^n \prod_{\substack{\mathfrak{s} \in \mathrm{Std}(\lambda) \\
+[\mathrm{res}_\mathfrak{t}(k)]_q \ne [\mathrm{res}_\mathfrak{s}(k)]_q}} \frac{L_k - [\mathrm{res}_\mathfrak{s}(k)]_q}{[\mathrm{res}_\mathfrak{t}(k)]_q - [\mathrm{res}_\mathfrak{s}(k)]_q} \in \mathscr{H}
+$$
+
+$$
+f_\mathfrak{t} \coloneqq m_\mathfrak{t}F_\mathfrak{t} \in S^\lambda
+$$
+
+$\lambda \vdash n$
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+(1) $f_\mathfrak{t} \in m_\mathfrak{t} + \sum_{\mathfrak{s} \in \mathrm{Std}(\lambda), \mathfrak{s} \triangleright \mathfrak{t}} R m_\mathfrak{s}$
+(2) $f_\mathfrak{t}L_k = [\mathrm{res}_\mathfrak{t}(k)]_q f_\mathfrak{t} \quad (1 \le k \le n)$
+(3) $\mathfrak{s} \in \mathrm{Std}(\lambda)$ とすると、$f_\mathfrak{t}F_\mathfrak{s} = \delta_{\mathfrak{s}\mathfrak{t}}f_\mathfrak{t}$
