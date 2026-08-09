@@ -607,7 +607,7 @@ $\mathfrak{s}, \mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambd
 
 (1) でも (2) でもないとする。$\mathrm{Shape}(\mathfrak{s}) = \mathrm{Shape}(\mathfrak{t}) \eqqcolon \lambda$ かつ $c \in C_\mathfrak{s}$, $r \in R_\mathfrak{t}$ が存在して、$\mathfrak{s}c = \mathfrak{t}r \eqqcolon \mathfrak{u}$。$\mathfrak{s}$ の $j$ 列目の要素の集合を $\mathrm{col}_j(\mathfrak{s})$ とし、$\mathfrak{t}$ の $i$ 行目の要素の集合を $\mathrm{row}_i(\mathfrak{t})$ とする。$(i, j) \in [\lambda]$ に対して、$\mathfrak{u}_{ij} \in \mathrm{row}_i(\mathfrak{t}) \cap \mathrm{col}_j(\mathfrak{s})$。単射 $[\lambda] \ni (i, j) \mapsto \mathfrak{u}_{ij} \in \bigsqcup_{i, j \ge 1} (\mathrm{row}_i(\mathfrak{t}) \cap \mathrm{col}_j(\mathfrak{s})) = \{ 1, \dots, n \}$ ができるが、全単射。よって、$|\mathrm{row}_i(\mathfrak{t}) \cap \mathrm{col}_j(\mathfrak{s})| = 1$。$k \ge 1$ に対して、$\mathfrak{s} \downarrow k = \mathfrak{t} \downarrow k$ が成り立つことを $k$ に関する帰納法で示す。$k = 1$ の場合は明らか。$k > 1$ とする。$k$ が $\mathfrak{s}, \mathfrak{t}$ で異なる位置にあると仮定する。ある $i_1 < i_2$, $j_1 < j_2$ が存在して、以下のいずれかが成り立つ
 (1) $k = \mathfrak{s}_{i_1j_2} = \mathfrak{t}_{i_2j_1}$
-(1) $k = \mathfrak{s}_{i_2j_1} = \mathfrak{t}_{i_1j_2}$
+(2) $k = \mathfrak{s}_{i_2j_1} = \mathfrak{t}_{i_1j_2}$
 (1) の場合は $k \in \mathrm{row}_{i_2}(\mathfrak{t}) \cap \mathrm{col}_{j_2}(\mathfrak{s}) \ni \mathfrak{u}_{i_2j_2}$、(2) の場合は $k \in \mathrm{row}_{i_1}(\mathfrak{t}) \cap \mathrm{col}_{j_1}(\mathfrak{s}) \ni \mathfrak{u}_{i_1j_1}$ となり矛盾する
 
 $\Lambda^+$ を $n$ の分割全体と $\trianglerighteq$ からなる半順序集合とする
@@ -631,3 +631,59 @@ $$
 $$
 m_{\mathfrak{s}\mathfrak{t}}h \equiv \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r^{h, \mathfrak{t}}_{\mathfrak{t}^\lambda\mathfrak{v}}m_{\mathfrak{s}\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda \quad (\mathfrak{s} \in \mathrm{Std}(\lambda))
 $$
+
+Cellular 代数の一般論における $C^\lambda$ を $S^\lambda$ と定義する。つまり
+
+$$
+S^\lambda \subset \mathscr{H}^\lambda / \check{\mathscr{H}}^\lambda
+$$
+
+は $m_\mathfrak{t} \coloneqq m_{\mathfrak{t}^\lambda\mathfrak{t}} + \check{\mathscr{H}}^\lambda \ (\mathfrak{t} \in \mathrm{Std}(\lambda))$ が張る自由 $R$ 加群
+
+$\langle -, - \rangle: S^\lambda \times S^\lambda \to R$ は
+
+$$
+\langle m_\mathfrak{s}, m_\mathfrak{t} \rangle m_\lambda = m_{\mathfrak{t}^\lambda\mathfrak{s}}m_{\mathfrak{t}\mathfrak{t}^\lambda} \mod \check{\mathscr{H}}^\lambda
+$$
+
+で定義される。$\lambda \in \Lambda_0 \coloneqq \{ \lambda \in \Lambda \mid \langle S^\lambda, S^\lambda \rangle \ne 0 \}$ に対して、$D^\lambda \coloneqq S^\lambda / \mathrm{rad}(S^\lambda)$ と定義する
+
+$R$ が体ならば、$\mathrm{Irr}(\mathscr{H}) = \{ D^\lambda \mid \lambda \in \Lambda_0 \}$
+
+$R$ が体ならば、$\mathscr{H}$ は分裂代数
+
+$A$: 左 Artin 環
+$I \subset A$ が冪零左イデアルならば、$I \subset J(A)$
+
+$x \in I$ とする。任意の $a \in A$ に対して、$ax$ は冪零だから $1 + ax \in A^\times$。よって、$x \in J(A)$
+
+$K$ は体で、$n! \in K$ は可逆とする。$\mathscr{H}_{K(q)}$ は半単純
+
+$\mathscr{H}_{K(q)}$ は体 $K(q)$ 上の有限次元代数だから、左 Artin 環。$J(\mathscr{H}_{K(q)}) \ne 0$ と仮定する。$\mathrm{ev}_1: \mathscr{H}_{K[q]} \to K[\mathfrak{S}_n]$ は全射。$J(\mathscr{H}_{K(q)})$ は冪零だから、$\mathrm{ev}_1(J(\mathscr{H}_{K(q)}) \cap \mathscr{H}_{K[q]}) \subset K[\mathfrak{S}_n]$ も冪零両側イデアル。$K[\mathfrak{S}_n]$ は半単純だから、$\mathrm{ev}_1(J(\mathscr{H}_{K(q)}) \cap \mathscr{H}_{K[q]}) \ne 0$ を示せば矛盾する。$h \in J(\mathscr{H}_{K(q)}) \setminus \{0\}$ をとる。分母を払えば、$h \in \mathscr{H}_{K[q]}$ として良い。さらに、$(q - 1)^{-k}$ をかければ、$h(1) \ne 0$ にできる
+
+# $S^\lambda$ の構造
+
+$e > n$ とする
+
+$\lambda, \mu \vdash n$
+$\mathfrak{s} \in \mathrm{Std}(\lambda), \mathfrak{t} \in \mathrm{Std}(\mu)$
+(1) $[\mathrm{res}_\mathfrak{s}(k)]_q = [\mathrm{res}_\mathfrak{t}(k)]_q \ (1 \le k \le n)$ $\Leftrightarrow$ $\mathfrak{s} = \mathfrak{t}$
+(2) $\lambda = \mu$ かつ $[\mathrm{res}_\mathfrak{s}(k)]_q = [\mathrm{res}_\mathfrak{t}(k)]_q \ (1 \le k \le n, k \not\in \{ i, i + 1 \})$ とすると、$\mathfrak{s} = \mathfrak{t}$ または $\mathfrak{s} = \mathfrak{t}s_i$
+
+(1)
+$\Rightarrow$ を示す。$1 \le k \le n$ に対して、$\mathfrak{s} \downarrow k = \mathfrak{t} \downarrow k$ が成り立つことを $k$ に関する帰納法で示す。$k = 1$ の場合は明らか。$k > 1$ とする。$k$ が $\mathfrak{s}, \mathfrak{t}$ で異なる位置にあると仮定する。ある $i_1 < i_2$, $j_1 < j_2$ が存在して、以下のいずれかが成り立つ
+(a) $k = \mathfrak{s}_{i_1j_2} = \mathfrak{t}_{i_2j_1}$
+(b) $k = \mathfrak{s}_{i_2j_1} = \mathfrak{t}_{i_1j_2}$
+(b) の場合も同様だから、(a) の場合を示す。$\bmod e$ で
+
+$$
+\begin{aligned}
+  \mathrm{res}_\mathfrak{s}(k) - \mathrm{res}_\mathfrak{t}(k) &\equiv (j_2 - i_1) - (j_1 - i_2) \\
+  &= (j_2 - j_1) + (i_2 - i_1)
+\end{aligned}
+$$
+
+だが、$2 \le (j_2 - j_1) + (i_2 - i_1) \le k$ だから、$[\mathrm{res}_\mathfrak{s}(k)]_q \ne [\mathrm{res}_\mathfrak{t}(k)]_q$ となって矛盾する
+
+(2)
+重複を込めて $\{ [\mathrm{res}_\mathfrak{s}(1)]_q, \dots, [\mathrm{res}_\mathfrak{s}(n)]_q \} = \{ [\mathrm{res}_\mathfrak{t}(1)]_q, \dots, [\mathrm{res}_\mathfrak{t}(n)]_q \}$ だから、重複を込めて $\{ [\mathrm{res}_\mathfrak{s}(i)]_q, [\mathrm{res}_\mathfrak{s}(i + 1)]_q \} = \{ [\mathrm{res}_\mathfrak{t}(i)]_q, [\mathrm{res}_\mathfrak{t}(i + 1)]_q \}$
