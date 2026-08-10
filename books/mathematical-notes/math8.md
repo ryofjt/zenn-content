@@ -690,25 +690,78 @@ $$
 
 # 同時対角化
 
+$K$: 体
+$(\Lambda, \ge)$: 有限半順序集合
+$V \coloneqq \bigoplus_{\lambda \in \Lambda} K v_\lambda$
+$\mathcal{A} \subset \mathrm{End}_K(V)$: 可換部分 $K$ 代数
+$\alpha_\lambda \in \mathrm{Hom}_{K\text{-alg}}(\mathcal{A}, K)$ があって
+
+$$
+A v_\lambda \in \alpha_\lambda(A) v_\lambda + \sum_{\mu > \lambda} K v_\mu \quad (A \in \mathcal{A})
+$$
+
+かつ $\Lambda \ni \lambda \mapsto \alpha_\lambda \in \mathrm{Hom}_{K\text{-alg}}(\mathcal{A}, K)$ は単射とすると
+
+$$
+\Phi: \mathcal{A} \ni A \mapsto (\alpha_\lambda(A))_{\lambda \in \Lambda} \in K^{\times \Lambda}
+$$
+
+は $K$ 代数の同型
+
+まず、$\Phi$ は単射を示す。$N \in \mathrm{Ker}(\Phi) \setminus \{0\}$ が取れると仮定する。$N v_\mu = \sum_{\lambda > \mu} n_{\lambda\mu} v_\lambda$ と表せる。$(\lambda_0, \mu_0) \in \Lambda \times \Lambda^\mathrm{op}$ を $n_{\lambda\mu} \ne 0$ を満たすものの中で極小にとる。$AN v_{\mu_0} = NA v_{\mu_0}$ の $v_{\lambda_0}$ の係数を比較すると
+
+$$
+n_{\lambda_0\mu_0}(\alpha_{\lambda_0}(A) - \alpha_{\mu_0}(A)) = 0 \quad (A \in \mathcal{A})
+$$
+
+$\lambda_0 \ne \mu_0$ だから、$A$ を適当に選べば $n_{\lambda_0\mu_0} = 0$ となって矛盾する
+
+次に、全射を示す。$\lambda \in \Lambda$ とする。$\mu \ne \lambda$ に対して、$A_\mu \in \mathcal{A}$ を $\alpha_\lambda(A_\mu) \ne \alpha_\mu(A_\mu)$ が成り立つように取る
+
+$$
+\prod_{\mu \ne \lambda} \frac{A_\mu - \alpha_\mu(A_\mu)}{\alpha_\lambda(A_\mu) - \alpha_\mu(A_\mu)}
+$$
+
+は $\Phi$ で $\varepsilon_\lambda \in K^{\times \Lambda}$ に対応する
+
+$\varepsilon_\lambda \in K^{\times \Lambda}$ に対応する原始的冪等元を $E_\lambda \in \mathcal{A}$ とし、$w_\lambda \coloneqq E_\lambda v_\lambda$ とすると
+
+(1) $w_\lambda \in v_\lambda + \sum_{\mu > \lambda} K v_\mu$
+(2) $A w_\lambda = \alpha_\lambda(A) w_\lambda$
+(3) $E_\lambda w_\mu = \delta_{\lambda\mu} w_\mu$
+
+特に、(1) から $w_\lambda$ たちは $V$ の基底をなす
+
+(1) $\alpha_\lambda(E_\lambda) = 1$ から従う
+(2) $A E_\lambda = \alpha_\lambda(A) E_\lambda$ から従う
+(3) $E_\lambda E_\mu = \delta_{\lambda\mu} E_\mu$ から従う
 
 # $S^\lambda$ の構造
 
 $R$ は体 $K$ かつ $e > n$ とする
 
 $\lambda \vdash n$
-$\mathfrak{t} \in \mathrm{Std}(\lambda)$ に対して
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
 
 $$
 F_\mathfrak{t} \coloneqq \prod_{k = 1}^n \prod_{\substack{\mathfrak{s} \in \mathrm{Std}(\lambda) \\
 [\mathrm{res}_\mathfrak{t}(k)]_q \ne [\mathrm{res}_\mathfrak{s}(k)]_q}} \frac{L_k - [\mathrm{res}_\mathfrak{s}(k)]_q}{[\mathrm{res}_\mathfrak{t}(k)]_q - [\mathrm{res}_\mathfrak{s}(k)]_q} \in \mathscr{H}
 $$
 
+$K[L_1, \dots, L_n] \curvearrowright S^\lambda = \bigoplus_{\mathfrak{t} \in \mathrm{Std}(\lambda)} K m_\mathfrak{t}$ は上三角的。$\Psi: K[L_1, \dots, L_n] \to \mathrm{End}_K(S^\lambda)$ とする。$\mathrm{Std}(\lambda) \ni \mathfrak{t} \mapsto (\Psi(L_k) \mapsto [\mathrm{res}_\mathfrak{t}(k)]_q) \in \mathrm{Hom}_{K\text{-alg}}(\mathrm{Im}\Psi, K)$ は単射だから
+
+$$
+\mathrm{Im}\Psi \ni \Psi(L_k) \mapsto ([\mathrm{res}_\mathfrak{t}(k)]_q)_{\mathfrak{t} \in \mathrm{Std}(\lambda)} \in K^{\times \mathrm{Std}(\lambda)}
+$$
+
+は $K$ 代数の同型。$\Psi(F_\mathfrak{t})$ は $\varepsilon_\mathfrak{t} \in K^{\times \mathrm{Std}(\lambda)}$ に対応する原始的冪等元
+
 $$
 f_\mathfrak{t} \coloneqq m_\mathfrak{t}F_\mathfrak{t} \in S^\lambda
 $$
 
-$\lambda \vdash n$
-$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+とすると以下が成り立つ
+
 (1) $f_\mathfrak{t} \in m_\mathfrak{t} + \sum_{\mathfrak{s} \in \mathrm{Std}(\lambda), \mathfrak{s} \triangleright \mathfrak{t}} R m_\mathfrak{s}$
 (2) $f_\mathfrak{t}L_k = [\mathrm{res}_\mathfrak{t}(k)]_q f_\mathfrak{t} \quad (1 \le k \le n)$
 (3) $\mathfrak{s} \in \mathrm{Std}(\lambda)$ とすると、$f_\mathfrak{t}F_\mathfrak{s} = \delta_{\mathfrak{s}\mathfrak{t}}f_\mathfrak{t}$
