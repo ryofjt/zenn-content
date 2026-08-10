@@ -765,3 +765,102 @@ $$
 (1) $f_\mathfrak{t} \in m_\mathfrak{t} + \sum_{\mathfrak{s} \in \mathrm{Std}(\lambda), \mathfrak{s} \triangleright \mathfrak{t}} R m_\mathfrak{s}$
 (2) $f_\mathfrak{t}L_k = [\mathrm{res}_\mathfrak{t}(k)]_q f_\mathfrak{t} \quad (1 \le k \le n)$
 (3) $\mathfrak{s} \in \mathrm{Std}(\lambda)$ とすると、$f_\mathfrak{t}F_\mathfrak{s} = \delta_{\mathfrak{s}\mathfrak{t}}f_\mathfrak{t}$
+
+$\mathfrak{s} \ne \mathfrak{t}$ ならば $\langle f_\mathfrak{s}, f_\mathfrak{t} \rangle = 0$
+
+$\langle f_\mathfrak{s}, f_\mathfrak{t} \rangle = \langle f_\mathfrak{s}F_s, f_\mathfrak{t} \rangle = \langle f_\mathfrak{s}, f_\mathfrak{t}F_s \rangle = 0$
+
+$1 \le i \le n - 1$
+$\mathfrak{s} \in \mathrm{Std}(\lambda)$
+$\rho \coloneqq \mathrm{res}_\mathfrak{s}(i) - \mathrm{res}_\mathfrak{s}(i + 1)$ とすると、$\rho \not\equiv 0$ であり
+
+$$
+f_\mathfrak{s}T_{s_i} = \begin{cases}
+  qf_\mathfrak{s} &\quad (\mathfrak{s}s_i \not\in \mathrm{RStd}(\lambda)) \\
+  -f_\mathfrak{s} &\quad (\mathfrak{s}s_i \not\in \mathrm{CStd}(\lambda)) \\
+  -\frac{1}{[\rho]_q}f_\mathfrak{s} + f_{\mathfrak{s}s_i} &\quad (\mathfrak{s}s_i \in \mathrm{Std}(\lambda), \mathfrak{s}s_i \triangleleft \mathfrak{s}) \\
+  -\frac{1}{[\rho]_q}f_\mathfrak{s} + \frac{[\rho + 1]_q[\rho - 1]_q}{[\rho]_q^2}qf_{\mathfrak{s}s_i} &\quad (\mathfrak{s}s_i \in \mathrm{Std}(\lambda), \mathfrak{s}s_i \triangleright \mathfrak{s})
+\end{cases}
+$$
+
+$f_\mathfrak{s}T_{s_i} = \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} c_\mathfrak{v}f_\mathfrak{v}$ とする。$L_k \ (k \not\in \{ i, i + 1 \})$ を作用させると
+
+$$
+[\mathrm{res}_\mathfrak{s}(k)]_qf_\mathfrak{s}T_{s_i} = \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} c_\mathfrak{v}[\mathrm{res}_\mathfrak{v}(k)]_qf_\mathfrak{v}
+$$
+
+係数を比較して、$c_\mathfrak{v}[\mathrm{res}_\mathfrak{s}(k)]_q = c_\mathfrak{v}[\mathrm{res}_\mathfrak{v}(k)]_q \ (\mathfrak{v} \in \mathrm{Std}(\lambda), k \not\in \{ i, i + 1 \})$。よって、$c_\mathfrak{v} \ne 0$ ならば $\mathfrak{v} = \mathfrak{s}$ または $\mathfrak{v} = \mathfrak{s}s_i$
+
+[$\mathfrak{s}s_i \not\in \mathrm{RStd}(\lambda)$ の場合]
+$f_\mathfrak{s}T_{s_i} = af_\mathfrak{s}$ だが
+
+$$
+\begin{aligned}
+  qm_\mathfrak{s} &= m_\mathfrak{s}T_{s_i} \\
+  &= f_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v}T_{s_i} \\
+  &= f_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}, \mathfrak{v}s_i \in \mathrm{RStd}(\lambda), \mathfrak{w} \trianglerighteq \mathfrak{v}s_i} K m_\mathfrak{w} \\
+  &= af_\mathfrak{s} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}, \mathfrak{v}s_i \in \mathrm{RStd}(\lambda), \mathfrak{w} \trianglerighteq \mathfrak{v}s_i} K m_\mathfrak{w} \\
+  &= am_\mathfrak{s} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}, \mathfrak{v}s_i \in \mathrm{RStd}(\lambda), \mathfrak{w} \trianglerighteq \mathfrak{v}s_i} K m_\mathfrak{w}
+\end{aligned}
+$$
+
+もし、$\mathfrak{w} = \mathfrak{s}$ だとすると、$\mathfrak{s} = \mathfrak{v}s_i$ となって矛盾する。よって、$a = q$
+
+[$\mathfrak{s}s_i \not\in \mathrm{CStd}(\lambda)$ の場合]
+$f_\mathfrak{s}T_{s_i} = af_\mathfrak{s}$ だが
+
+$$
+\begin{aligned}
+  -m_\mathfrak{s} &= m_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} \\
+  &= f_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v}T_{s_i} \\
+  &= f_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}, \mathfrak{v}s_i \in \mathrm{RStd}(\lambda), \mathfrak{w} \trianglerighteq \mathfrak{v}s_i} K m_\mathfrak{w} \\
+  &= af_\mathfrak{s} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}, \mathfrak{v}s_i \in \mathrm{RStd}(\lambda), \mathfrak{w} \trianglerighteq \mathfrak{v}s_i} K m_\mathfrak{w} \\
+  &= am_\mathfrak{s} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}, \mathfrak{v}s_i \in \mathrm{RStd}(\lambda), \mathfrak{w} \trianglerighteq \mathfrak{v}s_i} K m_\mathfrak{w}
+\end{aligned}
+$$
+
+よって、$a = -1$
+
+[$\mathfrak{s}s_i \in \mathrm{Std}(\lambda)$ かつ $\mathfrak{s}s_i \triangleleft \mathfrak{s}$ の場合]
+$f_\mathfrak{s}T_{s_i} = af_\mathfrak{s} + bf_{\mathfrak{s}s_i}$ だが
+
+$$
+\begin{aligned}
+  m_{\mathfrak{s}s_i} &= m_\mathfrak{s}T_{s_i} \\
+  &= f_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}} K m_\mathfrak{v}T_{s_i} \\
+  &= f_\mathfrak{s}T_{s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}s_i} K m_\mathfrak{v} \\
+  &= af_\mathfrak{s} + bf_{\mathfrak{s}s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}s_i} K m_\mathfrak{v} \\
+  &= bm_{\mathfrak{s}s_i} + \sum_{\mathfrak{v} \triangleright \mathfrak{s}s_i} K m_\mathfrak{v}
+\end{aligned}
+$$
+
+よって、$b = 1$。また、$L_{i + 1}$ を作用させると
+
+$$
+\begin{aligned}
+  a[\mathrm{res}_\mathfrak{s}(i + 1)]_qf_\mathfrak{s} + [\mathrm{res}_\mathfrak{s}(i)]_qf_{\mathfrak{s}s_i} &= f_\mathfrak{s}T_{s_i}L_{i + 1} \\
+  &= f_\mathfrak{s}((q - 1)L_{i + 1} + 1 + L_iT_{s_i}) \\
+  &= ([\mathrm{res}_\mathfrak{s}(i + 1)]_q(q - 1) + 1 + a[\mathrm{res}_\mathfrak{s}(i)]_q)f_\mathfrak{s} \\
+  &\quad + [\mathrm{res}_\mathfrak{s}(i)]f_{\mathfrak{s}s_i}
+\end{aligned}
+$$
+
+$$
+a = \frac{[\mathrm{res}_\mathfrak{s}(i + 1)]_q(q - 1) + 1}{[\mathrm{res}_\mathfrak{s}(i + 1)]_q - [\mathrm{res}_\mathfrak{s}(i)]_q} = -\frac{1}{[\rho]_q}
+$$
+
+[$\mathfrak{s}s_i \in \mathrm{Std}(\lambda)$ かつ $\mathfrak{s}s_i \triangleright \mathfrak{s}$ の場合]
+直前の場合から、$f_{\mathfrak{s}s_i}T_{s_i} = -\frac{1}{[-\rho]_q}f_{\mathfrak{s}s_i} + f_\mathfrak{s} = \frac{q^\rho}{[\rho]_q}f_{\mathfrak{s}s_i} + f_\mathfrak{s}$。$T_{s_i}$ を作用させて
+
+$$
+f_{\mathfrak{s}s_i}((q - 1)T_{s_i} + q) = \frac{q^\rho}{[\rho]_q}f_{\mathfrak{s}s_i}T_{s_i} + f_\mathfrak{s}T_{s_i}
+$$
+
+よって
+
+$$
+\begin{aligned}
+  f_\mathfrak{s}T_{s_i} &= -\frac{1}{[\rho]_q}f_{\mathfrak{s}s_i}T_{s_i} + qf_{\mathfrak{s}s_i} \\
+  &= -\frac{1}{[\rho]_q}f_{\mathfrak{s}} + \frac{[\rho + 1]_q[\rho - 1]_q}{[\rho]_q^2}qf_{\mathfrak{s}s_i}
+\end{aligned}
+$$
