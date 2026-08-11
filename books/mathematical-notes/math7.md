@@ -766,7 +766,7 @@ $\mathscr{H}$ は $R$ 加群として $\{ m_{\mathfrak{t}^{(1^n)}\mathfrak{t}} \
 $\lambda$: $n$ の分割
 
 $$
-\mathscr{H}e_\lambda\mathscr{H} \subset \mathrm{span}_R \{ m_{\mathfrak{s}\mathfrak{t}} \mid \mu \vdash n, \mu \ge_\mathrm{lex} \lambda, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu) \}
+\mathscr{H}m_\lambda\mathscr{H} \subset \mathrm{span}_R \{ m_{\mathfrak{s}\mathfrak{t}} \mid \mu \vdash n, \mu \ge_\mathrm{lex} \lambda, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu) \}
 $$
 
 $\lambda$: $n$ の分割

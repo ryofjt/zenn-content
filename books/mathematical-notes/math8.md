@@ -266,10 +266,10 @@ $$
 
 $$
 \begin{aligned}
-  e_\lambda L_k &= e_{\mathfrak{S}_{\lambda_r}} e_{(\lambda_1, \dots, \lambda_{r - 1})} L_k \\
-  &= e_{\mathfrak{S}_{\lambda_r}} e_{(\lambda_1, \dots, \lambda_{r - 1}, 1)} L_k \\
-  &\equiv [\mathrm{res}_{\mathfrak{t}^{(\lambda_1, \dots, \lambda_{r - 1}, 1)}}(k)]_q e_{\mathfrak{S}_{\lambda_r}} e_{(\lambda_1, \dots, \lambda_{r - 1}, 1)} \\
-  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(k)]_q e_\lambda
+  m_\lambda L_k &= m_{\mathfrak{S}_{\lambda_r}} m_{(\lambda_1, \dots, \lambda_{r - 1})} L_k \\
+  &= m_{\mathfrak{S}_{\lambda_r}} m_{(\lambda_1, \dots, \lambda_{r - 1}, 1)} L_k \\
+  &\equiv [\mathrm{res}_{\mathfrak{t}^{(\lambda_1, \dots, \lambda_{r - 1}, 1)}}(k)]_q m_{\mathfrak{S}_{\lambda_r}} m_{(\lambda_1, \dots, \lambda_{r - 1}, 1)} \\
+  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(k)]_q m_\lambda
 \end{aligned}
 $$
 
@@ -277,22 +277,22 @@ $$
 
 $$
 \begin{aligned}
-  0 &\equiv e_\mu \\
+  0 &\equiv m_\mu \\
   &= \sum_{w \in \mathfrak{S}_\mu} T_w \\
-  &= e_\lambda \sum_{w \in \mathfrak{S}_\mu \cap \mathscr{D}_\lambda} T_w \\
-  &= e_\lambda (1 + T_{s_{n - 1}} + T_{s_{n - 2}}T_{s_{n - 1}} + \cdots + T_{s_{n - \lambda_{r - 1}}} \cdots T_{s_{n - 1}}) \\
-  &= e_\lambda + e_\lambda (1 + T_{s_{n - 2}} + T_{s_{n - 3}}T_{s_{n - 2}} + \cdots + T_{s_{n - \lambda_{r - 1}}} \cdots T_{s_{n - 2}}) T_{s_{n - 1}} \\
-  &= e_\lambda + [\lambda_{r - 1}]_q e_\lambda T_{s_{n - 1}}
+  &= m_\lambda \sum_{w \in \mathfrak{S}_\mu \cap \mathscr{D}_\lambda} T_w \\
+  &= m_\lambda (1 + T_{s_{n - 1}} + T_{s_{n - 2}}T_{s_{n - 1}} + \cdots + T_{s_{n - \lambda_{r - 1}}} \cdots T_{s_{n - 1}}) \\
+  &= m_\lambda + m_\lambda (1 + T_{s_{n - 2}} + T_{s_{n - 3}}T_{s_{n - 2}} + \cdots + T_{s_{n - \lambda_{r - 1}}} \cdots T_{s_{n - 2}}) T_{s_{n - 1}} \\
+  &= m_\lambda + [\lambda_{r - 1}]_q m_\lambda T_{s_{n - 1}}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-  0 &\equiv e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda T_{s_{n - 1}} L_n \\
-  &= e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda ((q - 1)L_n + 1 + L_{n - 1}T_{s_{n - 1}}) \\
-  &= q^{\lambda_{r - 1}} e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda + [\lambda_{r - 1}]_q e_\lambda L_{n - 1}T_{s_{n - 1}} \\
-  &\equiv q^{\lambda_{r - 1}} e_\lambda L_n + [\lambda_{r - 1}]_q e_\lambda + [\lambda_{r - 1}]_q [\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q e_\lambda T_{s_{n - 1}} \\
-  &\equiv q^{\lambda_{r - 1}} e_\lambda L_n + ([\lambda_{r - 1}]_q - [\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q) e_\lambda
+  0 &\equiv m_\lambda L_n + [\lambda_{r - 1}]_q m_\lambda T_{s_{n - 1}} L_n \\
+  &= m_\lambda L_n + [\lambda_{r - 1}]_q m_\lambda ((q - 1)L_n + 1 + L_{n - 1}T_{s_{n - 1}}) \\
+  &= q^{\lambda_{r - 1}} m_\lambda L_n + [\lambda_{r - 1}]_q m_\lambda + [\lambda_{r - 1}]_q m_\lambda L_{n - 1}T_{s_{n - 1}} \\
+  &\equiv q^{\lambda_{r - 1}} m_\lambda L_n + [\lambda_{r - 1}]_q m_\lambda + [\lambda_{r - 1}]_q [\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q m_\lambda T_{s_{n - 1}} \\
+  &\equiv q^{\lambda_{r - 1}} m_\lambda L_n + ([\lambda_{r - 1}]_q - [\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q) m_\lambda
 \end{aligned}
 $$
 
@@ -300,10 +300,10 @@ $$
 
 $$
 \begin{aligned}
-  e_\lambda L_n &\equiv q^{-\lambda_{r - 1}} ([\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q - [\lambda_{r - 1}]_q) e_\lambda \\
-  &= q^{-\lambda_{r - 1}} ([\lambda_{r - 1} - r + 1]_q - [\lambda_{r - 1}]_q) e_\lambda \\
-  &= [-r + 1]_q e_\lambda \\
-  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(n)]_q e_\lambda
+  m_\lambda L_n &\equiv q^{-\lambda_{r - 1}} ([\mathrm{res}_{\mathfrak{t}^\lambda}(n - 1)]_q - [\lambda_{r - 1}]_q) m_\lambda \\
+  &= q^{-\lambda_{r - 1}} ([\lambda_{r - 1} - r + 1]_q - [\lambda_{r - 1}]_q) m_\lambda \\
+  &= [-r + 1]_q m_\lambda \\
+  &= [\mathrm{res}_{\mathfrak{t}^\lambda}(n)]_q m_\lambda
 \end{aligned}
 $$
 
@@ -531,7 +531,7 @@ $$
 $\supset$ を示せば良い。$R$ 加群として $\mathscr{H} = \bigoplus_{x \in \mathscr{D}_\mu} \mathscr{H}(\mathfrak{S}_\mu)T_x$。$h = \sum_{x \in \mathfrak{S}_\mu} h_x T_x \in \mathscr{H}$ は $T_sh = qh \ (s \in S \cap \mathfrak{S}_\mu)$ を満たすとする。任意の $x \in \mathscr{D}_\mu$ に対して、$T_sh_x = qh_x \ (s \in S \cap \mathfrak{S}_\mu)$ だから
 
 $$
-\{ h \in \mathscr{H}(\mathfrak{S}_\mu) \mid T_sh = qh \ (s \in S \cap \mathfrak{S}_\mu) \} \subset R e_\mu
+\{ h \in \mathscr{H}(\mathfrak{S}_\mu) \mid T_sh = qh \ (s \in S \cap \mathfrak{S}_\mu) \} \subset R m_\mu
 $$
 
 を示せば良い。$w \in \mathfrak{S}_\mu$ と $s \in S \cap \mathfrak{S}_\mu$ は $\ell(sw) < \ell(w)$ を満たすとする。$a, b \in R$ に対して
@@ -566,7 +566,7 @@ $$
 組 $(\lambda, \mathfrak{s}, \mathfrak{t}) \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda)$ で $i, i + 1$ が $\mathfrak{s}$ の同じ列にあるもの全体を $\mathcal{C}$ とする。以降、$\lambda$ は組から省略することがある。$h = \sum_{(\mathfrak{s}, \mathfrak{t}) \in \mathcal{C}} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}}$ が $T_{s_i}h \in qh + \sum_{(\mathfrak{s}', \mathfrak{t}') \not\in \mathcal{C}} R m_{\mathfrak{s}'\mathfrak{t}'}$ を満たせば、$r_{\mathfrak{s}\mathfrak{t}} = 0 \ ((\mathfrak{s}, \mathfrak{t}) \in \mathcal{C})$ を示せば良い。$\mathcal{C}$ 上の半順序 $\ge_\mathrm{aux}$ を以下で定める。$(\lambda_1, \mathfrak{s}_1, \mathfrak{t}_1) \ge_\mathrm{aux} (\lambda_2, \mathfrak{s}_2, \mathfrak{t}_2)$ とは、$\lambda_1 >_\mathrm{lex} \lambda_2$ または $\lambda_1 = \lambda_2$ かつ $\mathfrak{s}_1 \trianglerighteq \mathfrak{s}_2$ かつ $\mathfrak{t}_1 \trianglerighteq \mathfrak{t}_2$。ある $(\mathfrak{s}_0, \mathfrak{t}_0) \in \mathcal{C}$ が存在して、$r_{\mathfrak{s}_0\mathfrak{t}_0} \ne 0$ と仮定する。$(\mathfrak{s}_0, \mathfrak{t}_0)$ は $r_{\mathfrak{s}_0\mathfrak{t}_0} \ne 0$ を満たすものの中で $\ge_\mathrm{aux}$ に関して極小として良い。$(\lambda, \mathfrak{s}, \mathfrak{t}) \in \mathcal{C}$ に対して
 
 $$
-T_{s_i}m_{\mathfrak{s}\mathfrak{t}} \in -m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{u} \in \mathrm{Std}(\lambda), \mathfrak{u} \triangleright \mathfrak{s}} R m_{\mathfrak{u}\mathfrak{t}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}e_\mu\mathscr{H}
+T_{s_i}m_{\mathfrak{s}\mathfrak{t}} \in -m_{\mathfrak{s}\mathfrak{t}} + \sum_{\mathfrak{u} \in \mathrm{Std}(\lambda), \mathfrak{u} \triangleright \mathfrak{s}} R m_{\mathfrak{u}\mathfrak{t}} + \sum_{\mu \vdash n, \mu >_\mathrm{lex} \lambda} \mathscr{H}m_\mu\mathscr{H}
 $$
 
 が成り立つ。よって、$m_{\mathfrak{s}_0\mathfrak{t}_0}$ の係数を比較して、$-r_{\mathfrak{s}_0\mathfrak{t}_0} = qr_{\mathfrak{s}_0\mathfrak{t}_0}$ だが、矛盾する
@@ -578,11 +578,11 @@ $\mathfrak{t} \in \mathrm{Std}(\lambda)$
 $0 \le j \le n$ に対して、$\lambda_j \coloneqq \mathrm{Shape}(\mathfrak{t} \downarrow \sum_{i \le j} \mu_i)$ と定義すると、$\lambda_j$ たちは分割になる。各 $j$ に対して、$\mathfrak{t}$ の領域 $[\lambda_j] \setminus [\lambda_{j - 1}]$ にある要素を上の行から順に左から右に並べ替えて得られる standard $\lambda$-tableau を $\mathfrak{t}_0$ とする。standard $\lambda$-tableau の列 $\mathfrak{t} = \mathfrak{t}_0, \dots, \mathfrak{t}_k = \mathfrak{t}$ で $d(\mathfrak{t}_i)^{-1}d(\mathfrak{t}_{i + 1}) \in S \cap \mathfrak{S}_\mu$ かつ $d(\mathfrak{t}_0) \prec \cdots \prec d(\mathfrak{t}_k)$ を満たすものが存在する
 
 $\mu$: $n$ の composition
-$\sum_{\mu \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ と以下の (1), (2) を満たすことは同値
+$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ と以下の (1), (2) を満たすことは同値
 (1) $d(\mathfrak{s})^{-1}d(\mathfrak{s}') \in \mathfrak{S}_\mu$ ならば、$r_{\mathfrak{s}'\mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
 (2) 相異なる $i, j$ が存在して、$\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の同じ列にあるとき、$r_{\mathfrak{s}\mathfrak{t}} = 0$
 
-今までの結果から、$\sum_{\mu \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\mu)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ は以下の (1'), (2') を満たすことと同値
+今までの結果から、$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ は以下の (1'), (2') を満たすことと同値
 (1') $i, i + 1$ が $\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の異なる列かつ異なる行にあるならば、$r_{\mathfrak{s}(i, i + 1), \mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
 (2') $i, i + 1$ が $\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の同じ列にあるならば、$r_{\mathfrak{s}\mathfrak{t}} = 0$
 
@@ -864,3 +864,67 @@ $$
   &= -\frac{1}{[\rho]_q}f_{\mathfrak{s}} + \frac{[\rho + 1]_q[\rho - 1]_q}{[\rho]_q^2}qf_{\mathfrak{s}s_i}
 \end{aligned}
 $$
+
+# 既約 $\mathscr{L}$ 加群
+
+$K$: 体
+$q \in K^\times$
+$e$ は一般とする
+
+$\mathscr{L} \coloneqq K[L_1, \dots, L_n] \subset \mathscr{H}$
+
+$\mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda)$ に対して
+
+$$
+\rho^\mathfrak{t} \coloneqq ([\mathrm{res}_\mathfrak{t}(1)]_q, \dots, [\mathrm{res}_\mathfrak{t}(n)]_q) \in K^n
+$$
+
+と定義する。$K$ 代数の射 $\mathscr{L} \ni f(L_1, \dots, L_n) \mapsto f(\rho^\mathfrak{t}) \in K$ は $\mathscr{L}$ の 1 次元既約加群 $\mathscr{L}_{\rho^\mathfrak{t}}$ を定める
+
+$\lambda$: $n$ の分割
+$K(\mathrm{Mod}_\mathrm{fg}\text{-}\mathscr{L})$ 内で
+
+$$
+[S^\lambda] = \sum_{\mathfrak{t} \in \mathrm{Std}(\lambda)} [\mathscr{L}_{\rho^\mathfrak{t}}]
+$$
+
+$\mathrm{Std}(\lambda)$ を $\trianglerighteq$ に関して極小なものから順に取り出して $\mathfrak{t}_1, \dots, \mathfrak{t}_k = \mathfrak{t}^\lambda$ とする。$i = 1, \dots, k + 1$ に対して、$S_i \coloneqq \mathrm{span}_K \{ m_{\mathfrak{t}_i}, \dots, m_{\mathfrak{t}_k} \} \subset S^\lambda$ とすると、$S_i$ は $\mathscr{L}$ 加群。$S_i / S_{i + 1} \simeq \mathscr{L}_{\rho^{\mathfrak{t}_i}}$
+
+既約 $\mathscr{L}$ 加群はある $\mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda)$ で $\mathscr{L}_{\rho^\mathfrak{t}}$ と表せる
+
+任意の既約 $\mathscr{L}$ 加群は $\mathscr{H}$ のある既約加群を $\mathscr{L}$ 加群とみなしたものの組因子に現れることから従う
+
+# 既約 $\mathscr{H}$ 加群
+
+$K$: 体
+$q \in K^\times$
+$e$ は一般とする。$e \ge 2$
+
+$\rho: \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda) \to K^n$ の値が同じ standard tableau たちの中で $\mathrm{Shape}$ が $\trianglerighteq$ に関して極小なものを $e$-restricted standard tableau という。$e$-restricted $\lambda$-standard tableau 全体を $\mathrm{Std}_e(\lambda)$ で表す
+
+$\lambda \in \Lambda_0$ ならば $\mathrm{dim}_K D^\lambda \ge |\mathrm{Std}_e(\lambda)|$ であり、$\lambda \not\in \Lambda_0$ ならば $\mathrm{Std}_e(\lambda) = \emptyset$
+
+$\lambda \in \Lambda$ とする。$\mathscr{L}$ 加群 $S^\lambda$ の組成因子は重複を込めて $\{ \mathscr{L}_{\rho_\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ だった。$\mu \in \Lambda_0$ に対して
+
+$$
+[S^\lambda : D^\mu] = \begin{cases}
+  1 &\quad (\lambda = \mu) \\
+  0 &\quad (\lambda \not\trianglerighteq \mu)
+\end{cases}
+$$
+
+だから、$\mu \in \Lambda_0$ が $\lambda \triangleright \mu$ を満たせば、$\mathscr{L}$ 加群 $S^\mu$ の組成因子に $\{ \mathscr{L}_{\rho^\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{Std}_e(\lambda) \}$ が出現しないことを示せば良い。ある $\mathfrak{t} \in \mathrm{Std}_e(\lambda)$ が存在して、$\mathscr{L}$ 加群 $S^\mu$ の組成因子に $\mathscr{L}_{\rho^\mathfrak{t}}$ が出現すると仮定する。ある $\mathfrak{u} \in \mathrm{Std}(\mu)$ が存在して、$\rho_\mathfrak{t} = \rho_\mathfrak{u}$。これは $\mathfrak{t}$ が $e$-restricted なことに矛盾する
+
+$(i, j) \in \mathbb{Z}_{\ge 1}^2$ に対して、$l_e(i, j) \coloneqq j - i + e(i - 1) \in \mathbb{Z}_{\ge 0}$ と定義する。$l_e(i, j) = l_e(i', j')$ ならば、$j - i \equiv j' - i' \mod e$
+
+$\lambda$: $n$ の分割
+Standard $\lambda$-tableau $\mathfrak{l}_e^\lambda$ を $n$ に関して帰納的に定義する。$n = 1$ の場合は明らか。$n \ge 2$ とする。位置 $(i, j) \in [\lambda]$ を $l_e$ が最大なものの中で最も上にある位置とする。図形 $[\lambda] \setminus \{ (i, j) \}$ に対応する分割を $\nu$ とする。$\mathfrak{l}_e^\lambda$ を $\mathfrak{l}_e^\nu$ の位置 $(i, j)$ に $n$ を追加した standard $\lambda$-tableau と定義する。$\mathfrak{l}_3^{(4, 3)}$ は以下のようになる
+
+$$
+\begin{array}{l}
+  \boxed{1}\boxed{2}\boxed{4}\boxed{6} \\
+  \boxed{3}\boxed{5}\boxed{7}
+\end{array}
+$$
+
+$n$ の分割 $\lambda$ が $e$-restricted とは、$\lambda_i - \lambda_{i + 1} \le e - 1$ が成り立つことをいう。特に、最後の数字は $e - 1$ 以下なことに注意。$\lambda$ を $e$-restricted partition とする。$l_e(i, \lambda_i)$ は広義単調増加する。また、帰納的に $\mathrm{Shape}(\mathfrak{l}_e^\lambda \downarrow k) \ (1 \le k \le n)$ は $e$-restricted なことがわかる
