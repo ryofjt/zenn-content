@@ -632,6 +632,12 @@ $$
 m_{\mathfrak{s}\mathfrak{t}}h \equiv \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r^{h, \mathfrak{t}}_{\mathfrak{t}^\lambda\mathfrak{v}}m_{\mathfrak{s}\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda \quad (\mathfrak{s} \in \mathrm{Std}(\lambda))
 $$
 
+$\lambda$: $n$ の分割
+
+$$
+\mathscr{H}m_\lambda\mathscr{H} \subset \mathscr{H}^\lambda
+$$
+
 Cellular 代数の一般論における $C^\lambda$ を $S^\lambda$ と定義する。つまり
 
 $$
@@ -640,13 +646,17 @@ $$
 
 は $m_\mathfrak{t} \coloneqq m_{\mathfrak{t}^\lambda\mathfrak{t}} + \check{\mathscr{H}}^\lambda \ (\mathfrak{t} \in \mathrm{Std}(\lambda))$ が張る自由 $R$ 加群
 
-$\langle -, - \rangle: S^\lambda \times S^\lambda \to R$ は
+$\langle -, - \rangle: S^\lambda \times S^\lambda \to R$ を
 
 $$
 \langle m_\mathfrak{s}, m_\mathfrak{t} \rangle m_\lambda = m_{\mathfrak{t}^\lambda\mathfrak{s}}m_{\mathfrak{t}\mathfrak{t}^\lambda} \mod \check{\mathscr{H}}^\lambda
 $$
 
-で定義される。$\lambda \in \Lambda_0 \coloneqq \{ \lambda \in \Lambda \mid \langle S^\lambda, S^\lambda \rangle \ne 0 \}$ に対して、$D^\lambda \coloneqq S^\lambda / \mathrm{rad}(S^\lambda)$ と定義する
+で定義する
+
+以降は、$R$ は体とする
+
+$\lambda \in \Lambda_0 \coloneqq \{ \lambda \in \Lambda \mid \langle S^\lambda, S^\lambda \rangle \ne 0 \}$ に対して、$D^\lambda \coloneqq S^\lambda / \mathrm{rad}(S^\lambda)$ と定義する
 
 $R$ が体ならば、$\mathrm{Irr}(\mathscr{H}) = \{ D^\lambda \mid \lambda \in \Lambda_0 \}$
 
@@ -915,7 +925,7 @@ $$
 
 だから、$\mu \in \Lambda_0$ が $\lambda \triangleright \mu$ を満たせば、$\mathscr{L}$ 加群 $S^\mu$ の組成因子に $\{ \mathscr{L}_{\rho^\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{Std}_e(\lambda) \}$ が出現しないことを示せば良い。ある $\mathfrak{t} \in \mathrm{Std}_e(\lambda)$ が存在して、$\mathscr{L}$ 加群 $S^\mu$ の組成因子に $\mathscr{L}_{\rho^\mathfrak{t}}$ が出現すると仮定する。ある $\mathfrak{u} \in \mathrm{Std}(\mu)$ が存在して、$\rho_\mathfrak{t} = \rho_\mathfrak{u}$。これは $\mathfrak{t}$ が $e$-restricted なことに矛盾する
 
-$(i, j) \in \mathbb{Z}_{\ge 1}^2$ に対して、$l_e(i, j) \coloneqq j - i + e(i - 1) \in \mathbb{Z}_{\ge 0}$ と定義する。$l_e(i, j) = l_e(i', j')$ ならば、$j - i \equiv j' - i' \mod e$
+$(i, j) \in \mathbb{Z}_{\ge 1}^2$ に対して、$l_e(i, j) \coloneqq j - i + e(i - 1) \in \mathbb{Z}_{\ge 0}$ と定義する。$l_e(i, j) = j - i \mod e$
 
 $\lambda$: $n$ の分割
 Standard $\lambda$-tableau $\mathfrak{l}_e^\lambda$ を $n$ に関して帰納的に定義する。$n = 1$ の場合は明らか。$n \ge 2$ とする。位置 $(i, j) \in [\lambda]$ を $l_e$ が最大なものの中で最も上にある位置とする。図形 $[\lambda] \setminus \{ (i, j) \}$ に対応する分割を $\nu$ とする。$\mathfrak{l}_e^\lambda$ を $\mathfrak{l}_e^\nu$ の位置 $(i, j)$ に $n$ を追加した standard $\lambda$-tableau と定義する。$\mathfrak{l}_3^{(4, 3)}$ は以下のようになる
@@ -928,3 +938,148 @@ $$
 $$
 
 $n$ の分割 $\lambda$ が $e$-restricted とは、$\lambda_i - \lambda_{i + 1} \le e - 1$ が成り立つことをいう。特に、最後の数字は $e - 1$ 以下なことに注意。$\lambda$ を $e$-restricted partition とする。$l_e(i, \lambda_i)$ は広義単調増加する。また、帰納的に $\mathrm{Shape}(\mathfrak{l}_e^\lambda \downarrow k) \ (1 \le k \le n)$ は $e$-restricted なことがわかる
+
+$\lambda$: $e$-restricted partition of $n$
+$\mathfrak{l}_e^\lambda$ は $e$-restricted tableau
+
+Standard tableau $\mathfrak{t}$ と要素 $k$ に対して、$k$ の位置の $l_e$ を $l_\mathfrak{t}(k)$ で表す。$l_\mathfrak{t}(k) \equiv \mathrm{res}_\mathfrak{t}(k) \mod e$。より強く、以下を $n$ に関する帰納法で示す
+
+$\mu$: $n$ の分割
+$\mathfrak{t} \in \mathrm{Std}(\mu)$ は $\mathfrak{l}_e^\lambda$ と $\rho$ が一致するとする。$l_e(i, j) \le l_{\mathfrak{l}_e^\lambda}(n) \ ((i, j) \in [\mu])$ かつ $\mu \trianglerighteq \lambda$
+
+$n = 1$ の場合は明らか。$n \ge 2$ とする。$\lambda' \coloneqq \mathrm{Shape}(\mathfrak{l}_e^\lambda \downarrow n - 1)$ とすると、$\lambda'$ も $e$-restricted。$\mu' \coloneqq \mathrm{Shape}(\mathfrak{t} \downarrow n - 1)$。帰納法の仮定から、$l_e([\mu']) \le l_{\mathfrak{l}_e^\lambda}(n - 1)$ かつ $\mu' \trianglerighteq \lambda'$。まず、$l_e([\mu]) \le l_{\mathfrak{l}_e^\lambda}(n)$ を示す。$\mathfrak{t}$ 内で $n$ が 2 列目以降にある場合は
+
+$$
+l_\mathfrak{t}(n) \le \max_{(i, j) \in [\mu']} l_e(i, j) + 1 \le l_{\mathfrak{l}_e^\lambda}(n - 1) + 1 \le l_{\mathfrak{l}_e^\lambda}(n) + 1
+$$
+
+$l_\mathfrak{t}(n) \equiv l_{\mathfrak{l}_e^\lambda}(n) \mod e$ だから、$l_\mathfrak{t}(n) \le l_{\mathfrak{l}_e^\lambda}(n)$。$n$ が 1 列目にある場合も、$l_\mathfrak{t}(n) \le l_{\mathfrak{l}_e^\lambda}(n) + e - 1$ だから $l_\mathfrak{t}(n) \le l_{\mathfrak{l}_e^\lambda}(n)$。次に、$\mu \trianglerighteq \lambda$ を示す。$\mathfrak{l}_e^\lambda$ で $n$ のある行を $r$ とし、$\mathfrak{t}$ で $n$ のある行を $s$ とする。$s \le r$ の場合は帰納法の仮定から明らか。$s > r$ とする。$l_e([\mu]) \le l_{\mathfrak{l}_e^\lambda}(n)$ だったから、$\mu_j \le \lambda_j \ (j \ge r)$。よって、$k \ge r$ に対して
+
+$$
+\sum_{j \le k} \mu_j = n - \sum_{j > k} \mu_j \ge n - \sum_{j > k} \lambda_j = \sum_{j \le k} \lambda_j
+$$
+
+$n$ の分割 $\lambda$ が $e$-restricted なら、$\lambda \in \Lambda_0$
+
+$n$ の composition $\mu$ に対して、$[\mu]_q^! \coloneqq [\mu_1]_q^! [\mu_2]_q^! \cdots$
+
+$\sum_{w \in \mathfrak{S}_n} q^{\ell(w)} = [n]_q^!$
+
+$n$ に関する帰納法を使う。$n = 1$ なら明らか。$n \ge 2$ とする。$\mathfrak{S}_{n - 1} \backslash \mathfrak{S}_n$ の最短完全代表系 $X$ は $X = \{ s_i \cdots s_{n - 1} \mid 1 \le i \le n \}$。よって
+
+$$
+\sum_{w \in \mathfrak{S}_n} q^{\ell(w)} = \sum_{w \in \mathfrak{S}_{n - 1}, x \in X} q^{\ell(x)}q^{\ell(w)} = [n - 1]_q^! (q^{n - 1} + q^{n - 2} + \cdots + 1) = [n]_q^!
+$$
+
+$\lambda$: 分割
+$\lambda^i \coloneqq (\lambda_i, \lambda_{i + 1}, \dots)$ と定義する。$\bar{\lambda}^i \coloneqq (\lambda_i - \lambda_{i + 1}, \lambda_{i + 1} - \lambda_{i + 2}, \dots)$ は $\lambda_i$ の composition。$R = \mathbb{Z}[q, q^{-1}]$ のとき、$g_i \in \mathbb{Z}[q]$ を $\{ [\gamma]_q^! \mid \gamma \vDash \lambda_i, \gamma \trianglerighteq \bar{\lambda}^i \} \subset \mathbb{Z}[q]$ の最大公約元でモニックなものとする。$\mathbb{Z}[q]$ は UFD なことに注意。並べ替えを考えれば、$\gamma$ は分割の範囲で考えても良い。$R$ が一般の場合は、特殊化で定義する。$g_\lambda \coloneqq g_1 g_2 \cdots$ と定義する
+
+$g_i \in R \cdot [\lambda_i - \lambda_{i + 1}]_q^!$ だから、$g_\lambda \in R \cdot [\bar{\lambda}_1]_q^!$
+
+$\lambda = (5, 2)$ とする。$\bar{\lambda}^1 = (3, 2)$。$\trianglerighteq$ で $\bar{\lambda}^1$ 以上の分割は辞書順で大きい順に $(5), (4, 1), (3, 2)$ だから $g_1 = \mathrm{gcd}([5]_q^!, [4]_q^!, [3]_q^![2]_q^!) = [3]_q^![2]_q^!$。また、$g_2 = [2]_q^!$。よって、$g_{(5, 2)} = [3]_q^!([2]_q^!)^2$
+
+$\lambda$: $n$ の分割
+$\mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)$
+
+$$
+\langle m_\mathfrak{s}, m_\mathfrak{t} \rangle \in Rg_\lambda
+$$
+
+$\bmod \ \check{\mathscr{H}}^\lambda$ で
+
+$$
+\langle m_\mathfrak{s}, m_\mathfrak{t} \rangle m_\lambda \equiv m_{\mathfrak{t}^\lambda\mathfrak{s}}m_{\mathfrak{t}\mathfrak{t}^\lambda} = m_\lambda\mathscr{H}m_\lambda \equiv \sum_{\mathfrak{u} \in \mathrm{Std}(\lambda)} R m_\lambda T_{d(\mathfrak{u})} m_\lambda
+$$
+
+よって、次の命題を示せば良い
+
+$\lambda$: $n$ の分割
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+
+$$
+m_\lambda T_{d(\mathfrak{t})} m_\lambda \equiv R g_\lambda m_\lambda \mod \check{\mathscr{H}}^\lambda
+$$
+
+$1 \le k \le n$ に対して、$\mathfrak{t}$ が $\mathfrak{t}^\lambda$ と $k - 1$ 行目まで一致するならば
+
+$$
+m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_k}} = g_k \sum_{\mathfrak{u} \in \mathrm{Std}(\lambda), \mathfrak{u} \text{ は } \mathfrak{t}^\lambda \text{ と } k \text{ 行目まで一致}} R m_{\mathfrak{t}^\lambda\mathfrak{u}}
+$$
+
+が成り立つことを示せば良い。$\mathscr{H}(\mathfrak{S}_{\sum_{j \ge k} \lambda_j})$ を考えれば、$k = 1$ で示せば良い。$\mu$ を $\mathrm{Shape}(\mathfrak{t} \downarrow \lambda_1)$ に対応する $\lambda_1$ の composition とする。$\mathfrak{u} \in \mathrm{Std}(\lambda)$ を $[\mu]$ では $\mathfrak{t}^\mu$、$[\lambda] \setminus [\mu]$ では残りの数字を上から順に左から右に詰めたものとする。$w \in \mathfrak{S}_{\lambda_1}$, $v \in \mathfrak{S}_{\sum_{j \ge 2} \lambda_j}$ が一意的に存在して $\mathfrak{t} = \mathfrak{u}wv$ と表せる。$[\mu]$, $[\lambda] \setminus [\mu]$ それぞれで $i$ が $i + 1$ より下にあれば解消する操作を考えると、$\ell(d(\mathfrak{t})) = \ell(d(\mathfrak{u})) + \ell(w) + \ell(v)$
+
+$$
+m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} = m_{\mathfrak{t}^\lambda\mathfrak{u}} T_w m_{\mathfrak{S}_{\lambda_1}} T_v = q^{\ell(w)} m_{\mathfrak{t}^\lambda\mathfrak{u}} m_{\mathfrak{S}_{\lambda_1}} T_v
+$$
+
+$m_{\mathfrak{t}^\lambda\mathfrak{u}}$ を考察する。$\nu \coloneqq (\lambda_1, \lambda_1 - \mu_1, \lambda_2 - \mu_2, \dots)$ は $n$ の composition。部分群 $P \subset \mathfrak{S}_\lambda$ と $Q \subset \mathfrak{S}_\nu$ を
+
+$$
+\begin{aligned}
+  P &\coloneqq \mathfrak{S}_{\mu_1} \times \mathfrak{S}_{\lambda_1 - \mu_1} \times \mathfrak{S}_{\mu_2} \times \mathfrak{S}_{\lambda_2 - \mu_2} \cdots \\
+  Q &\coloneqq (\mathfrak{S}_{\mu_1} \times \mathfrak{S}_{\mu_2} \times \cdots) \times (\mathfrak{S}_{\lambda_1 - \mu_1} \times \mathfrak{S}_{\lambda_2 - \mu_2} \times \cdots)
+\end{aligned}
+$$
+
+で定義する。$P d(\mathfrak{u}) = d(\mathfrak{u}) Q$ かつ
+
+$$
+\begin{aligned}
+  \ell(pd(\mathfrak{u})) &= \ell(p) + \ell(d(\mathfrak{u})) \quad (p \in P) \\
+  \ell(d(\mathfrak{u})q) &= \ell(d(\mathfrak{u})) + \ell(q) \quad (q \in Q)
+\end{aligned}
+$$
+
+が成り立つ。よって
+
+$$
+\begin{aligned}
+  m_{\mathfrak{t}^\lambda\mathfrak{u}} &= m_\lambda T_{d(\mathfrak{u})} \\
+  &= \mathscr{H} m_P T_{d(\mathfrak{u})} \\
+  &= \mathscr{H} T_{d(\mathfrak{u})} m_Q
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  m_{\mathfrak{t}^\lambda\mathfrak{u}} m_{\mathfrak{S}_{\lambda_1}} &= \mathscr{H} T_{d(\mathfrak{u})} m_Q m_{\mathfrak{S}_{\lambda_1}} \\
+  &= [\mu]_q^! \mathscr{H} T_{d(\mathfrak{u})} m_{\nu}
+\end{aligned}
+$$
+
+よって、$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} = q^{\ell(w)} [\mu]_q^! \mathscr{H} T_{d(\mathfrak{u})} m_{\nu} T_v$。以降は、$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} \in [\mu]_q^!\mathscr{H} \cap \mathscr{H}m_\nu\mathscr{H}$ なことのみを使う。$\lambda \not\trianglerighteq \nu$ と $\lambda \trianglerighteq \nu$ で場合分けする。まず、$\lambda \not\trianglerighteq \nu$ の場合を考える。$\vec{\nu}$ を $\nu$ を並べ替えた $n$ の分割とすると、$\vec{\nu} \trianglerighteq \nu$ だから、$\lambda \not\trianglerighteq \vec{\nu}$。よって
+
+$$
+m_{\mathfrak{t}^{\lambda}\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)} \in \mathscr{H}^{\lambda} \cap \mathscr{H}m_\nu\mathscr{H} = \mathscr{H}^\lambda \cap \mathscr{H}m_{\vec{\nu}}\mathscr{H} \subset \mathscr{H}^\lambda \cap \mathscr{H}^{\vec{\nu}} \subset \check{\mathscr{H}}^\lambda
+$$
+
+次に、$\lambda \trianglerighteq \nu$ の場合を考える。両辺に和が $-n + \lambda_1$ になる $\mathbb{Z}$ の列 $(-\lambda_1, -\lambda_2 + \mu_1, -\lambda_3 + \mu_2, \dots)$ を足して先頭の $0$ を取り除くと $\mu \trianglerighteq (\lambda_1 - \lambda_2, \lambda_2 - \lambda_3, \dots) = \bar{\lambda}_1$。定義から、$[\mu]_q^! \in R g_1$。$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)} \in g_1 \mathscr{H} \cap \mathscr{H}^\lambda$ だから
+
+$$
+m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)} = g_1 \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r_\mathfrak{v} m_{\mathfrak{t}^\lambda\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda
+$$
+
+と展開できる。$(m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)})^* \in M_{(\lambda_1, \overbrace{1, \dots, 1}^{\sum_{j \ge 2} \lambda_j})}$ だから、$r_\mathfrak{v} \ne 0$ ならば、$1, \dots, \lambda_1$ は $\mathfrak{v}$ の異なる列にある。よって、$r_\mathfrak{v} \ne 0$ ならば $\mathfrak{v}$ の 1 行目は $1, \dots, \lambda_1$ でなければならない
+
+$K$: 体
+$q \in K^\times$
+$e$ は一般とする
+$\Lambda_0$ は $e$-restricted partition 全体に一致する
+
+$\lambda \in \Lambda_0$ ならば $\lambda$ は $e$-restricted なことを示せば良い。対偶を示す。$n$ の分割 $\lambda$ は $e$-restricted でないとする。ある $i$ が存在して、$\lambda_i - \lambda_{i + 1} \ge e$。$[e]_q = 0$ だから、$g_\lambda = 0$。よって、$S^\lambda$ 上のペアリングは $0$
+
+$K$: 体
+$q \in K^\times$
+$e$ は一般とする
+以下は同値
+(1) $\mathscr{H}$ は半単純
+(2) 全ての $\lambda \vdash n$ に対して、$S^\lambda$ 上のペアリングは非退化
+(3) $e > n$
+
+(1) $\Leftrightarrow$ (2) は cellular 代数の一般論から従う
+
+(2) $\Rightarrow$ (3)
+分割 $(n)$ が $e$-restricted だから、$n \le e - 1$
+
+(3) $\Rightarrow$ (2)
+$\lambda$ を $n$ の分割とする。$\rho: \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda) \to K^n$ は単射だから、$\mathrm{Std}_e(\lambda) = \mathrm{Std}(\lambda) \ne \emptyset$。よって、$\lambda \in \Lambda_0$。また、$|\mathrm{Std}_e(\lambda)| \le \mathrm{dim}_K D^\lambda \le \mathrm{dim}_K S^\lambda = |\mathrm{Std}(\lambda)|$ だから、$D^\lambda = S^\lambda$
