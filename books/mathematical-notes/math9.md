@@ -307,3 +307,27 @@ $$
 
 (1) $w \in \mathfrak{S}_n$ は $w = vdu \ (v \in \mathfrak{S}_\mu, d \in \mathscr{D}_{\mu\nu}, u \in \mathscr{D}_{\mu d \cap \nu} \cap \mathfrak{S}_\nu)$ と一意的に分解でき、$\ell(w) = \ell(v) + \ell(d) + \ell(u)$ が成り立つ
 (2) $\mathscr{D}_{\mu\nu} = \mathscr{D}_\mu \cap \mathscr{D}_\nu^{-1}$
+
+$\mu, \nu$: $n$ の composition
+$d \in \mathscr{D}_{\mu\nu}$
+$\mathsf{T} \coloneqq \nu(\mathfrak{t}^\mu d) \in \mathrm{RSStd}(\mu, \nu)$, $\mathsf{S} \coloneqq \mu(\mathfrak{t}^\nu d^{-1}) \in \mathrm{RSStd}(\nu, \mu)$ とすると
+
+$$
+m_\mu \sum_{\mathfrak{t} \in \mathrm{RStd}(\mu), \nu(\mathfrak{t}) = \mathsf{T}} T_{d(\mathfrak{t})} = \sum_{w \in \mathfrak{S}_\mu d \mathfrak{S}_\nu} T_w = \left(\sum_{\mathfrak{s} \in \mathrm{RStd}(\nu), \mu(\mathfrak{s}) = \mathsf{S}} T_{d(\mathfrak{s})}^*\right) m_\nu
+$$
+
+$\varphi^d_{\mu\nu}: M^\nu \to M^\mu$ を
+
+$$
+\begin{aligned}
+  \varphi^d_{\mu\nu}(m_\nu h) &\coloneqq \left(\sum_{\mathfrak{s} \in \mathrm{RStd}(\nu), \mu(\mathfrak{s}) = \mathsf{S}} T_{d(\mathfrak{s})}^*\right) m_\nu h \\
+  &= \left(\sum_{w \in \mathfrak{S}_\mu d \mathfrak{S}_\nu} T_w\right) h \\
+  &= m_\mu \left(\sum_{\mathfrak{t} \in \mathrm{RStd}(\mu), \nu(\mathfrak{t}) = \mathsf{T}} T_{d(\mathfrak{t})}\right) h
+\end{aligned}
+$$
+
+で定義する
+
+[定理]
+$\mu, \nu$: $n$ の composition
+$\mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu)$ は $R$ 加群として $\{ \varphi_{\mu\nu}^d \mid d \in \mathscr{D}_{\mu\nu} \}$ で自由生成される
