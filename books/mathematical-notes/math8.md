@@ -1083,3 +1083,100 @@ $e$ は一般とする
 
 (3) $\Rightarrow$ (2)
 $\lambda$ を $n$ の分割とする。$\rho: \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda) \to K^n$ は単射だから、$\mathrm{Std}_e(\lambda) = \mathrm{Std}(\lambda) \ne \emptyset$。よって、$\lambda \in \Lambda_0$。また、$|\mathrm{Std}_e(\lambda)| \le \mathrm{dim}_K D^\lambda \le \mathrm{dim}_K S^\lambda = |\mathrm{Std}(\lambda)|$ だから、$D^\lambda = S^\lambda$
+
+# Semistandard tableau
+
+$\mu$: $n$ の composition
+$\mathscr{D}_\mu^{-1}$ は $\mathfrak{S}_n / \mathfrak{S}_\mu$ の最短完全代表系と一致する
+
+$\mu, \nu$: $n$ の composition
+$d \in \mathscr{D}_\mu \cap \mathscr{D}_\nu^{-1}$ とすると、$d^{-1}\mathfrak{S}_\mu d \cap \mathfrak{S}_\nu$ はある $S$ の部分集合で生成される
+
+Tableau $\mathfrak{t}$ に対して、$r$ 行目の要素の集合を $\mathrm{row}_r(\mathfrak{t})$ で表す。$d^{-1}\mathfrak{S}_\mu d = R_{\mathfrak{t}^\mu d}$。よって、$d^{-1}\mathfrak{S}_\mu d \cap \mathfrak{S}_\nu$ は $\mathrm{row}_r(\mathfrak{t}^\mu d) \ (r \ge 1)$, $\mathrm{row}_s(\mathfrak{t}^\nu) \ (s \ge 1)$ を保つ置換全体と一致する。よって、$B_{rs} \coloneqq \mathrm{row}_r(\mathfrak{t}^\mu d) \cap \mathrm{row}_s(\mathfrak{t}^\nu) \ (r, s \ge 1)$ とすると
+
+$$
+d^{-1}\mathfrak{S}_\mu d \cap \mathfrak{S}_\nu = \prod_{r, s \ge 1} \mathfrak{S}(B_{rs})
+$$
+
+あとは、$B_{rs}$ が連続する数字からなることを示せば良い。$i, j \in B_{rs}$ は $i < j$ とする。$i, i + 1, \dots, j$ が $\mathfrak{t}^\mu d$ の $r$ 行目にあることを示せば良い。$\mathfrak{t}^\nu d^{-1}$ は row standard だから、$(i)d^{-1} < (i + 1)d^{-1} < \cdots < (j)d^{-1}$。$(i)d^{-1}, (j)d^{-1}$ は $\mathfrak{t}^\mu$ の $r$ 行目にあるから、$(i)d^{-1}, (i + 1)d^{-1}, \dots, (j)d^{-1} \in \mathfrak{t}^\mu$
+
+上の状況で、$d^{-1}\mathfrak{S}_\mu d \cap \mathfrak{S}_\nu$ を生成する $S$ の部分集合は $(d^{-1}\mathfrak{S}_\mu d \cap \mathfrak{S}_\nu) \cap S$ だが、$d^{-1}(\mathfrak{S}_\mu \cap S)d \cap (\mathfrak{S}_\nu \cap S)$ とも一致する
+
+$d \in \mathscr{D}_\mu$ ならば $d^{-1}\mathfrak{S}_\mu d \cap S = R_{\mathfrak{t}^\mu d} \cap S \subset d^{-1}(\mathfrak{S}_\mu \cap S)d$ が成り立つことから従う
+
+$S$ の部分集合と各成分が正の $n$ の composition は一対一に対応する。$n$ の composition $\mu, \nu$ に対して、$d \in \mathscr{D}_\mu \cap \mathscr{D}_\nu^{-1}$ に対応する各成分が正の $n$ の composition を $\mu d \cap \nu$ で表す
+
+Tableau の定義を一般化する
+
+$\mu$: $n$ の composition
+$\mu$-tableau とは写像 $\mathsf{T}: [\mu] \to \mathbb{Z}_{\ge 1}$ のことをいう。$\nu_i \coloneqq |\mathsf{T}^{-1}(i)| \ (i \ge 1)$ とすると、$\nu$ は $n$ の composition だが、$\mathsf{T}$ の type と呼ぶ
+
+$\mu$: $n$ の composition
+$\mu$-tableau $\mathsf{T}$ が row semistandard とは、各行が左から右に広義単調増加することをいう。Type $\nu$ の row semistandard $\mu$-tableau 全体を $\mathrm{RSStd}(\mu, \nu)$ で表す
+
+$\lambda$: $n$ の分割
+$\lambda$-tableau $\mathsf{T}$ が semistandard とは、各行が左から右に広義単調増加かつ各列が上から下に (狭義) 単調増加なことをいう。Type $\nu$ の semistandard $\lambda$-tableau 全体を $\mathrm{SStd}(\lambda, \nu)$ で表す
+
+$\omega = (1^n)$ とする。$\mathrm{RStd}(\mu) = \mathrm{RSStd}(\mu, \omega)$, $\mathrm{Std}(\lambda) = \mathrm{SStd}(\lambda, \omega)$
+
+$\nu$ を $n$ の composition とする。$f_\nu: \{ 1, \dots, n \} \to \mathbb{Z}_{\ge 1}$ を $1 \le k \le n$ を $\mathfrak{t}^\nu$ で $k$ がある行に写す写像とする。$\mu$ も $n$ の composition とする。Type $\omega$ の $\mu$-tableau に対して、type $\nu$ の $\mu$-tableau $\nu(\mathfrak{t}) \coloneqq f_\nu \circ \mathfrak{t}$ が定まる。$f_\nu$ は広義単調増加だから
+
+$$
+\nu: \mathrm{RStd}(\mu) = \mathrm{RSStd}(\mu, \omega) \to \mathrm{RSStd}(\mu, \nu)
+$$
+
+$(W, S)$: Coxeter 群
+$X, Y \subset S$
+$d \in {}^XW \cap W^Y$
+$Z \coloneqq d^{-1}Xd \cap Y$
+$b \in W_XdW_Y$ は $b = vdu \ (v \in W_X, u \in {}^Z(W_Y))$ と一意的に分解できる。さらに、このとき以下が成り立つ
+
+$$
+\ell(b) = \ell(v) + \ell(d) + \ell(u)
+$$
+
+[分解できること]
+まず、$b = v_1 d w_1 \ (v_1 \in W_X, w_1 \in W_Y)$ と表示する。$w_1 = qu \ (q \in W_Z, u \in {}^Z(W_Y))$ と一意的に分解できる。$W_Z \subset d^{-1}W_Xd$ だから、$q = d^{-1}v_2d \ (v_2 \in W_X)$ と表せる。$w = v_1 d w_1 = v_1 d qu = v_1 v_2 d u$
+
+[分解の一意性]
+$u \in {}^Z(W_Y)$ ならば、$du \in {}^XW$ を示せば良い。ある $x \in X$ が存在して、$x \in D_L(du)$ と仮定する。SEC から $xdu = du' \ (u' \in W_Y, u' < u)$ または $xdu = d'u \ (d' \in W, d' < d)$ と表せる。後者の場合は $x \in D_L(d)$ となって $d \in {}^XW$ に矛盾する。よって、$xd = du'u^{-1} \ (u' \in W_Y, u' < u)$ が成り立つ
+
+$$
+\ell(u'u^{-1}) = \ell(du'u^{-1}) - \ell(d) = \ell(xd) - \ell(d) = \ell(x) = 1
+$$
+
+だから、$u'u^{-1} \in Y$。よって、$d^{-1}xd = u'u^{-1} \in Z$。これは $u \in {}^Z(W_Y)$ に矛盾する
+
+[長さの等式]
+$v \in W_X$, $du \in {}^XW$ だから、$\ell(b) = \ell(v) + \ell(du)$。また、$d \in W^Y$, $u \in W_Y$ だから $\ell(du) = \ell(d) + \ell(u)$
+
+${}^Z(W_Y) = {}^ZW \cap W_Y$ に注意
+
+$(W, S)$: Coxeter 群
+$X, Y \subset S$
+$\mathcal{B}$ を $W_X \curvearrowright W \curvearrowleft W_Y$ の double coset とする。$\mathcal{B}$ は Bruhat 順序に関して唯一の最小元を持つ。よって、$W_X \backslash W / W_Y$ の最短完全代表系が得られるが、${}^XW^Y$ と表す。${}^XW^Y = {}^XW \cap W^Y$ が成り立つ
+
+$\mathcal{B}$ 内で長さが最小の $d \in \mathcal{B}$ を選ぶ。$d \in {}^XW \cap W^Y$。よって、$w \in \mathcal{B}$ は $w = vdu \ (v \in W_X, u \in {}^Z(W_Y))$ と一意的に分解でき、$\ell(w) = \ell(v) + \ell(d) + \ell(u)$。よって、$d$ は一意的で、$\mathcal{B}$ の中で Bruhat 順序に関して唯一の最小元になる。後半も明らか
+
+以下の命題の $W = \mathfrak{S}_n$ の場合は先ほど示したが、一般の Coxeter 群でも成り立つ
+
+$(W, S)$: Coxeter 群
+$X, Y \subset S$
+$d \in {}^XW \cap W^Y$
+$d^{-1}W_Xd \cap W_Y$ は $Z \coloneqq d^{-1}Xd \cap Y$ で生成される
+
+$d^{-1}vd = w \ (v \in W_X, w \in W_Y)$ とする。$w = qu \ (q \in W_Z, u \in {}^Z(W_Y))$ と分解する。$u = 1$ を示せば良い。$vd = dw = dqu = (dqd^{-1})du$。$dqd^{-1} \in dW_Zd^{-1} \subset W_X$ だから、分解の一意性から、$v = dqd^{-1}$ かつ $1 = u$
+
+$\mu, \nu$: $n$ の composition
+$\nu: \mathrm{RStd}(\mu) \to \mathrm{RSStd}(\mu, \nu)$ は全射で、$\nu$ の値による類別は $\mathrm{RStd}(\mu) = \mathfrak{S}_\mu \backslash \mathfrak{S}_n \curvearrowleft \mathfrak{S}_\nu$ の軌道と一致する。$\mathsf{T} \in \mathrm{RSStd}(\mu, \nu)$ に対して、$\nu^{-1}(\mathsf{T})$ 内での Bruhat 順序に関する唯一の最小元を $\mathrm{first}(\mathsf{T})$ で表す。同様に、$\nu^{-1}(\mathsf{T})$ 内での Bruhat 順序に関する唯一の最大元があり、$\mathrm{last}(\mathsf{T})$ で表す。$\mathrm{first}(\mathsf{T})$ は各 $r$ に対して、$r$ が入っている部分を取り除いて $\mathfrak{t}^\nu$ の $r$ 行目の数字を上から順に左から右に埋めたもの。同様に、$\mathrm{last}(\mathsf{T})$ は各 $r$ に対して、$r$ が入っている部分を取り除いて $\mathfrak{t}^\nu$ の $r$ 行目の数字を下から順に左から右に埋めたもの
+
+$\mu, \nu$: $n$ の composition
+
+$$
+\mathscr{D}_{\mu\nu} \coloneqq \{ d(\mathrm{first}(\mathsf{T})) \mid \mathsf{T} \in \mathrm{RSStd}(\mu, \nu) \} \subset \mathfrak{S}_n
+$$
+
+とすると、$\mathscr{D}_{\mu\nu}$ は $\mathfrak{S}_\mu \backslash \mathfrak{S}_n / \mathfrak{S}_\nu$ の最短完全代表系で、以下が成り立つ
+
+(1) $w \in \mathfrak{S}_n$ は $w = vdu \ (v \in \mathfrak{S}_\mu, d \in \mathscr{D}_{\mu\nu}, u \in \mathscr{D}_{\mu d \cap \nu} \cap \mathfrak{S}_\nu)$ と一意的に分解でき、$\ell(w) = \ell(v) + \ell(d) + \ell(u)$ が成り立つ
+(2) $\mathscr{D}_{\mu\nu} = \mathscr{D}_\mu \cap \mathscr{D}_\nu^{-1}$
