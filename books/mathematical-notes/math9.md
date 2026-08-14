@@ -331,3 +331,133 @@ $$
 [定理]
 $\mu, \nu$: $n$ の composition
 $\mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu)$ は $R$ 加群として $\{ \varphi_{\mu\nu}^d \mid d \in \mathscr{D}_{\mu\nu} \}$ で自由生成される
+
+$M^\mu = \bigoplus_{\mathfrak{t} \in \mathrm{RStd}(\mu)} R m_\mu T_{d(\mathfrak{t})}$。$\varphi^d_{\mu\nu}(m_\nu) = \sum_{\mathfrak{t} \in \mathrm{RStd}(\mu), \nu(\mathfrak{t}) = \nu(\mathfrak{t}^\mu d)} m_\mu T_{d(\mathfrak{t})}$ だから、非自明な関係式はない。あとは、生成することを示せば良い。$\varphi \in \mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu)$ とする。$\varphi(m_\nu) = \sum_{\mathfrak{t} \in \mathrm{RStd}(\mu)} a_\mathfrak{t} m_\mu T_{d(\mathfrak{t})}$ と展開する。$s_i \in S \cap \mathfrak{S}_\nu$ とする
+
+$$
+q\varphi(m_\nu) = \varphi(m_\nu T_{s_i}) = \varphi(m_\nu)T_{s_i}
+$$
+
+だから、$\mathfrak{t} \in \mathrm{RStd}(\mu)$ に対して、$i, i + 1$ が $\mathfrak{t}$ の異なる行にあるならば、$a_{\mathfrak{t}} = a_{\mathfrak{t}s_i}$。$s_i \in S \cap \mathfrak{S}_\nu$ は任意だから、$\mathfrak{t}, \mathfrak{t}' \in \mathrm{RStd}(\mu)$ に対して、$\nu(\mathfrak{t}) = \nu(\mathfrak{t}')$ ならば、$a_\mathfrak{t} = a_{\mathfrak{t}'}$
+
+左 $\mathscr{H}$ 加群 $M^{*\nu} \coloneqq \mathscr{H}m_\nu$ は右 $\mathscr{H}$ 加群 $M^\nu = m_\nu\mathscr{H}$ を $*$ で捻った左 $\mathscr{H}$ 加群と同型
+
+$\mu, \nu$: $n$ の composition
+
+$$
+\mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu) \ni \varphi \mapsto \varphi(m_\nu) \in M^\mu \cap M^{*\nu}
+$$
+
+は $R$ 加群の同型
+
+逆写像を構成する。$m_\mu a = b m_\nu \in M^\mu \cap M^{*\nu}$ とすると、$(m_\nu h \mapsto b m_\nu h = m_\mu a h) \in \mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu)$
+
+# $M^\mu$
+
+$\lambda$: $n$ の分割
+$\mu$: $n$ の composition
+$\mathsf{S} \in \mathrm{SStd}(\lambda, \mu)$
+$\mathfrak{t} \in \mathrm{Std}(\lambda)$
+
+$$
+\begin{aligned}
+  m_{\mathsf{S}\mathfrak{t}} &\coloneqq \sum_{\mathfrak{s} \in \mathrm{Std}(\lambda), \mu(\mathfrak{s}) = \mathsf{S}} m_{\mathfrak{s}\mathfrak{t}} \\
+  m_{\mathfrak{t}\mathsf{S}} &\coloneqq \sum_{\mathfrak{s} \in \mathrm{Std}(\lambda), \mu(\mathfrak{s}) = \mathsf{S}} m_{\mathfrak{t}\mathfrak{s}} = m_{\mathsf{S}\mathfrak{t}}^*
+\end{aligned}
+$$
+
+Type $\omega$ の $\lambda$-tableau $\mathfrak{s}$ に対して、$\nu(\mathfrak{s})$ が semistandard ならば、$\mathfrak{s}$ は standard。逆は成り立たないことに注意
+
+$d \coloneqq d(\mathrm{first}(\mathsf{S}))$ とすると
+
+$$
+\begin{aligned}
+  m_{\mathsf{S}\mathfrak{t}} &= \sum_{v \in \mathscr{D}_\lambda \cap \mathfrak{S}_\lambda d \mathfrak{S}_\mu} T_v^* m_\lambda T_{d(\mathfrak{t})} \\
+  &= \sum_{w \in \mathfrak{S}_\mu d^{-1} \mathfrak{S}_\lambda} T_w T_{d(\mathfrak{t})} \\
+  &\in M^\mu
+\end{aligned}
+$$
+
+[定理 (Murphy)]
+$\mu$: $n$ の composition
+$M^\mu$ は $R$ 加群として $\{ m_{\mathsf{S}\mathfrak{t}} \mid \lambda \vdash n, \mathsf{S} \in \mathrm{SStd}(\lambda, \mu), \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
+
+$\mathscr{H} = \bigoplus_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} R m_{\mathfrak{s}\mathfrak{t}}$ から非自明な関係式はないことがわかる。$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}} m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ とする。以前示したことから、$\mathfrak{s}, \mathfrak{s}' \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) = \mu(\mathfrak{s}')$ を満たせば、$r_\mathfrak{s} = r_{\mathfrak{s}'}$ であり、$\mathfrak{s} \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) \not\in \mathrm{SStd}(\lambda, \mu)$ ならば $r_\mathfrak{s} = 0$
+
+特に、以下が成り立つ
+
+$\mu$: $n$ の composition
+
+$$
+\sum_{\lambda \vdash n} |\mathrm{SStd}(\lambda, \mu)||\mathrm{Std}(\lambda)| = |\mathrm{RStd}(\mu)| = \frac{n!}{\mu!}
+$$
+
+# Superfluous submodule
+
+$R$: 単位的環
+
+$R$ 加群 $M$ の部分加群 $N \subset M$ が superfluous とは、任意の $H \subset M$ に対して、$N + H = M$ $\Rightarrow$ $H = M$ が成り立つことをいう
+
+Superfluous submodule の部分加群は superfluous。また、superfluous submodule の有限和は superfluous
+
+$N \subset M \subset M'$ とする。$N$ が $M$ 内で superfluous ならば、$M'$ 内でも superfluous
+
+$N + H = M'$ とする。$N + (H \cap M) = M$ だから、$M \subset H$。よって、$H = M$
+
+$M$: $R$ 加群
+$\mathrm{rad}(M)$ は superfluous submodule たちの和
+
+$N \subset M$ は superfluous とする。$J \subset M$ を極大部分加群とする。$N \not\subset J$ と仮定すると、$N + J = M$。よって、$J = M$ となって矛盾する。次に、$x \in \mathrm{rad}(M)$ とすると、$Rx$ が superfluous なことを示す。$H \subsetneq M$ が存在して $Rx + H = M$ を満たすと仮定する。$H$ は $x$ を含まない部分加群の中で極大として良い。$H \subset M$ は極大部分加群になるから、矛盾する
+
+証明から、$\mathrm{rad}(M)$ の有限生成部分加群は superfluous なことがわかる
+
+$M$: 有限 $R$ 加群
+$\mathrm{rad}(M)$ は superfluous
+$H \subsetneq M$ が存在して $\mathrm{rad}(M) + H = M$ を満たすと仮定する。$M$ は有限生成だから、$H \subset M$ は極大部分加群として良い。$\mathrm{rad}(M) \subset H$ だから矛盾する
+
+一般に、$\mathrm{rad}(M) \supset J(R)M$ が成り立つことに注意
+
+# Projective cover
+
+$R$: 単位的環
+
+$M$: $R$ 加群
+射影加群からの全射 $\pi: P \to M$ が projective cover とは、$\mathrm{Ker}\pi \subset P$ が superfluous なことをいう
+
+Projective cover の有限直和も projective cover
+
+$R$ 加群 $M$ の projective cover は一意的
+
+$\pi_i: P_i \to M$ は projective cover とする。$P_2$ は射影的だから、$f: P_2 \to P_1$ が存在して
+
+$$
+\begin{array}{ccc}
+  P_1 &\twoheadrightarrow& M \\
+  \uparrow{\scriptsize{f}} && \parallel \\
+  P_2 &\twoheadrightarrow& M
+\end{array}
+$$
+
+$\pi_1 \circ f$ は全射だから、$\mathrm{Ker}\pi_1 + \mathrm{Im}f = P_1$。$\mathrm{Ker}\pi_1 \subset P_1$ は superfluous だから、$f$ は全射。$P_1$ は射影的だから、$g: P_1 \to P_2$ が存在して、$f \circ g = 1$。$\pi_2 \circ g$ は全射だから、同じ議論で $g$ は全射なことがわかる。よって、$f, g$ は互いに逆写像
+
+$R$: 左 Artin 環
+任意の $R$ 加群 $M$ は projective cover を持つ
+
+$\bar{R} \coloneqq R / J(R)$ とする。$\bar{R}$ 加群 $M / J(R)M$ は $M / J(R)M = \bigoplus_{\lambda \in \Lambda} S_\lambda$ と単純 $\bar{R}$ 加群の直和に分解できる。(原始的) 冪等元 $\bar{e}_\lambda \in \bar{R}$ が存在して、$S_\lambda = \bar{R}\bar{e}_\lambda$。$J(R)$ は冪零な両側イデアルだから、$\bar{e}_\lambda \in \bar{R}$ の持ち上げ $e_\lambda \in R$ で冪等なものが存在する。$\varphi_\lambda: Re_\lambda \twoheadrightarrow S_\lambda$ は $R$ 加群 $S_\lambda$ の射影被覆になることを示す。$\mathrm{Ker}\varphi_\lambda = Re_\lambda \cap J(R) = J(R)e_\lambda \subset Re_\lambda$ は superfluous なことから従う。$P \coloneqq \bigoplus_{\lambda \in \Lambda} Re_\lambda$ とすると $\varphi: P \twoheadrightarrow M / J(R)M$ も射影被覆になることを示す。$\mathrm{Ker}\varphi = J(R)P \subset P$ が superfluous なことを示せば良い。$H \subset P$ は $J(R)P + H = P$ を満たすとする。$J(R)(P / H) = P / H$。$J(R)$ は冪零だから、$P / H = 0$。$P$ は射影加群だから、$f: P \to M$ が存在して
+
+$$
+\begin{array}{ccc}
+  M &\twoheadrightarrow& M / J(R)M \\
+  \uparrow{\scriptsize{f}} & \nearrow{\scriptsize{\varphi}} & \\
+  P &&
+\end{array}
+$$
+
+$f$ は全射なことを示す。$(M \to M / J(R)M) \circ f$ は全射だから、$\mathrm{Im}f + J(R)M = M$。$J(R)(M / \mathrm{Im}f) = M / \mathrm{Im}f$。$J(R)$ は冪零だから、$M / \mathrm{Im}f = 0$。最後に、$f$ は superfluous なことを示す。$\mathrm{Ker}f \subset \mathrm{Ker}\varphi$ だから、$\mathrm{Ker}\varphi$ が superfluous なことから従う
+
+$R$: 左 Artin 環
+$P$: PIM
+$P \to \mathrm{top}(P)$ は $\mathrm{top}(P)$ の projective cover
+
+$\mathrm{rad}(P)$ は superfluous なことから明らか
+
