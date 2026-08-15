@@ -415,7 +415,7 @@ $M$: 有限 $R$ 加群
 $\mathrm{rad}(M)$ は superfluous
 $H \subsetneq M$ が存在して $\mathrm{rad}(M) + H = M$ を満たすと仮定する。$M$ は有限生成だから、$H \subset M$ は極大部分加群として良い。$\mathrm{rad}(M) \subset H$ だから矛盾する
 
-一般に、$\mathrm{rad}(M) \supset J(R)M$ が成り立つことに注意
+一般に、$R$ 加群 $M$ に対して、$\mathrm{rad}(M) \supset J(R)M$ が成り立つことに注意
 
 # Projective cover
 
@@ -457,7 +457,76 @@ $f$ は全射なことを示す。$(M \to M / J(R)M) \circ f$ は全射だから
 
 $R$: 左 Artin 環
 $P$: PIM
-$P \to \mathrm{top}(P)$ は $\mathrm{top}(P)$ の projective cover
+$P \twoheadrightarrow \mathrm{top}(P)$ は $\mathrm{top}(P)$ の projective cover
 
 $\mathrm{rad}(P)$ は superfluous なことから明らか
+
+# 遺伝的イデアル
+
+$R$: 左 Artin 環
+以下の同値な条件を満たす両側イデアル $L \subset R$ を遺伝的イデアルという
+(1) $L$ は左 $R$ 加群として射影的かつ $\mathrm{Hom}_{R\text{-Mod}}(L, R / L) = 0$ かつ $LJ(R)L = 0$
+(2) 冪等元 $e \in R$ で $eJ(R)e = 0$ かつ $Re \otimes_{eRe} eR \to ReR$ が同型なものが存在して、$L = ReR$
+
+(2) $\Rightarrow$ (1)
+まず、$LJ(R)L = ReJ(R)eR = 0$。また、$L^2 = ReReR \supset ReR = L$ だから $L^2 = L$。よって、$\mathrm{Hom}_{R\text{-Mod}}(L, R / L) = \mathrm{Hom}_{R\text{-Mod}}(L^2, R / L) = 0$。$J(eRe) = eJ(R)e = 0$ だから、$eRe$ は半単純環。よって、左 $eRe$ 加群 $eR$ は射影的だから、ある $eRe$ 加群 $M$ が存在して、$eR \oplus M = (eRe)^{\oplus I}$。両辺の $Re \otimes_{eRe} -$ を考えると、左 $R$ 加群として
+
+$$
+L \oplus Re \otimes_{eRe} M = (Re)^{\oplus I}
+$$
+
+左 $R$ 加群 $Re$ は射影的だから、左 $R$ 加群 $L$ も射影的
+
+(1) $\Rightarrow$ (2)
+$L^2 = L$ を示す。左 $R$ 加群 $L$ は有限射影加群だから、$R^n$ の直和因子になる。$i: L \to R^n$, $p: R^n \to L$ とすると、任意の $x \in L$ に対して
+
+$$
+x = p(i(x)) = p(\sum_{k = 1}^n i_k(x)e_k) = \sum_{k = 1}^n i_k(x)p(e_k)
+$$
+
+$(R \to R / L) \circ i_k = 0$ だから、$i_k(x) \in L$。よって、$L = L^2$。$\bar{R} \coloneqq R / J(R)$ とし、$\pi: R \twoheadrightarrow \bar{R}$ とする。$\bar{R}$ の両側イデアル $\pi(L)$ は中心的冪等元 $\bar{e} \in \pi(L)$ で $\pi(L) = \bar{R}\bar{e}$ と表せる。$\pi(L) = (L + J(R)) / J(R) \simeq L / (L \cap J(R)) \subset R / (L \cap J(R))$。$J(R) \subset R$ は冪零な両側イデアルだから、$L \cap J(R) \subset R$ も冪零な両側イデアルであり、$\bar{e}$ は冪等元 $e \in L$ に持ち上がる。$ReR \subset L$ だが、一致することを示す。$\pi(L) = \overline{Re}$ だから、$L \subset Re + J(R)$。$L = L^2 \subset ReR + J(R)L$。よって、$J(R)(L / ReR) = L / ReR$ だから $L / ReR = 0$。また、$0 = LJ(R)L = ReJ(R)eR$ だから、$eJ(R)e = 0$。最後に、$\mu: Re \otimes_{eRe} eR \twoheadrightarrow ReR$ が単射を示す。$L = ReR$ は射影的だから $0 \to \mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0$ は分裂する完全列。(完全) 関手 $M \mapsto \mathrm{Hom}_{R\text{-Mod}}(Re, M) = eM$ を適用して
+
+$$
+0 \to e\mathrm{Ker}\mu \to eR \to eR \to 0
+$$
+
+よって、$e\mathrm{Ker}\mu = 0$。また、関手 $M \mapsto \mathrm{Im}(Re \otimes_{eRe} \mathrm{Hom}_{R\text{-Mod}}(Re, M) \to M) = ReM$ を適用して
+
+$$
+0 \to Re\mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0
+$$
+
+よって、$\mathrm{Ker}\mu = Re\mathrm{Ker}\mu = 0$
+
+証明から
+
+(3) 冪等元 $e \in R$ で $eJ(R)e = 0$ かつ左 $R$ 加群 $ReR$ が射影的なものが存在して、$L = ReR$
+
+とも同値なことに注意
+
+$R$: 左 Artin 環
+冪等元 $e \in R$ が遺伝的とは、以下の同値な条件を満たすことをいう
+
+(a) $eJ(R)e = 0$ かつ $Re \otimes_{eRe} eR \to ReR$ が同型
+(b) $eJ(R)e = 0$ かつ左 $R$ 加群 $ReR$ が射影的
+
+# Quasi-hereditary ring
+
+左 Artin 環たちのクラスを $\mathcal{A}$ とする
+
+Quasi-hereditary ring たちのクラス $\mathcal{Q} \subset \mathcal{A}$ を、以下を満たす最小のクラスとする
+
+(1) $0 \in \mathcal{Q}$
+(2) 遺伝的イデアル $L \subset R$ が存在して、$R / L \in \mathcal{Q}$ ならば $R \in \mathcal{Q}$
+
+$R$ が半単純環ならば $R$ 自身が遺伝的イデアルだから、半単純環は quasi-hereditary
+
+クラス $\mathcal{Q}' \subset \mathcal{A}$ を、以下を満たす最小のクラスとする
+
+(1') $0 \in \mathcal{Q}'$
+(2') 遺伝的な原始冪等元 $e \subset R$ が存在して、$R / ReR \in \mathcal{Q}'$ ならば、$R \in \mathcal{Q}'$
+
+$\mathcal{Q} = \mathcal{Q}'$
+
+$\mathcal{Q} \subset \mathcal{Q}'$ を示せば良い。
 

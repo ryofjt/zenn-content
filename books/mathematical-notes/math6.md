@@ -147,6 +147,14 @@ $$
 
 $M_i \coloneqq J(R)^i / J(R)^{i + 1} \ (i \ge 0)$ とする。$M_i$ は $R$ 加群として Artin 的だから、$\bar{R} \coloneqq R / J(R)$ 加群としても Artin 的。$\bar{R}$ は半単純環だから、$\bar{R}$ 加群 $M_i$ は半単純。よって、$\bar{R}$ 加群 $M_i$ は有限個の単純 $\bar{R}$ 加群の直和。よって、$\bar{R}$ 加群 $M_i$ は長さ有限だから、$R$ 加群としても長さ有限
 
+# 左 Artin だが右 Artin でない環
+
+$R \coloneqq \begin{pmatrix} \mathbb{R} & \mathbb{R} \\ 0 & \mathbb{Q} \end{pmatrix}$ とする
+
+${}_RR = \begin{pmatrix} \mathbb{R} & 0 \\ 0 & 0 \end{pmatrix} \oplus \begin{pmatrix} 0 & \mathbb{R} \\ 0 & \mathbb{Q} \end{pmatrix}$。また、部分加群 $\begin{pmatrix} 0 & \mathbb{R} \\ 0 & 0 \end{pmatrix} \subset \begin{pmatrix} 0 & \mathbb{R} \\ 0 & \mathbb{Q} \end{pmatrix}$ がある。よって、${}_RR$ は長さ $3$
+
+$\begin{pmatrix} 0 & \mathbb{R} \\ 0 & 0 \end{pmatrix} \subset R_R$ に $R$ は $R \to \mathbb{Q}$ を通して作用する
+
 # 直既約加群
 
 $0$ でない $R$ 加群 $M$ が直既約とは、$0$ でない $R$ 加群の直和に分解できないことをいう。既約ならば直既約
