@@ -484,13 +484,13 @@ $$
 x = p(i(x)) = p(\sum_{k = 1}^n i_k(x)e_k) = \sum_{k = 1}^n i_k(x)p(e_k)
 $$
 
-$(R \to R / L) \circ i_k = 0$ だから、$i_k(x) \in L$。よって、$L = L^2$。$\bar{R} \coloneqq R / J(R)$ とし、$\pi: R \twoheadrightarrow \bar{R}$ とする。$\bar{R}$ の両側イデアル $\pi(L)$ は中心的冪等元 $\bar{e} \in \pi(L)$ で $\pi(L) = \bar{R}\bar{e}$ と表せる。$\pi(L) = (L + J(R)) / J(R) \simeq L / (L \cap J(R)) \subset R / (L \cap J(R))$。$J(R) \subset R$ は冪零な両側イデアルだから、$L \cap J(R) \subset R$ も冪零な両側イデアルであり、$\bar{e}$ は冪等元 $e \in L$ に持ち上がる。$ReR \subset L$ だが、一致することを示す。$\pi(L) = \overline{Re}$ だから、$L \subset Re + J(R)$。$L = L^2 \subset ReR + J(R)L$。よって、$J(R)(L / ReR) = L / ReR$ だから $L / ReR = 0$。また、$0 = LJ(R)L = ReJ(R)eR$ だから、$eJ(R)e = 0$。最後に、$\mu: Re \otimes_{eRe} eR \twoheadrightarrow ReR$ が単射を示す。$L = ReR$ は射影的だから $0 \to \mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0$ は分裂する完全列。(完全) 関手 $M \mapsto \mathrm{Hom}_{R\text{-Mod}}(Re, M) = eM$ を適用して
+$(R \to R / L) \circ i_k = 0$ だから、$i_k(x) \in L$。よって、$L = L^2$。$\bar{R} \coloneqq R / J(R)$ とし、$\pi: R \twoheadrightarrow \bar{R}$ とする。$\bar{R}$ の両側イデアル $\pi(L)$ は中心的冪等元 $\bar{e} \in \pi(L)$ で $\pi(L) = \bar{R}\bar{e}$ と表せる。$\pi(L) = (L + J(R)) / J(R) \simeq L / (L \cap J(R)) \subset R / (L \cap J(R))$。$J(R) \subset R$ は冪零な両側イデアルだから、$L \cap J(R) \subset R$ も冪零な両側イデアルであり、$\bar{e}$ は冪等元 $e \in L$ に持ち上がる。$ReR \subset L$ だが、一致することを示す。$\pi(L) = \overline{Re}$ だから、$L \subset Re + J(R)$。$L = L^2 \subset ReR + J(R)L$。よって、$J(R)(L / ReR) = L / ReR$ だから $L / ReR = 0$。また、$0 = LJ(R)L = ReJ(R)eR$ だから、$eJ(R)e = 0$。最後に、$\mu: Re \otimes_{eRe} eR \twoheadrightarrow ReR$ が単射を示す。$L = ReR$ は射影的だから $0 \to \mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0$ は分裂する完全列。(完全) 関手 $M \mapsto \mathrm{Hom}_R(Re, M) = eM$ を適用して
 
 $$
 0 \to e\mathrm{Ker}\mu \to eR \to eR \to 0
 $$
 
-よって、$e\mathrm{Ker}\mu = 0$。また、関手 $M \mapsto \mathrm{Im}(Re \otimes_{eRe} \mathrm{Hom}_{R\text{-Mod}}(Re, M) \to M) = ReM$ を適用して
+よって、$e\mathrm{Ker}\mu = 0$。また、関手 $M \mapsto \mathrm{Im}(Re \otimes_{\mathrm{End}_R(Re)^\mathrm{op}} \mathrm{Hom}_R(Re, M) \to M) = ReM$ を適用して
 
 $$
 0 \to Re\mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0
@@ -511,22 +511,50 @@ $R$: 左 Artin 環
 (b) $eJ(R)e = 0$ かつ左 $R$ 加群 $ReR$ が射影的
 
 # Quasi-hereditary ring
+[補題]
+$R \to S$: 単位的環の準同型
+$P$: 射影的 $R$ 加群
+$S$ 加群 $S \otimes_R P$ も射影的
+
+$P$ は射影的だから、$P \oplus Q = R^{\oplus I}$。よって、$S \otimes_R P \oplus S \otimes_R Q = S^{\oplus I}$
+
+[系]
+$R$: 単位的環
+$I \subset R$: 両側イデアル
+$P$: 射影的 $R$ 加群
+$R / I$ 加群 $P / IP$ は射影的
+
+一般に、$(R / I) \otimes_R M = M / IM$ が成り立つことから従う
 
 左 Artin 環たちのクラスを $\mathcal{A}$ とする
 
 Quasi-hereditary ring たちのクラス $\mathcal{Q} \subset \mathcal{A}$ を、以下を満たす最小のクラスとする
 
 (1) $0 \in \mathcal{Q}$
-(2) 遺伝的イデアル $L \subset R$ が存在して、$R / L \in \mathcal{Q}$ ならば $R \in \mathcal{Q}$
+(2) 左 Artin 環 $R$ に対して、遺伝的イデアル $L \subset R$ が存在して $R / L \in \mathcal{Q}$ ならば $R \in \mathcal{Q}$
 
 $R$ が半単純環ならば $R$ 自身が遺伝的イデアルだから、半単純環は quasi-hereditary
 
 クラス $\mathcal{Q}' \subset \mathcal{A}$ を、以下を満たす最小のクラスとする
 
 (1') $0 \in \mathcal{Q}'$
-(2') 遺伝的な原始冪等元 $e \subset R$ が存在して、$R / ReR \in \mathcal{Q}'$ ならば、$R \in \mathcal{Q}'$
+(2') 左 Artin 環 $R$ に対して、遺伝的な原始冪等元 $e \in R$ が存在して $R / ReR \in \mathcal{Q}'$ ならば、$R \in \mathcal{Q}'$
 
 $\mathcal{Q} = \mathcal{Q}'$
 
-$\mathcal{Q} \subset \mathcal{Q}'$ を示せば良い。
+$\mathcal{Q} \subset \mathcal{Q}'$ を示せば良い。$R$ は左 Artin 環で、$e \in R$ を遺伝的な冪等元とし、$R / ReR \in \mathcal{Q}'$ とする。$R \in \mathcal{Q}'$ を示せば良い。${}_RR$ の長さに関する帰納法を使う。$R = 0$ の場合は明らか。$R \ne 0$ とする。$e = p + q$ と直交する冪等元に分解したとする。冪等元 $p \in R$, $\bar{q} \in R / RpR \eqqcolon \bar{R}$ は遺伝的なことを示す
+
+[$p \in R$ が遺伝的なこと]
+$pJ(R)p = peJ(R)ep = 0$。あとは、左 $R$ 加群 $RpR$ が射影的なことを示せば良い。$S \coloneqq eRe$ は半単純だから、両側イデアル $SpS \subset S$ は両側 $S$ 加群として、$SpS \oplus X = S$ と分解できる。$ReR \simeq Re \otimes_S eR = Re \otimes_S S \otimes_S eR$ と $Re \otimes_S S \otimes_S eR = Re \otimes_S SpS \otimes_S eR \oplus Re \otimes_S X \otimes_S eR$ から
+
+$$
+ReR \simeq RpR \oplus ReXeR
+$$
+
+よって、左 $R$ 加群 $RpR$ は射影的
+
+[$\bar{q} \in \bar{R}$ が遺伝的なこと]
+$J(\bar{R}) = (J(R) + RpR) / RpR$。よって、$\bar{q}J(\bar{R})\bar{q} = (qJ(R)q + RpR) / RpR$ だが、$qJ(R)q = qeJ(R)eq = 0$。あとは、左 $\bar{R}$ 加群 $\bar{R}\bar{q}\bar{R}$ が射影的なことを示せば良い。$\bar{R}\bar{q}\bar{R} = (RqR + RpR) / RpR = ReR / RpR$。直前の証明から、$ReR / RpR$ は左 $R$ 加群として射影的。$RpR(ReR / RpR) = 0$ だから、左 $\bar{R}$ 加群としても射影的
+
+$e \ne 0$ として良い。$p$ は原始的に取れる。$\bar{R} / \bar{R}\bar{q}\bar{R} = R / ReR \in \mathcal{Q}'$ だから、帰納法の仮定から、$\bar{R} \in \mathcal{Q}'$。よって、$R \in \mathcal{Q}'$
 
