@@ -511,6 +511,21 @@ $R$: 左 Artin 環
 (b) $eJ(R)e = 0$ かつ左 $R$ 加群 $ReR$ が射影的
 
 # Quasi-hereditary ring
+
+[補題]
+$R$: 左 Artin 環
+$I \subset R$: 両側イデアル
+
+$$
+J(R / I) = (J(R) + I) / I
+$$
+
+$\supset$
+$R / I$ は左 Artin 環。$J(R)$ は冪零だから $(J(R) + I) / I$ も冪零
+
+$\subset$
+$(R / I) / ((J(R) + I) / I) \simeq R / (J(R) + I) \simeq (R / J(R)) / ((I + J(R)) / J(R))$ は半単純
+
 [補題]
 $R \to S$: 単位的環の準同型
 $P$: 射影的 $R$ 加群
@@ -558,3 +573,106 @@ $J(\bar{R}) = (J(R) + RpR) / RpR$。よって、$\bar{q}J(\bar{R})\bar{q} = (qJ(
 
 $e \ne 0$ として良い。$p$ は原始的に取れる。$\bar{R} / \bar{R}\bar{q}\bar{R} = R / ReR \in \mathcal{Q}'$ だから、帰納法の仮定から、$\bar{R} \in \mathcal{Q}'$。よって、$R \in \mathcal{Q}'$
 
+# 遺伝環
+
+単位的環 $R$ が左遺伝的とは、以下の同値な条件を満たすことをいう
+(1) 射影的な左 $R$ 加群の部分加群は射影的
+(2) 全ての左イデアルが射影的
+
+(2) $\Rightarrow$ (1) を示せば良い。自由加群の部分加群が射影的なことを示せば良い。$\alpha$ を順序数とし、$M \subset R^{\oplus \alpha} = \bigoplus_{\gamma < \alpha} R$ を部分加群とする。$\gamma < \alpha$ に対して
+
+$$
+0 \to M \cap \bigoplus_{\delta < \gamma} R \to M \cap \bigoplus_{\delta \le \gamma} R \xrightarrow{\pi_\gamma} R
+$$
+
+$\mathrm{Im}\pi_\gamma \subset R$ は射影的だから
+
+$$
+0 \to M \cap \bigoplus_{\delta < \gamma} R \to M \cap \bigoplus_{\delta \le \gamma} R \xrightarrow{\pi_\gamma} \mathrm{Im}\pi_\gamma \to 0
+$$
+
+は分裂する。よって、$M \cap \bigoplus_{\delta \le \gamma} R \supset Q_\gamma \simeq \mathrm{Im}\pi_\gamma$ が取れる。超限帰納法を使えば、任意の $\beta \le \alpha$ に対して、$M \cap \bigoplus_{\gamma < \beta} R = \bigoplus_{\gamma < \beta} Q_\gamma$ が成り立つことがわかる
+
+$R$: 左遺伝環
+$L \subset R$: 両側イデアル
+$L^2 = L$ ならば、$R / L$ も左遺伝環
+
+$L \subset I \subset R$ を左イデアルとする。左 $R / L$ 加群 $I / L$ が射影的なことを示せば良い。$L = L^2 \subset LI$ だから、$L = LI$。$I$ は射影的だから、$R / L$ 加群 $I / L = I / LI$ も射影的
+
+$R$: 左 Artin 環
+$R$ が左遺伝環ならば、quasi-hereditary
+
+${}_RR$ の長さに関する帰納法を使う。$R = 0$ の場合は明らか。$R \ne 0$ とする。$0$ でない射影的な左イデアルの中で極小なものを $N$ とする。$N$ は単純加群。よって、$J(R)N = 0$。$0 \to \mathrm{Ker}\varphi \to R \xrightarrow{\varphi} N \to 0$ があるが、$N$ は射影的だから、分裂する。よって、原始的冪等元 $e \in R$ が存在して、$N = Re$ と表せる。左イデアル $ReR \subset R$ は射影的だから、$e$ は遺伝的。あとは、$R / ReR$ が左遺伝環になることを示せば良い。$(ReR)^2 = ReR$ から従う
+
+# Quasi-hereditary ring の標準加群による特徴付け
+
+[補題]
+$R$: 単位的環
+$I \subset R$: 両側イデアル
+$P \twoheadrightarrow M$: 射影被覆
+$R / I$ 加群の射 $P / IP \twoheadrightarrow M / IM$ は射影被覆
+
+まず、$P / IP$ は射影的 $R / I$ 加群。$\mathrm{Ker}(P / IP \twoheadrightarrow M / IM) = (\mathrm{Ker}(P \twoheadrightarrow M) + IP) / IP$ が $R$ 加群として superfluous なことを示せば良い。$IP \subset H \subset P$ は、$H / IP + (\mathrm{Ker}(P \twoheadrightarrow M) + IP) / IP = P / IP$ を満たすとする。$H + \mathrm{Ker}(P \twoheadrightarrow M) = P$ だから、$H = P$
+
+$R$: 左 Artin 環
+$R$ が quasi-hereditary なことと、以下を満たすことは同値
+
+単純 $R$ 加群の同型類を $\{ D^\lambda \mid \lambda \in \Lambda \}$ とする。$\Lambda$ 上の半順序と標準加群と呼ばれる $R$ 加群 $C^\lambda$ が存在して
+(1) $D^\lambda$ に対応する PIM を $P^\lambda$ とする。全射 $P^\lambda \twoheadrightarrow C_\lambda$ が存在して、$\mathrm{Ker}(P^\lambda \twoheadrightarrow C_\lambda)$ はフィルトレーション $0 = F_0 \subset F_1 \subset \cdots \subset F_n = \mathrm{Ker}(P^\lambda \twoheadrightarrow C_\lambda)$ で $F_i / F_{i - 1} \simeq C^{\mu_i} \ (\mu_i > \lambda)$ を満たすものを持つ
+(2) 全射 $C^\lambda \twoheadrightarrow D^\lambda$ が存在して、$\mathrm{Ker}(C^\lambda \twoheadrightarrow D^\lambda)$ はフィルトレーション $0 = G_0 \subset G_1 \subset \cdots \subset G_m = \mathrm{Ker}(C^\lambda \twoheadrightarrow D^\lambda)$ で $G_j / G_{j - 1} \simeq D^{\nu_j} \ (\nu_j < \lambda)$ を満たすものを持つ
+
+[$R$ が quasi-hereditary $\Rightarrow$ $R$ が標準加群で特徴付けられる]
+${}_RR$ の長さに関する帰納法を使う。$R = 0$ の場合は明らか。$R \ne 0$ とする。遺伝的な原始冪等元 $e \in R$ が存在して、$R / ReR \eqqcolon \bar{R}$ は quasi-hereditary。$\mathrm{top}(Re) \simeq D^{\lambda_0} \ (\lambda_0 \in \Lambda)$ とする。$P^{\lambda_0} \simeq Re$。$\Lambda' \coloneqq \Lambda \setminus \{ \lambda_0 \}$ とする。まず、$\mathrm{Irr}(\bar{R}) = \Lambda'$ を示す。$\bar{e} \in \mathrm{top}(Re) \setminus \{ 0 \}$ に対して、$e\bar{e} = \bar{e}$ だから、$\mathrm{Irr}(\bar{R}) \subset \Lambda'$。$\lambda \in \Lambda'$ とすると、$[D^\lambda : \mathrm{top}(Re)] = 0$ だから $eD^\lambda = 0$。よって、$D^\lambda$ は自然に $\bar{R}$ 加群になる。$\lambda \in \Lambda'$ ならば、$\bar{P}^\lambda \coloneqq P^\lambda / ReP^\lambda$ は $\bar{R}$ 加群 $D^\lambda$ に対応する PIM になることもわかる。$eRe = \mathrm{End}_R(Re)^{\mathrm{op}}$ は局所環で $J(eRe) = eJ(R)e = 0$ だから、$eRe$ は斜体。帰納法の仮定から、$\Lambda'$ 上の半順序と $\bar{R}$ 加群 $C^\lambda \ (\lambda \in \Lambda')$ と全射 $\bar{P}^\lambda \twoheadrightarrow C^\lambda$, $C^\lambda \twoheadrightarrow D^\lambda$ が存在して、$\mathrm{Ker}(\bar{P}^\lambda \twoheadrightarrow C^\lambda)$ は商が $C^\mu \ (\mu \in \Lambda', \mu > \lambda)$ のいずれかになるフィルトレーションを持ち、$\mathrm{Ker}(C^\lambda \twoheadrightarrow D^\lambda)$ は商が $D^\nu \ (\nu \in \Lambda', \nu < \lambda)$ のいずれかになるフィルトレーションを持つ。$\lambda_0$ が最大元になるように $\Lambda'$ 上の半順序を拡張して、$\Lambda$ 上の半順序を定義する。$C^{\lambda_0} \coloneqq Re$。まず、条件 (1) を満たすことを示す。$\lambda \in \Lambda'$ に対して、$ReP^\lambda$ が $Re$ の有限直和と同型なことを示せば良い。$P^\lambda$ は射影的だから
+
+$$
+ReP^\lambda = ReR \otimes_R P^\lambda = Re \otimes_{eRe} eR \otimes_R P^\lambda = Re \otimes_{eRe} eP^\lambda = (Re)^{\oplus \mathrm{dim}_{eRe} eP^\lambda}
+$$
+
+最後に、条件 (2) を満たすことを示す。$[\mathrm{rad}(Re) : \mathrm{top}(Re)] = 0$ を示せば良い。$e\mathrm{rad}(Re) = eJ(R)e = 0$ から従う
+
+[$R$ が標準加群で特徴付けられる $\Rightarrow$ $R$ が quasi-hereditary]
+${}_RR$ の長さに関する帰納法を使う。$R = 0$ の場合は明らか。$R \ne 0$ とする。極大元 $\lambda_0 \in \Lambda$ を固定する。原始的冪等元 $e \in R$ で $P^{\lambda_0} = Re$ と表示する。$\bar{R} \coloneqq R / ReR$ が標準加群で特徴付けられることと、$e$ が遺伝的なことを示せば良い。まず、$\bar{R}$ が標準加群で特徴付けられることを示す。$\Lambda' \coloneqq \Lambda \setminus \{ \lambda_0 \}$ とすると、上と同様にして、$\mathrm{Irr}(\bar{R}) = \Lambda'$。$M \mapsto \mathrm{Hom}_R(Re, M) = eM$ は完全関手だから、条件 (1) から $eC^\lambda = 0 \ (\lambda \ne \lambda_0)$。よって、$C^\lambda \ (\lambda \ne \lambda_0)$ は自然に $\bar{R}$ 加群になる。あとは、$\lambda \ne \lambda_0$ ならば、$ReP^\lambda$ が $Re$ の有限直和と同型なことを示せば良い。$e$ が遺伝的なことを示せば、上と同様の議論から従う。まず、条件 (1) から $C^{\lambda_0} \simeq Re$。$[\mathrm{rad}(Re) : \mathrm{top}(Re)] = [\mathrm{Ker}(C^{\lambda_0} \twoheadrightarrow D^{\lambda_0}) : \mathrm{top}(Re)] = 0$ だから $eJ(R)e = e\mathrm{rad}(Re) = 0$。最後に、$Re \otimes_{eRe} eR \to ReR$ が同型なことを示す。左 $R$ 加群 $M$ に対して、$\mu_M: Re \otimes_{eRe} eM \to ReM$ とする。$\mu_M$ は常に全射。まず、$0 \to A \to B \to C \to 0$ が左 $R$ 加群の短完全列で、$\mu_A$, $\mu_C$ が同型ならば、$\mu_B$ も同型なことを示す。$eRe$ は斜体だから、$M \mapsto Re \otimes_{eRe} eM$ は完全関手。また、$M \mapsto ReM$ は単射 (と全射) を保つ。よって、図式
+
+$$
+\begin{array}{ccccc}
+  0 &\to& Re \otimes_{eRe} eA &\to& Re \otimes_{eRe} eB &\to& Re \otimes_{eRe} eC &\to& 0 \\
+  && \downarrow{\scriptsize{\sim}} && \downarrow && \downarrow{\scriptsize{\sim}} && \\
+  && ReA &\hookrightarrow& ReB &\to& ReC &&
+\end{array}
+$$
+
+を追えば従う。$\lambda \ne \lambda_0$ ならば、$eD^\lambda = 0$ だから、$\mu_{D^\lambda}$ は同型。よって、$\mu_{C^\lambda} \ (\lambda \ne \lambda_0)$ も同型。$\mu_{Re}$ も同型だから、$\mu_{C^\lambda} \ (\lambda \in \Lambda)$ は同型。よって、$\mu_{P^\lambda} \ (\lambda \in \Lambda)$ も同型で、$\mu_R$ も同型
+
+# Cellular 代数と quasi-hereditary ring
+
+$A$: 体 $K$ 上の cellular 代数で、$|\Lambda| < \infty$
+$\Lambda_0 = \Lambda$ ならば、$A$ は quasi-hereditary
+
+条件 (2) は明らか。条件 (1) を示す。$\lambda \in \Lambda$ とする。$\Lambda$ から極小元を取り除いていけば、$A$ の両側イデアルによるフィルトレーションで、部分商たちが $\{ C^{*\mu} \otimes_K C^\mu \mid \mu \in \Lambda \}$ に一致するものが作れる。$P^\lambda \otimes_A -$ を考えれば、$P^\lambda$ のフィルトレーションで、部分商たちが $\{ P^\lambda \otimes_A C^{*\mu} \otimes_K C^\mu \mid \mu \in \Lambda \}$ に一致するものがある。$\mathrm{dim}_K P^\lambda \otimes_A C^{*\mu} = d_{\mu\lambda} = [C^\mu : D^\lambda]$ は $\mu \not\ge \lambda$ ならば $0$ かつ $\mu = \lambda$ ならば $1$
+
+# Quasi-hereditary ring の大域次元
+
+https://zenn.dev/link/comments/11750859e44014
+
+$R$: 単位的環
+$0 \to A \to B \to C \to 0$: 左 $R$ 加群の短完全列
+
+$$
+\begin{aligned}
+  \mathrm{proj.dim}B &\le \max \{ \mathrm{proj.dim}A, \mathrm{proj.dim}C \} \\
+  \mathrm{proj.dim}A &\le \max \{ \mathrm{proj.dim}B, \mathrm{proj.dim}C - 1 \} \\
+  \mathrm{proj.dim}C &\le \max \{ \mathrm{proj.dim}B, \mathrm{proj.dim}A + 1 \}
+\end{aligned}
+$$
+
+$\mathrm{proj.dim}M = \inf \{ n \in \mathbb{Z} \mid \mathrm{Ext}^i(M, -) = 0 \ (i > n) \}$ から従う
+
+$R$: 単位的環
+
+$$
+\mathrm{gl.dim}R = \sup \{ \mathrm{proj.dim}(R / I) \mid I \subset R \text { は左イデアル} \}
+$$
+
+左 Artin 環 $R$ が quasi-hereditary ならば $\mathrm{gl.dim}R < \infty$
+
+$\mathrm{proj.dim}D^\lambda < \infty \ (\lambda \in \Lambda)$ を示せば良い。$P^\lambda$ は射影加群だから、条件 (1) から $\mathrm{proj.dim}C^\lambda < \infty \ (\lambda \in \Lambda)$。よって、条件 (2) から従う
