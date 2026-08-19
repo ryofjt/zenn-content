@@ -308,6 +308,8 @@ $$
 (1) $w \in \mathfrak{S}_n$ は $w = vdu \ (v \in \mathfrak{S}_\mu, d \in \mathscr{D}_{\mu\nu}, u \in \mathscr{D}_{\mu d \cap \nu} \cap \mathfrak{S}_\nu)$ と一意的に分解でき、$\ell(w) = \ell(v) + \ell(d) + \ell(u)$ が成り立つ
 (2) $\mathscr{D}_{\mu\nu} = \mathscr{D}_\mu \cap \mathscr{D}_\nu^{-1}$
 
+$R$: 可換環
+
 $\mu, \nu$: $n$ の composition
 $d \in \mathscr{D}_{\mu\nu}$
 $\mathsf{T} \coloneqq \nu(\mathfrak{t}^\mu d) \in \mathrm{RSStd}(\mu, \nu)$, $\mathsf{S} \coloneqq \mu(\mathfrak{t}^\nu d^{-1}) \in \mathrm{RSStd}(\nu, \mu)$ とすると
@@ -354,6 +356,8 @@ $$
 
 # $M^\mu$
 
+$R$: 可換環
+
 $\lambda$: $n$ の分割
 $\mu$: $n$ の composition
 $\mathsf{S} \in \mathrm{SStd}(\lambda, \mu)$
@@ -382,7 +386,7 @@ $$
 $\mu$: $n$ の composition
 $M^\mu$ は $R$ 加群として $\{ m_{\mathsf{S}\mathfrak{t}} \mid \lambda \vdash n, \mathsf{S} \in \mathrm{SStd}(\lambda, \mu), \mathfrak{t} \in \mathrm{Std}(\lambda) \}$ で自由生成される
 
-$\mathscr{H} = \bigoplus_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} R m_{\mathfrak{s}\mathfrak{t}}$ から非自明な関係式はないことがわかる。$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}} m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ とする。以前示したことから、$\mathfrak{s}, \mathfrak{s}' \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) = \mu(\mathfrak{s}')$ を満たせば、$r_\mathfrak{s} = r_{\mathfrak{s}'}$ であり、$\mathfrak{s} \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) \not\in \mathrm{SStd}(\lambda, \mu)$ ならば $r_\mathfrak{s} = 0$
+$\mathscr{H} = \bigoplus_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} R m_{\mathfrak{s}\mathfrak{t}}$ から非自明な関係式はないことがわかる。$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}} m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ とする。以前示したことから、$\mathfrak{s}, \mathfrak{s}' \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) = \mu(\mathfrak{s}')$ を満たせば、$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}'\mathfrak{t}}$ であり、$\mathfrak{s} \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) \not\in \mathrm{SStd}(\lambda, \mu)$ ならば $r_{\mathfrak{s}\mathfrak{t}} = 0$
 
 特に、以下が成り立つ
 
@@ -676,3 +680,82 @@ $$
 左 Artin 環 $R$ が quasi-hereditary ならば $\mathrm{gl.dim}R < \infty$
 
 $\mathrm{proj.dim}D^\lambda < \infty \ (\lambda \in \Lambda)$ を示せば良い。$P^\lambda$ は射影加群だから、条件 (1) から $\mathrm{proj.dim}C^\lambda < \infty \ (\lambda \in \Lambda)$。よって、条件 (2) から従う
+
+# $M^\mu$ の続き
+
+$R$: 可換環
+
+$\mu$: $n$ の composition
+右 $\mathscr{H}$ 加群 $M^\mu$ のフィルトレーションで、部分商が $S^\lambda \ (\lambda \vdash n)$ が $|\mathrm{SStd}(\lambda, \mu)|$ 個ずつからなるものが存在する
+
+$\bigsqcup_{\lambda \vdash n} \mathrm{SStd}(\lambda, \mu)$ を $\mathrm{Shape}$ が極大なものから順に取り出して、$\mathsf{S}_1, \dots, \mathsf{S}_k$ とする。$M_i \coloneqq \mathrm{span}_R \{ m_{\mathsf{S}_j\mathfrak{t}} \mid j \ge i, \mathfrak{t} \in \mathrm{Std}(\mathrm{Shape}(\mathsf{S}_j)) \} \subset M^\mu$ は部分 $\mathscr{H}$ 加群。また、$S^{\mathrm{Shape}(\mathsf{S}_i)} \ni m_\mathfrak{t} \mapsto \bar{m}_{\mathsf{S}_i\mathfrak{t}} \in M_i / M_{i + 1}$ は同型
+
+$\lambda$: $n$ の分割
+$\mu, \nu$: $n$ の composition
+$\mathsf{S} \in \mathrm{SStd}(\lambda, \mu)$, $\mathsf{T} \in \mathrm{SStd}(\lambda, \nu)$ に対して
+
+$$
+m_{\mathsf{S}\mathsf{T}} \coloneqq \sum_{\mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda), \mu(\mathfrak{s}) = \mathsf{S}, \nu(\mathfrak{t}) = \mathsf{T}} m_{\mathfrak{s}\mathfrak{t}}
+$$
+
+$m_{\mathsf{S}\mathsf{T}} \in M^\mu \cap M^{*\nu}$
+
+$\mu, \nu$: $n$ の composition
+$M^\mu \cap M^{*\nu}$ は $R$ 加群として $\{ m_{\mathsf{S}\mathsf{T}} \mid \lambda \vdash n, \mathsf{S} \in \mathrm{SStd}(\lambda, \mu), \mathsf{T} \in \mathrm{SStd}(\lambda, \nu) \}$ で自由生成される
+
+非自明な関係式がないことは明らか。$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}} \in M^\mu \cap M^{*\nu}$ とする。以前示したことから、以下が成り立つ
+(a) $\mathfrak{s}, \mathfrak{s}' \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) = \mu(\mathfrak{s}')$ を満たせば、$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}'\mathfrak{t}}$ であり、$\mathfrak{s} \in \mathrm{Std}(\lambda)$ が $\mu(\mathfrak{s}) \not\in \mathrm{SStd}(\lambda, \mu)$ ならば $r_{\mathfrak{s}\mathfrak{t}} = 0$
+(b) $\mathfrak{t}, \mathfrak{t}' \in \mathrm{Std}(\lambda)$ が $\nu(\mathfrak{t}) = \nu(\mathfrak{t}')$ を満たせば、$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}'}$ であり、$\mathfrak{t} \in \mathrm{Std}(\lambda)$ が $\nu(\mathfrak{t}) \not\in \mathrm{SStd}(\lambda, \nu)$ ならば $r_{\mathfrak{s}\mathfrak{t}} = 0$
+
+# $q$-Schur algebra
+
+$R$: 可換環
+$q \in R$
+
+$d \ge 1$
+$\Lambda(d, n) \coloneqq \{ \mu \vDash n \mid \mu_i = 0 \ (i > d) \}$
+
+$$
+\begin{aligned}
+  \mathscr{S}(d, n) &\coloneqq \mathrm{End}_\mathscr{H}\left(\bigoplus_{\mu \in \Lambda(d, n)} M^\mu\right) \\
+  &= \bigoplus_{\mu, \nu \in \Lambda(d, n)} \mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu)
+\end{aligned}
+$$
+
+は $R$ 上の代数
+
+$\lambda$: $n$ の分割
+$\mu, \nu$: $n$ の composition
+$\mathsf{S} \in \mathrm{SStd}(\lambda, \mu)$, $\mathsf{T} \in \mathrm{SStd}(\lambda, \nu)$
+$\mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu) \simeq M^\mu \cap M^{*\nu}$ で $m_{\mathsf{S}\mathsf{T}} \in M^\mu \cap M^{*\nu}$ に対応する元を $\varphi_{\mathsf{S}\mathsf{T}} \in \mathrm{Hom}_\mathscr{H}(M^\nu, M^\mu) \subset \mathscr{S}(d, n)$ とする
+
+$$
+\varphi_{\mathsf{S}\mathsf{T}}(m_\mu h) = m_{\mathsf{S}\mathsf{T}}h \quad (h \in \mathscr{H})
+$$
+
+$\Lambda^+(d, n) \coloneqq \{ \lambda \vdash n \mid \lambda_i = 0 \ (i > d) \}$
+$\lambda \in \Lambda^+(d, n)$ に対して、$\mathcal{T}_0(\lambda) \coloneqq \bigsqcup_{\mu \in \Lambda(d, n)} \mathrm{SStd}(\lambda, \mu)$
+
+$$
+\begin{aligned}
+  \check{\mathscr{S}}^\lambda(d, n) &\coloneqq \mathrm{span}_R \{ \varphi_{\mathsf{S}\mathsf{T}} \mid \alpha \triangleright \lambda, \mathsf{S}, \mathsf{T} \in \mathcal{T}_0(\alpha) \} \subset \mathscr{S}(d, n) \\
+  \mathscr{S}^\lambda(d, n) &\coloneqq \mathrm{span}_R \{ \varphi_{\mathsf{S}\mathsf{T}} \mid \alpha \trianglerighteq \lambda, \mathsf{S}, \mathsf{T} \in \mathcal{T}_0(\alpha) \} \subset \mathscr{S}(d, n)
+\end{aligned}
+$$
+
+$*: \mathrm{Hom}(M^\nu, M^\mu) = M^\mu \cap M^{*\nu} \xrightarrow{*} M^\nu \cap M^{*\mu} = \mathrm{Hom}(M^\mu, M^\nu)$ がある。$\varphi_{\mathsf{S}\mathsf{T}}^* = \varphi_{\mathsf{T}\mathsf{S}}$。誘導される $R$ 加群の同型 $*: \mathscr{S}(d, n) \to \mathscr{S}(d, n)$ は antiautomorphism
+
+$M^\mu \xrightarrow{\varphi} M^\nu \xrightarrow{\psi} M^\xi$ に対して、$(\psi \circ \varphi)^* = \varphi^* \circ \psi^*$ を示せば良い。$\varphi(e_\mu) = e_\nu h$ とすると、$\varphi^* = h^* \cdot$。さらに、$\psi(e_\nu) = e_\xi k$ とすると
+
+$(\psi \circ \varphi)^* = (kh)^* \cdot = \varphi^* \circ \psi^*$
+
+[定理]
+$\mathscr{S}(d, n)$ は cellular 代数
+
+定義から、$\mathscr{S}(d, n)$ は $R$ 加群として $\{ \varphi_{\mathsf{S}\mathsf{T}} \mid \lambda \in \Lambda^+(d, n), \mathsf{S}, \mathsf{T} \in \mathcal{T}_0(\lambda) \}$ で自由生成される。$\varphi \in \mathrm{Hom}(M^\tau, M^\nu)$ とする。$\varphi(e_\tau) = e_\nu h \ (h \in \mathscr{H})$ とすると、$\varphi_{\mathsf{S}\mathsf{T}} \circ \varphi$ は $m_{\mathsf{S}\mathsf{T}} h \in M^\mu \cap M^{*\tau}$ に対応する。$m_{\mathsf{S}\mathsf{T}} h \in \sum_{\alpha \in \Lambda^+(d, n), \mathsf{U} \in \mathrm{SStd}(\alpha, \mu), \mathsf{V} \in \mathrm{SStd}(\alpha, \tau)} R m_{\mathsf{U}\mathsf{V}}$ かつ $m_{\mathsf{S}\mathsf{T}} h \in \sum_{\mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda), \mu(\mathfrak{s}) = \mathsf{S}} R m_{\mathfrak{s}\mathfrak{t}} + \check{\mathscr{H}}^\lambda$ だから $m_{\mathsf{S}\mathsf{T}} h \in \sum_{\mathsf{T} \in \mathcal{T}_0(\lambda)} R m_{\mathsf{S}\mathsf{T}} + \sum_{\alpha \in \Lambda^+(d, n), \alpha \triangleright \lambda, \mathsf{U}, \mathsf{V} \in \mathcal{T}_0(\alpha)} R m_{\mathsf{U}\mathsf{V}}$
+
+$\lambda \in \Lambda^+(d, n)$
+$\mathsf{T}^\lambda \coloneqq \lambda(\mathfrak{t}^\lambda)$ は $r$ 行目が全て $r$ の $\lambda$-tableau。$\mathrm{first}(T^\lambda) = \mathrm{last}(T^\lambda) = \mathfrak{t}^\lambda$。$m_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = m_{\mathfrak{t}^\lambda\mathfrak{t}^\lambda}$。よって、$\varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = 1_{M^\lambda}$
+
+標準加群は Weyl 加群と呼ばれ、$W^\lambda$ で表す
+

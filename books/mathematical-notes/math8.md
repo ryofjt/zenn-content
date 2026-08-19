@@ -579,7 +579,7 @@ $0 \le j \le n$ に対して、$\lambda_j \coloneqq \mathrm{Shape}(\mathfrak{t} 
 
 $\mu$: $n$ の composition
 $\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ と以下の (1), (2) を満たすことは同値
-(1) $d(\mathfrak{s})^{-1}d(\mathfrak{s}') \in \mathfrak{S}_\mu$ ならば、$r_{\mathfrak{s}'\mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
+(1) $\mathrm{Shape}(\mathfrak{s}) = \mathrm{Shape}(\mathfrak{s}')$ かつ $d(\mathfrak{s})^{-1}d(\mathfrak{s}') \in \mathfrak{S}_\mu$ ならば、$r_{\mathfrak{s}'\mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
 (2) 相異なる $i, j$ が存在して、$\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の同じ列にあるとき、$r_{\mathfrak{s}\mathfrak{t}} = 0$
 
 今までの結果から、$\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r_{\mathfrak{s}\mathfrak{t}}m_{\mathfrak{s}\mathfrak{t}} \in M^\mu$ は以下の (1'), (2') を満たすことと同値
