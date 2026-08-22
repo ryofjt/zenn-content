@@ -12,7 +12,7 @@ $K$: field
 $|\Lambda| < \infty$
 $\displaystyle{A = \bigoplus_{\substack{\lambda \in \Lambda \\ \mathfrak{s}, \mathfrak{t} \in \mathcal{T}(\lambda)}} K c^\lambda_{\mathfrak{s}\mathfrak{t}}}$: cellular algebra
 $C^\lambda \ (\lambda \in \Lambda)$: standard modules
-$\Lambda_0 \coloneqq \{ \langle C^\lambda, C^\lambda \rangle \ne 0 \}$
+$\Lambda_0 \coloneqq \{ \lambda \in \Lambda \mid \langle C^\lambda, C^\lambda \rangle \ne 0 \}$
 $D^\mu = C^\mu / \mathrm{rad}C^\mu \ (\mu \in \Lambda_0)$: simple modules
 
 **Cor 2.17**
@@ -66,7 +66,7 @@ $A_A$ の $0$ でない直和因子で、それ以上直和分解できないも
 **Lem A7 & Cor A8**
 $P \subset A_A$ が PIM $\iff$ 原始的冪等元 $e \in A$ が存在して $P = eA$
 
-**A6 (Krull-Schmidt)**
+**Thm A6 (Krull-Schmidt)**
 $A_A = P_1 \oplus \cdots \oplus P_k$ と PIM に直和分解できるが、$P_1, \dots, P_k$ は並べ替えと同型を除いて一意的
 
 **Thm A10**
@@ -88,7 +88,7 @@ $A = \begin{pmatrix} \mathbb{C} & \mathbb{C} \\ 0 & \mathbb{C} \end{pmatrix}$
 
 $A = \begin{pmatrix} \mathbb{C} & \mathbb{C} \\ 0 & 0 \end{pmatrix} \oplus \begin{pmatrix} 0 & 0 \\ 0 & \mathbb{C} \end{pmatrix} \eqqcolon P_1 \oplus P_2$: PIM への直和分解
 
-$P_2$ は単純。$P_1 \supset \begin{pmatrix} 0 & \mathbb{C} \\ 0 & 0 \end{pmatrix} = \mathrm{rad}P_2$
+$P_2$ は単純。$P_1 \supset \begin{pmatrix} 0 & \mathbb{C} \\ 0 & 0 \end{pmatrix} = \mathrm{rad}P_1 \simeq P_2$
 
 **Prop A14 & Cor A16**
 $P = eA$: PIM
