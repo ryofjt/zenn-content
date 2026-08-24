@@ -270,7 +270,7 @@ $S, T$ が同じブロックに属する $\iff$ $S \sim_c T$
 
 $\underline{\text{pf}}$
 
-$\Rightarrow$ を示せば良い。$S, T \in \mathrm{Irr}(B)$ とする。$\lambda \not\sim_c \mu$ と仮定する
+$\Rightarrow$ を示せば良い。$S, T \in \mathrm{Irr}(B)$ とする。$S \not\sim_c T$ と仮定する
 
 $$
 \begin{aligned}
@@ -283,7 +283,7 @@ $$
 B = \underbrace{\bigoplus_{U \in X} P^U}_{P^X} \oplus \underbrace{\bigoplus_{V \in Y} P^V}_{P^Y}
 $$
 
-$\mathrm{Hom}_B(P^Y, P^X) = \mathrm{Hom}_B(P^X, P^Y) = 0$ だから、$e_XBe_Y = e_YBe_X = 0$。$e_XBP^Y = e_XBe_YB = 0$ だから $BP^Y \subset P^Y$。よって、$P_Y \subset B$ は両側イデアル。$P^X \subset B$ も両側イデアルとなって矛盾する $\blacksquare$
+$\mathrm{Hom}_B(P^Y, P^X) = \mathrm{Hom}_B(P^X, P^Y) = 0$ だから、$e_XBe_Y = e_YBe_X = 0$。$e_XBP^Y = e_XBe_YB = 0$ だから $BP^Y \subset P^Y$。よって、$P^Y \subset B$ は両側イデアル。$P^X \subset B$ も両側イデアルとなって矛盾する $\blacksquare$
 
 Cellular 代数に戻る
 
@@ -294,7 +294,7 @@ $\underline{\text{pf}}$
 $D^\mu, D^\nu$ を $C^\lambda$ の組成因子とする。Thm 2.20 から
 
 $$
-[P^\mu, D^\nu] = \sum_{\alpha \in \Lambda} [C^\alpha : D^\mu][C^\alpha : D^\nu] > 0
+[P^\mu : D^\nu] = \sum_{\alpha \in \Lambda} [C^\alpha : D^\mu][C^\alpha : D^\nu] > 0
 $$
 
 $\blacksquare$
