@@ -357,6 +357,7 @@ $$
 # $M^\mu$
 
 $R$: 可換環
+$q \in R^\times$
 
 $\lambda$: $n$ の分割
 $\mu$: $n$ の composition
@@ -684,6 +685,7 @@ $\mathrm{proj.dim}D^\lambda < \infty \ (\lambda \in \Lambda)$ を示せば良い
 # $M^\mu$ の続き
 
 $R$: 可換環
+$q \in R^\times$
 
 $\mu$: $n$ の composition
 右 $\mathscr{H}$ 加群 $M^\mu$ のフィルトレーションで、部分商が $S^\lambda \ (\lambda \vdash n)$ が $|\mathrm{SStd}(\lambda, \mu)|$ 個ずつからなるものが存在する
@@ -710,7 +712,7 @@ $M^\mu \cap M^{*\nu}$ は $R$ 加群として $\{ m_{\mathsf{S}\mathsf{T}} \mid 
 # $q$-Schur algebra
 
 $R$: 可換環
-$q \in R$
+$q \in R^\times$
 
 $d \ge 1$
 $\Lambda(d, n) \coloneqq \{ \mu \vDash n \mid \mu_i = 0 \ (i > d) \}$
@@ -733,6 +735,16 @@ $$
 \varphi_{\mathsf{S}\mathsf{T}}(m_\mu h) = m_{\mathsf{S}\mathsf{T}}h \quad (h \in \mathscr{H})
 $$
 
+$\mathscr{S}(d, n)$ は $R$ 加群として $\{ \varphi_{\mathsf{S}\mathsf{T}} \mid \lambda \in \Lambda^+(d, n), \mathsf{S}, \mathsf{T} \in \mathcal{T}_0(\lambda) \}$ で自由生成される
+
+$*: \mathrm{Hom}(M^\nu, M^\mu) = M^\mu \cap M^{*\nu} \xrightarrow{*} M^\nu \cap M^{*\mu} = \mathrm{Hom}(M^\mu, M^\nu)$ がある。$\varphi_{\mathsf{S}\mathsf{T}}^* = \varphi_{\mathsf{T}\mathsf{S}}$。誘導される $R$ 加群の同型 $*: \mathscr{S}(d, n) \to \mathscr{S}(d, n)$ は antiautomorphism
+
+$M^\mu \xrightarrow{\varphi} M^\nu \xrightarrow{\psi} M^\xi$ に対して、$(\psi \circ \varphi)^* = \varphi^* \circ \psi^*$ を示せば良い。$\varphi(e_\mu) = e_\nu h$ とすると、$\varphi^* = h^* \cdot$。さらに、$\psi(e_\nu) = e_\xi k$ とすると
+
+$$
+(\psi \circ \varphi)^* = (kh)^* \cdot = \varphi^* \circ \psi^*
+$$
+
 $\Lambda^+(d, n) \coloneqq \{ \lambda \vdash n \mid \lambda_i = 0 \ (i > d) \}$
 $\lambda \in \Lambda^+(d, n)$ に対して、$\mathcal{T}_0(\lambda) \coloneqq \bigsqcup_{\mu \in \Lambda(d, n)} \mathrm{SStd}(\lambda, \mu)$
 
@@ -743,19 +755,180 @@ $$
 \end{aligned}
 $$
 
-$*: \mathrm{Hom}(M^\nu, M^\mu) = M^\mu \cap M^{*\nu} \xrightarrow{*} M^\nu \cap M^{*\mu} = \mathrm{Hom}(M^\mu, M^\nu)$ がある。$\varphi_{\mathsf{S}\mathsf{T}}^* = \varphi_{\mathsf{T}\mathsf{S}}$。誘導される $R$ 加群の同型 $*: \mathscr{S}(d, n) \to \mathscr{S}(d, n)$ は antiautomorphism
+$\varphi \in \mathscr{S}(d, n)$ に対して
 
-$M^\mu \xrightarrow{\varphi} M^\nu \xrightarrow{\psi} M^\xi$ に対して、$(\psi \circ \varphi)^* = \varphi^* \circ \psi^*$ を示せば良い。$\varphi(e_\mu) = e_\nu h$ とすると、$\varphi^* = h^* \cdot$。さらに、$\psi(e_\nu) = e_\xi k$ とすると
-
-$(\psi \circ \varphi)^* = (kh)^* \cdot = \varphi^* \circ \psi^*$
+$$
+\varphi \in \mathscr{S}^\lambda(d, n) \Leftrightarrow \varphi(e_\mu) \in \mathscr{H}^\lambda \ (\mu \in \Lambda(d, n))
+$$
 
 [定理]
 $\mathscr{S}(d, n)$ は cellular 代数
 
-定義から、$\mathscr{S}(d, n)$ は $R$ 加群として $\{ \varphi_{\mathsf{S}\mathsf{T}} \mid \lambda \in \Lambda^+(d, n), \mathsf{S}, \mathsf{T} \in \mathcal{T}_0(\lambda) \}$ で自由生成される。$\varphi \in \mathrm{Hom}(M^\tau, M^\nu)$ とする。$\varphi(e_\tau) = e_\nu h \ (h \in \mathscr{H})$ とすると、$\varphi_{\mathsf{S}\mathsf{T}} \circ \varphi$ は $m_{\mathsf{S}\mathsf{T}} h \in M^\mu \cap M^{*\tau}$ に対応する。$m_{\mathsf{S}\mathsf{T}} h \in \sum_{\alpha \in \Lambda^+(d, n), \mathsf{U} \in \mathrm{SStd}(\alpha, \mu), \mathsf{V} \in \mathrm{SStd}(\alpha, \tau)} R m_{\mathsf{U}\mathsf{V}}$ かつ $m_{\mathsf{S}\mathsf{T}} h \in \sum_{\mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda), \mu(\mathfrak{s}) = \mathsf{S}} R m_{\mathfrak{s}\mathfrak{t}} + \check{\mathscr{H}}^\lambda$ だから $m_{\mathsf{S}\mathsf{T}} h \in \sum_{\mathsf{T} \in \mathcal{T}_0(\lambda)} R m_{\mathsf{S}\mathsf{T}} + \sum_{\alpha \in \Lambda^+(d, n), \alpha \triangleright \lambda, \mathsf{U}, \mathsf{V} \in \mathcal{T}_0(\alpha)} R m_{\mathsf{U}\mathsf{V}}$
+$\varphi \in \mathrm{Hom}(M^\tau, M^\nu)$ とする。$\varphi(e_\tau) = e_\nu h \ (h \in \mathscr{H})$ とすると、$\varphi_{\mathsf{S}\mathsf{T}} \circ \varphi$ は $m_{\mathsf{S}\mathsf{T}} h \in M^\mu \cap M^{*\tau}$ に対応する。$m_{\mathsf{S}\mathsf{T}} h \in \sum_{\alpha \in \Lambda^+(d, n), \mathsf{U} \in \mathrm{SStd}(\alpha, \mu), \mathsf{V} \in \mathrm{SStd}(\alpha, \tau)} R m_{\mathsf{U}\mathsf{V}}$ かつ $m_{\mathsf{S}\mathsf{T}} h \in \sum_{\mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda), \mu(\mathfrak{s}) = \mathsf{S}} R m_{\mathfrak{s}\mathfrak{t}} + \check{\mathscr{H}}^\lambda$ だから $m_{\mathsf{S}\mathsf{T}} h \in \sum_{\mathsf{T} \in \mathcal{T}_0(\lambda)} R m_{\mathsf{S}\mathsf{T}} + \sum_{\alpha \in \Lambda^+(d, n), \alpha \triangleright \lambda, \mathsf{U}, \mathsf{V} \in \mathcal{T}_0(\alpha)} R m_{\mathsf{U}\mathsf{V}}$
+
+$\mathscr{S}(d, n)$ の標準加群は Weyl 加群と呼ばれ、$W^\lambda$ で表す。$W^\lambda$ の $R$ 加群としての標準的な基底を $\{ \varphi_\mathsf{T} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \}$ で表す
 
 $\lambda \in \Lambda^+(d, n)$
-$\mathsf{T}^\lambda \coloneqq \lambda(\mathfrak{t}^\lambda)$ は $r$ 行目が全て $r$ の $\lambda$-tableau。$\mathrm{first}(T^\lambda) = \mathrm{last}(T^\lambda) = \mathfrak{t}^\lambda$。$m_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = m_{\mathfrak{t}^\lambda\mathfrak{t}^\lambda}$。よって、$\varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = 1_{M^\lambda}$
+$\mathsf{T}^\lambda \coloneqq \lambda(\mathfrak{t}^\lambda)$ は $r$ 行目が全て $r$ の $\lambda$-tableau。$\mathrm{first}(\mathsf{T}^\lambda) = \mathrm{last}(\mathsf{T}^\lambda) = \mathfrak{t}^\lambda$。$m_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = m_{\mathfrak{t}^\lambda\mathfrak{t}^\lambda}$。よって、$\varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = 1_{M^\lambda}$
 
-標準加群は Weyl 加群と呼ばれ、$W^\lambda$ で表す
+$S^\lambda$ は $\mathscr{H}$ の標準加群だった
 
+右 $\mathscr{S}(d, n)$ 加群の埋め込み
+
+$$
+W^\lambda \hookrightarrow \mathrm{Hom}_{\mathscr{H}}\left(\bigoplus_{\mu \in \Lambda(d, n)} M^\mu, S^\lambda\right) = \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, S^\lambda)
+$$
+
+がある
+
+$$
+\begin{aligned}
+  \mathcal{M} &\coloneqq \bigoplus_{\mu \in \Lambda(d, n)} M^\mu \\
+  \check{\mathcal{M}}^\lambda &\coloneqq \bigoplus_{\mu \in \Lambda(d, n)} (M^\mu \cap \check{\mathscr{H}}^\lambda)
+\end{aligned}
+$$
+
+$M^\lambda \subset \mathcal{M}$ に注意すると、右 $\mathscr{S}(d, n)$ 加群の射
+
+$$
+W^\lambda = \mathrm{span}_R \{ \bar{\varphi}_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \} \to \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, (M^\lambda + \check{\mathcal{M}}^\lambda) / \check{\mathcal{M}}^\lambda)
+$$
+
+がある。右 $\mathscr{H}$ 加群として
+
+$$
+(M^\lambda + \check{\mathcal{M}}^\lambda) / \check{\mathcal{M}}^\lambda \simeq M^\lambda / (M^\lambda \cap \check{\mathcal{M}}^\lambda) = M^\lambda / (M^\lambda \cap \check{\mathscr{H}}^\lambda) \simeq (M^\lambda + \check{\mathscr{H}}^\lambda) / \check{\mathscr{H}}^\lambda \simeq S^\lambda
+$$
+
+だから、$\Phi: W^\lambda = \mathrm{span}_R \{ \bar{\varphi}_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \} \to \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, S^\lambda)$ がある
+
+$$
+\Phi(\bar{\varphi}_{\mathsf{T}^\lambda\mathsf{T}})(e_\mu) = \begin{cases}
+  m_{\mathsf{T}^\lambda\mathsf{T}} &\quad (\mathrm{Type}(\mathsf{T}) = \mu) \\
+  0 &\quad (\mathrm{Type}(\mathsf{T}) \ne \mu) \\
+\end{cases}
+$$
+
+だから、$\Phi$ は単射
+
+$W^\lambda$ 上のペアリングは
+
+$$
+\langle \varphi_\mathsf{S}, \varphi_\mathsf{T} \rangle \varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} \equiv \varphi_{\mathsf{T}^\lambda\mathsf{S}} \circ \varphi_{\mathsf{T}\mathsf{T}^\lambda} \mod \check{\mathscr{S}}^\lambda(d, n) \quad (\mathsf{S}, \mathsf{T} \in \mathcal{T}_0(\lambda))
+$$
+
+で定義される。特に、$\mathrm{Type}(\mathsf{S}) \ne \mathrm{Type}(\mathsf{T})$ ならば $\langle \varphi_\mathsf{S}, \varphi_\mathsf{T} \rangle = 0$
+
+以降は、$R$ は体 $K$ とする
+
+$\langle \varphi_{\mathsf{T}^\lambda}, \varphi_{\mathsf{T}^\lambda} \rangle = 1$ だから、$W^\lambda$ 上のペアリングは消えない。よって、$\Lambda^+_0(d, n) = \Lambda^+(d, n)$。$\mathcal{S}(d, n)$ は quasi-hereditary
+
+$\lambda \in \Lambda^+(d, n)$ に対応する既約 $\mathscr{S}(d, n)$ 加群を $L^\lambda$ で表す
+
+[定理]
+$L^\lambda$ は絶対既約で
+
+$$
+\mathrm{Irr}(\mathscr{S}(d, n)) = \{ L^\lambda \mid \lambda \in \Lambda^+(d, n) \}
+$$
+
+# Schur functor
+
+$K$: 体
+$q \in K^\times$
+$d \ge n$
+
+$\omega \in \Lambda^+(d, n)$
+
+$M^\omega = \mathscr{H}$
+$m_{\mathsf{T}^\omega\mathsf{T}^\omega} = m_{\mathfrak{t}^\omega\mathfrak{t}^\omega}$
+
+$\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} \in \mathscr{S}(d, n)$ は冪等元
+
+$K$ 代数として
+
+$$
+\mathscr{H} \simeq \mathrm{Hom}_\mathscr{H}(\mathscr{H}, \mathscr{H}) = \varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}
+$$
+
+完全関手
+
+$$
+F: \mathrm{Mod}\text{-}\mathscr{S}(d, n) \ni M \mapsto M\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} \in \mathrm{Mod}\text{-}\mathscr{H}
+$$
+
+を Schur functor という
+
+$A$: 単位的環
+$e \in A$: 冪等元
+単純右 $A$ 加群 $M$ に対して、右 $eAe$ 加群 $Me$ は $0$ か単純
+
+$Me \ne 0$ とする。任意の $0 \ne x \in Me$ に対して、$xAe = Me$ から従う
+
+[定理]
+
+$$
+\begin{aligned}
+  F(W^\lambda) &= S^\lambda \\
+  F(L^\lambda) &= \begin{cases}
+    D^\lambda &\quad (\lambda \text{ is } e\text{-restricted}) \\
+    0 &\quad (\lambda \text{ is not } e\text{-restricted})
+  \end{cases}
+\end{aligned}
+$$
+
+また、$\mu \vdash n$ が $e$-restricted ならば、$[W^\lambda : L^\mu] = [S^\lambda : D^\mu]$
+
+[$F(W^\lambda) = S^\lambda$]
+$W^\lambda = \mathrm{span}_R \{ \varphi_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \}$ だから
+
+$$
+F(W^\lambda) = \mathrm{span}_R \{ \varphi_{\mathsf{T}^\lambda\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{Std}(\lambda) \} = \mathrm{span}_R \{ m_{\mathfrak{t}^\lambda\mathfrak{t}} \mid \mathfrak{t} \in \mathrm{Std}(\lambda) \} = S^\lambda
+$$
+
+[$F(L^\lambda) = D^\lambda$]
+$F(W^\lambda) = S^\lambda$ において、ペアリングは整合的。$0 \to \mathrm{rad}W^\lambda \to W^\lambda \to L^\lambda \to 0$ に $F$ を適用して
+
+$$
+0 \to F(\mathrm{rad}W^\lambda) \to F(W^\lambda) \to F(L^\lambda) \to 0
+$$
+
+$F(\mathrm{rad}W^\lambda) = F(W^\lambda)^\perp$。よって、$\lambda$ が $e$-restricted ならば $F(L^\lambda) = D^\lambda$ かつ $\lambda$ が $e$-restricted でないならば $F(L^\lambda) = 0$
+
+# The double centralizer property
+
+$$
+\mathcal{M} \coloneqq \bigoplus_{\mu \in \Lambda(d, n)} M^\mu
+$$
+
+$\mathcal{M}$ は右 $\mathscr{S}(d, n)$ 加群かつ右 $\mathscr{H}$ 加群であり、右 $\mathscr{S}(d, n)$ 作用と右 $\mathscr{H}$ 作用は可換
+
+$$
+\begin{aligned}
+  \mathscr{S}(d, n) = \mathrm{End}_\mathscr{H} \mathcal{M} \\
+  \mathscr{H} = \mathrm{End}_{\mathscr{S}(d, n)} \mathcal{M}
+\end{aligned}
+$$
+
+2 つ目を示せば良い。まず、$\varphi_{\mathsf{T}^\mu\mathsf{T}^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = M^\mu$ を示す
+
+$$
+\begin{aligned}
+  \varphi_{\mathsf{T}^\mu\mathsf{T}^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} &= \mathrm{Hom}_\mathscr{H}(M^\omega, M^\mu) \\
+  &= M^\mu \cap M^\omega \\
+  &= \mathrm{span}_R \{ m_{\mathsf{S}\mathfrak{t}} \mid \lambda \vdash n, \mathsf{S} \in \mathrm{SStd}(\lambda, \mu), \mathrm{Std}(\lambda) \} \\
+  &= M^\mu
+\end{aligned}
+$$
+
+$\sum_{\mu \in \Lambda(d, n)} \varphi_{\mathsf{T}^\mu\mathsf{T}^\mu} = 1_{\mathscr{S}(d, n)}$ だから
+
+$$
+\mathcal{M} = \bigoplus_{\mu \in \Lambda(d, n)} \varphi_{\mathsf{T}^\mu\mathsf{T}^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = \mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}
+$$
+
+よって
+
+$$
+\mathrm{Hom}_{\mathscr{S}(d, n)} \mathcal{M} = \mathrm{Hom}_{\mathscr{S}(d, n)}(\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}) = \varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = \mathscr{H}
+$$
