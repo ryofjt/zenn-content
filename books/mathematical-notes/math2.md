@@ -303,7 +303,7 @@ $$
 $d \ge 3$
 $V$: 符号 $(1, d - 1)$ の Minkowski 空間
 $V_\mathbb{C} \coloneqq V \otimes \mathbb{C}$
-$G \coloneqq \mathrm{Spin}_0(V)$
+$G \coloneqq \mathrm{Spin}(V)$
 $G_\mathbb{C} \coloneqq \mathrm{Spin}(V_\mathbb{C})$
 $E \coloneqq i\mathbb{R} \times \mathbb{R}^{d - 1} \subset V_\mathbb{C}$
 $\mathcal{T} \coloneqq V - iV_+ \subset V_\mathbb{C}$

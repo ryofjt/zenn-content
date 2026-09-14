@@ -262,6 +262,8 @@ $\{ k_\omega \mid \omega \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = D_
 
 https://zenn.dev/link/comments/eec29d6e814a2a
 
+https://zenn.dev/link/comments/6cc59876307ee9
+
 $m \ge 0$
 $V$: 次元 $d$ の Minkowski 空間
 $G \coloneqq \mathrm{Spin}_0(V)$
@@ -313,9 +315,6 @@ $\rho \coloneqq \Pi S^-$, $\alpha \coloneqq \mathrm{Ker}(s(p_0)) \subset \Pi S^+
 
 [Free guage, $m = 0$]
 $\rho \coloneqq \wedge^2 V$, $\alpha \coloneqq p_0^\perp / \mathbb{R}p_0$, $i \coloneqq \iota(p_0)$
-
-[Free spin, $m > 0$]
-$\rho \coloneqq \Pi S$, $\alpha \coloneqq \mathrm{Ker}(s(p_0) - m) \subset \Pi S$, $i \coloneqq s(p_0) + m$
 
 [Free guage, $m > 0$]
 $\rho \coloneqq \wedge^2 V$, $\alpha \coloneqq p_0^\perp$, $i \coloneqq \iota(p_0)$

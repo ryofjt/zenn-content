@@ -769,7 +769,7 @@ $\varphi \in \mathrm{Hom}(M^\tau, M^\nu)$ とする。$\varphi(e_\tau) = e_\nu h
 $\mathscr{S}(d, n)$ の標準加群は Weyl 加群と呼ばれ、$W^\lambda$ で表す。$W^\lambda$ の $R$ 加群としての標準的な基底を $\{ \varphi_\mathsf{T} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \}$ で表す
 
 $\lambda \in \Lambda^+(d, n)$
-$\mathsf{T}^\lambda \coloneqq \lambda(\mathfrak{t}^\lambda)$ は $r$ 行目が全て $r$ の $\lambda$-tableau。$\mathrm{first}(\mathsf{T}^\lambda) = \mathrm{last}(\mathsf{T}^\lambda) = \mathfrak{t}^\lambda$。$m_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = m_{\mathfrak{t}^\lambda\mathfrak{t}^\lambda}$。よって、$\varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = 1_{M^\lambda}$
+$\mathsf{T}^\lambda \coloneqq \lambda(\mathfrak{t}^\lambda)$ は $r$ 行目が全て $r$ の $\lambda$-tableau。$\mathrm{first}(\mathsf{T}^\lambda) = \mathrm{last}(\mathsf{T}^\lambda) = \mathfrak{t}^\lambda$。$m_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = m_\lambda$。よって、$\varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} = 1_{M^\lambda}$
 
 $S^\lambda$ は $\mathscr{H}$ の標準加群だった
 
@@ -791,7 +791,7 @@ $$
 $M^\lambda \subset \mathcal{M}$ に注意すると、右 $\mathscr{S}(d, n)$ 加群の射
 
 $$
-W^\lambda = \mathrm{span}_R \{ \bar{\varphi}_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \} \to \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, (M^\lambda + \check{\mathcal{M}}^\lambda) / \check{\mathcal{M}}^\lambda)
+W^\lambda = \mathrm{span}_R \{ \varphi_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \} \to \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, (M^\lambda + \check{\mathcal{M}}^\lambda) / \check{\mathcal{M}}^\lambda)
 $$
 
 がある。右 $\mathscr{H}$ 加群として
@@ -800,10 +800,10 @@ $$
 (M^\lambda + \check{\mathcal{M}}^\lambda) / \check{\mathcal{M}}^\lambda \simeq M^\lambda / (M^\lambda \cap \check{\mathcal{M}}^\lambda) = M^\lambda / (M^\lambda \cap \check{\mathscr{H}}^\lambda) \simeq (M^\lambda + \check{\mathscr{H}}^\lambda) / \check{\mathscr{H}}^\lambda \simeq S^\lambda
 $$
 
-だから、$\Phi: W^\lambda = \mathrm{span}_R \{ \bar{\varphi}_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \} \to \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, S^\lambda)$ がある
+だから、$\Phi: W^\lambda = \mathrm{span}_R \{ \varphi_{\mathsf{T}^\lambda\mathsf{T}} \mid \mathsf{T} \in \mathcal{T}_0(\lambda) \} \to \bigoplus_{\mu \in \Lambda(d, n)} \mathrm{Hom}_{\mathscr{H}}(M^\mu, S^\lambda)$ がある
 
 $$
-\Phi(\bar{\varphi}_{\mathsf{T}^\lambda\mathsf{T}})(e_\mu) = \begin{cases}
+\Phi(\varphi_{\mathsf{T}^\lambda\mathsf{T}})(e_\mu) = \begin{cases}
   m_{\mathsf{T}^\lambda\mathsf{T}} &\quad (\mathrm{Type}(\mathsf{T}) = \mu) \\
   0 &\quad (\mathrm{Type}(\mathsf{T}) \ne \mu) \\
 \end{cases}
@@ -841,7 +841,7 @@ $d \ge n$
 $\omega \in \Lambda^+(d, n)$
 
 $M^\omega = \mathscr{H}$
-$m_{\mathsf{T}^\omega\mathsf{T}^\omega} = m_{\mathfrak{t}^\omega\mathfrak{t}^\omega}$
+$m_{\mathsf{T}^\omega\mathsf{T}^\omega} = m_\omega = 1_\mathscr{H}$
 
 $\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} \in \mathscr{S}(d, n)$ は冪等元
 
@@ -887,7 +887,24 @@ F(W^\lambda) = \mathrm{span}_R \{ \varphi_{\mathsf{T}^\lambda\mathfrak{t}} \mid 
 $$
 
 [$F(L^\lambda) = D^\lambda$]
-$F(W^\lambda) = S^\lambda$ において、ペアリングは整合的。$0 \to \mathrm{rad}W^\lambda \to W^\lambda \to L^\lambda \to 0$ に $F$ を適用して
+まず、$F(W^\lambda) = S^\lambda$ において、ペアリングが整合的なことを示す
+
+$$
+\langle \varphi_\mathfrak{s}, \varphi_\mathfrak{t} \rangle \varphi_{\mathsf{T}^\lambda\mathsf{T}^\lambda} \equiv \varphi_{\mathsf{T}^\lambda\mathfrak{s}} \circ \varphi_{\mathfrak{t}\mathsf{T}^\lambda} \mod \check{\mathscr{S}}^\lambda(d, n)
+$$
+
+だから、$\bmod \ \check{\mathscr{H}}^\lambda$ で
+
+$$
+\begin{aligned}
+  \langle \varphi_\mathfrak{s}, \varphi_\mathfrak{t} \rangle m_\lambda &\equiv \varphi_{\mathsf{T}^\lambda\mathfrak{s}}(m_{\mathfrak{t}\mathfrak{t}^\lambda}) \\
+  &= \varphi_{\mathsf{T}^\lambda\mathfrak{s}}(m_\omega m_{\mathfrak{t}\mathfrak{t}^\lambda}) \\
+  &= m_{\mathfrak{t}^\lambda\mathfrak{s}}m_{\mathfrak{t}\mathfrak{t}^\lambda} \\
+  &\equiv \langle m_\mathfrak{s}, m_\mathfrak{t} \rangle m_\lambda
+\end{aligned}
+$$
+
+$0 \to \mathrm{rad}W^\lambda \to W^\lambda \to L^\lambda \to 0$ に $F$ を適用して
 
 $$
 0 \to F(\mathrm{rad}W^\lambda) \to F(W^\lambda) \to F(L^\lambda) \to 0
@@ -910,21 +927,21 @@ $$
 \end{aligned}
 $$
 
-2 つ目を示せば良い。まず、$\varphi_{\mathsf{T}^\mu\mathsf{T}^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = M^\mu$ を示す
+2 つ目を示せば良い。まず、$1_{M^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = M^\mu$ を示す
 
 $$
 \begin{aligned}
-  \varphi_{\mathsf{T}^\mu\mathsf{T}^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} &= \mathrm{Hom}_\mathscr{H}(M^\omega, M^\mu) \\
+  1_{M^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} &= \mathrm{Hom}_\mathscr{H}(M^\omega, M^\mu) \\
   &= M^\mu \cap M^\omega \\
   &= \mathrm{span}_R \{ m_{\mathsf{S}\mathfrak{t}} \mid \lambda \vdash n, \mathsf{S} \in \mathrm{SStd}(\lambda, \mu), \mathrm{Std}(\lambda) \} \\
   &= M^\mu
 \end{aligned}
 $$
 
-$\sum_{\mu \in \Lambda(d, n)} \varphi_{\mathsf{T}^\mu\mathsf{T}^\mu} = 1_{\mathscr{S}(d, n)}$ だから
+$\sum_{\mu \in \Lambda(d, n)} 1_{M^\mu} = 1_{\mathscr{S}(d, n)}$ だから
 
 $$
-\mathcal{M} = \bigoplus_{\mu \in \Lambda(d, n)} \varphi_{\mathsf{T}^\mu\mathsf{T}^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = \mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}
+\mathcal{M} = \bigoplus_{\mu \in \Lambda(d, n)} 1_{M^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = \mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}
 $$
 
 よって

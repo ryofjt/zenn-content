@@ -433,7 +433,7 @@ $$
 が成り立つ。非自明な関係式 $\sum_{\mathfrak{t} \in \mathrm{Std}(\lambda)} r_\mathfrak{t} v_\mathfrak{t} = 0 \ (r_\mathfrak{t} \in R)$ があると仮定する。$r_\mathfrak{t} \ne 0$ となる $\mathfrak{t} \in \mathrm{Std}(\lambda)$ の中で $\le_\mathrm{aux}$ に関して最大なものを $\mathfrak{t}_0$ とする。$\mathfrak{t} \in \mathrm{Std}(\lambda)$ と $c \in C_\mathfrak{t}$ は $r_\mathfrak{t} \ne 0$ かつ $\bar{\mathfrak{t}}_0 = \overline{\mathfrak{t}c}$ を満たすとする。$\mathfrak{t}_0 \le_\mathrm{aux} \mathfrak{t}c \le_\mathrm{aux} \mathfrak{t}$ だから、$\mathfrak{t}_0 = \mathfrak{t}$ かつ $c = e$。よって、$\bar{\mathfrak{t}}_0$ の係数は $r_{\mathfrak{t}_0}$ であり、矛盾する
 
 [生成すること]
-$\mathfrak{t} \in \mathrm{Tab}(\lambda)$ とすると、$c \in C_\mathfrak{t}$ に対して、$v_{\mathfrak{t}c} = \bar{\mathfrak{t}}b_{\mathfrak{t}}1_c = \mathrm{sgn}(c)\bar{\mathfrak{t}}b_{\mathfrak{t}} = \mathrm{sgn}(c)v_\mathfrak{t}$ が成り立つ。よって、$\mathfrak{t} \in \mathrm{CStd}(\lambda)$ に対して、$v_\mathfrak{t} \in \sum_{\mathfrak{t} \in \mathrm{Std}(\lambda)} R v_\mathfrak{t}$ を示せば良い。$d_\mathrm{col}(\mathfrak{t})$ に関する帰納法を使う。$d_\mathrm{col}(\mathfrak{t}) = 0$ の場合は明らか。$d_\mathrm{col}(\mathfrak{t}) > 0$ とする。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。ある位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i, j + 1}$。$A$ を $\mathfrak{t}$ の位置 $(i, j)$ から位置 $(\lambda'_j, j)$ までの要素の集合とし、$B$ を $\mathfrak{t}$ の位置 $(1, j + 1)$ から位置 $(i, j + 1)$ までの要素の集合とする。$(\mathfrak{S}(A) \times \mathfrak{S}(B)) \backslash \mathfrak{S}(A \sqcup B)$ の最短完全代表系を $X$ とする
+$\mathfrak{t} \in \mathrm{Tab}(\lambda)$ とすると、$c \in C_\mathfrak{t}$ に対して、$v_{\mathfrak{t}c} = \bar{\mathfrak{t}}b_{\mathfrak{t}}1_c = \mathrm{sgn}(c)\bar{\mathfrak{t}}b_{\mathfrak{t}} = \mathrm{sgn}(c)v_\mathfrak{t}$ が成り立つ。よって、$\mathfrak{t} \in \mathrm{CStd}(\lambda)$ に対して、$v_\mathfrak{t} \in \sum_{\mathfrak{u} \in \mathrm{Std}(\lambda)} R v_\mathfrak{u}$ を示せば良い。$d_\mathrm{col}(\mathfrak{t})$ に関する帰納法を使う。$d_\mathrm{col}(\mathfrak{t}) = 0$ の場合は明らか。$d_\mathrm{col}(\mathfrak{t}) > 0$ とする。$\mathfrak{t} \not\in \mathrm{Std}(\lambda)$ として良い。ある位置 $(i, j)$ が存在して、$\mathfrak{t}_{ij} > \mathfrak{t}_{i, j + 1}$。$A$ を $\mathfrak{t}$ の位置 $(i, j)$ から位置 $(\lambda'_j, j)$ までの要素の集合とし、$B$ を $\mathfrak{t}$ の位置 $(1, j + 1)$ から位置 $(i, j + 1)$ までの要素の集合とする。$(\mathfrak{S}(A) \times \mathfrak{S}(B)) \backslash \mathfrak{S}(A \sqcup B)$ の最短完全代表系を $X$ とする
 
 $$
 v_{\mathfrak{t}} \sum_{x \in X} \mathrm{sgn}(x)1_x = 0
@@ -586,11 +586,7 @@ $\sum_{\lambda \vdash n, \mathfrak{s}, \mathfrak{t} \in \mathrm{Std}(\lambda)} r
 (1') $i, i + 1$ が $\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の異なる列かつ異なる行にあるならば、$r_{\mathfrak{s}(i, i + 1), \mathfrak{t}} = r_{\mathfrak{s}\mathfrak{t}}$
 (2') $i, i + 1$ が $\mathfrak{t}^\mu$ の同じ行にあり、$\mathfrak{s}$ の同じ列にあるならば、$r_{\mathfrak{s}\mathfrak{t}} = 0$
 
-(1) $\Leftrightarrow$ (1') は直前の補題から明らか。(2) $\Rightarrow$ (2') も明らか。(2') $\Rightarrow$ (2) を示す。$i < j$ として良い。$j$ を取り替えれば、$j$ は $\mathfrak{s}$ の中で $i$ の真下にあるとして良い。$\mathfrak{s}' \coloneqq \mathfrak{s}(i + 1, i + 2, \dots, j)$ とすると、$\mathfrak{s}' \in \mathrm{Std}(\lambda)$ かつ $\mathfrak{s}'$ 内で $i, i + 1$ は同じ列にある。よって、(1) から
-
-$$
-r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}'\mathfrak{t}} = 0
-$$
+(1) $\Leftrightarrow$ (1') は直前の補題から明らか。(2) $\Rightarrow$ (2') も明らか。(2') $\Rightarrow$ (2) を示す。$i < j$ として良い。$j$ を取り替えて、$i, j$ は $\mathfrak{s}$ 内で隣接するとしてよい。$j - i$ に関する帰納法を使う。$j - i = 1$ の場合は明らか。$j - i > 1$ とする。$i + 1, \dots, j - 1$ のうち $i, j$ よりも左側にあるもの全体を $X$ とし、右側にあるもの全体を $Y$ とする。$X = \emptyset$ ならば、$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}s_{j - 1}, \mathfrak{t}} = 0$。$X \ne \emptyset$ とする。さらに、$\min X$ に関する帰納法を使う。$\min X = i + 1$ ならば、$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}s_i, \mathfrak{t}} = 0$。$\min X > i + 1$ とする。$r_{\mathfrak{s}\mathfrak{t}} = r_{\mathfrak{s}s_{\min X - 1}, \mathfrak{t}} = 0$
 
 $$
 \begin{aligned}
@@ -778,7 +774,7 @@ $$
 
 $\mathfrak{s} \ne \mathfrak{t}$ ならば $\langle f_\mathfrak{s}, f_\mathfrak{t} \rangle = 0$
 
-$\langle f_\mathfrak{s}, f_\mathfrak{t} \rangle = \langle f_\mathfrak{s}F_s, f_\mathfrak{t} \rangle = \langle f_\mathfrak{s}, f_\mathfrak{t}F_s \rangle = 0$
+$\langle f_\mathfrak{s}, f_\mathfrak{t} \rangle = \langle f_\mathfrak{s}F_\mathfrak{s}, f_\mathfrak{t} \rangle = \langle f_\mathfrak{s}, f_\mathfrak{t}F_\mathfrak{s} \rangle = 0$
 
 $1 \le i \le n - 1$
 $\mathfrak{s} \in \mathrm{Std}(\lambda)$
