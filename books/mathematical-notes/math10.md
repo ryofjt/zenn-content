@@ -623,3 +623,108 @@ $$
   &= \prod_{h \ge 1} \prod_{b, c \in [n], b \ne c, \beta_b - \beta_c < h} [h]_q^{-d_\mu(\beta_1, \dots, \beta_b - h, \dots, \beta_c + h, \dots, \beta_n)}
 \end{aligned}
 $$
+
+$\nu$: 分割
+$(a, b) \in [\nu]$ に対して、$(a, b)$-hook $H^\nu_{ab} \subset [\nu]$ を、行 $a$ の $(a, b)$ 以降の位置たちと列 $b$ の $(a, b)$ 以降の位置たちの合併とする。$h^\nu_{ab} \coloneqq |H^\nu_{ab}| = (\nu_a - b) + (\nu'_b - a) + 1$ を $(a, b)$-hook length という
+
+$(a, b)$-rim hook $R^\nu_{ab} \subset [\nu]$ を、列 $b$ の最後の位置から行 $a$ の最後の位置までの境界の内側に沿った位置たちとする。$|R^\nu_{ab}| = h^\nu_{ab}$
+
+$H^\nu_{ab}$ or $R^\nu_{ab}$ の高さ $\nu'_b - a + 1 \eqqcolon l^\nu_{ab}$ を leg length という
+
+$\nu$: 列数が $n$ 以下の分割
+$\nu$ に対応する beta 数列を $\beta \in \mathcal{B}_n$ とする。$1 \le b \le n$, $h \ge 1$ とする。$(\beta_1, \dots, \beta_b - h, \dots, \beta_n) \in \mathcal{A}_n^\mathrm{reg}$ と、$[\nu]$ において列 $b$ の最後の位置から境界の内側に沿って上または右方向に $h$ 個取り除くことが可能かつ取り除いた後の図形がある分割 $\nu^*$ に対応することは同値。さらに、$1 \le a \le \nu'_b$ が存在して $h = H^\nu_{ab}$ と表せることとも同値。このとき
+
+$$
+d_\xi(\beta_1, \dots, \beta_b - h, \dots, \beta) = (-1)^{h^\nu_{ab} - l^\nu_{ab}}|\mathrm{SStd}(\nu^*, \xi)|
+$$
+
+$\nu$: 列数が $n$ 以下の分割
+$\nu$ に対応する beta 数列を $\beta \in \mathcal{B}_n$ とする。$1 \le b \le n$, $h \ge 1$ とする。$(\beta_1, \dots, \beta_b + h, \dots, \beta_n) \in \mathcal{A}_n^\mathrm{reg}$ と、$[\nu]$ に対して列 $b$ の最後の位置の 1 つ下の位置から境界の外側に沿って下または左方向に $h$ 個追加した後の図形がある分割 $\tilde{\nu}$ に対応することは同値。このとき、追加した $h$ 個の部分の幅を $w$ とすると
+
+$$
+d_\xi(\beta_1, \dots, \beta_b + h, \dots, \beta) = (-1)^{w - 1}|\mathrm{SStd}(\tilde{\nu}, \xi)|
+$$
+
+[Thm]
+$\lambda$ に対応する beta 数列を $\beta \in \mathcal{B}_n$ とすると
+
+$$
+g^\lambda_\mu = \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)}
+$$
+
+$g^\lambda_\mu = \prod_{h \ge 1} \prod_{b, c \in [n], b \ne c, \beta_b - \beta_c < h} [h]_q^{-d_\mu(\beta_1, \dots, \beta_b - h, \dots, \beta_c + h, \dots, \beta_n)}$ だった。$\beta_b - \beta_c < h$ だから $d_\mu(\beta_1, \dots, \beta_b - h, \dots, \beta_c, \dots, \beta_n) = 0$ ならば $d_\mu(\beta_1, \dots, \beta_b - h, \dots, \beta_c + h, \dots, \beta_n) = 0$。よって
+
+$$
+\begin{aligned}
+  g^\lambda_\mu &= \prod_{b \in [n], 1 \le a \le \lambda_b'} \prod_{c \in [n], b \ne c, \beta_b - \beta_c < h^\lambda_{ab}} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_b - h^\lambda_{ab}, \dots, \beta_c + h^\lambda_{ab}, \dots, \beta_n)} \\
+  &= \prod_{a \ge 1} \prod_{1 \le b \le \lambda_a} \prod_{c \in [n], b \ne c, \beta_b - \beta_c < h^\lambda_{ab}} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_b - h^\lambda_{ab}, \dots, \beta_c + h^\lambda_{ab}, \dots, \beta_n)} \\
+  &= \prod_{a \ge 1} \prod_{1 \le b \le \lambda_a} \prod_{1 \le c < b} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_c + h^\lambda_{ab}, \dots, \beta_b - h^\lambda_{ab}, \dots, \beta_n)} \\
+  &\qquad \times \prod_{a \ge 1} \prod_{1 \le b \le \lambda_a} \prod_{b < c \le n, \beta_b - \beta_c < h^\lambda_{ab}} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_b - h^\lambda_{ab}, \dots, \beta_c + h^\lambda_{ab}, \dots, \beta_n)}
+\end{aligned}
+$$
+
+$\beta_k$ は $(\lambda'_k, k)$ と $(0, n)$ のマンハッタン距離だから
+
+$$
+\begin{aligned}
+  &\prod_{a \ge 1} \prod_{1 \le b \le \lambda_a} \prod_{b < c \le n, \beta_b - \beta_c < h^\lambda_{ab}} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_b - h^\lambda_{ab}, \dots, \beta_c + h^\lambda_{ab}, \dots, \beta_n)} \\
+  &= \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_b - h^\lambda_{ab}, \dots, \beta_c + h^\lambda_{ab}, \dots, \beta_n)} \\
+  &= \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} [h^\lambda_{ab}]_q^{-d_\mu(\beta_1, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_n)} \\
+  &= \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} [h^\lambda_{ab}]_q^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)}
+\end{aligned}
+$$
+
+総合すると
+
+$$
+\begin{aligned}
+  g^\lambda_\mu &= \prod_{a \ge 1} \prod_{1 \le c \le \lambda_a} \prod_{1 \le b < c} [h^\lambda_{ac}]_q^{-d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)} \\
+  &\qquad \times \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} [h^\lambda_{ab}]_q^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)} \\
+  &= \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)}
+\end{aligned}
+$$
+
+[例]
+$\lambda = (3, 2)$, $\mu = (2, 2, 1)$
+$B \coloneqq (a, b)$, $C \coloneqq (a, c)$ の割り当ては
+
+$$
+\begin{aligned}
+  \begin{array}{l}
+    \boxed{\mathrlap{B}\phantom{X}}\boxed{\mathrlap{C}\phantom{X}}\boxed{\phantom{X}} \\
+    \boxed{\phantom{X}}\boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& \begin{array}{l}
+    \boxed{\mathrlap{B}\phantom{X}} \\
+    \boxed{\phantom{X}} \\
+    \boxed{\phantom{X}} \\
+    \boxed{\phantom{X}} \\
+    \boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& 1 \\
+  \begin{array}{l}
+    \boxed{\mathrlap{B}\phantom{X}}\boxed{\phantom{X}}\boxed{\mathrlap{C}\phantom{X}} \\
+    \boxed{\phantom{X}}\boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& \begin{array}{l}
+    \boxed{\mathrlap{B}\phantom{X}}\boxed{\phantom{X}} \\
+    \boxed{\phantom{X}}\boxed{\phantom{X}} \\
+    \boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& \left(\frac{[4]_q}{[1]_q}\right)^1 \\
+  \begin{array}{l}
+    \boxed{\phantom{X}}\boxed{\mathrlap{B}\phantom{X}}\boxed{\mathrlap{C}\phantom{X}} \\
+    \boxed{\phantom{X}}\boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& \begin{array}{l}
+    \boxed{\phantom{X}}\boxed{\mathrlap{B}\phantom{X}} \\
+    \boxed{\phantom{X}}\boxed{\phantom{X}} \\
+    \phantom{\boxed{\phantom{X}}}\boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& 1 \\
+  \begin{array}{l}
+    \boxed{\phantom{X}}\boxed{\phantom{X}}\boxed{\phantom{X}} \\
+    \boxed{\mathrlap{B}\phantom{X}}\boxed{\mathrlap{C}\phantom{X}}
+  \end{array} &\rightsquigarrow& \begin{array}{l}
+    \boxed{\phantom{X}}\boxed{\phantom{X}}\boxed{\phantom{X}} \\
+    \boxed{\mathrlap{B}\phantom{X}} \\
+    \boxed{\phantom{X}}
+  \end{array} &\rightsquigarrow& \left(\frac{[2]_q}{[1]_q}\right)^1
+\end{aligned}
+$$
+
+よって、$g^\lambda_\mu = [4]_q[2]_q$
