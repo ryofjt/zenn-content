@@ -489,7 +489,7 @@ $$
 x = p(i(x)) = p(\sum_{k = 1}^n i_k(x)e_k) = \sum_{k = 1}^n i_k(x)p(e_k)
 $$
 
-$(R \to R / L) \circ i_k = 0$ だから、$i_k(x) \in L$。よって、$L = L^2$。$\bar{R} \coloneqq R / J(R)$ とし、$\pi: R \twoheadrightarrow \bar{R}$ とする。$\bar{R}$ の両側イデアル $\pi(L)$ は中心的冪等元 $\bar{e} \in \pi(L)$ で $\pi(L) = \bar{R}\bar{e}$ と表せる。$\pi(L) = (L + J(R)) / J(R) \simeq L / (L \cap J(R)) \subset R / (L \cap J(R))$。$J(R) \subset R$ は冪零な両側イデアルだから、$L \cap J(R) \subset R$ も冪零な両側イデアルであり、$\bar{e}$ は冪等元 $e \in L$ に持ち上がる。$ReR \subset L$ だが、一致することを示す。$\pi(L) = \overline{Re}$ だから、$L \subset Re + J(R)$。$L = L^2 \subset ReR + J(R)L$。よって、$J(R)(L / ReR) = L / ReR$ だから $L / ReR = 0$。また、$0 = LJ(R)L = ReJ(R)eR$ だから、$eJ(R)e = 0$。最後に、$\mu: Re \otimes_{eRe} eR \twoheadrightarrow ReR$ が単射を示す。$L = ReR$ は射影的だから $0 \to \mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0$ は分裂する完全列。(完全) 関手 $M \mapsto \mathrm{Hom}_R(Re, M) = eM$ を適用して
+$(R \to R / L) \circ i_k = 0$ だから、$i_k(x) \in L$。よって、$L = L^2$。$\bar{R} \coloneqq R / J(R)$ とし、$\pi: R \twoheadrightarrow \bar{R}$ とする。$\bar{R}$ の両側イデアル $\pi(L)$ は中心冪等元 $\bar{e} \in \pi(L)$ で $\pi(L) = \bar{R}\bar{e}$ と表せる。$\pi(L) = (L + J(R)) / J(R) \simeq L / (L \cap J(R)) \subset R / (L \cap J(R))$。$J(R) \subset R$ は冪零な両側イデアルだから、$L \cap J(R) \subset R$ も冪零な両側イデアルであり、$\bar{e}$ は冪等元 $e \in L$ に持ち上がる。$ReR \subset L$ だが、一致することを示す。$\pi(L) = \overline{Re}$ だから、$L \subset Re + J(R)$。$L = L^2 \subset ReR + J(R)L$。よって、$J(R)(L / ReR) = L / ReR$ だから $L / ReR = 0$。また、$0 = LJ(R)L = ReJ(R)eR$ だから、$eJ(R)e = 0$。最後に、$\mu: Re \otimes_{eRe} eR \twoheadrightarrow ReR$ が単射を示す。$L = ReR$ は射影的だから $0 \to \mathrm{Ker}\mu \to Re \otimes_{eRe} eR \to ReR \to 0$ は分裂する完全列。(完全) 関手 $M \mapsto \mathrm{Hom}_R(Re, M) = eM$ を適用して
 
 $$
 0 \to e\mathrm{Ker}\mu \to eR \to eR \to 0
