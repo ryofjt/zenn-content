@@ -821,7 +821,7 @@ $$
 
 以降は、$R$ は体 $K$ とする
 
-$\langle \varphi_{\mathsf{T}^\lambda}, \varphi_{\mathsf{T}^\lambda} \rangle = 1$ だから、$W^\lambda$ 上のペアリングは消えない。よって、$\Lambda^+_0(d, n) = \Lambda^+(d, n)$。$\mathcal{S}(d, n)$ は quasi-hereditary
+$\langle \varphi_{\mathsf{T}^\lambda}, \varphi_{\mathsf{T}^\lambda} \rangle = 1$ だから、$W^\lambda$ 上のペアリングは消えない。よって、$\Lambda^+_0(d, n) = \Lambda^+(d, n)$。$\mathscr{S}(d, n)$ は quasi-hereditary
 
 $\lambda \in \Lambda^+(d, n)$ に対応する既約 $\mathscr{S}(d, n)$ 加群を $L^\lambda$ で表す
 

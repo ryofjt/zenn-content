@@ -246,7 +246,7 @@ $\mathscr{S}_{\mathbb{Q}, -1}(d, 5) \ (d \ge 5)$, $\mathscr{H}_{\mathbb{Q}, -1}(
 # $\mathscr{S}(d, n)$ のブロック
 
 $\lambda$: 分割
-$e \ge 1$
+$1 \le e \le \infty$
 $[\lambda]$ から長さ $e$ の rim hook を可能な限り取り除いた図形に対応する分割を $\lambda$ の $e$-core という
 
 [Lem]
@@ -347,3 +347,87 @@ $$
 $$
 
 $\mathrm{id}_{Me_i} \in \mathrm{End}_{e_i\mathscr{H}}(Me_i) \ne 0$ だから、$\mathscr{S}(n, n)$ のブロック数は $b$ 以上
+
+# $\nu_p([h]_{\hat{q}})$
+
+$K$: 標数 $l$ の体
+$p \in K[\hat{q}]$: 定数項が $0$ でない既約多項式
+$\hat{q} \in (K[\hat{q}] / (p))^\times$ の $q$-標数を $e$ とする
+
+$h \in \mathbb{Z} \setminus \{0\}$ とすると
+
+$$
+\nu_p([h]_{\hat{q}}) = \begin{cases}
+  0 &\quad (h \not\equiv 0 \mod e) \\
+  \nu_p([e]_{\hat{q}}) &\quad (h \equiv 0 \mod e, l = 0) \\
+  l^x\nu_p([e]_{\hat{q}}) + (l^x - 1)\nu_p(\hat{q} - 1) &\quad (h \equiv 0 \mod e, l > 0)
+\end{cases}
+$$
+
+ただし、3 つ目の場合では $x \coloneqq \nu_l(h / e) \in \mathbb{Z}_{\ge 0}$ とした
+
+[1 つ目]
+$\nu_p([h]_{\hat{q}}) > 0$ $\Leftrightarrow$ $[h]_{\hat{q}} = 0 \mod p$ $\Leftrightarrow$ ($e < \infty$ かつ) $h \in e\mathbb{Z}$
+
+[2 つ目]
+$e < \infty$。$h = ek$ とする。$Q \coloneqq \hat{q}^e$ とすると、$Q \equiv 1 \mod p$。$[ek]_{\hat{q}}(\hat{q} - 1) = Q^k - 1 = (\hat{q} - 1)[e]_{\hat{q}}\frac{Q^k - 1}{Q - 1}$。$K$ は標数 $0$ だから、$\frac{Q^k - 1}{Q - 1} \equiv k \not\equiv 0 \mod p$。よって、$\nu_p([ek]_{\hat{q}}) = \nu_p([e]_{\hat{q}})$
+
+[3 つ目]
+$e < \infty$。$u \not\equiv 0 \mod l$ があって、$h = eul^x$。Frobenius 写像を考えて、$[h]_{\hat{q}}(\hat{q} - 1) = Q^{ul^x} - 1^{l^x} = (Q^u - 1)^{l^x}$。$Q^u - 1 = (\hat{q} - 1)[e]_{\hat{q}}\frac{Q^u - 1}{Q - 1}$。$\frac{Q^u - 1}{Q - 1} \equiv u \not\equiv 0 \mod p$。よって、$\nu_p([h]_{\hat{q}^e}) = l^x(\nu_p(\hat{q} - 1) + \nu_p([e]_{\hat{q}})) - \nu_p(\hat{q} - 1)$
+
+# $W^\lambda, S^\lambda$ の既約性判定
+
+$K$: 標数 $l$ の体
+$q \in K^\times$
+$d \ge n$
+
+$p \coloneqq \hat{q} - q \in K[\hat{q}]$
+
+$h \in \mathbb{Z} \setminus \{0\}$ に対して
+
+$$
+\nu_{e, l}(h) \coloneqq \begin{cases}
+  \nu_l(h / e) &\quad (h \equiv 0 \mod e, l > 0) \\
+  0 &\quad (h \equiv 0 \mod e, l = 0) \\
+  -1 &\quad (h \not\equiv 0 \mod e)
+\end{cases}
+$$
+
+と定義する
+
+$\lambda \vdash n$
+以下は同値
+(1) $W^\lambda$ が既約
+(2) 任意の $a \ge 1$, $1 \le b < c \le \lambda_a$ に対して、$\nu_p([h^\lambda_{ab}]_{\hat{q}}) = \nu_p([h^\lambda_{ac}]_{\hat{q}})$
+(3) 任意の $a \ge 1$, $1 \le b < c \le \lambda_a$ に対して、$\nu_{e, l}(h^\lambda_{ab}) = \nu_{e, l}(h^\lambda_{ac})$
+
+(2) $\Leftrightarrow$ (3) は示した
+
+(2) $\Rightarrow$ (1)
+Jantzen sum formula から、$\mathrm{rad}W^\lambda = 0$
+
+(1) $\Rightarrow$ (2) の対偶
+Jantzen sum formula から、ある $a \ne 0$ と $\mu \vdash n$ が存在して、$K(\mathrm{Mod}_\mathrm{fg}\text{-}\mathscr{S}(d, n))$ 内で
+
+$$
+\sum_{k \ge 1} W^\lambda(k) \in aW^\mu + \sum_{\nu \not\trianglerighteq \mu} \mathbb{Z}W^\nu
+$$
+
+$a > 0$ もわかる。よって、ある $b > 0$ が存在して、$\mathrm{rad}W^\lambda \in bW^\mu + \sum_{\nu \not\trianglerighteq \mu} \mathbb{Z}W^\nu$
+
+$W^\lambda$ が既約ならば、$\lambda$ は $e$-restricted なこともわかる。これは以下の議論からもわかる。$W^\lambda$ は既約とする。$W^\lambda = L^\lambda$ だから $0 \ne S^\lambda = F(L^\lambda)$。よって、$\lambda$ は $e$-restricted
+
+[Prop]
+$\lambda \vdash n$
+以下は同値
+(1) $\lambda$ は $e$-restricted かつ $S^\lambda$ は既約
+(2) $W^\lambda$ は既約
+(3) 任意の $a \ge 1$, $1 \le b < c \le \lambda_a$ に対して、$\nu_{e, l}(h^\lambda_{ab}) = \nu_{e, l}(h^\lambda_{ac})$
+
+(2) $\Leftrightarrow$ (3) と (2) $\Rightarrow$ (1) は示した。(1) $\Rightarrow$ (2) を示す。$W^\lambda$ の Gram 行列が $0$ でないことを示せば良い。仮定から、$S^\lambda = D^\lambda$ だから、$W^\lambda_\omega = S^\lambda$ の Gram 行列は $0$ でない。よって
+
+$$
+G^\lambda_\omega = \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)} \ne 0
+$$
+
+よって、任意の $a \ge 1, 1 \le b < c \le \lambda_a$ に対して、$d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) = 0$ または $[h^\lambda_{ab}]_q \ne 0$。$W^\lambda = \bigoplus_{\mu \in \Lambda(d, n)} W^\lambda_\mu$ は直交分解だから、$\mu \in \Lambda(d, n)$ に対して、$G^\lambda_\mu = \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)}$ が消えないことを示せば良い。$d_\nu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) \ne 0$ ならば $d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) \ne 0$ から従う
