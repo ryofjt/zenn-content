@@ -430,4 +430,28 @@ $$
 G^\lambda_\omega = \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)} \ne 0
 $$
 
-よって、任意の $a \ge 1, 1 \le b < c \le \lambda_a$ に対して、$d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) = 0$ または $[h^\lambda_{ab}]_q \ne 0$。$W^\lambda = \bigoplus_{\mu \in \Lambda(d, n)} W^\lambda_\mu$ は直交分解だから、$\mu \in \Lambda(d, n)$ に対して、$G^\lambda_\mu = \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)}$ が消えないことを示せば良い。$d_\nu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) \ne 0$ ならば $d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) \ne 0$ から従う
+よって、任意の $a \ge 1, 1 \le b < c \le \lambda_a$ に対して、$d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) = 0$ または $[h^\lambda_{ab}]_q \ne 0$。$W^\lambda = \bigoplus_{\mu \in \Lambda(d, n)} W^\lambda_\mu$ は直交分解だから、$\mu \in \Lambda(d, n)$ に対して、$G^\lambda_\mu = \prod_{a \ge 1} \prod_{1 \le b < c \le \lambda_a} \left(\frac{[h^\lambda_{ab}]_q}{[h^\lambda_{ac}]_q}\right)^{d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n)}$ が消えないことを示せば良い。$d_\mu(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) \ne 0$ ならば $d_\omega(\beta_1, \dots, \beta_b + h^\lambda_{ac}, \dots, \beta_c - h^\lambda_{ac}, \dots, \beta_n) \ne 0$ から従う
+
+# $\#$
+
+$R$: 可換環
+$q \in R^\times$
+
+$T_s^\# \coloneqq -qT_s^{-1} = -T_s + q - 1$
+
+$(T_s^\# - q)(T_s^\# + 1) = (-T_s - 1)(-T_s + q) = 0$
+
+$$
+\begin{aligned}
+  \overbrace{T_s^\#T_t^\#T_s^\# \cdots}^{m_{st}} &= (-q)^{m_{st}}\overbrace{T_s^{-1}T_t^{-1}T_s^{-1} \cdots}^{m_{st}} \\
+  &= (-q)^{m_{st}}\overbrace{T_s^{-1}T_t^{-1}T_s^{-1} \cdots}^{m_{st}} \\
+  &= (-q)^{m_{st}}\overbrace{T_t^{-1}T_s^{-1}T_t^{-1} \cdots}^{m_{st}} \\
+  &= \overbrace{T_t^\#T_s^\#T_t^\# \cdots}^{m_{st}}
+\end{aligned}
+$$
+
+$R$ 代数の射 $\#: \mathscr{H} \to \mathscr{H}$ が定まる
+
+$(T_s^\#)^\# = -T_s^\# + q - 1 = T_s$ だから $\#^2 = 1$
+
+$T_w^\# = (-q)^{\ell(w)}T^{-1}_{w^{-1}}$
