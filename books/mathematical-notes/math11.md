@@ -455,3 +455,12 @@ $R$ 代数の射 $\#: \mathscr{H} \to \mathscr{H}$ が定まる
 $(T_s^\#)^\# = -T_s^\# + q - 1 = T_s$ だから $\#^2 = 1$
 
 $T_w^\# = (-q)^{\ell(w)}T^{-1}_{w^{-1}}$
+
+# 分割の支配順序
+
+$\lambda, \mu \vdash n$
+以下は同値
+(1) $\lambda \trianglelefteq \mu$
+(2) 分割たち $\lambda = \lambda_0, \lambda_1, \dots, \lambda_k = \mu$ が存在して、$\lambda_{i + 1}$ は $\lambda_i$ のある行の最後をより下の行の最後に移動したものになっている
+
+(2) $\Rightarrow$ (1) は明らか。(1) $\Rightarrow$ (2) を示す。$\lambda$ に関する帰納法を使う。$\lambda \ne \mu$ とする。$s_j \coloneqq \sum_{i \le j} \lambda_i$, $t_j \coloneqq \sum_{i \le j} \mu_i$ とする。$\lambda_a \ne \mu_a$ となる最小の $a$ を取る。$s_a < t_a$。$|\lambda| = |\mu|$ だから、ある $b > a$ が存在して、$s_b = t_b$。$a \le c < b$ ならば $s_c < t_c$ として良い。$a = 1$ または $\lambda_a < \lambda_{a - 1}$。$\lambda_b > \lambda_{b + 1}$。$b$ 行目の最後を $a$ 行目の最後に移動した分割を $\lambda'$ とする。$\lambda \triangleleft \lambda' \trianglelefteq \mu$

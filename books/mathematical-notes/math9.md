@@ -177,7 +177,7 @@ $$
 よって、$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} = q^{\ell(w)} [\mu]_q^! \mathscr{H} T_{d(\mathfrak{u})} m_{\nu} T_v$。以降は、$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} \in [\mu]_q^!\mathscr{H} \cap \mathscr{H}m_\nu\mathscr{H}$ なことのみを使う。$\lambda \not\trianglerighteq \nu$ と $\lambda \trianglerighteq \nu$ で場合分けする。まず、$\lambda \not\trianglerighteq \nu$ の場合を考える。$\vec{\nu}$ を $\nu$ を並べ替えた $n$ の分割とすると、$\vec{\nu} \trianglerighteq \nu$ だから、$\lambda \not\trianglerighteq \vec{\nu}$。よって
 
 $$
-m_{\mathfrak{t}^{\lambda}\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)} \in \mathscr{H}^{\lambda} \cap \mathscr{H}m_\nu\mathscr{H} = \mathscr{H}^\lambda \cap \mathscr{H}m_{\vec{\nu}}\mathscr{H} \subset \mathscr{H}^\lambda \cap \mathscr{H}^{\vec{\nu}} \subset \check{\mathscr{H}}^\lambda
+m_{\mathfrak{t}^{\lambda}\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} \in \mathscr{H}^{\lambda} \cap \mathscr{H}m_\nu\mathscr{H} = \mathscr{H}^\lambda \cap \mathscr{H}m_{\vec{\nu}}\mathscr{H} \subset \mathscr{H}^\lambda \cap \mathscr{H}^{\vec{\nu}} \subset \check{\mathscr{H}}^\lambda
 $$
 
 次に、$\lambda \trianglerighteq \nu$ の場合を考える。両辺に和が $-n + \lambda_1$ になる $\mathbb{Z}$ の列 $(-\lambda_1, -\lambda_2 + \mu_1, -\lambda_3 + \mu_2, \dots)$ を足して先頭の $0$ を取り除くと $\mu \trianglerighteq (\lambda_1 - \lambda_2, \lambda_2 - \lambda_3, \dots) = \bar{\lambda}_1$。定義から、$[\mu]_q^! \in R g_1$。$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)} \in g_1 \mathscr{H} \cap \mathscr{H}^\lambda$ だから
