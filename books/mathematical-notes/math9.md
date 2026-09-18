@@ -183,10 +183,10 @@ $$
 次に、$\lambda \trianglerighteq \nu$ の場合を考える。両辺に和が $-n + \lambda_1$ になる $\mathbb{Z}$ の列 $(-\lambda_1, -\lambda_2 + \mu_1, -\lambda_3 + \mu_2, \dots)$ を足して先頭の $0$ を取り除くと $\mu \trianglerighteq (\lambda_1 - \lambda_2, \lambda_2 - \lambda_3, \dots) = \bar{\lambda}_1$。定義から、$[\mu]_q^! \in R g_1$。$m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} \in g_1 \mathscr{H} \cap \mathscr{H}^\lambda$ だから
 
 $$
-m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)} = g_1 \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r_\mathfrak{v} m_{\mathfrak{t}^\lambda\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda
+m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}} = g_1 \sum_{\mathfrak{v} \in \mathrm{Std}(\lambda)} r_\mathfrak{v} m_{\mathfrak{t}^\lambda\mathfrak{v}} \mod \check{\mathscr{H}}^\lambda
 $$
 
-と展開できる。$(m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_(\lambda_1)})^* \in M_{(\lambda_1, \overbrace{1, \dots, 1}^{\sum_{j \ge 2} \lambda_j})}$ だから、$r_\mathfrak{v} \ne 0$ ならば、$1, \dots, \lambda_1$ は $\mathfrak{v}$ の異なる列にある。よって、$r_\mathfrak{v} \ne 0$ ならば $\mathfrak{v}$ の 1 行目は $1, \dots, \lambda_1$ でなければならない
+と展開できる。$(m_{\mathfrak{t}^\lambda\mathfrak{t}} m_{\mathfrak{S}_{\lambda_1}})^* \in M_{(\lambda_1, \overbrace{1, \dots, 1}^{\sum_{j \ge 2} \lambda_j})}$ だから、$r_\mathfrak{v} \ne 0$ ならば、$1, \dots, \lambda_1$ は $\mathfrak{v}$ の異なる列にある。よって、$r_\mathfrak{v} \ne 0$ ならば $\mathfrak{v}$ の 1 行目は $1, \dots, \lambda_1$ でなければならない
 
 $K$: 体
 $q \in K^\times$
