@@ -485,7 +485,7 @@ https://zenn.dev/link/comments/85b993ae05292a
 https://zenn.dev/link/comments/98f3bdb80d8a33
 
 $V$: 符号 $(1, d - 1)$ の Minkowski 空間
-$G \coloneqq \mathrm{Spin}_0(V)$
+$G \coloneqq \mathrm{Spin}(V)$
 $P \coloneqq G \ltimes V$
 
 $\rho: G \curvearrowright \mathbb{R}$: 自明表現

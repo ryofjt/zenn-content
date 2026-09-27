@@ -534,7 +534,7 @@ $\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\downarrow j
 $(j)d(\mathfrak{t})^{-1} > (k)d(\mathfrak{t})^{-1}$ だから $(j, k) \in T_R(d(\mathfrak{t}))$。よって、$d(\mathfrak{t})(j, k) \triangleright d(\mathfrak{t})$。$\mathfrak{s}$ は $\mathfrak{S}_\mu d(\mathfrak{t})(j, k)$ の中で $\triangleright$ に関して最大なことから従う
 
 (1) $\Rightarrow$ (3) の対偶
-$\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\mathfrak{s}(j, k)$ の各行を並べ替えたものは $\mathfrak{t}$ だから、(1) $\Rightarrow$ (3) から $d(\mathfrak{t}) \triangleright d(\mathfrak{s})$
+$\mathfrak{t}$ 内で $k$ は $j$ よりも下にあるとする。$\mathfrak{s}(j, k)$ の各行を並べ替えたものは $\mathfrak{t}$ だから、(3) $\Rightarrow$ (1) から $d(\mathfrak{t}) \triangleright d(\mathfrak{s})$
 
 [定理]
 $\mu$: composition

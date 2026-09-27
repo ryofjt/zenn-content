@@ -794,7 +794,7 @@ $$
 https://zenn.dev/ryoaq/books/mathematical-notes/viewer/math1#wightman-%E3%81%AE%E5%85%AC%E7%90%86%E3%82%92%E6%BA%80%E3%81%9F%E3%81%99%E3%83%A2%E3%83%87%E3%83%AB
 
 $V$: 符号 $(1, d - 1)$ の Minkowski 空間
-$G \coloneqq \mathrm{Spin}_0(V)$
+$G \coloneqq \mathrm{Spin}(V)$
 $P \coloneqq G \ltimes V$
 
 $\rho: G \curvearrowright \Pi S^-$

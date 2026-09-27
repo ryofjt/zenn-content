@@ -29,7 +29,21 @@ $\mathrm{Std}(\lambda)$ を $\trianglerighteq$ に関して極小なものから
 
 既約 $\mathscr{L}$ 加群はある $\mathfrak{t} \in \bigsqcup_{\lambda \vdash n} \mathrm{Std}(\lambda)$ で $\mathscr{L}_{\rho^\mathfrak{t}}$ と表せる
 
-任意の既約 $\mathscr{L}$ 加群は $\mathscr{H}$ のある既約加群を $\mathscr{L}$ 加群とみなしたものの組因子に現れることから従う
+任意の既約 $\mathscr{L}$ 加群は $\mathscr{H}$ のある既約加群を $\mathscr{L}$ 加群とみなしたものの組成因子に現れることから従う
+
+$A$: 左 Artin 環
+$B \subset A$: 左 Artin 部分環
+任意の既約 $B$ 加群は $A$ のある既約加群を $B$ 加群とみなしたものの組成因子に現れる
+
+$0 = M_0 \subset M_1 \subset \cdots \subset M_k = A$ を組成列とする。$B$ 加群として $0 = M_0 \cap B \subset M_1 \cap B \subset \cdots \subset M_k \cap B = B$。部分商は
+
+$$
+\begin{aligned}
+  (M_i \cap B) / (M_{i - 1} \cap B) &= (M_i \cap B) / ((M_i \cap B) \cap M_{i - 1}) \\
+  &\simeq ((M_i \cap B) + M_{i - 1}) / M_{i - 1} \\
+  &\subset M_i / M_{i - 1}
+\end{aligned}
+$$
 
 # 既約 $\mathscr{H}$ 加群
 
@@ -911,6 +925,13 @@ $$
 $$
 
 $F(\mathrm{rad}W^\lambda) = F(W^\lambda)^\perp$。よって、$\lambda$ が $e$-restricted ならば $F(L^\lambda) = D^\lambda$ かつ $\lambda$ が $e$-restricted でないならば $F(L^\lambda) = 0$
+
+$R$: 単位的環
+$e \in R$: 冪等元
+$S$: 単純 $R$ 加群
+$eRe$ 加群 $eS$ は $0$ または単純
+
+$eS \ne 0$ とする。$x \in eS \setminus \{0\}$ とする。$eRx = eS$ を示せば良い。$Rx = S$ から従う
 
 # The double centralizer property
 
