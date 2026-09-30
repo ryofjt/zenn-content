@@ -8,6 +8,7 @@ https://zenn.dev/link/comments/9d71c6e6abbc28
 
 https://zenn.dev/link/comments/d24f97806b9829
 
+$d \ge 2$
 $V$: 符号 $(1, d - 1)$ の Minkowski 空間
 $P \coloneqq V \times \mathbb{R}$: 自明な $\mathbb{R}$ 主束
 $\mathcal{F} \coloneqq \{ P \text{ 上の接続の同型類} \} = \{ d\theta + \alpha \mid \alpha \in \Omega^1(V) \} / \{ \text{完全形式} \}$
@@ -183,7 +184,7 @@ $$
 # Wightman QFT of free abelian gauge theory
 
 $V$: $d$ 次元の Minkowski 空間
-$G \coloneqq \mathrm{Spin}_0(V)$
+$G \coloneqq \mathrm{Spin}(V)$
 $P \coloneqq G \ltimes V$
 
 $\rho: G \curvearrowright \wedge^2 V^*$
@@ -215,7 +216,7 @@ $$
 
 は正定値。$I$ は $P$ 同変だから、$P \curvearrowright H_+$, $U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus_{n = 0}^\infty} S^n H_+$ が誘導される。$D_+ \coloneqq \{ f \in \mathcal{S}(\mathcal{O}_0^+, V \otimes \mathbb{C}) \mid pf(p) = 0, f(0) = 0 \} / \{ pc(p) \mid c \in \mathcal{S}(\mathcal{O}_0^+, \mathbb{C}) \} \subset H_+$, $\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n D_+$ とし、$\Omega \coloneqq 1 \in \mathcal{D}$
 
-$\varphi: \mathcal{S}(\mathcal{R}) \to \mathrm{End}(D)$ を
+$\varphi: \mathcal{S}(\mathcal{R}) \to \mathrm{End}(\mathcal{D})$ を
 
 $$
 \varphi(\omega) \coloneqq \varepsilon_{k_\omega} + \iota_{(\cdot, k_\omega)}
@@ -258,54 +259,362 @@ ${}$(3) $\mathcal{D}$ は $\varphi(\omega_1) \cdots \varphi(\omega_n)\Omega$ で
 
 $\{ k_\omega \mid \omega \in \mathcal{S}(\mathcal{R}) \} \otimes \mathbb{C} = D_+$ から従う。証明はおサボり
 
-# 一般の free Wightman QFT
+# $\mathrm{Spin}(V), \mathrm{Pin}(V), \widetilde{\mathrm{Spin}}(V), \widetilde{\mathrm{Pin}}(V)$
 
 https://zenn.dev/link/comments/eec29d6e814a2a
+
+$(V, Q)$: 符号 $(p, q)$ の不定値計量を持つ $\mathbb{R}$ 線形空間
+
+$C(V) \ni v \mapsto -v \in C(V)$ は $\mathbb{R}$ 代数の同型
+
+$$
+\begin{aligned}
+  G &\coloneqq \{ g \in C(V)^\times \mid (-1)^{p(g)}gVg^{-1} \subset V \} \\
+  G^+ &\coloneqq \{ g \in (C(V)^+)^\times \mid gVg^{-1} \subset V \}
+\end{aligned}
+$$
+
+$G \ni v \mapsto R_v \in O(V)$ があるが
+
+$$
+\begin{aligned}
+  1 \to \mathbb{R}^\times \to G \to O(V) \to 1 \\
+  1 \to \mathbb{R}^\times \to G^+ \to SO(V) \to 1
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  G &= \{ \mathbb{R}^\times v_1 \cdots v_k \mid Q(v_i) = \pm 1 \} \\
+  G^+ &= \{ \mathbb{R}^\times v_1 \cdots v_k \mid k \text{ は偶数かつ } Q(v_i) = \pm 1 \}
+\end{aligned}
+$$
+
+$N: G \ni v \mapsto Q(v) \in \mathbb{R}^\times$ があるが
+
+$$
+\begin{aligned}
+  \mathrm{Pin}(V) &\coloneqq N^{-1}(1) \\
+  \mathrm{Spin}(V) &\coloneqq (N|_{G^+})^{-1}(1) \\
+  \widetilde{\mathrm{Pin}}(V) &\coloneqq N^{-1}(\{\pm 1\}) \\
+  \widetilde{\mathrm{Spin}}(V) &\coloneqq (N|_{G^+})^{-1}(\{\pm 1\})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \mathrm{Spin}(V) &= \{ \pm v_1 \cdots v_k \mid k \text{ は偶数かつ } Q(v_i) = \pm 1, Q(v_1) \cdots Q(v_k) = 1 \} \\
+  \mathrm{Pin}(V) &= \{ \pm v_1 \cdots v_k \mid Q(v_i) = \pm 1, Q(v_1) \cdots Q(v_k) = 1 \} \\
+  \widetilde{\mathrm{Spin}}(V) &= \{ \pm v_1 \cdots v_k \mid k \text{ は偶数かつ } Q(v_i) = \pm 1 \} \\
+  \widetilde{\mathrm{Pin}}(V) &= \{ \pm v_1 \cdots v_k \mid Q(v_i) = \pm 1 \}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  1 \to \mathbb{Z} / 2\mathbb{Z} \to &\mathrm{Spin}(V) \to SO(V) \cap O_{\mathrm{space}}(V) = SO_0(V) = SO^+(V) \to 1 \\
+  1 \to \mathbb{Z} / 2\mathbb{Z} \to &\mathrm{Pin}(V) \to O_{\mathrm{space}}(V) \to 1 \\
+  1 \to \mathbb{Z} / 2\mathbb{Z} \to &\widetilde{\mathrm{Spin}}(V) \to SO(V) \to 1 \\
+  1 \to \mathbb{Z} / 2\mathbb{Z} \to &\widetilde{\mathrm{Pin}}(V) \to O(V) \to 1
+\end{aligned}
+$$
+
+ただし
+
+$$
+O_{\mathrm{space}}(p, q) \coloneqq \left\{ \begin{pmatrix}
+  A & B \\
+  C & D
+\end{pmatrix} \in O(p, q) \mid \mathrm{det} D > 0 \right\}
+$$
+
+一般的には、$\mathrm{Spin}(V)$, $\widetilde{\mathrm{Spin}}(V)$, $\widetilde{\mathrm{Pin}}(V)$ は $\mathrm{Spin}^+(V)$, $\mathrm{Spin}(V)$, $\mathrm{Pin}(V)$ と表記されるが、一般の体上での定義との整合性を優先する
+
+# $\mathrm{Spin}(V_\mathbb{C}), \mathrm{Pin}(V_\mathbb{C})$
+
+$(V_\mathbb{C}, Q)$: 非退化 2 次形式付き $\mathbb{C}$ 線形空間
+
+$$
+\begin{aligned}
+  1 \to \mathbb{C}^\times \to G \to O(V_\mathbb{C}) \to 1 \\
+  1 \to \mathbb{C}^\times \to G^+ \to SO(V_\mathbb{C}) \to 1
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  G &= \{ \mathbb{C}^\times v_1 \cdots v_k \mid Q(v_i) = 1 \} \\
+  G^+ &= \{ \mathbb{C}^\times v_1 \cdots v_k \mid k \text{ は偶数かつ } Q(v_i) = 1 \}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \mathrm{Pin}(V_\mathbb{C}) &\coloneqq \mathrm{Ker}N \\
+  \mathrm{Spin}(V_\mathbb{C}) &\coloneqq \mathrm{Ker}(N|_{G^+})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  \mathrm{Spin}(V_\mathbb{C}) &= \{ \pm v_1 \cdots v_k \mid k \text{ は偶数かつ } Q(v_i) = 1 \} \\
+  \mathrm{Pin}(V_\mathbb{C}) &= \{ \pm v_1 \cdots v_k \mid Q(v_i) = 1 \}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  1 \to \mathbb{Z} / 2\mathbb{Z} \to &\mathrm{Spin}(V_\mathbb{C}) \to SO(V_\mathbb{C}) \to 1 \\
+  1 \to \mathbb{Z} / 2\mathbb{Z} \to &\mathrm{Pin}(V_\mathbb{C}) \to O(V_\mathbb{C}) \to 1
+\end{aligned}
+$$
+
+# $\mathcal{O}^\mathbb{C}_m$
+
+$d \ge 3$
+$(V_\mathbb{C}, Q)$: 次元 $d$ の非退化 2 次形式付き $\mathbb{C}$ 線形空間
+$m \in \mathbb{C}$
+
+$SO(V_\mathbb{C}) \curvearrowright \mathcal{O}^\mathbb{C}_m \coloneqq \{ z \in V_\mathbb{C} \mid z^2 = m^2 \}$ は推移的
+
+まず、$m \ne 0$ とする。$p \in \mathcal{O}^\mathbb{C}_m$ とする。$\frac{1}{m}p$ は正規直交基底に延長できるから、$SO(V_\mathbb{C}) \curvearrowright \mathcal{O}^\mathbb{C}_m$ は推移的。$p$ の固定部分群は $SO(p^\perp)$ だから
+
+$$
+\mathcal{O}^\mathbb{C}_m \simeq SO(d, \mathbb{C}) / SO(d - 1, \mathbb{C})
+$$
+
+$m \ne 0$ の場合は、$d = 2$ でも成立する
+
+$m = 0$ とする。$p \in \mathcal{O}^\mathbb{C}_0$ とする。$q \in V_\mathbb{C}$ を $Q(p, q) = 2$ に取る。$q + \mathbb{C}p$ を考えれば、$Q(q) = 0$ として良い。$e_0 \coloneqq \frac{1}{2}(p + q)$, $e_1 \coloneqq \frac{i}{2}(p - q)$ とすると、$Q(e_i, e_j) = \delta_{ij}$。$V_\mathbb{C} = \mathbb{C}e_0 \oplus \mathbb{C}e_1 \oplus \langle e_0, e_1 \rangle^\perp$ と直交分解できる。よって、$SO(V_\mathbb{C}) \curvearrowright \mathcal{O}^\mathbb{C}_0$ は推移的。$p$ の固定部分群を $H$ とすると
+
+$$
+1 \to p^\perp / \mathbb{C}p \xrightarrow{j} H \to SO(p^\perp / \mathbb{C}p) \to 1
+$$
+
+$j$ は $vp \in \mathfrak{spin}(V_\mathbb{C}) \subset C^+(V_\mathbb{C}) \ (v \in p^\perp)$ を用いて
+
+$$
+j(v)w \coloneqq e^{vp}we^{-vp}
+$$
+
+と定義する。この完全列は $q$ に依存した右分裂を持つから
+
+$$
+\mathcal{O}^\mathbb{C}_0 \simeq SO(d, \mathbb{C}) / SE(d - 2, \mathbb{C})
+$$
+
+# 一般の free Wightman QFT
+
+https://zenn.dev/link/comments/85b993ae05292a
 
 https://zenn.dev/link/comments/6cc59876307ee9
 
 $m \ge 0$
+$d \ge 3$
 $V$: 次元 $d$ の Minkowski 空間
-$G \coloneqq \mathrm{Spin}_0(V)$
-
-$p_0 \in \mathcal{O}_m^+$ を固定する。$m > 0$ ならば
-
-$$
-G_{p_0} = \mathrm{Spin}(p_0^\perp)
-$$
-
-$m = 0$ ならば
+$V_\mathbb{C} \coloneqq V \otimes \mathbb{C}$
+$G \coloneqq \mathrm{Spin}(V)$
+$G^\mathbb{C} \coloneqq \mathrm{Spin}(V_\mathbb{C})$
+$G \curvearrowright \mathcal{O}_m^+, G^\mathbb{C} \curvearrowright \mathcal{O}^\mathbb{C}_m$ は推移的
+$p_0 \in \mathcal{O}_m^+$ を固定する。$G_{p_0}$ を固定部分群とする。$G_{\pm p_0} \coloneqq \{ g \in G \mid g p_0 = \pm p_0 \} = G_{p_0}$ だから $G^\mathbb{C}$ 内で
 
 $$
-1 \to p_0^\perp / \mathbb{R}p_0 \xrightarrow{j} G_{p_0} \to \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \to 1
+G^\mathbb{C}_{\pm p_0} \coloneqq \{ g \in G^\mathbb{C} \mid g p_0 = \pm p_0 \}
 $$
 
-$j$ は $\frac{1}{2} v p_0 \in \mathfrak{spin}(V) \subset C^+(V) \ (v \in p_0^\perp)$ を用いて
+を考える。$m > 0$ ならば
 
 $$
-j(v) \coloneqq e^{\frac{1}{2} v p_0} = 1 + \frac{1}{2} v p_0
+\begin{aligned}
+  G_{p_0} &= \mathrm{Spin}(p_0^\perp) \eqqcolon K_{p_0} \\
+  G^\mathbb{C}_{\pm p_0} &= \mathrm{Spin}(p_0^\perp \otimes \mathbb{C}) \sqcup \tilde{p}_0(\mathrm{Pin}(p_0^\perp \otimes \mathbb{C}) \setminus \mathrm{Spin}(p_0^\perp \otimes \mathbb{C})) \\
+  &= \{ \pm \tilde{p}_0^\varepsilon z_1 \cdots z_k \mid \varepsilon \in \{0, 1\}, \varepsilon + k \text{ は偶数}, z_i \in p^\perp \otimes \mathbb{C}, Q(z_i) = 1 \} \eqqcolon K^\mathbb{C}_{\pm p_0}
+\end{aligned}
 $$
 
-と定義する。この完全列は右分裂を持つから、$G_{p_0} \simeq \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \ltimes (p_0^\perp / \mathbb{R}p_0)$
-
-$G_{p_0}$ の半単純部分 $G'$ は
+ただし、$\tilde{p}_0 \coloneqq \frac{1}{m}p_0$。$p_0^\perp$ は負定値なことに注意。$\mathrm{Pin}(p_0^\perp \otimes \mathbb{C}) \ni v \mapsto \tilde{p}_0v \in K^\mathbb{C}_{\pm p_0}$ は同型
 
 $$
-G' \coloneqq \begin{cases}
-  G_{p_0} \simeq \mathrm{Spin}(p_0^\perp) &\quad (m > 0) \\
-  G_{p_0} / (p_0^\perp / \mathbb{R}p_0) \simeq \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) &\quad (m = 0)
-\end{cases}
+K \coloneqq \{ \pm (i\tilde{p}_0)^\varepsilon v_1 \cdots v_k \mid \varepsilon \in \{0, 1\}, \varepsilon + k \text{ は偶数}, v_i \in p_0^\perp, Q(v_i) = -1 \}
 $$
 
-であり、コンパクト
+とすると、$K^\mathbb{C}_{\pm p_0}$ は $K$ の複素化。$\widetilde{\mathrm{Pin}}(p_0^\perp) \ni v \mapsto i\tilde{p}_0v \in K$ は同型。$m = 0$ ならば
 
-実 super 表現 $G \curvearrowright \rho$, $G' \curvearrowright \alpha$ と $0$ でない $G_{p_0}$ 準同型
+$$
+1 \to p_0^\perp / \mathbb{R}p_0 \xrightarrow{j} G_{p_0} \xrightarrow{\pi} \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \eqqcolon K_{p_0} \to 1
+$$
+
+$j$ は $v p_0 \in \mathfrak{spin}(V) \subset C^+(V) \ (v \in p_0^\perp)$ を用いて
+
+$$
+j(v) \coloneqq e^{v p_0} = 1 + v p_0
+$$
+
+と定義する。$\pi$ は $G_{p_0} \subset C(p_0^\perp)$ と $C(p_0^\perp) \to C(p_0^\perp / \mathbb{R}p_0)$ から誘導される。$q_0 \in V$ を $Q(p_0, q_0) = 2$ を満たすように取る。$q_0 + \mathbb{R}p_0$ を考えれば、$Q(q_0) = 0$ として良い。$e_0 \coloneqq \frac{1}{2}(p_0 + q_0)$, $e_1 \coloneqq \frac{1}{2}(p_0 - q_0)$ とする。$Q(e_0) = 1$, $Q(e_1) = -1$, $Q(e_0, e_1) = 0$ であり、$p_0^\perp / \mathbb{R}p_0 \simeq \langle p_0, q_0 \rangle^\perp = \langle e_0, e_1 \rangle^\perp$。$v, w \in \langle p_0, q_0 \rangle^\perp$ に対して
+
+$$
+\begin{aligned}
+  j(v) p_0 j(v)^{-1} &= (1 + vp_0)p_0(1 - vp_0) = p_0 \\
+  j(v) q_0 j(v)^{-1} &= -4Q(v)p_0 + q_0 + 4v \\
+  j(v) w j(v)^{-1} &= -2Q(v, w)p_0 + w
+\end{aligned}
+$$
+
+だから、https://zenn.dev/ryoaq/scraps/49d25b1a8a203e#comment-6cc59876307ee9 とも整合的
+
+$$
+1 \to (p_0^\perp / \mathbb{R}p_0) \otimes \mathbb{C} \xrightarrow{j} G^\mathbb{C}_{\pm p_0} \to K^\mathbb{C}_{\pm p_0} \to 1
+$$
+
+ただし、$K^\mathbb{C}_{\pm p_0}$ は以下のように定義する。$\gamma \coloneqq ie_0e_1 = i(1 - \frac{1}{2}p_0q_0)$ とすると $\gamma^2 = -1$ であり
+
+$$
+\begin{aligned}
+  K^\mathbb{C}_{\pm p_0} &\coloneqq \mathrm{Spin}((p_0^\perp / \mathbb{R}p_0) \otimes \mathbb{C}) \sqcup \gamma \mathrm{Spin}((p_0^\perp / \mathbb{R}p_0) \otimes \mathbb{C}) \\
+  &\simeq \mathrm{Coker}(\mathbb{Z} / 2\mathbb{Z} \xrightarrow{(-1, \gamma^2)} \mathrm{Spin}((p_0^\perp / \mathbb{R}p_0) \otimes \mathbb{C}) \times \mathbb{Z} / 4\mathbb{Z})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  K &\coloneqq \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \sqcup \gamma \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \\
+  &\simeq \mathrm{Coker}(\mathbb{Z} / 2\mathbb{Z} \xrightarrow{(-1, \gamma^2)} \mathrm{Spin}(p_0^\perp / \mathbb{R}p_0) \times \mathbb{Z} / 4\mathbb{Z})
+\end{aligned}
+$$
+
+とすると、$K^\mathbb{C}_{\pm p_0}$ は $K$ の複素化
+
+$q_0$ に依存した右分裂を考えると
+
+$$
+\begin{aligned}
+  G_{p_0} &\simeq K_{p_0} \ltimes (p_0^\perp / \mathbb{R}p_0) \\
+  G^\mathbb{C}_{\pm p_0} &\simeq K^\mathbb{C}_{\pm p_0} \ltimes ((p_0^\perp / \mathbb{R}p_0) \otimes \mathbb{C})
+\end{aligned}
+$$
+
+再び、$m \ge 0$ とする。$\tau \coloneqq -1 \in C(V)$ の作用による固有空間分解と整合的な有限次元実 super 表現 $\rho: G \curvearrowright R$, $\alpha: K_{p_0} \curvearrowright A$ と $G_{p_0}$ 準同型
 
 $$
 i: \rho|_{G_{p_0}} \to \alpha
 $$
 
-を固定する
+を固定する。$\alpha: K_{p_0} \curvearrowright A_\mathbb{C} \coloneqq A \otimes \mathbb{C}$ は $K^\mathbb{C}_{\pm p_0}$ の表現に拡張すると仮定する。$A_0 \perp A_1$ を満たす $A$ 上の内積 $\langle -, - \rangle: A \times A \to \mathbb{R}$ で $A_\mathbb{C}$ 上
+
+$$
+\langle g\xi, g\eta \rangle = (-1)^{|\xi|\varepsilon(g)} \langle \xi, \eta \rangle \quad (\xi, \eta \in A_\mathbb{C}, g \in K^\mathbb{C}_{\pm p_0}, gp_0 = (-1)^{\varepsilon(g)}p_0)
+$$
+
+なものを固定する。このようなペアリングが存在することは、以下のようにしてわかる。$A_0 \perp A_1$ を満たす $A$ 上の内積 $\langle -, - \rangle_0: A \times A \to \mathbb{R}$ を取る。$\langle -, - \rangle_0$ を $A_\mathbb{C}$ 上に Hermite に拡張したものを $(-, -)_0: A_\mathbb{C} \times A_\mathbb{C} \to \mathbb{C}$ とする。$\xi, \eta \in A_\mathbb{C}$ に対して
+
+$$
+\begin{aligned}
+  (\xi, \eta) &\coloneqq \int_{g \in K} (g\xi, g\eta)_0 \, dg \\
+  &= \int_{g \in K} \langle g\xi, \overline{g\eta} \rangle_0 \, dg
+\end{aligned}
+$$
+
+$\langle \xi, \eta \rangle \coloneqq (\xi, \bar{\eta})$ とする。$x, y \in A$ に対して、$\langle x, y \rangle \in \mathbb{R}$ を示す。$\bar{g} = g\tau^{\varepsilon(g)}$ に注意すると
+
+$$
+\begin{aligned}
+  \overline{\langle x, y \rangle} &= \overline{(x, y)} \\
+  &= \int_{g \in K} \langle \bar{g}x, gy \rangle_0 \, dg \\
+  &= (-1)^{\varepsilon(g)|x|} \int_{g \in K} \langle gx, gy \rangle_0 \, dg \\
+  &= (-1)^{\varepsilon(g)|y|} \int_{g \in K} \langle gx, gy \rangle_0 \, dg \\
+  &= \int_{g \in K} \langle gx, \overline{gy} \rangle_0 \, dg \\
+  &= (x, y) \\
+  &= \langle x, y \rangle
+\end{aligned}
+$$
+
+よって、$\langle -, - \rangle: A \times A \to \mathbb{R}$ は内積になる。また、$g \in K$ に対して
+
+$$
+\begin{aligned}
+  \langle g\xi, g\eta \rangle &= (g\xi, \overline{g\eta}) \\
+  &= (-1)^{\varepsilon(g)|\eta|} (g\xi, g\bar{\eta}) \\
+  &= (-1)^{\varepsilon(g)|\xi|} (\xi, \bar{\eta}) \\
+  &= (-1)^{\varepsilon(g)|\xi|} \langle \xi, \eta \rangle
+\end{aligned}
+$$
+
+$K^\mathbb{C}_{\pm p_0} \ni g \mapsto \langle g\xi, g\eta \rangle \in \mathbb{C}$, $K^\mathbb{C}_{\pm p_0} \ni g \mapsto (-1)^{\varepsilon(g)|\xi|} \langle \xi, \eta \rangle = (\frac{1}{2}Q(gp_0, q_0))^{|\xi|} \langle \xi, \eta \rangle \in \mathbb{C}$ は正則で、$K$ 上一致する。よって、上の式は $g \in K^\mathbb{C}_{\pm p_0}$ でも成り立つ
+
+$\mathcal{A} \coloneqq G \times_{G_{p_0}} A \to \mathcal{O}^+_m$ は正定値計量を持つ。$\mathcal{A}_\mathbb{C} \coloneqq G^\mathbb{C} \times_{G^\mathbb{C}_{p_0}} A_\mathbb{C} \to \mathcal{O}^\mathbb{C}_m$ は整合的
+
+$$
+H \coloneqq \{ f \in L^2(\mathcal{O}_m, \mathcal{A}_\mathbb{C}) \mid f(-p) = \overline{f(p)} \}
+$$
+
+$h, k \in H$ に対して
+
+$$
+[h, k] \coloneqq \int_{\mathcal{O}^+_m} \mathrm{Im}(i^{|h|}\langle h(p), \overline{k(p)} \rangle) \, d\mu(p)
+$$
+
+は super symplectic form を定める
+
+$$
+\begin{aligned}
+  [k, h] &= \int_{\mathcal{O}^+_m} \mathrm{Im}(i^{|k|}\langle k(p), \overline{h(p)} \rangle) \, d\mu(p) \\
+  &= (-1)^{|h|} \int_{\mathcal{O}^+_m} \mathrm{Im}(\overline{i^{|h|}\langle h(p), \overline{k(p)} \rangle}) \, d\mu(p) \\
+  &= -(-1)^{|h|} [h, k]
+\end{aligned}
+$$
+
+退化しないことは、$[h, (-i)^{1 - |h|}h] = \int_{\mathcal{O}_m^+} \langle h(p), \overline{h(p)} \rangle \, d\mu(p)$ から従う
+
+$I: H \to H$ を
+
+$$
+Ih(p) \coloneqq \begin{cases}
+  ih(p) &\quad (p \in \mathcal{O}^+_m) \\
+  -ih(p) &\quad (p \in \mathcal{O}^-_m)
+\end{cases}
+$$
+
+で定義する。$H \otimes \mathbb{C} \simeq L^2(\mathcal{O}_m, \mathcal{A}_\mathbb{C})$。$I_\mathbb{C}$ の $\pm i$ 固有空間は $H_{\pm} = L^2(\mathcal{O}^\pm_m, \mathcal{A}_\mathbb{C})$
+
+$H_+$ 上の Hermite 形式が誘導される。$h \in H_+$ とする。$h = \frac{1}{2}(h(p) + \overline{h(-p)}) - \frac{i}{2}(ih(p) - i\overline{h(-p)})$ だから、$h$ の $H$ に関する共役は $\overline{h(-p)}$。$h$ が even ならば
+
+$$
+\begin{aligned}
+  (h, h) &= \frac{i}{2}[h(p), \overline{h(-p)}] \\
+  &= -\frac{1}{4} [h(p) + \overline{h(-p)}, ih(p) - i\overline{h(-p)}] \\
+  &= \frac{1}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{h(p)} \rangle \, d\mu(p)
+\end{aligned}
+$$
+
+よって、$h, k \in H_+$ が even ならば
+
+$$
+(h, k) = \frac{1}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{k(p)} \rangle \, d\mu(p)
+$$
+
+$h$ が odd ならば
+
+$$
+\begin{aligned}
+  (h, h) &= \frac{i}{2}[h(p), \overline{h(-p)}] \\
+  &= \frac{i}{8} ([h(p) + \overline{h(-p)}, h(p) + \overline{h(-p)}] + [ih(p) - i\overline{h(-p)}, ih(p) - i\overline{h(-p)}]) \\
+  &= \frac{i}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{h(p)} \rangle \, d\mu(p)
+\end{aligned}
+$$
+
+よって、$h, k \in H_+$ が odd ならば
+
+$$
+(h, k) = \frac{i}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{k(p)} \rangle \, d\mu(p)
+$$
+
+総合すると
+
+$$
+(h, k) = \frac{i^{|h|}}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{k(p)} \rangle \, d\mu(p) \quad (h, k \in H_+)
+$$
+
+よって、$H_+$ 上の Hermite 形式は正定値。$I$ は $P \coloneqq G \ltimes V$ 不変だから、$P \curvearrowright H_+, U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty S^n H_+$ が誘導される。$m > 0$ ならば、$D_+ \coloneqq \mathcal{S}(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C})$ とする。$m = 0$ ならば、$\mathcal{S}(\mathcal{O}^+_0, \mathcal{A}_\mathbb{C})$ ??? $D_+$ はどう定義するの？？
 
 [Free scalar]
 $\rho \coloneqq \mathbb{R}$, $\alpha \coloneqq \mathbb{R}$, $i \coloneqq \mathrm{id}_{\mathbb{R}}$
