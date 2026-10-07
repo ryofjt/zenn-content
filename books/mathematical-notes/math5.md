@@ -403,6 +403,66 @@ $$
 \mathcal{O}^\mathbb{C}_0 \simeq SO(d, \mathbb{C}) / SE(d - 2, \mathbb{C})
 $$
 
+# Peter$\text{--}$Weyl の定理
+
+$G$: コンパクト位相群
+$\hat{G}$: $G$ の $\mathbb{C}$ 上の有限次元既約 unitary 表現の同型類
+$\hat{G}$ は $G$ の unitary とは限らない $\mathbb{C}$ 上の Hilbert 空間上の既約表現の同型類とも一致する
+
+$$
+\widehat{\bigoplus}_{V \in \hat{G}} V^* \otimes V \ni f \otimes v \mapsto (g \mapsto \langle f, gv \rangle) \in L^2(G, \mathbb{C})
+$$
+
+は $G \times G$ の unitary 表現の同型。ただし、$V^* \otimes V$ の内積は、標準的なものの $\frac{1}{\mathrm{dim} V}$ 倍とする
+
+$G \curvearrowright V$ に対して、$\mathcal{R}_V \coloneqq \{ g \mapsto \langle f, gv \rangle \mid f \in V^*, v \in V \} \subset C(G)$ は $G \times G$ 不変な部分空間。$\mathcal{R}_{V \oplus W} = \mathcal{R}_V + \mathcal{R}_W$, $\mathcal{R}_{V \otimes W} = \mathcal{R}_V \cdot \mathcal{R}_W$, $\mathcal{R}_{V^*} = \overline{\mathcal{R}_V}$。Peter$\text{--}$Weyl の定理は
+
+$$
+\widehat{\bigoplus}_{V \in \hat{G}} \mathcal{R}_V = L^2(G, \mathbb{C})
+$$
+
+$V \in \hat{G}$ ならば、$\mathrm{dim}_\mathbb{C} \mathcal{R}_V = (\mathrm{dim}_\mathbb{C} V)^2$
+
+# $SO(n)$ の表現
+
+$V \coloneqq \mathbb{R}^n$
+$V_\mathbb{C} \coloneqq \mathbb{C}^n$
+
+任意の $SO(n)$ の $\mathbb{C}$ 上の既約表現は、$V_\mathbb{C}^{\otimes k} \ (k \ge 0)$ の既約分解に現れる
+
+$G \coloneqq SO(n)$。$R \coloneqq \sum_{k = 0}^\infty \mathcal{R}_{V^{\otimes k}} \subset C(G, \mathbb{R})$ とする。$R$ は部分代数で、$G \subset \mathrm{End}_\mathbb{R}(V)$ だから、$G$ の点を分離する。よって、Stone$\text{--}$Weierstrass の定理から $R \subset C(G, \mathbb{R})$ は稠密。一方、$V_\mathbb{C}^{\otimes k} \ (k \ge 0)$ に現れる既約表現たちを $X \subset \hat{G}$ とすると
+
+$$
+R \otimes \mathbb{C} = \bigoplus_{V \in X} \mathcal{R}_V
+$$
+
+よって、$X = \hat{G}$ でなければならない
+
+# $\mathrm{Spin}(n)$ の表現
+
+$S$ を $C_{2m}(\mathbb{C})$ の既約加群とすると、$\Pi S$ は $C_{2m}(\mathbb{C})$ のもう 1 つの既約加群であり、$S^\pm$ は $C^+_{2m}(\mathbb{C})$ の 2 つの既約加群
+
+$$
+\begin{aligned}
+  C_{2m}(\mathbb{C}) &\simeq \underline{\mathrm{End}}_\mathbb{C}(S) \\
+  C_{2m}^+(\mathbb{C}) &\simeq \mathrm{End}_\mathbb{C}(S^+) \oplus \mathrm{End}_\mathbb{C}(S^-)
+\end{aligned}
+$$
+
+$S$ を $C_{2m + 1}(\mathbb{C})$ の唯一の既約加群とすると、$S^\pm$ は $C^+_{2m + 1}(\mathbb{C})$ 加群として同型で、$C^+_{2m + 1}(\mathbb{C})$ の唯一の既約加群。$Z \subset C_{2m + 1}(\mathbb{C})$ を ungraded center とする。$Z \simeq \mathbb{C}[\varepsilon] / \langle \varepsilon^2 - 1 \rangle$
+
+$$
+\begin{aligned}
+  C_{2m + 1}(\mathbb{C}) &\simeq \underline{\mathrm{End}}_Z(S) \\
+  C_{2m + 1}^+(\mathbb{C}) &\simeq \mathrm{End}_\mathbb{C}(S^+)
+\end{aligned}
+$$
+
+$\mathrm{Spin}(2m)$ の $\mathbb{C}$ 上の既約表現は、$(S^+)^{\otimes k} \otimes (S^-)^{\otimes l} \ (k, l \ge 0)$ の既約分解に現れる
+
+$\mathrm{Spin}(2m + 1)$ の $\mathbb{C}$ 上の既約表現は、$(S^+)^{\otimes k} \ (k \ge 0)$ の既約分解に現れる
+
+
 # 一般の free Wightman QFT
 
 https://zenn.dev/link/comments/85b993ae05292a
@@ -493,10 +553,10 @@ $$
 \end{aligned}
 $$
 
-再び、$m \ge 0$ とする。$\tau \coloneqq -1 \in C(V)$ の作用による固有空間分解と整合的な有限次元実 super 表現 $\rho: G \curvearrowright R$, $\alpha: K_{p_0} \curvearrowright A$ と $G_{p_0}$ 準同型
+再び、$m \ge 0$ とする。$\tau \coloneqq -1 \in C(V)$ の作用による固有空間分解と整合的な有限次元実 super 表現 $\rho: G \curvearrowright R$, $\alpha: K_{p_0} \curvearrowright A$ と全射 $G_{p_0}$ 準同型
 
 $$
-i: \rho|_{G_{p_0}} \to \alpha
+i: \rho|_{G_{p_0}} \twoheadrightarrow \alpha
 $$
 
 を固定する。$\alpha: K_{p_0} \curvearrowright A_\mathbb{C} \coloneqq A \otimes \mathbb{C}$ は $K^\mathbb{C}_{\pm p_0}$ の表現に拡張すると仮定する。$A_0 \perp A_1$ を満たす $A$ 上の内積 $\langle -, - \rangle: A \times A \to \mathbb{R}$ で $A_\mathbb{C}$ 上
@@ -541,11 +601,15 @@ $$
 
 $K^\mathbb{C}_{\pm p_0} \ni g \mapsto \langle g\xi, g\eta \rangle \in \mathbb{C}$, $K^\mathbb{C}_{\pm p_0} \ni g \mapsto (-1)^{\varepsilon(g)|\xi|} \langle \xi, \eta \rangle = (\frac{1}{2}Q(gp_0, q_0))^{|\xi|} \langle \xi, \eta \rangle \in \mathbb{C}$ は正則で、$K$ 上一致する。よって、上の式は $g \in K^\mathbb{C}_{\pm p_0}$ でも成り立つ
 
+$P \coloneqq G \ltimes V$
+
 $\mathcal{A} \coloneqq G \times_{G_{p_0}} A \to \mathcal{O}^+_m$ は正定値計量を持つ。$\mathcal{A}_\mathbb{C} \coloneqq G^\mathbb{C} \times_{G^\mathbb{C}_{p_0}} A_\mathbb{C} \to \mathcal{O}^\mathbb{C}_m$ は整合的
 
 $$
 H \coloneqq \{ f \in L^2(\mathcal{O}_m, \mathcal{A}_\mathbb{C}) \mid f(-p) = \overline{f(p)} \}
 $$
+
+$H$ には $((\Lambda, a)h)(p) \coloneqq e^{ipa}\Lambda h(\Lambda^{-1}p)$ で $P$ が作用する
 
 $h, k \in H$ に対して
 
@@ -576,7 +640,7 @@ $$
 
 で定義する。$H \otimes \mathbb{C} \simeq L^2(\mathcal{O}_m, \mathcal{A}_\mathbb{C})$。$I_\mathbb{C}$ の $\pm i$ 固有空間は $H_{\pm} = L^2(\mathcal{O}^\pm_m, \mathcal{A}_\mathbb{C})$
 
-$H_+$ 上の Hermite 形式が誘導される。$h \in H_+$ とする。$h = \frac{1}{2}(h(p) + \overline{h(-p)}) - \frac{i}{2}(ih(p) - i\overline{h(-p)})$ だから、$h$ の $H$ に関する共役は $\overline{h(-p)}$。$h$ が even ならば
+$H_+$ 上の super Hermite 形式が誘導される。$h \in H_+$ とする。$h = \frac{1}{2}(h(p) + \overline{h(-p)}) - \frac{i}{2}(ih(p) - i\overline{h(-p)})$ だから、$h$ の $H$ に関する共役は $\overline{h(-p)}$。$h$ が even ならば
 
 $$
 \begin{aligned}
@@ -614,7 +678,7 @@ $$
 (h, k) = \frac{i^{|h|}}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{k(p)} \rangle \, d\mu(p) \quad (h, k \in H_+)
 $$
 
-よって、$H_+$ 上の Hermite 形式は正定値。$I$ は $P \coloneqq G \ltimes V$ 不変だから、$P \curvearrowright H_+, U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty S^n H_+$ が誘導される。$m > 0$ ならば、$D_+ \coloneqq \mathcal{S}(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C})$ とする。$m = 0$ ならば、$\mathcal{S}(\mathcal{O}^+_0, \mathcal{A}_\mathbb{C})$ ??? $D_+$ はどう定義するの？？
+よって、$H_+$ 上の Hermite 形式は正定値。$I$ は $P \coloneqq G \ltimes V$ 不変だから、$P \curvearrowright H_+$, $U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty S^n H_+$ が誘導される
 
 [Free scalar]
 $\rho \coloneqq \mathbb{R}$, $\alpha \coloneqq \mathbb{R}$, $i \coloneqq \mathrm{id}_{\mathbb{R}}$
