@@ -2,6 +2,44 @@
 title: "math10"
 ---
 
+# The double centralizer property
+
+$$
+\mathcal{M} \coloneqq \bigoplus_{\mu \in \Lambda(d, n)} M^\mu
+$$
+
+$\mathcal{M}$ は右 $\mathscr{S}(d, n)$ 加群かつ右 $\mathscr{H}$ 加群であり、右 $\mathscr{S}(d, n)$ 作用と右 $\mathscr{H}$ 作用は可換
+
+$$
+\begin{aligned}
+  \mathscr{S}(d, n) = \mathrm{End}_\mathscr{H} \mathcal{M} \\
+  \mathscr{H} = \mathrm{End}_{\mathscr{S}(d, n)} \mathcal{M}
+\end{aligned}
+$$
+
+2 つ目を示せば良い。まず、$1_{M^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = M^\mu$ を示す
+
+$$
+\begin{aligned}
+  1_{M^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} &= \mathrm{Hom}_\mathscr{H}(M^\omega, M^\mu) \\
+  &= M^\mu \cap M^\omega \\
+  &= \mathrm{span}_R \{ m_{\mathsf{S}\mathfrak{t}} \mid \lambda \vdash n, \mathsf{S} \in \mathrm{SStd}(\lambda, \mu), \mathrm{Std}(\lambda) \} \\
+  &= M^\mu
+\end{aligned}
+$$
+
+$\sum_{\mu \in \Lambda(d, n)} 1_{M^\mu} = 1_{\mathscr{S}(d, n)}$ だから
+
+$$
+\mathcal{M} = \bigoplus_{\mu \in \Lambda(d, n)} 1_{M^\mu}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = \mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}
+$$
+
+よって
+
+$$
+\mathrm{Hom}_{\mathscr{S}(d, n)} \mathcal{M} = \mathrm{Hom}_{\mathscr{S}(d, n)}(\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}) = \varphi_{\mathsf{T}^\omega\mathsf{T}^\omega}\mathscr{S}(d, n)\varphi_{\mathsf{T}^\omega\mathsf{T}^\omega} = \mathscr{H}
+$$
+
 # Gram 行列
 
 $R$: 可換環
