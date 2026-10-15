@@ -109,6 +109,28 @@ $$
 
 と定義すればよい
 
+[例]
+$\mathbb{R}^{1|2} \to \mathbb{R}^{1|1}$ は
+
+$$
+\begin{aligned}
+  y &= f(x) + g(x)\theta_1\theta_2 \\
+  \xi &= a(x)\theta_1 + b(x)\theta_2
+\end{aligned}
+$$
+
+で与えられる。$\varphi(y) + \psi(y)\xi \in \mathcal{O}(\mathbb{R}^{1|1})$ の引き戻しを求める
+
+$$
+\varphi(y + r) \sim \sum_{n = 0}^\infty \frac{1}{n!} \varphi^{(n)}(y) r^n
+$$
+
+だから
+
+$$
+\varphi(f(x)) + \varphi'(f(x))g(x)\theta_1\theta_2 + \{\psi(f(x)) + \psi'(f(x))g(x)\theta_1\theta_2\}\{a(x)\theta_1 + b(x)\theta_2\}
+$$
+
 # $S$-points
 
 Superspace $U$ に対して、関手 $\mathsf{sSpace}^\mathrm{op} \ni S \mapsto \mathrm{Hom}_\mathsf{sSpace}(S, U) \in \mathsf{Set}$ を $S$-points という。米田埋め込み
@@ -119,7 +141,7 @@ $$
 
 を考えている。$U(S) \coloneqq \mathrm{Hom}_\mathsf{sSpace}(S, U)$ とする。Superspace の射 $U \to V$ を与えることは、$S$ に関して自然な写像 $U(S) \to V(S)$ を与えることと同値
 
-$\mathbb{R}^{p|q}(S) = \mathcal{O}(S)_0^p \times \mathcal{O}(S)_1^q$
+$\mathbb{R}^{p|q}(S) = \mathcal{O}(S)_0^p \times \mathcal{O}(S)_1^q = (\mathcal{O}(S) \otimes \mathbb{R}^{p|q})_0$
 
 Superspace 上に Lie supergroup の構造を与えることは、$S$-points 上に $S$ に関して自然な群構造を与えることと同値
 
@@ -170,7 +192,7 @@ $$
 GL_{p|q}(\mathbb{R})(S) = \left\{ \begin{pmatrix}
   A & \Theta \\
   \Xi & B
-\end{pmatrix} \in \mathfrak{gl}_{p|q}(\mathbb{R})(S) \middle| \begin{pmatrix}
+\end{pmatrix} \in M_{p|q}(\mathbb{R})(S) \middle| \begin{pmatrix}
   A & \Theta \\
   \Xi & B
 \end{pmatrix} \text{ は可逆} \right\}
@@ -242,4 +264,243 @@ $$
 $$
 
 この演算で $\mathfrak{h}$ は $H$ と同型な Lie group になる
+
+$M \subset \mathbb{R}^n$
+$M$-points は $C^\infty(M, \mathfrak{h})$ であり、$M$-points 上の群構造は
+
+$$
+f \cdot g = f + g + \frac{1}{2}[f, g]
+$$
+
+# $\mathrm{Spin}^+(V)$
+
+$(V, B) \coloneqq (\mathbb{R}^{p + q}, x_1y_1 + \cdots + x_py_p - x_{p + 1}y_{p + 1} - \cdots - x_{p + q}y_{p + q})$: 符号 $(p, q)$ の不定値内積空間
+
+$Q(v) \coloneqq B(v, v)$
+
+$V$ の標準基底を $e_i \ (1 \le i \le p + q)$ とする
+
+$C(V) \coloneqq T(V) / \langle v \otimes v - Q(v)1 \mid v \in V \rangle$ を Clifford 代数という。$vw + wv = 2B(v, w)$
+
+$$
+C(V) = \bigoplus_{1 \le i_1 < \cdots < i_k \le p + q} \mathbb{R} e_{i_1} \cdots e_{i_k}
+$$
+
+であり
+
+$$
+\begin{aligned}
+  e_i^2 &= 1 &\quad (1 \le i \le p) \\
+  e_i^2 &= -1 &\quad (p + 1 \le i \le p + q) \\
+  e_ie_j &= -e_je_i &\quad (i \ne j)
+\end{aligned}
+$$
+
+$Q(v) \ne 0$ とすると
+
+$$
+-vwv^{-1} = -\frac{1}{Q(v)}vwv = -\frac{1}{Q(v)}v(-vw + 2B(w, v)) = w - \frac{2B(w, v)}{Q(v)}v = R_v(w)
+$$
+
+よって、$\mathrm{Pin}(V) \coloneqq \{ v_1 \cdots v_k \mid v_i \in V, Q(v_i) = \pm 1 \}$ とすると
+
+$$
+\mathrm{Pin}(V) \ni v_1 \cdots v_k \mapsto R_{v_1} \cdots R_{v_k} \in O(V)
+$$
+
+によって、$\mathrm{Pin}(V)$ は $V$ に等長に作用する。$k$ が偶数なら、$SO(V)$ を通じて、$Q(v_i) = -1$ となる $i$ の数が偶数なら、$O^+(V)$ を通じて $V$ に作用する。よって
+
+$$
+\mathrm{Spin}^+(V) \coloneqq \{ v_1 \cdots v_k \mid v_i \in V, Q(v_i) = \pm 1, k \text{ は偶数}, Q(v_1) \cdots Q(v_k) = 1 \}
+$$
+
+とすると、$\mathrm{Spin}^+(V)$ は $SO^+(V)$ を通じて $V$ に作用する
+
+$$
+1 \to \{\pm 1\} \to \mathrm{Spin}^+(V) \to SO^+(V) \to 1
+$$
+
+$\mathrm{Spin}^+(V)$ は以下のように closed な形で表せる。Antiautomorphism
+
+$$
+\beta: C(V) \ni v_1 \cdots v_k \mapsto v_k \cdots v_1 \in C(V)
+$$
+
+を用いて $N(x) \coloneqq x\beta(x) \ (x \in C(V))$ とすると
+
+$$
+\mathrm{Spin}^+(V) = \{ x \in C(V)^+ \mid N(x) = 1, xVx^{-1} \subset V \}
+$$
+
+$N(v_1 \cdots v_k) = Q(v_1) \cdots Q(v_k)$ に注意
+
+$C(V)^+$ 加群 $S$ には $\mathrm{Spin}^+(V)$ が作用する。このような $\mathrm{Spin}^+(V)$ の表現をスピン表現という
+
+$p = 1$ の場合について、いくつか具体的に計算する
+
+[$(p, q) = (1, 0)$]
+$C(V) = \mathbb{R}[\varepsilon]$。ただし、$\varepsilon$ は odd で $\varepsilon^2 = 1$
+
+$$
+e_0 \leftrightarrow \varepsilon
+$$
+
+$C(V)^+ = \mathbb{R}$
+$\beta = 1_{C(V)}$
+$N|_{C(V)^+}(a) = a^2$
+$\mathrm{Spin}^+(V) = \{\pm 1\}$
+既約スピン表現は $S = \mathbb{R}$
+$V = S^{\otimes 2}$
+
+[$(p, q) = (1, 1)$]
+$C(V) \simeq M_{1|1}(\mathbb{R})$
+
+$$
+\begin{aligned}
+  e_0 &\leftrightarrow \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix} \\
+  e_1 &\leftrightarrow \begin{pmatrix}
+    0 & -1 \\
+    1 & 0
+  \end{pmatrix}
+\end{aligned}
+$$
+
+$C(V)^+ = \mathbb{R} \times \mathbb{R}$
+$\beta(X) = e_0 X^T e_0^{-1}$
+$N|_{C(V)^+}\left(\begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix}\right) = \begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix} \begin{pmatrix} b & 0 \\ 0 & a \end{pmatrix} = abI$
+$\mathrm{Spin}^+(V) = \left\{ \begin{pmatrix} a & 0 \\ 0 & a^{-1} \end{pmatrix} \middle| a \in \mathbb{R}^\times \right\}$
+既約スピン表現は
+
+$$
+\begin{aligned}
+  &S^+: \mathrm{Spin}^+(V) \ni \begin{pmatrix}
+    a & 0 \\
+    0 & a^{-1}
+  \end{pmatrix} \mapsto a \in R^\times \\
+  &S^-: \mathrm{Spin}^+(V) \ni \begin{pmatrix}
+    a & 0 \\
+    0 & a^{-1}
+  \end{pmatrix} \mapsto a^{-1} \in R^\times
+\end{aligned}
+$$
+
+$V = \mathbb{R}(e_0 - e_1) \oplus \mathbb{R}(e_0 + e_1) = (S^+)^{\otimes 2} \oplus (S^-)^{\otimes 2}$
+
+[$(p, q) = (1, 2)$]
+$C(V) \simeq M_2(\mathbb{R}[\eta])$。ただし、$\eta$ は odd で $\eta^2 = -1$
+
+$$
+\begin{aligned}
+  e_0 &\leftrightarrow \eta \begin{pmatrix}
+    0 & -1 \\
+    1 & 0
+  \end{pmatrix} \\
+  e_1 &\leftrightarrow \eta \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix} \\
+  e_2 &\leftrightarrow \eta \begin{pmatrix}
+    1 & 0 \\
+    0 & -1
+  \end{pmatrix}
+\end{aligned}
+$$
+
+$C(V)^+ = M_2(\mathbb{R})$
+Antiautomorphism $c: \mathbb{R}[\eta] \to \mathbb{R}[\eta]$ を $c(\eta) \coloneqq -\eta$ で定義すると
+$\beta(Z) = e_0 c(Z)^T e_0^{-1}$
+$\beta|_{C(V)^+}(X) = J X^T J^{-1}$。ただし、$J \coloneqq \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$
+$N|_{C(V)^+}\left(\begin{pmatrix} a & b \\ c & d \end{pmatrix}\right) = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} = (ad - bc)I$
+$\mathrm{Spin}^+(V) = SL_2(\mathbb{R})$
+既約スピン表現は $S = \mathbb{R}^2$
+$V = \eta \{ X \in M_2(\mathbb{R}) \mid \mathrm{Tr}X = 0 \} \subset C(V)$
+ペアリング $S \otimes S \to \bigwedge^2 S \simeq \mathbb{R}$ が $\mathrm{Spin}^+(V)$ 不変なことに注意して
+
+$$
+\begin{array}{ccccc}
+  M_2(\mathbb{R}) &\simeq& S^* \otimes S &\simeq& S \otimes S \\
+  \downarrow{\scriptsize{\mathrm{Tr}}} && \downarrow{\scriptsize{\mathrm{Tr}}} && \downarrow \\
+  \mathbb{R} &=& \mathbb{R} &=& \mathbb{R}
+\end{array}
+$$
+
+$\mathrm{Ker}$ を考えれば、$V \simeq \mathrm{Sym}^2 S$
+
+[$(p, q) = (1, 3)$]
+$C(V) \simeq M_2(\mathbb{R}[\eta_1, \eta_2])$。ただし、$\eta_1, \eta_2$ は odd で $\eta_1^2 = \eta_2^2 = -1$ かつ $\eta_1\eta_2 = -\eta_2\eta_1$
+
+$$
+\begin{aligned}
+  e_0 &\leftrightarrow \eta_1 \begin{pmatrix}
+    0 & -1 \\
+    1 & 0
+  \end{pmatrix} \\
+  e_1 &\leftrightarrow \eta_1 \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix} \\
+  e_2 &\leftrightarrow \eta_1 \begin{pmatrix}
+    1 & 0 \\
+    0 & -1
+  \end{pmatrix} \\
+  e_3 &\leftrightarrow \eta_2 I
+\end{aligned}
+$$
+
+$\mathbb{R}[\eta_1, \eta_2]^+ \simeq \mathbb{C}$ ($\eta_1\eta_2 \leftrightarrow i$) だから、$C(V)^+ \simeq M_2(\mathbb{C})$
+Antiautomorphism $c: \mathbb{R}[\eta_1, \eta_2] \to \mathbb{R}[\eta_1, \eta_2]$ を $c(\eta_1) \coloneqq -\eta_1$, $c(\eta_2) \coloneqq -\eta_2$ で定義すると
+$\beta(Z) = e_0 c(Z)^T e_0^{-1}$
+$\beta|_{C(V)^+}(X) = J X^T J^{-1}$。ただし、$J \coloneqq \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$
+$N|_{C(V)^+}\left(\begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}\right) = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix} \begin{pmatrix} \delta & -\beta \\ -\gamma & \alpha \end{pmatrix} = (\alpha\delta - \beta\gamma)I$
+$\mathrm{Spin}^+(V) = SL_2(\mathbb{C})$
+既約スピン表現は $S = \mathbb{C}^2$
+
+$$
+\begin{aligned}
+  V &= \eta_1 \left\{ \begin{pmatrix}
+    \alpha & b \\
+    c & -\bar{\alpha}
+  \end{pmatrix} \middle| \alpha \in \mathbb{C}, b, c \in \mathbb{R} \right\} \\
+  &= \{ \eta_1 X \in \eta_1 M_2(\mathbb{C}) \mid \beta(\eta_1 X) = \eta_1 X \} \\
+  &= \{ X \in M_2(\mathbb{C}) \mid J\bar{X}J^{-1} = -X \}
+\end{aligned}
+$$
+
+ただし、最右辺への $g \in \mathrm{Spin}^+(V)$ の作用は、$\bar{g}Xg^{-1}$
+ペアリング $S \otimes_\mathbb{C} S \to \bigwedge^2 S \simeq \mathbb{C}$ が $\mathrm{Spin}^+(V)$ 不変なことに注意して
+
+$$
+\begin{aligned}
+  V &\simeq \{ X \in M_2(\mathbb{C}) \mid J\bar{X}J^{-1} = X \} \\
+  &\simeq \{ \psi \in \bar{S} \otimes_\mathbb{C} S^* \mid \psi^\dag = -\psi \} \\
+  &\simeq \{ \varphi \in \bar{S} \otimes_\mathbb{C} S \mid \varphi^\tau = \varphi \}
+\end{aligned}
+$$
+
+ただし、$\tau: \bar{S} \otimes_\mathbb{C} S \ni \bar{s} \otimes t \mapsto \bar{t} \otimes s \in \bar{S} \otimes_\mathbb{C} S$
+
+# $\Gamma$
+
+$V$: 符号 $(1, d - 1)$ の Minkowski 空間
+
+$\mathrm{Spin}^+(V) \curvearrowright S$: 既約スピン表現
+$p = 1$ の場合には、$0$ でない対称な $\mathrm{Spin}^+(V)$ 準同型 $\Gamma: S \otimes_\mathbb{R} S \to V$ が $\mathbb{R}^\times$ 倍を除いて一意的に存在する
+
+[$d = 1$]
+$\Gamma: S \otimes_\mathbb{R} S = \mathbb{R} \otimes_\mathbb{R} \mathbb{R} \ni a \otimes b \mapsto ab \in \mathbb{R} = V$
+
+[$d = 2$]
+$\Gamma: S^+ \otimes S^+ = \mathbb{R} \otimes_\mathbb{R} \mathbb{R} \ni a \otimes b \mapsto ab(e_0 - e_1) \in V$
+
+[$d = 3$]
+$\Gamma: S \otimes_\mathbb{R} S \ni s \otimes t \mapsto st \in \mathrm{Sym}^2 S = V$
+
+[$d = 4$]
+$\Gamma: S \otimes_\mathbb{R} S \ni s \otimes t \mapsto s \otimes \bar{t} + t \otimes \bar{s} \in (S \otimes_\mathbb{C} \bar{S})^\tau = V$
+
+\end{aligned}
+$$
 
