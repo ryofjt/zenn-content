@@ -305,3 +305,120 @@ $$
 $$
 
 を満たすことも従う
+
+# Even rule
+
+$R$: supercommutative superalgebra
+
+$R$ 加群 $M$ と $R$ 上の supercommutative superalgebra $S$ に対して、$S_0$ 加群 $M(S)$ を
+
+$$
+M(S) \coloneqq (S \otimes_R M)_0
+$$
+
+と定義する。$\mathsf{E}_R$ を、$R$ 上の外積代数 $R[\theta_1, \dots, \theta_k]$ のなす $R$ 上の supercommutative superalgebra の圏の充満部分圏とする
+
+$M_1, \dots, M_n, N$: $R$ 加群
+
+$f \in \mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N)$ に対して、$\mathsf{E}_R$ から $S_0\text{-}\mathrm{Mod}$ への関手間の自然変換 $f(-): \bigotimes\nolimits_{-_0} M_i(-) \to N(-)$ が定まるが
+
+$$
+\mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N) \ni f \mapsto f(-) \in \mathrm{Nat}(\bigotimes\nolimits_{-_0} M_i(-), N(-))
+$$
+
+は全単射
+
+[単射性]
+$f \in \mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N)$ とする。$\varepsilon \in \{0, 1\}^n$ とし、$m_i \in M_{i, \varepsilon_i}$ とする。$R_\varepsilon \coloneqq R[\theta_i \mid \varepsilon_i = 1]$ とし、$w_i \in M_i(R_\varepsilon)$ を
+
+$$
+w_i \coloneqq \begin{cases}
+  m_i &\quad (\varepsilon_i = 0) \\
+  \theta_i m_i &\quad (\varepsilon_i = 1)
+\end{cases}
+$$
+
+で定める
+
+$$
+f(R_\varepsilon)(\otimes w_i) = (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} \left(\prod_{\varepsilon_i = 1} \theta_i\right) f(\otimes m_i)
+$$
+
+$N(R_\varepsilon) = \bigoplus_{1 \le i_1 < \cdots < i_k \le n} \theta_{i_1} \cdots \theta_{i_k} N_k$ だから、$(-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} f(R_\varepsilon)(\otimes w_i) \in N(R_\varepsilon)$ の $\prod_{\varepsilon_i = 1} \theta_i$ の係数と $f(\otimes m_i)$ は一致する
+
+[全射性]
+$F \in \mathrm{Nat}(\bigotimes\nolimits_{-_0} M_i(-), N(-))$ とする。$\varepsilon \in \{0, 1\}^n$ とする。$m_i \in M_{i, \varepsilon_i}$ とし、$R_\varepsilon, w_i$ を同様に定義する。$\varepsilon_j = 1$ とする。$\theta_j = 0$ で $\pi_{\varepsilon, \varepsilon - e_j}: R_\varepsilon \to R[\theta_i \mid \varepsilon_i = 1, i \ne j] \eqqcolon R_{\varepsilon - e_j}$ を定義すると
+
+$$
+\pi_{\varepsilon, \varepsilon - e_j}(F(R_\varepsilon)(\otimes w_i)) = F(R_{\varepsilon - e_j})(\pi_{\varepsilon, \varepsilon - e_j}(\otimes w_i)) = F(R_{\varepsilon - e_j})(0) = 0
+$$
+
+よって、$F(R_\varepsilon)(\otimes w_i) \in \left(\prod_{\varepsilon_i = 1} \theta_i\right) N_{|\varepsilon|} \subset N(R_\varepsilon)$。$R_0$ 加群の多重線形写像 $f_\varepsilon: \prod M_{i, \varepsilon_i} \to N_{|\varepsilon|}$ が
+
+$$
+f_\varepsilon(m_i) \coloneqq (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} F(R_\varepsilon)(\otimes w_i) \text{ の } \prod_{\varepsilon_i = 1} \theta_i \text{ の係数}
+$$
+
+で定まる。$r_1 \in R_1$, $1 \le k \le n$ とする。$\varepsilon_k = 0$ の場合は
+
+$$
+\begin{aligned}
+  &f_{\varepsilon + e_k}(m_1, \dots, r_1 m_k, \dots, m_n) \\
+  &= (-1)^{\frac{1}{2}(|\varepsilon| + 1)|\varepsilon|} F(R_{\varepsilon + e_k})(w_1 \otimes \cdots \otimes \theta_k r_1 m_k \otimes \cdots \otimes w_n) \text{ の } \prod_{\varepsilon_i = 1 \text{ or } i = k} \theta_i \text{ の係数} \\
+  &= (-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} \theta_k r_1 F(R_{\varepsilon + e_k})(\otimes w_i) \text{ の } \prod_{\varepsilon_i = 1 \text{ or } i = k} \theta_i \text{ の係数} \\
+  &= (-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} (-1)^{\#\{ i \mid \varepsilon_i = 1, i < k \}} r_1 F(R_{\varepsilon + e_k})(\otimes w_i) \text{ の } \prod_{\varepsilon_i = 1} \theta_i \text{ の係数} \\
+  &= (-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} (-1)^{\#\{ i \mid \varepsilon_i = 1, i < k \}} r_1 F(R_\varepsilon)(\otimes w_i) \text{ の } \prod_{\varepsilon_i = 1} \theta_i \text{ の係数} \\
+  &= (-1)^{\#\{ i \mid \varepsilon_i = 1, i < k \}} r_1 f_\varepsilon(m_i)
+\end{aligned}
+$$
+
+$\varepsilon_k = 1$ の場合は
+
+$$
+\begin{aligned}
+  &f_{\varepsilon + e_k}(m_1, \dots, r_1 m_k, \dots, m_n) \\
+  &= (-1)^{\frac{1}{2}(|\varepsilon| - 1)(|\varepsilon| - 2)} F(R_{\varepsilon + e_k})(w_1 \otimes \cdots \otimes r_1 m_k \otimes \cdots \otimes w_n) \text{ の } \prod_{\varepsilon_i = 1, i \ne k} \theta_i \text{ の係数} \\
+  &= -(-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} F(R_{\varepsilon + e_{n + 1}})(w_1 \otimes \cdots \otimes r_1 m_k \otimes \cdots \otimes w_n) \text{ の } \prod_{\varepsilon_i = 1, i \ne k} \theta_i \text{ の係数} \\
+  &= (-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} F(R_{\varepsilon + e_{n + 1}})(w_1 \otimes \cdots \otimes \theta_k \theta_{n + 1} r_1 m_k \otimes \cdots \otimes w_n) \text{ の } \theta_{n + 1} \theta_k \prod_{\varepsilon_i = 1, i \ne k} \theta_i \text{ の係数} \\
+  &= (-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} \theta_{n + 1} r_1 F(R_{\varepsilon + e_{n + 1}})(\otimes w_i) \text{ の } \theta_{n + 1} \theta_k \prod_{\varepsilon_i = 1, i \ne k} \theta_i \text{ の係数} \\
+  &= (-1)^{|\varepsilon|} (-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} r_1 F(R_\varepsilon)(\otimes w_i) \text{ の } \theta_k \prod_{\varepsilon_i = 1, i \ne k} \theta_i \text{ の係数} \\
+  &= (-1)^{\#\{ i \mid \varepsilon_i = 1, i < k \}} r_1 f_\varepsilon(m_i)
+\end{aligned}
+$$
+
+よって、$f_\varepsilon$ たちから $f: \bigotimes\nolimits_R M_i \to N$ が誘導される。あとは、任意の $S \in \mathsf{E}_R$ に対して、$f(S) = F(S)$ を示せば良い。$s_i m_i \in M_i(S)$ とし、$\eta \coloneqq (|m_i|) \in \{0, 1\}^n$ とする。変数 $\theta'_i \ (\eta_i = 1)$ を用意して
+
+$$
+v_i \coloneqq \begin{cases}
+  s_i &\quad (\eta_i = 0) \\
+  \theta'_i s_i &\quad (\eta_i = 1)
+\end{cases}
+$$
+
+と定義する
+
+$$
+\begin{aligned}
+  f(S)(\otimes s_i m_i) &= (-1)^{\frac{1}{2}|\eta|(|\eta| - 1)} \left(\prod s_i\right) \otimes f(\otimes m_i) \\
+  &= \left(\prod s_i\right) \otimes \left[F(R_\eta)(\otimes w_i) \text { の } \prod_{\eta_i = 1} \theta_i \text{ の係数}\right] \\
+  &= (-1)^{|\eta|^2} \left(\prod s_i\right) F(S_\eta)(\otimes w_i) \text { の } \prod_{\eta_i = 1} \theta_i \text{ の係数} \\
+  &= (-1)^{|\eta|} \left(\prod v_i\right) F(S_{\eta, \eta'})(\otimes w_i) \text { の } \prod_{\eta_i = 1} \theta'_i \theta_i \text{ の係数} \\
+  &= (-1)^{|\eta|} F(S_{\eta, \eta'})(\otimes v_i w_i) \text { の } \prod_{\eta_i = 1} \theta'_i \theta_i \text{ の係数} \\
+  &= \left(\prod_{\eta_i = 1} \theta'_i \theta_i\right) F(S_{\eta, \eta'})(\otimes s_i m_i) \text { の } \prod_{\eta_i = 1} \theta'_i \theta_i \text{ の係数} \\
+  &= F(S)(\otimes s_i m_i) \\
+\end{aligned}
+$$
+
+最後の部分は、以下のようにしても従う。$(-1)^{\frac{1}{2}|\eta|(|\eta| - 1)} \left(\prod_{\eta_i = 1} \theta_i\right) f(m_i) = F(R_\eta)(\otimes w_i)$ に $R_\eta \ni \theta_i \mapsto s_i \in S$ を適用すれば
+
+$$
+(-1)^{\frac{1}{2}|\eta|(|\eta| - 1)} \left(\prod s_i\right) f(\otimes m_i) = F(S)(\otimes s_i m_i)
+$$
+
+$A$: $R$ 加群
+$A$ 上に $R$ 上の superalgebra の構造を与えることと、$A(S)$ 上に $S$ に関して関手的な $S_0$ 代数の構造を与えることは同値
+
+$A$: $R$ 上の superalgebra
+$B$: $R$ 加群
+$B$ 上に $A$ 加群の構造を与えることと、$B(S)$ 上に $S$ に関して関手的な $A(S)$ 加群の構造を与えることは同値
+
