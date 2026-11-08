@@ -690,7 +690,7 @@ $$
 
 # $\exp$
 
-$G$: Lie superalgebra
+$G$: Lie supergroup
 
 $\exp: \mathfrak{g} \to G$ を定義する
 
@@ -704,9 +704,9 @@ $$
 
 $$
 \begin{aligned}
-  \frac{\partial}{\partial t}\tilde{\varphi}^*f &= \frac{\partial}{\partial t}(\tilde{\varphi}_{t_0}^*f_{(1)}\varphi^*f_{(2)}) \\
-  &= \tilde{\varphi}_{t_0}^*f_{(1)} \frac{\partial}{\partial t}\varphi^*f_{(2)} \\
-  &= \tilde{\varphi}_{t_0}^*f_{(1)} (\mathrm{pr}_B, \varphi)^*\tilde{X}f_{(2)} \\
+  \frac{\partial}{\partial t}\tilde{\varphi}^*f &= \frac{\partial}{\partial t}(\varphi_{t_0}^*f_{(1)}\varphi^*f_{(2)}) \\
+  &= \varphi_{t_0}^*f_{(1)} \frac{\partial}{\partial t}\varphi^*f_{(2)} \\
+  &= \varphi_{t_0}^*f_{(1)} (\mathrm{pr}_B, \varphi)^*\tilde{X}f_{(2)} \\
   &= (\mathrm{pr}_B, (\varphi_{t_0}, \varphi))^*(1 \otimes \tilde{X})m^*f \\
   &= (\mathrm{pr}_B, (\varphi_{t_0}, \varphi))^*m^*\tilde{X}f \\
   &= (\mathrm{pr}_B, \tilde{\varphi})^*\tilde{X}f
