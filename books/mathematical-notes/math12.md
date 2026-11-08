@@ -320,10 +320,10 @@ $$
 
 $M_1, \dots, M_n, N$: $R$ 加群
 
-$f \in \mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N)$ に対して、$\mathsf{E}_R$ から $S_0\text{-}\mathrm{Mod}$ への関手間の自然変換 $f(-): \bigotimes\nolimits_{-_0} M_i(-) \to N(-)$ が定まるが
+$f \in \mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N)$ に対して、$S_0$ 加群の射 $f(S): \bigotimes\nolimits_{-_0} M_i(S) \to N(S) \ (S \in \mathsf{E}_R)$ が定まるが
 
 $$
-\mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N) \ni f \mapsto f(-) \in \mathrm{Nat}(\bigotimes\nolimits_{-_0} M_i(-), N(-))
+\mathrm{Hom}_R(\bigotimes\nolimits_R M_i, N) \ni f \mapsto f(-) \in \mathrm{Nat}_{-_0\text{-}\mathrm{Mod}}(\bigotimes\nolimits_{-_0} M_i(-), N(-))
 $$
 
 は全単射
@@ -347,7 +347,7 @@ $$
 $N(R_\varepsilon) = \bigoplus_{1 \le i_1 < \cdots < i_k \le n} \theta_{i_1} \cdots \theta_{i_k} N_k$ だから、$(-1)^{\frac{1}{2}|\varepsilon|(|\varepsilon| - 1)} f(R_\varepsilon)(\otimes w_i) \in N(R_\varepsilon)$ の $\prod_{\varepsilon_i = 1} \theta_i$ の係数と $f(\otimes m_i)$ は一致する
 
 [全射性]
-$F \in \mathrm{Nat}(\bigotimes\nolimits_{-_0} M_i(-), N(-))$ とする。$\varepsilon \in \{0, 1\}^n$ とする。$m_i \in M_{i, \varepsilon_i}$ とし、$R_\varepsilon, w_i$ を同様に定義する。$\varepsilon_j = 1$ とする。$\theta_j = 0$ で $\pi_{\varepsilon, \varepsilon - e_j}: R_\varepsilon \to R[\theta_i \mid \varepsilon_i = 1, i \ne j] \eqqcolon R_{\varepsilon - e_j}$ を定義すると
+$F \in \mathrm{Nat}_{-_0\text{-}\mathrm{Mod}}(\bigotimes\nolimits_{-_0} M_i(-), N(-))$ とする。$\varepsilon \in \{0, 1\}^n$ とする。$m_i \in M_{i, \varepsilon_i}$ とし、$R_\varepsilon, w_i$ を同様に定義する。$\varepsilon_j = 1$ とする。$\theta_j = 0$ で $\pi_{\varepsilon, \varepsilon - e_j}: R_\varepsilon \to R[\theta_i \mid \varepsilon_i = 1, i \ne j] \eqqcolon R_{\varepsilon - e_j}$ を定義すると
 
 $$
 \pi_{\varepsilon, \varepsilon - e_j}(F(R_\varepsilon)(\otimes w_i)) = F(R_{\varepsilon - e_j})(\pi_{\varepsilon, \varepsilon - e_j}(\otimes w_i)) = F(R_{\varepsilon - e_j})(0) = 0
@@ -422,3 +422,295 @@ $A$: $R$ 上の superalgebra
 $B$: $R$ 加群
 $B$ 上に $A$ 加群の構造を与えることと、$B(S)$ 上に $S$ に関して関手的な $A(S)$ 加群の構造を与えることは同値
 
+# 多様体の米田埋め込みの拡張
+
+$\mathbb{R}^a$ のなす $\mathsf{Mfd}$ の充満部分圏を $\mathbb{R}^*$ とする
+
+$$
+\Phi: \mathsf{Mfd} \ni M \mapsto \mathrm{Hom}_\mathsf{Mfd}(-, M) \in \mathsf{Set}^{(\mathbb{R}^*)^\mathrm{op}}
+$$
+
+は忠実充満
+
+[忠実性]
+$f: M \to N$ とする。$x \in M$ に対して、$\Phi(f)(\mathbb{R}^0)(i_x)(*) = i_{f(x)}(*) = f(x)$
+
+[充満性]
+$F: \mathrm{Hom}_\mathsf{Mfd}(-, M) \to \mathrm{Hom}_\mathsf{Mfd}(-, N)$ とする。貼り合わせを考えれば、$M = \mathbb{R}^n$ として良い。あとは、通常の米田の補題と同様
+
+# Supermanifold の米田埋め込みの拡張
+
+$$
+\mathrm{Hom}_\mathsf{sMfd}(\mathbb{R}^{0|b}, M) = \{ x_0 \in |M|, \varphi^*: \mathcal{O}_{M, x_0} \to \Lambda[\xi^1, \dots, \xi^b] \}
+$$
+
+は自然な多様体構造を持つことを示す。$U \subset \mathbb{R}^{p|q}$ とすると
+
+$$
+\begin{aligned}
+  \mathrm{Hom}_\mathsf{sMfd}(\mathbb{R}^{0|b}, U) &= \left\{ \begin{aligned}
+    &x_0 \in |U|, \\
+    &t_{i\mu} \quad (1 \le i \le p, \mu \in \{0, 1\}^b, |\mu| \text{ は偶数}, \mu \ne 0), \\
+    &s_{j\nu} \quad (1 \le j \le q, \nu \in \{0, 1\}^b, |\nu| \text{ は奇数})
+  \end{aligned} \right\} \\
+  &= |U| \times \mathbb{R}^{p(2^{b - 1} - 1) + q2^{b - 1}}
+\end{aligned}
+$$
+
+$(x_0, \varphi^*)$ に対応する $(x_0, t_{i\mu}, s_{j\nu})$ は
+
+$$
+\begin{aligned}
+  \varphi^* x^i &= x_0^i + \sum_{\mu \ne 0, |\mu| \text{ は偶数}} t_{i\mu} \xi^\mu \\
+  \varphi^* \theta^j &= \sum_{\nu, |\nu| \text{ は奇数}} s_{j\nu} \xi^\nu
+\end{aligned}
+$$
+
+で与えられる。逆に、$(x_0, t_{i\mu}, s_{j\nu})$ に対応する $(x_0, \varphi^*)$ は
+
+$$
+\varphi^*(g(x, \theta)) = \sum_{\alpha \in \mathbb{Z}_{\ge 0}^p} \frac{1}{\alpha!} \partial_x^\alpha f(x_0, \sum_{\nu, |\nu| \text{ は奇数}} s_{*\nu} \xi^\nu) (\sum_{\mu \ne 0, |\mu| \text{ は偶数}} t_{*\mu} \xi^\mu)^\alpha
+$$
+
+で与えられる。よって、$\mathrm{Hom}_\mathsf{sMfd}(\mathbb{R}^{0|b}, M)$ は標準的な多様体構造を持つ
+
+$$
+\mathrm{Hom}_\mathsf{sMfd}(\mathbb{R}^{a|b}, M) = \mathrm{Hom}_\mathsf{Mfd}(\mathbb{R}^a, \mathrm{Hom}_\mathsf{sMfd}(\mathbb{R}^{0|b}, M))
+$$
+
+$\mathbb{R}^{a|b}$ のなす $\mathsf{sMfd}$ の充満部分圏を $\mathbb{R}^{*|*}$ とする
+
+$\Phi: \mathsf{sMfd} \ni M \mapsto \mathrm{Hom}_{\mathsf{sMfd}}(-, M): \mathsf{Set}^{(\mathbb{R}^{*|*})^\mathrm{op}}$ は忠実充満
+
+[忠実性]
+$f: M \to N$ を supermanifold の射とする。任意の $\varphi: \mathbb{R}^{0|b} \to M$ に対して、$\Phi(f)(\mathbb{R}^{0|b})(\varphi) = f \circ \varphi$ であり
+
+$$
+\begin{array}{ccc}
+  \mathcal{O}_{N, |f|(|\varphi|(*))} &\xrightarrow{f^*}& \mathcal{O}_{M, |\varphi|(*)} \\
+  \downarrow{\scriptsize{(\Phi(f)(\mathbb{R}^{0|b})(\varphi))^*}} && \downarrow{\scriptsize{\varphi^*}} \\
+  \Lambda[\xi_1, \dots, \xi_b] &=& \Lambda[\xi_1, \dots, \xi_b]
+\end{array}
+$$
+
+$|f| = \Phi(f)(\mathbb{R}^{0|0})$。あとは、任意の $V \subset |N|$ に対して、$f^*: \mathcal{O}_N(V) \to \mathcal{O}_M(|f|^{-1}(V))$ が $\Phi(f)$ で定まることを示せば良い。$|f|^{-1}(V) \subset \mathbb{R}^p$ かつ $\mathcal{O}_M(|f|^{-1}(V)) \simeq C^\infty(|f|^{-1}(V))[\theta^1, \dots, \theta^q]$ として良い。$h \in \mathcal{O}_N(V)$, $x_0 \in |f|^{-1}(V)$ とする。$(f^* h)(x_0) \in \Lambda[\theta^1, \dots, \theta^q]$ が $\Phi(f)$ で定まることを示せば良い。$\tau_{x_0}: \mathbb{R}^{0|q} \to M$ を座標 $x_0^1, \dots, x_0^p, \theta^1, \dots, \theta^q \in \Lambda[\theta^1, \dots, \theta^q]$ で定めれば、$|\tau_{x_0}|(*) = x_0$ であり
+
+$$
+\tau_{x_0}^* g = g(x_0) \quad (g \in \mathcal{O}_{M, x_0})
+$$
+
+よって
+
+$$
+\begin{aligned}
+  (f^* h)(x_0) &= \tau_{x_0}^* f^* h_{|f|(x_0)} \\
+  &= (\Phi(f)(\mathbb{R}^{0|q})(\tau_{x_0}))^* h_{|f|(x_0)}
+\end{aligned}
+$$
+
+最後に、$f^* h$ を別の形で表示しておく。$\pi_M: \mathrm{Hom}_\mathsf{SMfd}(\mathbb{R}^{0|q}, M) \to \mathrm{Hom}_\mathsf{SMfd}(\mathbb{R}^{0|0}, M) = |M|$ とし、$\pi_N: \mathrm{Hom}_\mathsf{SMfd}(\mathbb{R}^{0|q}, N) \to |N|$ も同様に定める
+
+$$
+\begin{aligned}
+  \tau: |f|^{-1}(V) \ni x \mapsto \tau_x \in \pi_M^{-1}(|f|^{-1}(V)) \\
+  \mathrm{ev}_h: \pi_N^{-1}(V) \ni \psi \mapsto \psi^* h \in \Lambda[\theta^1, \dots, \theta^q]
+\end{aligned}
+$$
+
+は滑らかで
+
+$$
+f^* h = \mathrm{ev}_h \circ \Phi(f)(\mathbb{R}^{0|q}) \circ \tau
+$$
+
+[充満性]
+$M, N$ を supermanifold とし、$F: \mathrm{Hom}_{\mathsf{sMfd}}(-, M) \to \mathrm{Hom}_{\mathsf{sMfd}}(-, N)$ とする。貼り合わせを考えれば、$M = \mathbb{R}^{p|q}$ として良い。あとは、通常の米田の補題と同様
+
+# Super vector bundle
+
+Supermanifold $M$ 上の super vector bundle とは、$|M|$ 上の局所自由層 $\mathcal{E}$ のこと。$S$-points が
+
+$$
+E(S) \coloneqq \{ f: S \to M, t \in \Gamma(S, f^*\mathcal{E})_0 \}
+$$
+
+となる supermanifold $E$ が存在することを示す。ただし、$f^*\mathcal{E} \coloneqq f^{-1}\mathcal{E} \otimes_{f^{-1}\mathcal{O}_M} \mathcal{O}_S$。$M \subset \mathbb{R}^{p|q}$ かつ $\mathcal{E} = \mathcal{O}_M^{r|s} \eqqcolon \mathcal{O}_M \otimes \mathbb{R}^{r|s}$ として良い。$f^*\mathcal{E} = \mathcal{O}_S^{r|s}$
+
+$$
+E(S) = \{ x \in \mathcal{O}(S)_0^p, \theta \in \mathcal{O}(S)_1^q, t \in \mathcal{O}(S)_0^r \oplus \mathcal{O}(S)_1^s \mid (x^1_\mathrm{red}, \dots, x^p_\mathrm{red})(|S|) \subset |M| \}
+$$
+
+よって、$E(S)$ は $M \times \mathbb{R}^{r|s}$ で表現される。逆に、$\pi: E \to M$ と $|M|$ の開被覆 $\{ |U_i| \}$ と
+
+$$
+\begin{array}{ccc}
+  \pi^{-1}(U_i) &\xrightarrow[\sim]{\varphi_i}& U_i \times \mathbb{R}^{r|s} \\
+  \downarrow && \downarrow \\
+  U_i &=& U_i
+\end{array}
+$$
+
+があって、$(U_i \cap U_j) \times \mathbb{R}^{r|s} \xrightarrow{\varphi_i \varphi_j^{-1}} \mathbb{R}^{r|s}$ が $g_{ij}: U_i \cap U_j \to GL_{r|s}(\mathbb{R})$ から誘導されるとすると、貼り合わせで局所自由層 $\mathcal{E}$ が構成できる
+
+Supermanifold $M$ の接束 $\mathcal{T}M$ は、$M \subset \mathbb{R}^{p|q}$ ならば、$U \subset M$ に対して
+
+$$
+\begin{aligned}
+  \mathcal{T}M(U) &= \mathfrak{X}(U) \\
+  &\coloneqq \{ X \in \underline{\mathrm{End}}_\mathbb{R}(\mathcal{O}(U)) \mid X(fg) = (Xf)g + (-1)^{|X||f|}fXg \} \\
+  &= \bigoplus_i \mathcal{O}(U) \partial_{x^i} \oplus \bigoplus_j \mathcal{O}(U) \partial_{\theta^j}
+\end{aligned}
+$$
+
+を対応させる自由層。一般の場合は、貼り合わせで定義する
+
+# Lie supergroup と Lie superalgebra
+
+$G$: Lie supergroup
+
+$m^*: \mathcal{O}_G \to \mathcal{O}_{G \times G}$, $e^*: \mathcal{O}_G \to \mathbb{R}$ とすると
+
+$$
+\begin{aligned}
+  (m^* \otimes 1) \circ m^* = (1 \otimes m^*) \circ m^* \\
+  (e^* \otimes 1) \circ m^* = (1 \otimes e^*) \circ m^* = 1
+\end{aligned}
+$$
+
+左不変ベクトル場全体を $\mathfrak{X}(G)^G$ とすると、$\mathfrak{X}(G)^G \ni F \mapsto F_e \in T_e G$ は全単射
+
+$F \in \mathfrak{X}(G)$ が左不変とは
+
+$$
+m^* \circ F = (1 \otimes F) \circ m^*
+$$
+
+これは、古典的な $F_{gh}f = F_h f(g \cdot)$ に対応する
+
+$X \in T_e G$ とする。$\tilde{X} \coloneqq (1 \otimes X) \circ m^*$ は $G$ 上のベクトル場
+
+$$
+\begin{aligned}
+  (1 \otimes \tilde{X}) \circ m^* &= (1 \otimes 1 \otimes X) \circ (1 \otimes m^*) \circ m^* \\
+  &= (1 \otimes 1 \otimes X) \circ (m^* \otimes 1) \circ m^* \\
+  &= (m^* \otimes X) \circ m^* \\
+  &= m^* \circ (1 \otimes X) \circ m^* \\
+  &= m^* \circ \tilde{X}
+\end{aligned}
+$$
+
+だから、$\tilde{X}$ は左不変。$\tilde{X}_e = X \circ (1 \otimes e^*) \circ m^* = X$。また、$F \in \mathfrak{X}(G)^G$ ならば
+
+$$
+\begin{aligned}
+  \widetilde{F_e} &= (1 \otimes F_e) \circ m^* \\
+  &= (1 \otimes e^*) \circ (1 \otimes F) \circ m^* \\
+  &= (1 \otimes e^*) \circ m^* \circ F \\
+  &= F
+\end{aligned}
+$$
+
+以上から、$T_e G$ は Lie superalgebra の構造を持ち、$\mathfrak{g}$ で表す
+
+# $G \curvearrowright M$
+
+$G \curvearrowright M$
+
+$f \in \mathcal{O}(M)$ への $G$ 作用は、$G$ 上の関数の族
+
+$$
+(L^*)^{-1} \circ (1 \otimes f)
+$$
+
+で与えられる。ただし、$L: G \times M \ni (g, x) \mapsto (g, gx) \in G \times M$
+
+$X \in \mathfrak{X}(M)$ への $G$ 作用は、$G$ 上のベクトル場の族
+
+$$
+(L^*)^{-1} \circ (1 \otimes X) \circ L^*
+$$
+
+で与えられる。また、$X$ が左不変とは $1 \otimes X$ と $L^*$ が可換なこと
+
+$B$-points を使って言い換える。$g: B \to G$ とする。$L_g: B \times M \ni (b, x) \mapsto (b, g(b)x) \in B \times M$ が定まる。$f \in \mathcal{O}(G)$ への $G$ 作用は、$B$ 上の関数の族
+
+$$
+L_{g^{-1}}^* \circ (1 \otimes f)
+$$
+
+で与えられる。$X \in \mathfrak{X}(M)$ への $G$ 作用は、$B$ 上のベクトル場の族
+
+$$
+L_{g^{-1}}^* \circ (1 \otimes X) \circ L_g^*
+$$
+
+で与えられる
+
+# $f$-derivation
+
+$f: M \to N$
+
+$U \subset \mathbb{R}^{p|q}$ かつ $f(U) \subset V \subset \mathbb{R}^{r|s}$ とする
+
+$$
+\begin{aligned}
+  (f^*\mathcal{T}N)(U) &= \mathcal{O}(U) \otimes_{\mathcal{O}(V)} \mathfrak{X}(V) \\
+  &= \bigoplus_{a = 1}^r \mathcal{O}(U) \partial_{y^a} \oplus \bigoplus_{b = 1}^s \mathcal{O}(U) \partial_{\eta^b}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  &\mathrm{Der}_f(\mathcal{O}(V), \mathcal{O}(U)) \\
+  &\coloneqq \{ D \in \underline{\mathrm{Hom}}(\mathcal{O}(V), \mathcal{O}(U)) \mid D(\varphi\psi) = (D\varphi)f^*\psi + (-1)^{|D||\varphi|}f^*\varphi D\psi \}
+\end{aligned}
+$$
+
+とすると
+
+$$
+(f^*\mathcal{T}N)(U) \ni s \otimes X \mapsto (\varphi \mapsto s f^*(X\varphi)) \in \mathrm{Der}_f(\mathcal{O}(V), \mathcal{O}(U))
+$$
+
+は全単射
+
+$(f^*\mathcal{T}N)(U)$ の基底を考えれば、単射性は明らか。全射性を示す。$D \in \mathrm{Der}_f(\mathcal{O}(V), \mathcal{O}(U))$ とする。$\Gamma: M \to M \times N$ をグラフとすると、$D$ は $\tilde{D} \in \mathrm{Der}_\Gamma(\mathcal{O}(U \times V), \mathcal{O}(U))$ に持ち上がる。$\tilde{D}(\mathcal{O}(U) \otimes 1) = 0$。$\mathrm{Der}_\Gamma(\mathcal{O}(U \times V), \mathcal{O}(U)) = \{ \Gamma^* \circ E \mid E \in \mathrm{Der}(\mathcal{O}(U \times V)) \}$ だから
+
+$$
+\tilde{D} = \Gamma^* \circ (\sum f_{x^i} \partial_{x^i} + \sum f_{\theta^j} \partial_{\theta^j} + \sum f_{y^a} \partial_{y^a} + \sum f_{\eta^b} \partial_{\eta^b})
+$$
+
+と表示できる。$\tilde{D}(\mathcal{O}(U) \otimes 1) = 0$ だから
+
+$$
+\tilde{D} = \Gamma^* \circ (\sum f_{y^a} \partial_{y^a} + \sum f_{\eta^b} \partial_{\eta^b})
+$$
+
+よって、$D\varphi = \sum (\Gamma^*f_{y^a}) f^*(\partial_{y^a}\varphi) + \sum (\Gamma^*f_{\eta^b}) f^*(\partial_{\eta^b}\varphi)$
+
+# $\exp$
+
+$G$: Lie superalgebra
+
+$\exp: \mathfrak{g} \to G$ を定義する
+
+$B$ を supermanifold とし、$X: B \to \mathfrak{g}$ とする。$\tilde{X} \in \mathcal{O}(B \times G, \mathcal{T}G)$ が定まる。開集合 $\{0\} \times |B| \subset |D| \subset \mathbb{R} \times |B|$ と $\varphi: D \to G$ が存在して
+
+$$
+\frac{\partial}{\partial t} \circ (\mathrm{pr}_B, \varphi)^* = (\mathrm{pr}_B, \varphi)^* \circ \tilde{X} \in \mathcal{O}(D, \varphi^*\mathcal{T}G)
+$$
+
+かつ初期条件 $\varphi_0 \equiv e$ を満たす。$\varphi$ が $I \times |W| \ (0 \in I)$ で定義されているとする。任意の $t_0 \in I$ に対して、$\tilde{\varphi}(t, b) \coloneqq \varphi_{t_0}(b)\varphi(t, b): I \times W$ とする。$\tilde{\varphi}_0 = \varphi_{t_0}$。$f \in \mathcal{O}(G)$ に対して、$m^*f = \sum f_{(1)} \otimes f_{(2)}$ とすると
+
+$$
+\begin{aligned}
+  \frac{\partial}{\partial t}\tilde{\varphi}^*f &= \frac{\partial}{\partial t}(\tilde{\varphi}_{t_0}^*f_{(1)}\varphi^*f_{(2)}) \\
+  &= \tilde{\varphi}_{t_0}^*f_{(1)} \frac{\partial}{\partial t}\varphi^*f_{(2)} \\
+  &= \tilde{\varphi}_{t_0}^*f_{(1)} (\mathrm{pr}_B, \varphi)^*\tilde{X}f_{(2)} \\
+  &= (\mathrm{pr}_B, (\varphi_{t_0}, \varphi))^*(1 \otimes \tilde{X})m^*f \\
+  &= (\mathrm{pr}_B, (\varphi_{t_0}, \varphi))^*m^*\tilde{X}f \\
+  &= (\mathrm{pr}_B, \tilde{\varphi})^*\tilde{X}f
+\end{aligned}
+$$
+
+よって、$D = \mathbb{R} \times B$ まで拡張できる。以上から、$\varphi_1: B \to G$ が定まる。$X \mapsto \varphi_1$ は $B$ に関して関手的だから、$\exp: \mathfrak{g} \to G$ が定まる
