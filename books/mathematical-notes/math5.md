@@ -462,6 +462,250 @@ $\mathrm{Spin}(2m)$ の $\mathbb{C}$ 上の既約表現は、$(S^+)^{\otimes k} 
 
 $\mathrm{Spin}(2m + 1)$ の $\mathbb{C}$ 上の既約表現は、$(S^+)^{\otimes k} \ (k \ge 0)$ の既約分解に現れる
 
+# 包除原理
+
+$X$: 有限集合
+$A_1, \dots, A_k \subset X$
+
+$$
+|\bigcup_{1 \le i \le k} A_i| = \sum_{S \subset \{1, \dots, k\}, S \ne \emptyset} (-1)^{|S| - 1} |\bigcap_{i \in S} A_i|
+$$
+
+$$
+\begin{aligned}
+  1_{\bigcap_i A_i^C} &= \prod_i 1_{A_i^C} \\
+  &= \prod_i (1 - 1_{A_i}) \\
+  &= \sum_{S \subset \{1, \dots, k\}} (-1)^{|S|} \prod_{i \in S} 1_{A_i} \\
+  &= \sum_{S \subset \{1, \dots, k\}} (-1)^{|S|} 1_{\bigcap_{i \in S} A_i}
+\end{aligned}
+$$
+
+両辺を積分すれば
+
+$$
+\begin{aligned}
+  |X| - |\bigcup_i A_i| &= |\bigcap_i A_i^C| \\
+  &= \sum_{S \subset \{1, \dots, k\}} (-1)^{|S|} |\bigcap_{i \in S} A_i|
+\end{aligned}
+$$
+
+$R$: 環
+$v_1, \dots, v_k \in R$
+
+$$
+\sum_{\sigma \in \mathfrak{S}_k} v_{\sigma(1)} \cdots v_{\sigma(k)} = \sum_{S \subset \{1, \dots, k\}} (-1)^{k - |S|} (\sum_{i \in S} v_i)^k
+$$
+
+$X \coloneqq \{1, \dots, k\}^k$ とする。$A_i \coloneqq \{1, \dots, \check{i}, \dots, k\}^k \subset X \ (1 \le i \le k)$ は $i$ が出現しないものたち
+
+$$
+1_{\bigcap_i A_i^C} = \sum_{S \subset \{1, \dots, k\}} (-1)^{k - |S|} 1_{\bigcap_{i \not\in S} A_i}
+$$
+
+を適当な重みで積分すれば良い
+
+$K$: 標数 $0$ の体
+$V$: $K$ 線形空間
+$\mathrm{Sym}^k V$ は $v^k \ (v \in V)$ で張られる
+
+# Schur-Weyl duality
+
+$K$: 体
+$A$: $K$ 代数
+$M$: 有限次元半単純 $A$ 加群
+$\Phi: A \to \mathrm{End}_K(M)$ とし、$\mathrm{End}_K(M)$ での commutant を $'$ で表せば
+
+$$
+\Phi(A)'' = \Phi(A)
+$$
+
+$\Phi(A)'' \subset \Phi(A)$ を示せば良い。$T \in \Phi(A)''$ とする。$v_1, \dots, v_n \in M$ を線形基底とする。$w \coloneqq (v_1, \dots, v_n) \in M^n$ とする。$Aw \subset M^n$ の $A$ 加群としての complement を固定し、射影を $P: M^n \to Aw \subset M^n$ とする。$P \in M_n(\mathrm{End}_A(M)) = M_n(\Phi(A)')$ だから
+
+$$
+Tw = TPw = PTw \in Aw
+$$
+
+よって、$a \in A$ が存在して、$Tv_i = av_i$
+
+[Lem]
+$K$: 無限体
+Zariski 位相で $K^n$ は既約
+
+$K$ は無限体だから、$I(f) = K^n \Leftrightarrow f = 0$。任意の $f, g \in K[X_1, \dots, X_n] \setminus \{0\}$ に対して、$D(g) \cap D(f) = D(gf) \ne \emptyset$
+
+$K$: 標数 $0$ の体
+$V = K^n$
+$E \coloneqq V^{\otimes k}$ には $\mathfrak{S}_k$ と $GL(V)$ が作用する。これらの作用が生成する線形空間を $A_{\mathfrak{S}_k}, A_{GL(V)} \subset \mathrm{End}_K(E)$ とすると
+
+$$
+\begin{aligned}
+  A_{\mathfrak{S}_k}' &= A_{GL(V)} \\
+  A_{GL(V)}' &= A_{\mathfrak{S}_k}
+\end{aligned}
+$$
+
+$K[\mathfrak{S}_k]$ は半単純だから、前者のみ示せば良い。$\mathrm{End}_K(E)^{\mathfrak{S}_k} \subset A_{GL(V)}$ を示せば良い。$\mathrm{End}_K(V)^{\otimes k} \xrightarrow{\sim} \mathrm{End}_K(E)$ は $\mathfrak{S}_k$ 同変だから、$\mathrm{End}(E)^{\mathfrak{S}_k} \simeq \mathrm{Sym}^k(\mathrm{End}_K(V))$。$\mathrm{Sym}^k(\mathrm{End}_K(V))$ は $X^k \ (X \in \mathrm{End}_K(V))$ で張られる。$g^k \ (g \in GL(V))$ でも張られることを示せば良い。張られないと仮定すると、$0$ でない線形形式 $f: \mathrm{Sym}^k(\mathrm{End}_K(V)) \to K$ が存在して、$f(g^k) = 0 \ (g \in GL(V))$。$F: \mathrm{End}_K(V) \ni X \mapsto f(X^k) \in K$ は $0$ でない多項式で、$F(X) = 0 \ (\mathrm{det}X \ne 0)$。これは $\mathrm{End}_K(V)$ が Zariski 位相で既約なことに矛盾する
+
+# $GL_n(K)$ 不変なテンソル
+
+$K$: 標数 $0$ の体
+$V = K^n$
+$(V^{\otimes r} \otimes V^{* \otimes s})^{GL(V)}$ は $r \ne s$ ならば $0$ で、$r = s$ ならば
+
+$$
+(V^{\otimes r} \otimes V^{* \otimes r})^{GL(V)} = \sum_{\tau \in \mathfrak{S}_r} (\tau \otimes 1) \Phi(\theta^{\otimes r})
+$$
+
+ただし、$\theta = \sum_i e_i \otimes e_i^* \in V \otimes V^*$ であり、$\Phi: (V \otimes V^*)^{\otimes r} \xrightarrow{\sim} V^{\otimes r} \otimes V^{* \otimes r}$
+
+$r \ne s$ ならば $0$ になることは、$2 \in GL(K)$ の作用を考えれば良い。$r = s$ とすると
+
+$$
+\begin{aligned}
+  (V^{\otimes r} \otimes V^{* \otimes r})^{GL(V)} &\simeq \mathrm{End}_K(V^{\otimes r})^{GL(V)} \\
+  &= \mathrm{span}_K \{ v_1 \otimes \cdots \otimes v_k \mapsto v_{\tau(1)} \otimes \cdots \otimes v_{\tau(k)} \mid \tau \in \mathfrak{S}_k \}
+\end{aligned}
+$$
+
+# $GL_n(K)$ 不変な多項式
+
+$K$: 標数 $0$ の体
+$V = K^n$
+$GL(V)$ 不変な多項式 $F: V^r \times V^{*s} \to K$ は $f_j(v_i) \ (1 \le i \le r, 1 \le j \le s)$ の多項式で表せる
+
+$F$ は $(d_1, \dots, d_r, e_1, \dots, e_s)$ 次斉次として良い。$2 \in GL(V)$ の作用を考えれば、$\sum d_i = \sum e_j \eqqcolon k$ として良い。$r + s$ 回 polarization すると、$GL(V)$ 不変な多重線形写像 $\tilde{F}(v_{ia}, f_{jb}): V^k \times V^{*k} \to K \ (1 \le i \le r, 1 \le j \le s, 1 \le a \le d_i, 1 \le b \le e_j)$ が存在して
+
+$$
+\tilde{F}(\overbrace{v_1, \dots, v_1}^{d_1}, \dots, \overbrace{f_s, \dots, f_s}^{e_s}) = F(v_i, f_j)
+$$
+
+# $O(n)$ 不変なテンソル
+
+https://www.maths.ed.ac.uk/~v1ranick/papers/goodwallx.pdf
+
+[Lem]
+$u_{ij}(X) \coloneqq (XX^T)_{ij} \ (i \le j) \in M_n(\mathbb{R})^*$ たちは代数的に独立
+
+対称行列全体を $\mathrm{Sym}_n(\mathbb{R}) \subset M_n(\mathbb{R})$ とし、正定値対称行列全体を $\mathrm{Sym}^+_n(\mathbb{R})$ とする。多項式 $P \in \mathbb{R}[\mathrm{Sym}_n(\mathbb{R})]$ が $P(XX^T) = 0$ を満たすとする。$P$ は $\mathrm{Sym}^+_n(\mathbb{R})$ 上で消える。$\mathrm{Sym}^+_n(\mathbb{R}) \subset \mathrm{Sym}_n(\mathbb{R})$ は空でない Zariski 開集合だから、$P = 0$
+
+$V = \mathbb{R}^n$
+$(V^{\otimes m})^{O(n)}$ は、$m$ が奇数ならば $0$ であり、$m$ が偶数ならば
+
+$$
+(V^{\otimes m})^{O(n)} = \sum_{\tau \in \mathfrak{S}_m} \mathbb{R} \tau(C^{\otimes \frac{m}{2}})
+$$
+
+ただし、$C \coloneqq \sum_i e_i \otimes e_i \in (V^{\otimes 2})^{O(n)}$
+
+まず、$m \le n$ ならば、$O(n)$ 不変多項式 $F: V^m \to \mathbb{R}$ は $\langle v_j, v_k \rangle$ の多項式で表せることを示す
+
+$-1 \in O(n)$ の作用を考えれば、$F$ は $2M$ 次斉次として良い。$n$ に関する帰納法を使う。$n = 0$ の場合は明らか。$n \ge 1$ とする。$m = 0, 1$ の場合は容易だから、$m \ge 2$ として良い。$v_j = (v_{j1}, v'_j) \ (j \ge 2)$ と分解すると
+
+$$
+F(e_1, v_2, \dots, v_m) = \sum_{\alpha \in \mathbb{Z}^{\{2, \dots, m\}}} v_{*1}^\alpha F_\alpha(v'_2, \dots, v'_m)
+$$
+
+$F_\alpha(v'_2, \dots, v'_m)$ は $O(n - 1)$ 不変だから、帰納法の仮定から
+
+$$
+F(e_1, v_2, \dots, v_m) = \sum_{\alpha \in \mathbb{Z}^{\{2, \dots, m\}}} v_{*1}^\alpha G_\alpha(\langle v'_j, v'_k \rangle)
+$$
+
+$v_1 \in V \setminus \{0\}$ とし、$g \in O(n)$ を $gv_1 = \|v_1\|e_1$ となるように固定する。$\tilde{v}_j \coloneqq \frac{1}{\|v_1\|} gv_j \ (j \ge 2)$ とすると
+
+$$
+\begin{aligned}
+  \tilde{v}_{j1} &= \frac{1}{\|v_1\|} \langle e_1, gv_j \rangle = \frac{\langle v_1, v_j \rangle}{\langle v_1, v_1 \rangle} \\
+  \langle \tilde{v}'_j, \tilde{v}'_k \rangle &= \frac{\langle v_j, v_k \rangle}{\langle v_1, v_1 \rangle} - \frac{\langle v_1, v_j \rangle \langle v_1, v_k \rangle}{\langle v_1, v_1 \rangle^2}
+\end{aligned}
+$$
+
+だから
+
+$$
+\begin{aligned}
+  F(v_1, \dots, v_m) &= \langle v_1, v_1 \rangle^M F(e_1, \tilde{v}_2, \dots, \tilde{v}_m) \\
+  &= \langle v_1, v_1 \rangle^M \sum_{\alpha \in \mathbb{Z}^{\{2, \dots, m\}}} \frac{\langle v_1, v_* \rangle^\alpha}{\langle v_1, v_1 \rangle^{|\alpha|}} G_\alpha\left(\frac{\langle v_j, v_k \rangle}{\langle v_1, v_1 \rangle} - \frac{\langle v_1, v_j \rangle \langle v_1, v_k \rangle}{\langle v_1, v_1 \rangle^2}\right)
+\end{aligned}
+$$
+
+よって
+
+$$
+F(v_1, \dots, v_m) = \frac{1}{\langle v_1, v_1 \rangle^{N_1}} H_1(\langle v_j, v_k \rangle \mid 1 \le j \le k \le m) \quad (v_1 \ne 0)
+$$
+
+と表示できる。$v_2$ に関しても同様のことを考えて
+
+$$
+F(v_1, \dots, v_m) = \frac{1}{\langle v_2, v_2 \rangle^{N_2}} H_2(\langle v_j, v_k \rangle \mid 1 \le j \le k \le m) \quad (v_2 \ne 0)
+$$
+
+$V^m \subset V^n$ 上の関数として $\langle v_j, v_k \rangle \ (1 \le j \le k \le m)$ は代数的に独立だから、$F(v_1, \dots, v_m)$ は $\langle v_j, v_k \rangle$ の多項式になる
+
+[$m$ が一般の場合の証明]
+$w \in (V^{\otimes m})^{O(n)}$ とする。$M_n(\mathbb{R})$ 上の多項式 $M_n(\mathbb{R}) \ni Y \mapsto Y^{\otimes m}w \in V^{\otimes m}$ は $M_n(\mathbb{R}) \curvearrowleft O(n)$ に関して不変。よって、多項式に関する $m = n$ の場合から、多項式 $\Phi_w(X): \mathrm{Sym}_n(\mathbb{R}) \to V^{\otimes m}$ が存在して
+
+$$
+\Phi_w(YY^T) = Y^{\otimes m}w
+$$
+
+$\mathrm{Sym}^+_n(\mathbb{R}) \subset \mathrm{Sym}_n(\mathbb{R})$ は空でない Zariski 開集合だから、$\Phi_w$ は $w$ から一意的に定まる。$X \in \mathrm{Sym}_n(\mathbb{R})$ には $g \in GL_n(\mathbb{R})$ が $gXg^T$ で作用し、$GL_n(\mathbb{R})$ の作用を保って $\mathrm{Sym}_n(\mathbb{R}) \subset V^{\otimes 2}$ とみなせる。$\Phi_w$ は $GL_n(\mathbb{R})$ 同変だから、$GL_n(\mathbb{R})$ の不変式の表示から
+
+$$
+\Phi_w(X)(f_j) = G(f_j X f_k^T)
+$$
+
+ただし、$f_j \in V^*$ は横ベクトルとみなし、$g \in GL_n(\mathbb{R})$ は $f_j g^{-1}$ で作用する。よって
+
+$$
+w(f_j) = \Phi_w(E)(f_j) = G(f_j f_k^T)
+$$
+
+あとは、$w$ が多重線形なことを使えば良い
+
+# $SO(n)$ 不変なテンソル
+
+$V = \mathbb{R}^n$
+
+$$
+(V^{\otimes m})^{SO(n)} = \sum_{\varepsilon \in \{0, 1\}, \tau \in \mathfrak{S}_m, 2l + \varepsilon n = m} \mathbb{R} \tau(C^{\otimes l} \otimes \Omega^\varepsilon)
+$$
+
+ただし、$\Omega \coloneqq \sum_{\sigma \in \mathfrak{S}_n} \mathrm{sgn}(\sigma) e_{\sigma(1)} \otimes \cdots \otimes e_{\sigma(n)} \in V^{\otimes n}$
+
+$T \in (V^{\otimes m})^{SO(n)}$ とする。$\gamma \in O(n) \setminus SO(n)$ を固定する
+
+$$
+T = \frac{T + \gamma T}{2} + \frac{T - \gamma T}{2} \eqqcolon T_\mathrm{even} + T_\mathrm{odd}
+$$
+
+と分解する。$T_\mathrm{even}$ は $O(n)$ 不変で、$gT_\mathrm{odd} = (\mathrm{det}g)T_\mathrm{odd}$。$T_\mathrm{odd}$ のみ考えれば良い。$T_\mathrm{odd} \otimes \Omega \in V^{\otimes (m + n)}$ は $O(n)$ 不変。縮約 $V^{\otimes n} \to \bigwedge^n V \simeq \mathbb{R}$ を考える。$\Omega$ の縮約は $n!$ だから、あとは容易
+
+# $\mathcal{O}^+_m$ 上の不変式
+
+$V$: $d$ 次元 Minkowski 空間
+$m \ge 0$
+$G \coloneqq SO(V)$
+$W$: $G$ の $\mathbb{C}$ 上の有限次元表現
+
+$f: \mathcal{O}^+_m \to W$ は滑らかな $G$ 同変写像とする。$F \in \mathbb{C}[V] \otimes W$ が存在して、$f(p) = F(p) \ (p \in \mathcal{O}^+_m)$
+
+$W = V_\mathbb{C}^{\otimes N}$ として良い
+
+[$m > 0$ の場合]
+$p_0 \in \mathcal{O}^+_m$ を固定する。$p_0$ の固定部分群は $SO(p_0^\perp)$。$f(p_0) \in (V_\mathbb{C}^{\otimes N})^{SO(p_0^\perp)}$。よって
+
+$$
+\begin{aligned}
+  f(p_0) &= F_1(p_0, \Omega_{p_0^\perp}, C_{p_0^\perp}) \\
+  &= F_2(p_0, \iota_{p_0}\Omega, C)
+\end{aligned}
+$$
+
+$f$ は $G$ 同変だから、$f(p) = F_2(p, \iota_p\Omega, C)$
+
+[$m = 0$ の場合]
 
 # 一般の free Wightman QFT
 

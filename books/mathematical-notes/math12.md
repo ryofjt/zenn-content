@@ -531,7 +531,7 @@ $M, N$ を supermanifold とし、$F: \mathrm{Hom}_{\mathsf{sMfd}}(-, M) \to \ma
 Supermanifold $M$ 上の super vector bundle とは、$|M|$ 上の局所自由層 $\mathcal{E}$ のこと。$S$-points が
 
 $$
-E(S) \coloneqq \{ f: S \to M, t \in \Gamma(S, f^*\mathcal{E})_0 \}
+E(S) \coloneqq \{ f: S \to M, t \in \mathcal{O}(S, f^*\mathcal{E})_0 \}
 $$
 
 となる supermanifold $E$ が存在することを示す。ただし、$f^*\mathcal{E} \coloneqq f^{-1}\mathcal{E} \otimes_{f^{-1}\mathcal{O}_M} \mathcal{O}_S$。$M \subset \mathbb{R}^{p|q}$ かつ $\mathcal{E} = \mathcal{O}_M^{r|s} \eqqcolon \mathcal{O}_M \otimes \mathbb{R}^{r|s}$ として良い。$f^*\mathcal{E} = \mathcal{O}_S^{r|s}$
@@ -714,3 +714,44 @@ $$
 $$
 
 よって、$D = \mathbb{R} \times B$ まで拡張できる。以上から、$\varphi_1: B \to G$ が定まる。$X \mapsto \varphi_1$ は $B$ に関して関手的だから、$\exp: \mathfrak{g} \to G$ が定まる
+
+# 基本的なこと
+
+$\mathcal{E}$: 位相空間 $X$ 上の層
+$\mathcal{F}$: 位相空間 $Y$ 上の層
+$f: X \to Y$
+
+$$
+\mathrm{Hom}(\mathcal{F}, f_*\mathcal{E}) = \mathrm{Hom}(f^{-1}\mathcal{F}, \mathcal{E})
+$$
+
+$f: X \to Y$: supermanifold の射
+$\mathcal{E}$: $\mathcal{O}_X$ 加群
+$\mathcal{F}$: $\mathcal{O}_Y$ 加群
+$f_*\mathcal{E}$ は $\mathcal{O}_Y$ 加群
+$f^*\mathcal{F} \coloneqq \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\mathcal{F}$ は $\mathcal{O}_X$ 加群
+
+$$
+\mathrm{Hom}_{\mathcal{O}_Y}(\mathcal{F}, f_*\mathcal{E}) = \mathrm{Hom}_{\mathcal{O}_X}(f^*\mathcal{F}, \mathcal{E})
+$$
+
+$X$: supermanifold
+
+$$
+\Omega^1_X \coloneqq \mathcal{Hom}_{\mathcal{O}_X}(\mathcal{T}X, \mathcal{O}_X)
+$$
+
+$U \subset X$ を局所座標とすると
+
+$$
+\Omega^1_X(U) = \bigoplus_i \mathcal{O}_X(U) dx^i \oplus \bigoplus_j \mathcal{O}_X(U) d\theta^j
+$$
+
+$d: \mathcal{O}_X \ni f \mapsto (X \mapsto Xf) \in \Omega^1_X$ がある
+
+$$
+df: \mathcal{T}M \ni X \mapsto X \circ f^* \in f^*\mathcal{T}N
+$$
+
+双対を取れば、$f^*: f^*\Omega^1_Y \to \Omega^1_X$ が誘導される
+
