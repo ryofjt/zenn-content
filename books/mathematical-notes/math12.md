@@ -715,6 +715,8 @@ $$
 
 よって、$D = \mathbb{R} \times B$ まで拡張できる。以上から、$\varphi_1: B \to G$ が定まる。$X \mapsto \varphi_1$ は $B$ に関して関手的だから、$\exp: \mathfrak{g} \to G$ が定まる
 
+Body は $\exp: \mathfrak{g}_0 \to |G|$ に一致する
+
 # 基本的なこと
 
 $\mathcal{E}$: 位相空間 $X$ 上の層
@@ -754,4 +756,359 @@ df: \mathcal{T}M \ni X \mapsto X \circ f^* \in f^*\mathcal{T}N
 $$
 
 双対を取れば、$f^*: f^*\Omega^1_Y \to \Omega^1_X$ が誘導される
+
+# Lie 微分
+
+$X \in \mathfrak{X}(M)$
+$s \in \mathcal{O}(B)$
+$\tilde{X} \coloneqq (sX)_0: \mathcal{O}(M \times B, TM)$
+
+$\{0\} \times |M| \times |B| \subset |D| \subset \mathbb{R} \times |B| \times |M|$ 上で $\tilde{X}$ の flow $\varphi: D \to M$ が定まる。陰関数定理から、$(\varphi_t, \mathrm{pr}_B)$ は local diffo として良い。$t \mapsto (\varphi_t, \mathrm{pr}_B)$ は群準同型
+
+$u \in \mathcal{O}(B)_0 = \mathrm{Hom}_\mathsf{sMfd}(B, \mathbb{R})$ とする。$\tilde{Y} \coloneqq u\tilde{X}$ とし、$\tilde{Y}$ の flow を $\psi$ とする。$\psi$ は
+
+$$
+\mathbb{R} \times M \times B \ni (t, x, b) \xmapsto{\alpha} (u(b)t, x, b) \in \mathbb{R} \times M \times B \xrightarrow{\varphi} M
+$$
+
+と一致する。実際
+
+$$
+\begin{aligned}
+  \frac{\partial}{\partial t} (\varphi \circ \alpha)^* g &= \frac{\partial}{\partial t} \alpha^* \varphi^* g \\
+  &= u \alpha^* \frac{\partial}{\partial t} \varphi^* g \\
+  &= u \alpha^* (\varphi, \mathrm{pr}_B)^* \tilde{X} g \\
+  &= (\varphi \circ \alpha, \mathrm{pr}_B)^* \tilde{Y} g
+\end{aligned}
+$$
+
+$f \in \mathcal{O}(M)$ とする
+
+$$
+\mathcal{O}(B) \ni s \mapsto \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* f \in \mathcal{O}(M \times B)
+$$
+
+は $\mathcal{O}(B)_0$ 準同型。よって、$B = \mathbb{R}, \mathbb{R}^{0|1}$ を考えれば、$F \in \mathcal{O}(M)$ が一意的に存在して、$\left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* f = (sF)_{|f|}$。この $F$ を $\mathcal{L}_X f$ と定義する。$\mathcal{L}_X f = Xf$ が成り立つ
+
+次に、$Y \in \mathfrak{X}(M)$ に対して、$\mathcal{L}_X Y$ を定義する。$\mathcal{O}(B) \ni s \mapsto \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* \circ Y \circ \varphi_{-t}^* \in \mathcal{O}(M \times B, TM)$ は $\mathcal{O}(B)_0$ 加群の射になる。よって
+
+$$
+\left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* \circ Y \circ \varphi_{-t}^* \eqqcolon (s\mathcal{L}_X Y)_{|Y|}
+$$
+
+と定義する。$s$ は $X$ と同じ parity と思って
+
+$$
+\begin{aligned}
+  \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* Y \varphi_{-t}^* g &= \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* Yg - Y \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* g \\
+  &= sXYg - YsXg \\
+  &= s(XY - (-1)^{|X||Y|}YX)g
+\end{aligned}
+$$
+
+よって、$\mathcal{L}_X Y = [X, Y]$ がわかる
+
+例えば、$\mathcal{L}_X(fY) = (\mathcal{L}_X f)Y + (-1)^{|X||f|}f\mathcal{L}_XY$ は直接計算でもわかるが、定義に戻ると
+
+$$
+\begin{aligned}
+  \mathcal{L}_X(fY) &= \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* \circ fY \circ \varphi_{-t}^* \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} (\varphi_t^*f) (\varphi_t^* \circ Y \circ \varphi_{-t}^*) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} (\varphi_t^*f)Y + f \left.\frac{\partial}{\partial t}\right|_{t = 0} \varphi_t^* \circ Y \circ \varphi_{-t}^* \\
+  &= s(\mathcal{L}_X f)Y + fs\mathcal{L}_X Y \\
+  &= s((\mathcal{L}_X f)Y + (-1)^{|X||f|}f\mathcal{L}_X Y)
+\end{aligned}
+$$
+
+だから、自然に Leibniz 則を満たすことがわかる
+
+# $\exp$ の性質
+
+$f: G \to H$
+
+微分を考えると、線形写像 $df: \mathfrak{g} \to \mathfrak{h}$ が誘導される
+
+[$df: \mathfrak{g} \to \mathfrak{h}$ は Lie superalgebra の準同型]
+$X, X' \in \mathfrak{g}$ とする。$Y \coloneqq df(X), Y' \coloneqq df(X')$ とする。まず、$\tilde{X}, \tilde{Y}$ が $f$-related なことを示す。$\tilde{X} \circ f^* = f^* \circ \tilde{Y}$ を示せば良い
+
+$$
+\begin{aligned}
+  \tilde{X} \circ f^* &= (1 \otimes X) \circ m^* \circ f^* \\
+  &= (1 \otimes X) \circ (f, f)^* \circ m^* \\
+  &= f^* \circ (1 \otimes Y) \circ m^* \\
+  &= f^* \circ \tilde{Y}
+\end{aligned}
+$$
+
+よって、$[X, X'], [Y, Y']$ も $f$-related だから $df([X, X']) = [Y, Y']$
+
+[$\exp$ と 1 パラメータ部分群]
+$X: B \to \mathfrak{g}$ とする。任意の $t \in \mathbb{R}$ に対して、$tX$ のパラメータ $s$ の 1 パラメータ部分群 は、$\varphi(ts, X)$ に一致する。$s = 1$ とすると
+
+$$
+e^{tX}: \mathbb{R} \times B \ni (t, b) \mapsto tX(b) \in \mathfrak{g} \xrightarrow{\exp} G
+$$
+
+は $X$ の 1 パラメータ部分群 と一致することがわかる
+
+[$d\exp_0 = \mathrm{id}_\mathfrak{g}$]
+$X: B \to \mathfrak{g}$ に対して、$d\exp_0 \circ X = X$ を示せば良い
+
+$$
+d\exp_0 \circ X = X \exp^* = \left.\frac{\partial}{\partial t}\right|_{t = 0} (\exp^{tX})^* = X
+$$
+
+[$\exp$ の自然性]
+
+$$
+\begin{array}{ccc}
+  \mathfrak{g} &\xrightarrow{df}& \mathfrak{h} \\
+  \downarrow{\scriptsize{\exp}} && \downarrow{\scriptsize{\exp}} \\
+  G &\xrightarrow{f}& H
+\end{array}
+$$
+
+$X: B \to \mathfrak{g}$ とする。$f \circ e^{tX}: \mathbb{R} \times B \to H$ が $df(X)$ の 1 パラメータ部分群 に一致することを示せば良い
+
+$$
+\begin{aligned}
+  (f \circ e^{tX}, \mathrm{pr}_B)^* \circ \widetilde{df(X)} &= (e^{tX}, \mathrm{pr}_B)^* \circ f^* \circ \widetilde{df(X)} \\
+  &= (e^{tX}, \mathrm{pr}_B)^* \circ \tilde{X} \circ f^* \\
+  &= \frac{\partial}{\partial t} \circ (e^{tX})^* \circ f^* \\
+  &= \frac{\partial}{\partial t} \circ (f \circ e^{tX})^*
+\end{aligned}
+$$
+
+[$\tilde{X}$ の flow]
+$X: B \to \mathfrak{g}$ とする。$\tilde{X} \in \mathcal{O}(G \times B, TG)$ の flow は $m \circ (\mathrm{pr}_G, e^{tX}): \mathbb{R} \times G \times B \to G$
+
+$$
+\begin{aligned}
+  \frac{\partial}{\partial t} (\mathrm{pr}_G, e^{tX})^* m^* f &= (\mathrm{pr}_G, e^{tX}, \mathrm{pr}_B)^* (1 \otimes \tilde{X}) m^* f \\
+  &= (\mathrm{pr}_G, e^{tX}, \mathrm{pr}_B)^* (1 \otimes 1 \otimes X) (1 \otimes m^*) m^* f \\
+  &= (\mathrm{pr}_G, e^{tX}, \mathrm{pr}_B)^* (1 \otimes 1 \otimes X) (m^* \otimes 1) m^* f \\
+  &= (\mathrm{pr}_G, e^{tX}, \mathrm{pr}_B)^* (m^* \otimes 1) (1 \otimes X) m^* f \\
+  &= (m \circ (\mathrm{pr}_G, e^{tX}), \mathrm{pr}_B)^* \tilde{X} f
+\end{aligned}
+$$
+
+# $GL(V)$
+
+$V$: super vector space over $\mathbb{R}$
+
+$GL(V)$ を関手 $B \mapsto \mathrm{End}_{\mathcal{O}(B)}(\mathcal{O}(B) \otimes V)^\times \simeq (\mathcal{O}(B) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0^\times$ で定義できた。実現は
+
+$$
+\mathcal{O}_{GL(V)} \coloneqq C^\infty_{\mathrm{End}_\mathbb{R}(V)^\times} \otimes \Lambda(\underline{\mathrm{End}}_\mathbb{R}(V)^*_1)
+$$
+
+$\mathrm{End}_\mathbb{R}(V)^\times = GL(V_0) \times GL(V_1)$ に注意。$\mathcal{T}(GL(V)) = \mathcal{O}_{GL(V)} \otimes \underline{\mathrm{End}}_\mathbb{R}(V)$。線形空間として $T_e G \simeq \underline{\mathrm{End}}_\mathbb{R}(V)$
+
+$$
+\begin{aligned}
+  \mathcal{O}_{\underline{\mathrm{End}}_\mathbb{R}(V)} &= C^\infty_{\mathrm{End}_\mathbb{R}(V)} \otimes \Lambda(\underline{\mathrm{End}}_\mathbb{R}(V)^*_1) \\
+  \underline{\mathrm{End}}_\mathbb{R}(V)(B) &= \mathrm{End}_{\mathcal{O}(B)}(\mathcal{O}(B) \otimes V) \simeq (\mathcal{O}(B) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0
+\end{aligned}
+$$
+
+[$\exp$]
+$X: B \to \underline{\mathrm{End}}_\mathbb{R}(V)$ とする。$f \in \mathcal{O}(GL(V))$ に対して、$f: GL(V)(C) \to \mathcal{O}(C) \simeq \mathbb{R}^{1|1}(C) \ (C = \mathbb{R}^{0|*})$ は滑らかだが
+
+$$
+(Xf)(b) = X(b)f = \left.\frac{\partial}{\partial t}\right|_{t = 0} f(1 + tX(b)) \quad (b \in B(C))
+$$
+
+$\tilde{X}f \in \mathcal{O}(G \times B)$ は $G(C) \times B(C) \to \mathbb{R}^{1|1}(C)$ を誘導する。$g \in GL(V)(C), b \in B(C)$ に対して、$m^* f = \sum f_{(1)} \otimes f_{(2)}$ とすると
+
+$$
+\begin{aligned}
+  (\tilde{X}f)(g, b) &= \sum f_{(1)}(g) (Xf_{(2)})(b) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} \sum f_{(1)}(g) f_{(2)}(1 + tX(b)) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} f(g(1 + tX(b))) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} f(g + tgX(b))
+\end{aligned}
+$$
+
+$X \in (\mathcal{O}(B) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0$ とみなし、$\mathbb{R} \times B \to GL(V)$ を $e^{tX} \in (\mathcal{O}(B) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0^\times \simeq GL(V)(B)$ で定義する。$e^{tX}$ は $X$ の 1 パラメータ部分群に一致することを示す。$f \in \mathcal{O}(GL(V)), b \in B(C)$ に対して、$\mathbb{R}^{1|1}(C)$ の等式として
+
+$$
+\begin{aligned}
+  \left(\frac{\partial}{\partial t} (e^{tX})^* f\right)(b) &= \frac{\partial}{\partial t} f(e^{tX(b)}) \\
+  &= \left.\frac{\partial}{\partial s}\right|_{s = 0} f(e^{(t + s)X(b)}) \\
+  &= \left.\frac{\partial}{\partial s}\right|_{s = 0} f(e^{tX(b)}e^{sX(b)}) \\
+  &= \left.\frac{\partial}{\partial s}\right|_{s = 0} f(e^{tX(b)}(1 + sX(b))) \\
+  &= ((e^{tX}, \mathrm{pr}_B)^* \tilde{X} f)(b)
+\end{aligned}
+$$
+
+$C$ に関して関手的だから、$\mathcal{O}(B)$ の等式として
+
+$$
+\frac{\partial}{\partial t} (e^{tX})^* f = (e^{tX})^* \tilde{X} f
+$$
+
+[$T_e G$ の Lie superalgebra 構造]
+$X, Y: B \to \underline{\mathrm{End}}_\mathbb{R}(V)$ に対して、$[\tilde{X}, \tilde{Y}] = \widetilde{[X, Y]}$ を示す。$C = \mathbb{R}^{0|*}$ とする。$\tilde{X}$ の flow を $\varphi: \mathbb{R} \times G \times B \to G$ とする。$g \in GL(V)(C), b \in B(C)$ に対して、$\varphi_t(g, b) = ge^{tX(b)}$ だから
+
+$$
+\begin{aligned}
+  ([\tilde{X}, \tilde{Y}]f)(g, b) &= ((\mathcal{L}_{\tilde{X}}\tilde{Y})f)(g, b) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} ((\varphi_t, \mathrm{pr}_B)^* \tilde{Y} \varphi_{-t}^* f)(g, b) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(ge^{tX(b)}(1 + sY(b))e^{-tX(b)}) \\
+  &= \left.\frac{\partial}{\partial s}\right|_{s = 0} \left.\frac{\partial}{\partial t}\right|_{t = 0} f(ge^{tX(b)}(1 + sY(b))e^{-tX(b)}) \\
+  &= \left.\frac{\partial}{\partial s}\right|_{s = 0} \left.\frac{\partial}{\partial t}\right|_{t = 0} f(g(1 + sY(b) + st[X(b), Y(b)])) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(g(1 + sY(b) + st[X(b), Y(b)])) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(g(1 + st[X(b), Y(b)])) \\
+  &= \left.\frac{\partial}{\partial u}\right|_{u = 0} f(g(1 + u[X(b), Y(b)])) \\
+  &= (\widetilde{[X, Y]}f)(g, b)
+\end{aligned}
+$$
+
+# $\mathrm{Ad}, \mathrm{ad}$
+
+$G \times G \ni (g, h) \mapsto ghg^{-1} \in G$ を $h$ に関して微分すると、群準同型 $G(B) \to \mathrm{End}_{\mathcal{O}(B)}(\mathcal{O}(B) \otimes \mathfrak{g})_0^\times = GL(\mathfrak{g})(B)$ ができる。これから、Lie supergroup の射
+
+$$
+\mathrm{Ad}: G \to GL(\mathfrak{g})
+$$
+
+が誘導される。$\mathrm{ad} \coloneqq d\mathrm{Ad}: \mathfrak{g} \to \mathfrak{gl}(V)$ は Lie superalgebra の射
+
+$$
+\mathrm{ad}_X = [X, -]
+$$
+
+を示す。$X, Y \in \mathfrak{g}(B)$ とする。まず、$g \in G(B)$ に対して、$B(S) \ni b \mapsto ge^{sY(b)}g^{-1} \in G(S)$ は $\mathrm{Ad}(g)(Y) \in \mathfrak{g}(B)$ の 1 パラメータ部分群。$f \in \mathcal{O}(G), C = \mathbb{R}^{0|*}$ とする。$g \in G(C), b \in B(C)$ に対して、$\tilde{X}$ の flow を $\varphi: \mathbb{R} \times G \times B \to G$ とすると
+
+$$
+\begin{aligned}
+  (\widetilde{[X, Y]}f)(g, b) &= ([\tilde{X}, \tilde{Y}]f)(g, b) \\
+  &= ((\mathcal{L}_{\tilde{X}}\tilde{Y})f)(g, b) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} ((\varphi_t, \mathrm{pr}_B)^* \tilde{Y} \varphi_{-t}^* f)(g, b) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(ge^{tX(b)}e^{sY(b)}e^{-tX(b)}) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(ge^{s\mathrm{Ad}_{e^{tX(b)}}Y(b)}) \\
+  &= \left.\frac{\partial}{\partial s}\right|_{s = 0} f(ge^{s\mathrm{ad}_{X(b)}Y(b)}) \\
+  &= (\widetilde{\mathrm{ad}_X Y}f)(g, b)
+\end{aligned}
+$$
+
+特に、$X, Y \in \mathfrak{g}(B)$ に対して
+
+$$
+\mathrm{Ad}_{e^X}Y = e^{\mathrm{ad}_X}Y = \sum_{n = 0}^\infty \frac{1}{n!} \overbrace{[X, [X, \dots, [X}^n, Y]]]
+$$
+
+# super vector bundle の frame
+
+$\mathcal{E}$: $M$ 上の局所自由層
+$s_i \in \mathcal{O}(M, \mathcal{E})$
+各 $x \in |M|$ に対して、$s_i(x) \in E_x$ が super vector space の基底ならば
+
+$$
+\bigoplus_i \mathcal{O}_M s_i \xrightarrow{\sim} \mathcal{E}
+$$
+
+$x \in |M|$ とする。$\mathcal{E}$ は局所自由だから、$x \in |U| \subset |M|$ と $e_j \in \mathcal{O}(U, \mathcal{E})$ が存在して、$\mathcal{E}|_U \simeq \bigoplus_j \mathcal{O}_U e_j$。$s_i|_U = \sum_j f_{ij}e_j \ (f_{ij} \in \mathcal{O}(U))$ と表示する。$(f_{ij}(p))$ は可逆だから、$p \in |V| \subset |U|$ が存在して、$(f_{ij}|_V)$ は可逆。よって、$\mathcal{E}|_V \simeq \bigoplus_i \mathcal{O}_V s_i|_V$
+
+特に、Lie supergroup $G$ に対して
+
+$$
+\mathcal{O}_G \otimes \mathfrak{g} \ni f \otimes X \xmapsto{\sim} f\tilde{X} \in \mathcal{T}G
+$$
+
+$\mathfrak{g}$ には自明な作用を考えると、$G$ 同変 super vector bundle の同型
+
+# $\exp$ の微分公式
+
+$X, Y \in \mathfrak{g}(B)$ に対して
+
+$$
+\left.\frac{\partial}{\partial t}\right|_{t = 0} e^{-X}e^{X + tY} = \frac{1 - e^{-\mathrm{ad}_X}}{\mathrm{ad}_X} Y
+$$
+
+$$
+V(s) \coloneqq \left.\frac{\partial}{\partial t}\right|_{t = 0} e^{-sX}e^{s(X + tY)} \in \mathfrak{g}(B)
+$$
+
+$V'(s)$ を計算する。$f \in \mathcal{O}(G)$ とすると
+
+$$
+\begin{aligned}
+  \frac{\partial}{\partial s} \left.\frac{\partial}{\partial t}\right|_{t = 0} f(e^{-sX}e^{s(X + tY)}) &= \frac{\partial}{\partial s} (V(s)f) = V'(s)f
+\end{aligned}
+$$
+
+また
+
+$$
+\begin{aligned}
+  \frac{\partial}{\partial s} f(e^{-sX}e^{s(X + tY)}) &= \left.\frac{\partial}{\partial u}\right|_{u = 0} f(e^{-sX}e^{-uX}e^{u(X + tY)}e^{s(X + tY)}) \\
+  &= (tY)\Phi_{s, t} \\
+  &= tY\Phi_{s, t}
+\end{aligned}
+$$
+
+ただし、$\Phi_{s, t}(g) \coloneqq f(e^{-sX}ge^{s(X + tY)})$。よって
+
+$$
+\begin{aligned}
+  \left.\frac{\partial}{\partial t}\right|_{t = 0} \frac{\partial}{\partial s} f(e^{-sX}e^{s(X + tY)}) &= Y\Phi_{s, 0} \\
+  &= (\mathrm{Ad}_{e^{-sX}}Y)f \\
+  &= (e^{-s\mathrm{ad}_X}Y)f
+\end{aligned}
+$$
+
+以上から、$V'(s) = e^{-s\mathrm{ad}_X}Y$ であり
+
+$$
+\begin{aligned}
+  V(s) &= \left(\int_0^s e^{-s\mathrm{ad}_X} \, ds\right)Y \\
+  &= \frac{1 - e^{-s\mathrm{ad}_X}}{\mathrm{ad}_X} Y \\
+\end{aligned}
+$$
+
+# BCH formula
+
+$L[X, Y]$ を自由 Lie 代数とする。$F = \sum_{n = 0}^\infty F_n(X, Y) t^n \in L[X, Y]\llbracket t \rrbracket$ を $F_0(X, Y) \equiv 0$ かつ
+
+$$
+\frac{d}{dt}F = h_1(\mathrm{ad}_F)X + h_2(\mathrm{ad}_F)Y
+$$
+
+で定義する。ただし、$h_1(z) \coloneqq \frac{z}{e^z - 1}, h_2(z) \coloneqq \frac{z}{1 - e^{-z}}$。$F_n \in L[X, Y]_n$ であり
+
+$$
+\begin{aligned}
+  F_1(X, Y) &= X + Y \\
+  F_2(X, Y) &= \frac{1}{2}[X, Y] \\
+  F_3(X, Y) &= \frac{1}{12}([X, [X, Y]] + [Y, [Y, X]]) \\
+  &\cdots
+\end{aligned}
+$$
+
+任意の Lie supergroup $G$ と $X, Y \in \mathfrak{g}(B)$ に対して
+
+$$
+\log(e^X e^Y) = \sum_{n = 0}^\infty F_n(X, Y)
+$$
+
+まず、定義域について議論する。$f = \sum_{n = 0}^\infty f_n(x, y) t^n$ を $f_0(x, y) \equiv 0$ かつ
+
+$$
+\frac{d}{dt}f = h_1(f)x + h_2(f)y
+$$
+
+で定義する。$f(x, y, t)$ は $(0, 0, 0)$ の近傍で収束する冪級数。$f_n(x, y)$ は $n$ 次斉次多項式だから、スケーリングすれば、$f(x, y, 1)$ は $(0, 0)$ の近傍で収束する。よって、$0 \in U \subset \mathfrak{g}_0$ が存在して、$|X|(|B|), |Y|(|B|) \subset U$ ならば $\sum_{n = 1}^\infty F_n(X, Y)$ は収束する。必要なら $U$ を取り替えれば、$\log(e^X e^Y)$ も定義される
+
+$M(t) \coloneqq \log(e^{tX}e^{tY})$ とする。$e^{-M(t)}e^{M(t + s)} = e^{-tY}e^{sX}e^{(t + s)Y}$ の両辺を $s = 0$ で微分して
+
+$$
+\frac{1 - e^{-\mathrm{ad}_{M(t)}}}{\mathrm{ad}_{M(t)}}M'(t) = e^{-t\mathrm{ad}_Y}X + Y
+$$
+
+よって、$M'(t) = h_2(\mathrm{ad}_{M(t)})(e^{-t\mathrm{ad}_Y}X + Y)$。$e^{\mathrm{ad}_{M(t)}} = \mathrm{Ad}_{e^{M(t)}} = \mathrm{Ad}_{e^{tX}}\mathrm{Ad}_{e^{tY}} = e^{t\mathrm{ad}_X}e^{t\mathrm{ad}_Y}$ だから
+
+$$
+M'(t) = h_1(\mathrm{ad}_{M(t)})X + h_2(\mathrm{ad}_{M(t)})Y
+$$
 

@@ -584,7 +584,7 @@ $$
 https://www.maths.ed.ac.uk/~v1ranick/papers/goodwallx.pdf
 
 [Lem]
-$u_{ij}(X) \coloneqq (XX^T)_{ij} \ (i \le j) \in M_n(\mathbb{R})^*$ たちは代数的に独立
+$u_{ij}(X) \coloneqq (XX^T)_{ij} \ (i \le j) \in \mathbb{R}[M_n(\mathbb{R})]$ たちは代数的に独立
 
 対称行列全体を $\mathrm{Sym}_n(\mathbb{R}) \subset M_n(\mathbb{R})$ とし、正定値対称行列全体を $\mathrm{Sym}^+_n(\mathbb{R})$ とする。多項式 $P \in \mathbb{R}[\mathrm{Sym}_n(\mathbb{R})]$ が $P(XX^T) = 0$ を満たすとする。$P$ は $\mathrm{Sym}^+_n(\mathbb{R})$ 上で消える。$\mathrm{Sym}^+_n(\mathbb{R}) \subset \mathrm{Sym}_n(\mathbb{R})$ は空でない Zariski 開集合だから、$P = 0$
 
@@ -685,7 +685,7 @@ $$
 # $\mathcal{O}^+_m$ 上の不変式
 
 $V$: $d$ 次元 Minkowski 空間
-$m \ge 0$
+$m > 0$
 $G \coloneqq SO(V)$
 $W$: $G$ の $\mathbb{C}$ 上の有限次元表現
 
@@ -703,9 +703,9 @@ $$
 \end{aligned}
 $$
 
-$f$ は $G$ 同変だから、$f(p) = F_2(p, \iota_p\Omega, C)$
+たとえば、$F_1(p_0, \Omega_{p_0^\perp}, C_{p_0^\perp})$ は $p_0, \Omega_{p_0^\perp}, C_{p_0^\perp}$ からなるテンソルの足を入れ替えたものの線形和を表す。$f$ は $G$ 同変だから、$f(p) = F_2(p, \iota_p\Omega, C)$
 
-[$m = 0$ の場合]
+$m = 0$ でも成り立つと思われるが、細部がわからなかった
 
 # 一般の free Wightman QFT
 
@@ -922,7 +922,21 @@ $$
 (h, k) = \frac{i^{|h|}}{4} \int_{\mathcal{O}^+_m} \langle h(p), \overline{k(p)} \rangle \, d\mu(p) \quad (h, k \in H_+)
 $$
 
-よって、$H_+$ 上の Hermite 形式は正定値。$I$ は $P \coloneqq G \ltimes V$ 不変だから、$P \curvearrowright H_+$, $U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty S^n H_+$ が誘導される
+よって、$H_+$ 上の Hermite 形式は正定値。$I$ は $P$ 同変だから、$U_1: P \curvearrowright H_+$ が定まり、$U: P \curvearrowright \mathcal{H} \coloneqq \widehat{\bigoplus}_{n = 0}^\infty S^n H_+$ が誘導される
+
+$\mathcal{R} \coloneqq P \times_G \rho$ は $V$ 上の $P$ 同変 super ベクトル束。$\mathcal{R}$ は $V$ 同変ベクトル束としては自明
+
+$f \in \mathcal{S}(V, \mathcal{R})$ に対して、$k_f \in L^2(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C}) = H_+$ を定義する。$\mathcal{S}(\mathcal{O}^+_m) \coloneqq \mathcal{S}(V) / \{ f|_{\mathcal{O}^+_m} \equiv 0 \}$ とすると、$\mathcal{F}f(-p)|_{\mathcal{O}^+_m} \in \mathcal{S}(\mathcal{O}^+_m, \mathcal{R}_\mathbb{C})$。$p \in \mathcal{O}^+_m$ に対して、$\iota_p: R \ni r \mapsto (g_p, i(g_p^{-1}r)) \in \mathcal{A}_p \ (g_p \in G, g_pp_0 = p)$ は well-defined。よって、$G$ 線形写像 $\iota: R \ni r \mapsto (p \mapsto \iota_p(r)) \in C^\infty(\mathcal{O}^+_m, \mathcal{A})$ ができる。$\mathcal{A}$ は ($G$ 不変) 計量をもつから、増大度を議論できる。$\iota(r)$ は $p \to \infty$ で多項式増大。$X \in U(\mathfrak{g})$ による微分は $X\iota(r) = \iota(Xr)$ だから、$\iota(r)$ は $p \to \infty$ で任意階の微分が多項式増大。$m = 0$ の場合は、$\iota(r)$ は $0 \in \mathcal{O}_0^+$ の近傍で $|p'|^{-m} \ (m < \frac{d}{2} - 1)$ で抑えられると仮定する。$\mathcal{S}(\mathcal{O}^+_m, \mathcal{R}) \simeq \mathcal{S}(\mathcal{O}^+_m) \otimes R \ni f \otimes r \mapsto f\iota(r) \in C^\infty(\mathcal{O}^+_m, \mathcal{A})$ も $\iota$ で表せば
+
+$$
+k_f \coloneqq \iota(\mathcal{F}f(-p)|_{\mathcal{O}^+_m}) \in L^2(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C}) = H_+
+$$
+
+$m = 0$ の場合でも、$d\mu = \frac{dp'}{2|p'|}$ だから、先ほどの仮定により $L^2$ に入ることに注意
+
+
+$D_+ \coloneqq \{ k_f \mid f \in \mathcal{S}(V, \mathcal{R}) \} \subset H_+$ とする。$D_+$ は稠密なことを示す。$C^\infty_c(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C}) \subset D_+$ を示せば良い。$i: R \to A$ は全射だから、各点 $p \in \mathcal{O}_m^+$ で $\{ \iota(r)(p) \mid r \in R \} = \mathcal{A}_p$ となることから従う
+
 
 [Free scalar]
 $\rho \coloneqq \mathbb{R}$, $\alpha \coloneqq \mathbb{R}$, $i \coloneqq \mathrm{id}_{\mathbb{R}}$
