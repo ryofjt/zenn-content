@@ -480,7 +480,7 @@ $$
 
 $\mathbb{R}^{a|b}$ のなす $\mathsf{sMfd}$ の充満部分圏を $\mathbb{R}^{*|*}$ とする
 
-$\Phi: \mathsf{sMfd} \ni M \mapsto \mathrm{Hom}_{\mathsf{sMfd}}(-, M): \mathsf{Set}^{(\mathbb{R}^{*|*})^\mathrm{op}}$ は忠実充満
+$\Phi: \mathsf{sMfd} \ni M \mapsto \mathrm{Hom}_{\mathsf{sMfd}}(-, M) \in \mathsf{Set}^{(\mathbb{R}^{*|*})^\mathrm{op}}$ は忠実充満
 
 [忠実性]
 $f: M \to N$ を supermanifold の射とする。任意の $\varphi: \mathbb{R}^{0|b} \to M$ に対して、$\Phi(f)(\mathbb{R}^{0|b})(\varphi) = f \circ \varphi$ であり
@@ -713,7 +713,8 @@ $$
 \end{aligned}
 $$
 
-よって、$D = \mathbb{R} \times B$ まで拡張できる。以上から、$\varphi_1: B \to G$ が定まる。$X \mapsto \varphi_1$ は $B$ に関して関手的だから、$\exp: \mathfrak{g} \to G$ が定まる
+よって、$D = \mathbb{R} \times B$ まで拡張できる。$\varphi: \mathbb{R} \times B \to G$ を $X$ の 1 パラメータ部分群という。$t \mapsto \varphi_t$ は群準同型
+以上から、$\varphi_1: B \to G$ が定まる。$X \mapsto \varphi_1$ は $B$ に関して関手的だから、$\exp: \mathfrak{g} \to G$ が定まる
 
 Body は $\exp: \mathfrak{g}_0 \to |G|$ に一致する
 
@@ -892,6 +893,15 @@ $$
 \end{aligned}
 $$
 
+# $M(C)$
+
+$\mathsf{sMfd} \ni M \mapsto M(-) \in \mathsf{Mfd}^{\mathbb{R}^{0|*}}$ は忠実だった
+
+$C \coloneqq \mathbb{R}^{0|c}$
+
+次元 $(p, q)$ の supermanifold $M$ に対して、$M(C) \to M(*) = |M|$ は典型ファイバーが $\mathbb{R}^{p(2^{c - 1} - 1) + q2^{c - 1}}$ のファイバー束
+
+
 # $GL(V)$
 
 $V$: super vector space over $\mathbb{R}$
@@ -929,7 +939,7 @@ $$
 \end{aligned}
 $$
 
-$X \in (\mathcal{O}(B) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0$ とみなし、$\mathbb{R} \times B \to GL(V)$ を $e^{tX} \in (\mathcal{O}(B) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0^\times \simeq GL(V)(B)$ で定義する。$e^{tX}$ は $X$ の 1 パラメータ部分群に一致することを示す。$f \in \mathcal{O}(GL(V)), b \in B(C)$ に対して、$\mathbb{R}^{1|1}(C)$ の等式として
+$\mathbb{R} \times B \to GL(V)$ を $\mathbb{R}(S) \times B(S) \ni (t, b) \mapsto e^{tX(b)} \in (\mathcal{O}(S) \otimes \underline{\mathrm{End}}_\mathbb{R}(V))_0^\times \simeq GL(V)(S)$ で定義する。$e^{tX}$ は $X$ の 1 パラメータ部分群に一致することを示す。$f \in \mathcal{O}(GL(V)), b \in B(C)$ に対して、$\mathbb{R}^{1|1}(C)$ の等式として
 
 $$
 \begin{aligned}
@@ -978,7 +988,7 @@ $$
 \mathrm{ad}_X = [X, -]
 $$
 
-を示す。$X, Y \in \mathfrak{g}(B)$ とする。まず、$g \in G(B)$ に対して、$B(S) \ni b \mapsto ge^{sY(b)}g^{-1} \in G(S)$ は $\mathrm{Ad}(g)(Y) \in \mathfrak{g}(B)$ の 1 パラメータ部分群。$f \in \mathcal{O}(G), C = \mathbb{R}^{0|*}$ とする。$g \in G(C), b \in B(C)$ に対して、$\tilde{X}$ の flow を $\varphi: \mathbb{R} \times G \times B \to G$ とすると
+を示す。$X, Y \in \mathfrak{g}(B)$ とする。まず、$g \in G(B)$ に対して、$ge^{sY}g^{-1}: B \to G$ は $\mathrm{Ad}(g)(Y) \in \mathfrak{g}(B)$ の 1 パラメータ部分群。$f \in \mathcal{O}(G), C = \mathbb{R}^{0|*}$ とする。$g \in G(C), b \in B(C)$ に対して、$\tilde{X}$ の flow を $\varphi: \mathbb{R} \times G \times B \to G$ とすると
 
 $$
 \begin{aligned}
@@ -1112,3 +1122,8 @@ $$
 M'(t) = h_1(\mathrm{ad}_{M(t)})X + h_2(\mathrm{ad}_{M(t)})Y
 $$
 
+# $G(C)$
+
+$C \coloneqq \mathbb{R}^{0|c}$
+
+次元 $(p, q)$ の supermanifold $M$ に対して、$M(C) \to M(*) = |M|$ は典型ファイバーが $\mathbb{R}^{p(2^{c - 1} - 1) + q2^{c - 1}}$ のファイバー束だった
