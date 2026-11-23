@@ -901,6 +901,20 @@ $C \coloneqq \mathbb{R}^{0|c}$
 
 次元 $(p, q)$ の supermanifold $M$ に対して、$M(C) \to M(*) = |M|$ は典型ファイバーが $\mathbb{R}^{p(2^{c - 1} - 1) + q2^{c - 1}}$ のファイバー束
 
+$M$: supermanifold
+$A$: 通常の多様体
+
+$f \in \mathcal{O}(A \times M)$ から滑らかな
+
+$$
+\tilde{f}: A \times M(C) \ni (a, x) \mapsto f(a, x) \in \mathcal{O}(C)
+$$
+
+が誘導される。$X \in \mathfrak{X}(A)$ に対して
+
+$$
+\widetilde{Xf} = X\tilde{f}
+$$
 
 # $GL(V)$
 
@@ -1122,8 +1136,65 @@ $$
 M'(t) = h_1(\mathrm{ad}_{M(t)})X + h_2(\mathrm{ad}_{M(t)})Y
 $$
 
-# $G(C)$
+# 連結な Lie supergroup
 
-$C \coloneqq \mathbb{R}^{0|c}$
+Lie supergroup が連結とは、body の Lie group が連結なことをいう
 
-次元 $(p, q)$ の supermanifold $M$ に対して、$M(C) \to M(*) = |M|$ は典型ファイバーが $\mathbb{R}^{p(2^{c - 1} - 1) + q2^{c - 1}}$ のファイバー束だった
+$G, H$: Lie supergroup
+$G$ が連結ならば、$f: G \to H$ は $df: \mathfrak{g} \to \mathfrak{h}$ で決まる
+
+まず、$|f|: |G| \to |H|$ は $df: \mathfrak{g}_0 \to \mathfrak{h}_0$ で決まる。$|V| \subset \mathfrak{g}_0$ と $|U| \subset |G|$ が存在して、$\exp: V \xrightarrow{\sim} U$
+
+$$
+\begin{array}{ccc}
+  V &\xrightarrow{df}& \mathfrak{h} \\
+  \mathllap{\scriptsize{\exp}}\downarrow{\scriptsize{\sim}} && \downarrow{\scriptsize{\exp}} \\
+  U &\xrightarrow{f}& H
+\end{array}
+$$
+
+だから、$f|_U$ は $df$ で決まる。任意の $g_0 \in |G|$ に対して
+
+$$
+\begin{array}{ccc}
+  U &\xrightarrow{f}& H \\
+  \mathllap{\scriptsize{g_0 \cdot}}\downarrow{\scriptsize{\sim}} && \downarrow{\scriptsize{|f|(g_0) \cdot}} \\
+  g_0 U &\xrightarrow{f}& H
+\end{array}
+$$
+
+だから、$f|_{g_0 U}$ も $df$ で決まる。$|G| = \bigcup_{g_0 \in |G|} g_0|U|$ だから、$f$ は $df$ で決まる
+
+$G \curvearrowright M$
+$X \in \mathfrak{g}(B)$ とすると、$\varphi: \mathbb{R} \times M \times B \ni (t, x, b) \mapsto e^{tX(b)}x \in M$ が定まる。$t = 0$ での微分を考えれば、$X_M \in \mathcal{O}(M \times B, TM)$ ができる。$\varphi$ は $X_M$ の flow。$X \mapsto X_M$ は $\mathcal{O}(B)_0$ 線形だから、線形写像 $\mathfrak{g} \to \mathfrak{X}(M)$ が定まる。$[X_M, Y_M] = -[X, Y]_M$ を示す。$x \in M(C), b \in B(C)$ に対して
+
+$$
+\begin{aligned}
+  ([X_M, Y_M]f)(x, b) &= \left.\frac{\partial}{\partial t}\right|_{t = 0} ((\varphi_t, \mathrm{pr}_B)^* Y_M \varphi_{-t}^* f)(x, b) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(e^{-tX(b)}e^{sY(b)}e^{tX(b)}x) \\
+  &= \left.\frac{\partial^2}{\partial t \partial s}\right|_{t = s = 0} f(e^{se^{-t\mathrm{ad}_{X(b)}}Y(b)}x) \\
+  &= \left.\frac{\partial}{\partial t}\right|_{t = 0} ((e^{-t\mathrm{ad}_X}Y)_M f)(x, b) \\
+  &= -([X, Y]_M f)(x, b)
+\end{aligned}
+$$
+
+$G$ が連結ならば、$G \curvearrowright M$ は $\mathfrak{g} \to \mathfrak{X}(M)$ で決まる
+
+$|V| \subset \mathfrak{g}_0, |U| \subset |G|$ を同様にとる。$g \in U(B), x \in M(B)$ とする。$X \in V(B)$ を $e^X = g$ で定める。$X_M$ の flow の $t = 1$ を考えれば、$M \times B \ni (x, b) \mapsto g(b)x \in M$ が決まる。よって、$gx \in M(B)$ が定まり、$U \times M \to M$ が決まる。任意の $g_0 \in |G|$ に対して
+
+$$
+\begin{array}{ccc}
+  U \times M &\to& M \\
+  \mathllap{\scriptsize{(g_0 \cdot, \mathrm{id}_M)}}\downarrow{\scriptsize{\sim}} && \downarrow{\scriptsize{g_0 \cdot}} \\
+  g_0U \times M &\to& M
+\end{array}
+$$
+
+よって、$g_0 \cdot: M \to M$ が決まれば良い。$|G| = \bigcup_{n = 0}^\infty |U|^n$ から従う
+
+# TODO
+
+- $1$ 連結な Lie supergroup と Lie superalgebra の一対一対応
+- $G$, $\mathfrak{h} \subset \mathfrak{g}$ が与えられると、$H \subset G$ が定まること
+- $G / H$ と $(G / H)(B)$
+- $\mathrm{Ker}(G \to H)$ と $\mathrm{Ker}(G \to H)(B)$

@@ -934,8 +934,21 @@ $$
 
 $m = 0$ の場合でも、$d\mu = \frac{dp'}{2|p'|}$ だから、先ほどの仮定により $L^2$ に入ることに注意
 
+$\mathcal{S}(V, \mathcal{R}) \ni f \mapsto k_f \in L^2(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C}) = H_+$ は $P$ 同変なことを示す
+
+$$
+\begin{aligned}
+  k_{(\Lambda, a)f} &= (2\pi)^{-d/2} \iota(\int \Lambda f(\Lambda^{-1}(x - a))e^{ipx} \, dx) \\
+  &= (2\pi)^{-d/2} \iota(e^{ipa} \int \Lambda f(\Lambda^{-1}x)e^{ipx} \, dx) \\
+  &= (2\pi)^{-d/2} \iota(e^{ipa} \int \Lambda f(x)e^{i(\Lambda^{-1}p)x} \, dx) \\
+  &= \iota((\Lambda, a)(\mathcal{F}f(-p)|_{\mathcal{O}_m^+})) \\
+  &= (\Lambda, a)k_f
+\end{aligned}
+$$
 
 $D_+ \coloneqq \{ k_f \mid f \in \mathcal{S}(V, \mathcal{R}) \} \subset H_+$ とする。$D_+$ は稠密なことを示す。$C^\infty_c(\mathcal{O}^+_m, \mathcal{A}_\mathbb{C}) \subset D_+$ を示せば良い。$i: R \to A$ は全射だから、各点 $p \in \mathcal{O}_m^+$ で $\{ \iota(r)(p) \mid r \in R \} = \mathcal{A}_p$ となることから従う
+
+$\mathcal{D} \coloneqq \bigoplus_{n = 0}^\infty S^n D_+$ とし、$\Omega \coloneqq 1 \in \mathcal{D}$ とする
 
 
 [Free scalar]
